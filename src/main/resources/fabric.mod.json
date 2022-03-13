@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "modid",
+  "version": "${version}",
+  "name": "The name of the mod",
+  "description": "Describe your mod here",
+  "authors": [
+    "Your name"
+  ],
+  "contact": {
+    "homepage": "https://example.com",
+    "issues": "https://github.com/example/example/issues",
+    "sources": "https://github.com/example/example"
+  },
+  "license": "The Unlicense",
+  "icon": "assets/modid/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "com.author.modid.ModName"
+      }
+    ]
+  },
+  "mixins": [
+    "modid.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "fabricloader": ">=0.12.0",
+    "fabric-language-kotlin": ">=1.7.1+kotlin.1.6.10",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  }
+}
