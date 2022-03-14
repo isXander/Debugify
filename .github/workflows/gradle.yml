@@ -5,7 +5,7 @@ on:
     branches:
       - '*'
     paths-ignore:
-      - 'README.md'
+      - 'README'
       - 'LICENSE.md'
       - '.gitignore'
       - '.gitattributes'
@@ -14,7 +14,7 @@ on:
       - '*'
     paths-ignore:
       - 'README.md'
-      - 'LICENSE'
+      - 'LICENSE.md'
       - '.gitignore'
       - '.gitattributes'
   workflow_dispatch:

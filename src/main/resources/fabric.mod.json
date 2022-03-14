@@ -1,36 +1,29 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "communitypatches",
   "version": "${version}",
-  "name": "The name of the mod",
-  "description": "Describe your mod here",
+  "name": "Community Patches",
+  "description": "Fixes Minecraft bugs found on the bug tracker",
   "authors": [
-    "Your name"
+    "isXander",
+    "Contributors"
   ],
   "contact": {
-    "homepage": "https://example.com",
-    "issues": "https://github.com/example/example/issues",
+    "homepage": "https://isxander.dev",
+    "issues": "https://github.com/isXander/CommunityPatches/issues",
     "sources": "https://github.com/example/example"
   },
-  "license": "The Unlicense",
-  "icon": "assets/modid/icon.png",
+  "license": "LGPLv3",
   "environment": "*",
   "entrypoints": {
-    "main": [
-      {
-        "adapter": "kotlin",
-        "value": "com.author.modid.ModName"
-      }
-    ]
+
   },
   "mixins": [
-    "modid.mixins.json"
+    "communitypatches.mixins.json"
   ],
   "depends": {
-    "fabric": "*",
-    "fabricloader": ">=0.12.0",
-    "fabric-language-kotlin": ">=1.7.1+kotlin.1.6.10",
-    "minecraft": "1.18.x",
+    "fabricloader": ">=0.13.0",
+    "minecraft": "~1.18.2",
     "java": ">=17"
   }
 }

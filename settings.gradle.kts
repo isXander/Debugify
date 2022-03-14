@@ -6,4 +6,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "FabricKotlinTemplate"
+rootProject.name = "CommunityPatches"
