@@ -8,7 +8,8 @@
   "client": [
     "mc231097.ClientPlayerEntityMixin",
     "mc234898.RealmsMainScreenMixin",
-    "mc234898.ScreenMixin"
+    "mc234898.ScreenMixin",
+    "mc165381.ClientPlayerEntityMixin"
   ],
   "mixins": [
     "mc122627.CommandSuggestorMixin",
