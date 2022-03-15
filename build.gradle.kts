@@ -3,7 +3,7 @@ plugins {
     id("fabric-loom") version "0.11.+"
 }
 
-group = "com.example"
+group = "dev.isxander"
 version = "1.0"
 
 repositories {
