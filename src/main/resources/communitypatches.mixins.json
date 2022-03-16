@@ -9,10 +9,10 @@
     "mc231097.ClientPlayerEntityMixin",
     "mc234898.RealmsMainScreenMixin",
     "mc234898.ScreenMixin",
-    "mc165381.ClientPlayerEntityMixin"
+    "mc165381.ClientPlayerEntityMixin",
+    "mc122627.CommandSuggestorMixin"
   ],
   "mixins": [
-    "mc122627.CommandSuggestorMixin",
     "mc231743.FlowerPotBlockMixin"
   ]
 }
