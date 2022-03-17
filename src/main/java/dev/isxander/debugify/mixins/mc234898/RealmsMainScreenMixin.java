@@ -1,4 +1,4 @@
-package dev.isxander.communitypatches.mixins.mc234898;
+package dev.isxander.debugify.mixins.mc234898;
 
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;

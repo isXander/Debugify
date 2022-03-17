@@ -1,4 +1,4 @@
-package dev.isxander.communitypatches.mixins.mc231097;
+package dev.isxander.debugify.mixins.mc231097;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;

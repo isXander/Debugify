@@ -6,4 +6,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "CommunityPatches"
+rootProject.name = "Debugify"

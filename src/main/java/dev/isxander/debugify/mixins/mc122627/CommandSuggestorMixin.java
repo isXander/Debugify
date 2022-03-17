@@ -1,4 +1,4 @@
-package dev.isxander.communitypatches.mixins.mc122627;
+package dev.isxander.debugify.mixins.mc122627;
 
 import net.minecraft.client.gui.screen.CommandSuggestor;
 import org.spongepowered.asm.mixin.Mixin;

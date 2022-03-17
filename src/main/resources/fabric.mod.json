@@ -1,25 +1,27 @@
 {
   "schemaVersion": 1,
-  "id": "communitypatches",
+  "id": "debugify",
   "version": "${version}",
-  "name": "Community Patches",
+  "name": "Debugify",
   "description": "Fixes Minecraft bugs found on the bug tracker",
   "authors": [
     "isXander",
+    "W-OVERFLOW",
     "Contributors"
   ],
   "contact": {
     "homepage": "https://isxander.dev",
     "issues": "https://github.com/isXander/CommunityPatches/issues",
-    "sources": "https://github.com/example/example"
+    "sources": "https://github.com/isXander/CommunityPatches"
   },
   "license": "LGPLv3",
   "environment": "*",
+  "icon": "assets/debugify/debugify.png",
   "entrypoints": {
 
   },
   "mixins": [
-    "communitypatches.mixins.json"
+    "debugify.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.13.0",
