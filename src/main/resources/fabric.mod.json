@@ -10,9 +10,9 @@
     "Contributors"
   ],
   "contact": {
-    "homepage": "https://isxander.dev",
-    "issues": "https://github.com/isXander/CommunityPatches/issues",
-    "sources": "https://github.com/isXander/CommunityPatches"
+    "homepage": "https://woverflow.cc",
+    "issues": "https://github.com/W-OVERFLOW/Debugify/issues",
+    "sources": "https://github.com/W-OVERFLOW/Debugify"
   },
   "license": "LGPLv3",
   "environment": "*",
