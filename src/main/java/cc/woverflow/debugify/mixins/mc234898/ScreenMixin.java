@@ -1,4 +1,4 @@
-package dev.isxander.debugify.mixins.mc234898;
+package cc.woverflow.debugify.mixins.mc234898;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;

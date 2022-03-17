@@ -18,7 +18,9 @@
   "environment": "*",
   "icon": "assets/debugify/debugify.png",
   "entrypoints": {
-
+    "main": [
+      "cc.woverflow.debugify.Debugify"
+    ]
   },
   "mixins": [
     "debugify.mixins.json"

@@ -1,4 +1,4 @@
-package dev.isxander.debugify.mixins.mc231743;
+package cc.woverflow.debugify.mixins.mc231743;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowerPotBlock;

@@ -1,4 +1,4 @@
-package dev.isxander.debugify.mixins.mc165381;
+package cc.woverflow.debugify.mixins.mc165381;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
