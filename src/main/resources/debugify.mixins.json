@@ -10,7 +10,8 @@
     "mc165381.ClientPlayerEntityMixin",
     "mc231097.ClientPlayerEntityMixin",
     "mc234898.RealmsMainScreenMixin",
-    "mc234898.ScreenMixin"
+    "mc234898.ScreenMixin",
+    "mc165595.GuardianEntityRendererMixin"
   ],
   "mixins": [
     "mc231743.FlowerPotBlockMixin",
