@@ -6,6 +6,7 @@
 * [MC-198464](https://bugs.mojang.com/browse/MC-198464) - snowy_butchers_shop_1 misplaced block
 * [MC-122627](https://bugs.mojang.com/browse/MC-122627) - Tab suggestion box has missing padding on right side
 * [MC-165381](https://bugs.mojang.com/browse/MC-165381) - Block breaking can be delayed by dropping/throwing the tool while breaking a block
+* [MC-165595](https://bugs.mojang.com/browse/MC-165595) - Guardian beam does not render when over a certain "Time" in level.dat
 
 ## Patched in snapshots
 To delete when next version comes out.
