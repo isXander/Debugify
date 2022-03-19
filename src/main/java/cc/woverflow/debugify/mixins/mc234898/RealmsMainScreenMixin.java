@@ -4,6 +4,7 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.realms.dto.RealmsServer;
 import net.minecraft.client.realms.gui.screen.RealmsMainScreen;
+import net.minecraft.text.Text;
 import net.minecraft.util.Util;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
@@ -15,8 +16,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(RealmsMainScreen.class)
-public abstract class RealmsMainScreenMixin extends ScreenMixin {
+public abstract class RealmsMainScreenMixin extends Screen {
     @Shadow private ButtonWidget createTrialButton;
+
+    protected RealmsMainScreenMixin(Text title) {
+        super(title);
+    }
 
     @Shadow public abstract boolean shouldShowPopup();
 
