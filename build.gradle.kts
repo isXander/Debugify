@@ -2,6 +2,9 @@ plugins {
     id("architectury-plugin") version "3.4.+"
     id("dev.architectury.loom") version "0.11.0.+" apply false
     id("io.github.juuxel.loom-quiltflower") version "1.+" apply false
+
+    id("com.modrinth.minotaur") version "2.+" apply false
+    id("com.matthewprenger.cursegradle") version "1.4.+" apply false
 }
 
 architectury {
@@ -27,7 +30,7 @@ allprojects {
     apply(plugin = "architectury-plugin")
 
     group = "cc.woverflow"
-    version = "1.0"
+    version = "1.1.0"
 
     repositories {
         mavenCentral()
@@ -41,31 +44,12 @@ allprojects {
     }
 }
 
-dependencies {
-    val minecraftVersion: String by project
-    val yarnVersion: String by project
-    val loaderVersion: String by project
-
-//    minecraft("com.mojang:minecraft:$minecraftVersion")
-//    mappings("net.fabricmc:yarn:$yarnVersion:v2")
-//    modImplementation("net.fabricmc:fabric-loader:$loaderVersion")
-}
-
-//java {
-//    toolchain {
-//        languageVersion.set(JavaLanguageVersion.of(17))
-//    }
-//}
-
 tasks {
-//    processResources {
-//        inputs.property("version", project.version)
-//        filesMatching("fabric.mod.json") {
-//            expand(
-//                mutableMapOf(
-//                    "version" to project.version
-//                )
-//            )
-//        }
-//    }
+    val publishToModrinth by registering
+    val publishToCurseforge by registering
+    register("publish") {
+        dependsOn("clean")
+        dependsOn(publishToModrinth)
+        dependsOn(publishToCurseforge)
+    }
 }
