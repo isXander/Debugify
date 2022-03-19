@@ -7,7 +7,7 @@
 * [MC-122627](https://bugs.mojang.com/browse/MC-122627) - Tab suggestion box has missing padding on right side
 * [MC-165381](https://bugs.mojang.com/browse/MC-165381) - Block breaking can be delayed by dropping/throwing the tool while breaking a block
 * [MC-165595](https://bugs.mojang.com/browse/MC-165595) - Guardian beam does not render when over a certain "Time" in level.dat
-* [MC-176559](https://bugs.mojang.com/browse/MC-176559) - Breaking process resets when a pickaxe enchanted with Mending mends by XP / Mending slows down breaking blocks again
+* **FABRIC** [MC-176559](https://bugs.mojang.com/browse/MC-176559) - Breaking process resets when a pickaxe enchanted with Mending mends by XP / Mending slows down breaking blocks again
 
 ## Patched in snapshots
 To delete when next version comes out.
