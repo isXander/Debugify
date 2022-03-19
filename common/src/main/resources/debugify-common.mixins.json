@@ -8,9 +8,9 @@
   "client": [
     "mc122627.CommandSuggestorMixin",
     "mc165381.ClientPlayerEntityMixin",
+    "mc165595.GuardianEntityRendererMixin",
     "mc231097.ClientPlayerEntityMixin",
-    "mc234898.RealmsMainScreenMixin",
-    "mc165595.GuardianEntityRendererMixin"
+    "mc234898.RealmsMainScreenMixin"
   ],
   "mixins": [
     "mc231743.FlowerPotBlockMixin",

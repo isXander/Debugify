@@ -19,10 +19,11 @@
   "icon": "assets/debugify/debugify.png",
   "entrypoints": {
     "main": [
-      "cc.woverflow.debugify.Debugify"
+      "cc.woverflow.debugify.Debugify::onInitialize"
     ]
   },
   "mixins": [
+    "debugify-common.mixins.json",
     "debugify.mixins.json"
   ],
   "depends": {

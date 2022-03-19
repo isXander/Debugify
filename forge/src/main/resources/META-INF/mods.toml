@@ -1,0 +1,37 @@
+# The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
+modLoader = "javafml"
+# A version range to match for said mod loader - for regular FML @Mod it will be the forge version
+# Forge for 1.18 is version 38
+loaderVersion = "[38,)"
+# The license for your mod. This is mandatory and allows for easier comprehension of your redistributive properties.
+# Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
+license = "LGPLv3.0"
+# A URL to refer people to when problems occur with this mod
+issueTrackerURL = "https://github.com/W-OVERFLOW/Debugify/issues"
+# If the mods defined in this file should show as separate resource packs
+showAsResourcePack = false
+
+[[mods]]
+modId = "debugify"
+version = "${version}"
+displayName = "Debugify"
+displayURL = "https://woverflow.cc"
+logoFile = "assets/debugify/debugify.png"
+authors = "W-OVERFLOW"
+description = '''
+      Fixes Minecraft bugs found on the bug tracker
+      '''
+
+[[dependencies.debugify]]
+modId = "forge"
+mandatory = true
+versionRange = "[38,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.debugify]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.18.2,1.19)"
+ordering = "NONE"
+side = "BOTH"

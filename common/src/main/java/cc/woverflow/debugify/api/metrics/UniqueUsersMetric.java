@@ -1,6 +1,5 @@
 package cc.woverflow.debugify.api.metrics;
 
-import cc.woverflow.debugify.Debugify;
 import com.mojang.authlib.minecraft.UserApiService;
 import cc.woverflow.debugify.mixins.metrics.AccessorMinecraftClient;
 import net.minecraft.client.MinecraftClient;

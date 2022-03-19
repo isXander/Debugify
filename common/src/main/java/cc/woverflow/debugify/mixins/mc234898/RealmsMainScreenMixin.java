@@ -37,7 +37,7 @@ public abstract class RealmsMainScreenMixin extends Screen {
      * lambda of onPress for trial button
      * @author isXander
      */
-    @Overwrite
+    @Overwrite(aliases = "lambda$addButtons$8")
     private void method_24989(ButtonWidget button) {
         Util.getOperatingSystem().open("https://aka.ms/startjavarealmstrial");
         this.client.setScreen(this.lastScreen);
