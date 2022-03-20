@@ -18,9 +18,14 @@ public class ServerPlayNetworkHandlerMixin {
 
     @Shadow public ServerPlayerEntity player;
 
+    /**
+     * Currently, Minecraft checks if a player is OP to know to kick for spamming,
+     * but in singleplayer, with cheats off, you are not opped.
+     * This mixin also checks if the user is the host.
+     */
     @Inject(method = "handleMessage", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/network/ServerPlayNetworkHandler;disconnect(Lnet/minecraft/text/Text;)V"), cancellable = true)
     public void onMessage(TextStream.Message message, CallbackInfo ci){
-        //Check if player is host as the check it does only checks they are an op which requires it to be a host and have cheats on.
-        if (this.server.isHost(this.player.getGameProfile())) ci.cancel();
+        if (this.server.isHost(this.player.getGameProfile()))
+            ci.cancel();
     }
 }

@@ -10,11 +10,12 @@ import java.util.Set;
 
 @Mixin(HandledScreen.class)
 public class HandledScreenMixin {
-
+    /**
+     * If slots is size 1 then the inner method would run anyway and return so this just ignores the outer
+     * statement and lets it continue to the rendering therefore fixing the bug.
+     */
     @Redirect(method = "drawSlot", at = @At(value = "INVOKE", target = "Ljava/util/Set;contains(Ljava/lang/Object;)Z"))
     private boolean onQuickCraftCheck(Set<Slot> cursorDragSlots, Object slot) {
-        //If slots is size 1 then the inner method would run anyway and return so this just ignores the outer
-        //statement and lets it continue to the rendering therefore fixing the bug.
         if (cursorDragSlots.size() == 1) return false;
         //noinspection SuspiciousMethodCalls
         return cursorDragSlots.contains(slot);

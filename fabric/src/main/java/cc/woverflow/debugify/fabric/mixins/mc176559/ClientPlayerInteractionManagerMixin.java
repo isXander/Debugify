@@ -22,6 +22,7 @@ public class ClientPlayerInteractionManagerMixin {
     @Shadow @Final private MinecraftClient client;
 
     @ModifyVariable(method = "isCurrentlyBreaking", at = @At("STORE"), slice = @Slice(from = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z")))
+    @SuppressWarnings("InvalidInjectorMethodSignature")
     private boolean setFlag(boolean value) {
         return !canCauseBlockBreakReset(selectedStack, client.player.getMainHandStack());
     }

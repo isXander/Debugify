@@ -14,7 +14,8 @@ public class CommandBlockMinecartEntityMixin {
 
     @Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
     private void readNbt(NbtCompound nbt, CallbackInfo ci) {
-        lastExecuted = nbt.getInt("LastExecuted");
+        if (nbt.contains("LastExecuted"))
+            lastExecuted = nbt.getInt("LastExecuted");
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("RETURN"))
