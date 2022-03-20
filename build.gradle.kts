@@ -78,7 +78,7 @@ tasks {
             val json = JsonObject()
             json.addProperty("username", findProperty("xander-api.username")?.toString())
             json.addProperty("password", findProperty("xander-api.password")?.toString())
-            POST(BodyPublishers.ofString(gson.toJson(json).also { println(it) }))
+            POST(BodyPublishers.ofString(gson.toJson(json)))
             header("Content-Type", "application/json")
         }.build()
 
