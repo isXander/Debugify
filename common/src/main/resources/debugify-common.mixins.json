@@ -3,7 +3,7 @@
   "package": "cc.woverflow.debugify.mixins",
   "compatibilityLevel": "JAVA_17",
   "injectors": {
-    "defaultRequire": 1
+    "defaultRequire": 0
   },
   "client": [
     "mc122627.CommandSuggestorMixin",

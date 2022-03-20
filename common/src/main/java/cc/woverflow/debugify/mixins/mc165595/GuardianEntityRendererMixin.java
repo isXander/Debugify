@@ -11,9 +11,9 @@ import org.spongepowered.asm.mixin.injection.Redirect;
  * https://github.com/AMereBagatelle/sodium-fabric/blob/guardian-beam-fix/LICENSE.txt
  * @author AMereBagatelle
  */
-@Mixin(GuardianEntityRenderer.class)
+@Mixin(value = GuardianEntityRenderer.class, priority = 900)
 public class GuardianEntityRendererMixin {
-    @Redirect(method = "render", at = @At(value = "INVOKE", target = "net/minecraft/world/World.getTime()J"))
+    @Redirect(method = "render", at = @At(value = "INVOKE", target = "net/minecraft/world/World.getTime()J"), expect = 0)
     private long useCorrectTime(World world) {
         return world.getTimeOfDay();
     }
