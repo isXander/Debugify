@@ -11,10 +11,11 @@
     "mc165595.GuardianEntityRendererMixin",
     "mc231097.ClientPlayerEntityMixin",
     "mc234898.RealmsMainScreenMixin",
-    "mc80859.HandledScreenMixin",
-    "mc79545.InGameHudMixin"
+    "mc79545.InGameHudMixin",
+    "mc80859.HandledScreenMixin"
   ],
   "mixins": [
+    "mc121903.CommandBlockMinecartEntityMixin",
     "mc14923.ServerPlayNetworkHandlerMixin",
     "mc231743.FlowerPotBlockMixin",
     "metrics.AccessorMinecraftClient"

@@ -11,6 +11,7 @@
 * [MC-14923](https://bugs.mojang.com/browse/MC-14923) - Players can be kicked for spamming in a singleplayer world with cheats disabled
 * [MC-79545](https://bugs.mojang.com/browse/MC-79545) - The experience bar disappears when too many levels are given to the player
 * [MC-80859](https://bugs.mojang.com/browse/MC-80859) - Starting to drag item stacks over other compatible stacks makes the latter invisible until appearance change (stack size increases)
+* [MC-121903](https://bugs.mojang.com/browse/MC-121903) - Command block minecarts do not save execution cooldown to NBT
 
 ## Patched in snapshots
 To delete when next version comes out.
