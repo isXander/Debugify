@@ -22,4 +22,4 @@ Debugify is a community project to clean up the forgotten bugs of Minecraft foun
 
 #### Metrics
 Debugify sends your Minecraft UUID to a private api to track unique user data. Your data is not sold.
-If you want to disable this find `.minecraft/config/debugify.json` and set metrics to false. (added in 1.3.0)
+If you want to disable this find `.minecraft/config/debugify.json` and set metrics to false. (added in 1.2.1)
