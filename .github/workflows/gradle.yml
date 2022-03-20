@@ -45,4 +45,6 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: debugify-artifacts-${{ steps.ref.outputs.branch }}
-          path: (fabric|forge)/build/libs/*.jar
+          path: |
+            fabric/build/libs/*.jar
+            forge/build/libs/*.jar
