@@ -85,8 +85,6 @@ tasks {
         val loginResponse = client.send(loginRequest, BodyHandlers.ofString())
         if (loginResponse.statusCode() != 200) {
             println("FAILED TO LOGIN TO API.ISXANDER.DEV")
-            println(loginResponse.body())
-            println(loginResponse.statusCode())
             return@registering
         }
 
@@ -98,12 +96,10 @@ tasks {
         for (loader in loaders) {
             val newVersionRequest = HttpRequest.newBuilder(URI.create("https://api.isxander.dev/updater/new/debugify?loader=$loader&minecraft=$minecraftVersion&version=${project.version}")).apply {
                 GET()
-                header("Authorization", "Bearer ${jwtToken.also { println(it) }}")
+                header("Authorization", "Bearer $jwtToken")
             }.build()
 
             val response = client.send(newVersionRequest, BodyHandlers.ofString())
-            println(response.body())
-            println(response.statusCode())
         }
     }
 
