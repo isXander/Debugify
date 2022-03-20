@@ -8,6 +8,9 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
     implementation("com.github.zafarkhaja:java-semver:0.9.+")
+
+    implementation("com.github.llamalad7:mixinextras:0.0.+")
+    annotationProcessor("com.github.llamalad7:mixinextras:0.0.+")
 }
 
 architectury {

@@ -36,6 +36,12 @@ dependencies {
 
     implementation("com.github.zafarkhaja:java-semver:0.9.+")
     shadowCommon("com.github.zafarkhaja:java-semver:0.9.+")
+
+    "com.github.llamalad7:mixinextras:0.0.+".let {
+        implementation(it)
+        annotationProcessor(it)
+        shadowCommon(it)
+    }
 }
 
 tasks {
@@ -49,6 +55,8 @@ tasks {
     }
 
     shadowJar {
+        relocate("com.llamalad7.mixinextras", "cc.woverflow.debugify.lib.mixinextras")
+
         exclude("fabric.mod.json")
         exclude("architectury.common.json")
 

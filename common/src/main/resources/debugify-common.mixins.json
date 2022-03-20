@@ -5,6 +5,7 @@
   "injectors": {
     "defaultRequire": 0
   },
+  "plugin": "cc.woverflow.debugify.utils.MixinPlugin",
   "client": [
     "mc122627.CommandSuggestorMixin",
     "mc165381.ClientPlayerEntityMixin",

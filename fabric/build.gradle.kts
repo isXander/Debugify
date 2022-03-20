@@ -28,6 +28,12 @@ dependencies {
 
     implementation("com.github.zafarkhaja:java-semver:0.9.+")
     shadowCommon("com.github.zafarkhaja:java-semver:0.9.+")
+
+    "com.github.llamalad7:mixinextras:0.0.+".let {
+        implementation(it)
+        annotationProcessor(it)
+        include(it)
+    }
 }
 
 tasks {
