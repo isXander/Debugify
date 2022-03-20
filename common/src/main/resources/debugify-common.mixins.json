@@ -10,9 +10,12 @@
     "mc165381.ClientPlayerEntityMixin",
     "mc165595.GuardianEntityRendererMixin",
     "mc231097.ClientPlayerEntityMixin",
-    "mc234898.RealmsMainScreenMixin"
+    "mc234898.RealmsMainScreenMixin",
+    "mc80859.HandledScreenMixin",
+    "mc79545.InGameHudMixin"
   ],
   "mixins": [
+    "mc14923.ServerPlayNetworkHandlerMixin",
     "mc231743.FlowerPotBlockMixin",
     "metrics.AccessorMinecraftClient"
   ]

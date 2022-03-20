@@ -8,6 +8,9 @@
 * [MC-165381](https://bugs.mojang.com/browse/MC-165381) - Block breaking can be delayed by dropping/throwing the tool while breaking a block
 * [MC-165595](https://bugs.mojang.com/browse/MC-165595) - Guardian beam does not render when over a certain "Time" in level.dat
 * **FABRIC** [MC-176559](https://bugs.mojang.com/browse/MC-176559) - Breaking process resets when a pickaxe enchanted with Mending mends by XP / Mending slows down breaking blocks again
+* [MC-14923](https://bugs.mojang.com/browse/MC-14923) - Players can be kicked for spamming in a singleplayer world with cheats disabled
+* [MC-79545](https://bugs.mojang.com/browse/MC-79545) - The experience bar disappears when too many levels are given to the player
+* [MC-80859](https://bugs.mojang.com/browse/MC-80859) - Starting to drag item stacks over other compatible stacks makes the latter invisible until appearance change (stack size increases)
 
 ## Patched in snapshots
 To delete when next version comes out.
