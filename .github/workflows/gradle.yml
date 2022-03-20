@@ -44,7 +44,7 @@ jobs:
         run: ./gradlew build --no-daemon
       - uses: actions/upload-artifact@v3
         with:
-          name: debugify-artifacts-${{ steps.ref.outputs.branch }}
+          name: debugify-artifacts
           path: |
             fabric/build/libs/*.jar
             forge/build/libs/*.jar
