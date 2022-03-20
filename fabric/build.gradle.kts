@@ -89,7 +89,7 @@ if (hasProperty("curseforge.token")) {
             id = "596224"
             releaseType = "release"
             addGameVersion(minecraftVersion)
-            addGameVersion(project.name)
+            addGameVersion(project.name.capitalize())
             addGameVersion("Java 17")
         })
 
