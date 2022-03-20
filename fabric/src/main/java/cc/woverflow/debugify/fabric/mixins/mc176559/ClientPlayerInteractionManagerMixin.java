@@ -28,7 +28,7 @@ public class ClientPlayerInteractionManagerMixin {
     }
 
     /**
-     * This code is taking from MinecraftForge under LGPLv2.1
+     * This code is taken from MinecraftForge under LGPLv2.1
      * https://github.com/MinecraftForge/MinecraftForge/blob/9d74a3520fa9d47db27fed74dcdd462956dd90ec/src/main/java/net/minecraftforge/common/extensions/IForgeItem.java
      * It has been adapted into a mixin with yarn mappings for use in fabric
      */
