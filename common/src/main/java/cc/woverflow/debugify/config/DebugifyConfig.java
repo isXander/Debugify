@@ -33,6 +33,11 @@ public class DebugifyConfig {
         } catch (Exception e) {
             Debugify.logger.info("Failed to read debugify config, setting doMetrics to false just in case.");
             doMetrics = false;
+            try {
+                save();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
             e.printStackTrace();
         }
     }
