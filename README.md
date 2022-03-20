@@ -9,13 +9,14 @@ Debugify is a community project to clean up the forgotten bugs of Minecraft foun
  
 # Credits
 ## Project Staff
-**Owner:** [@isxander](https://modrinth.com/user/isxander)
-**Owner:** [@wyvest](https://modrinth.com/user/wyvest)
-**Admin:** [@Microcontrollers](https://modrinth.com/user/Microcontrollers)
+- **Owner:** [@isxander](https://modrinth.com/user/isxander)
+- **Owner:** [@wyvest](https://modrinth.com/user/wyvest)
+- **Admin:** [@Microcontrollers](https://modrinth.com/user/Microcontrollers)
 
-**Developer:** [@Cepetir](https://modrinth.com/user/Cepetir)
-**Developer:** [@Scherso](https://modrinth.com/user/Scherso)
+- **Developer:** [@Cepetir](https://modrinth.com/user/Cepetir)
+- **Developer:** [@Scherso](https://modrinth.com/user/Scherso)
 
-**Designer:** [@MoonTidez](https://modrinth.com/user/MoonTidez)
+- **Designer:** [@MoonTidez](https://modrinth.com/user/MoonTidez)
+
 *Logo design by @MoonTidez*
 
