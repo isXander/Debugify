@@ -6,7 +6,7 @@ on:
       - '*'
     paths-ignore:
       - 'README'
-      - 'LICENSE.md'
+      - 'LICENSE'
       - '.gitignore'
       - '.gitattributes'
   pull_request:
@@ -14,7 +14,7 @@ on:
       - '*'
     paths-ignore:
       - 'README.md'
-      - 'LICENSE.md'
+      - 'LICENSE'
       - '.gitignore'
       - '.gitattributes'
   workflow_dispatch:
@@ -42,6 +42,7 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew build --no-daemon
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
-          path: build/libs/*.jar
+          name: debugify-artifacts-${{ steps.ref.outputs.branch }}
+          path: (fabric|forge)/build/libs/*.jar
