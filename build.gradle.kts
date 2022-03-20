@@ -48,7 +48,7 @@ allprojects {
     apply(plugin = "architectury-plugin")
 
     group = "cc.woverflow"
-    version = "1.2.1"
+    version = "1.2.2"
 
     repositories {
         mavenCentral()
