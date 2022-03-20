@@ -1,3 +1,21 @@
+import com.google.gson.Gson
+import com.google.gson.JsonObject
+import java.net.URI
+import java.net.http.HttpClient
+import java.net.http.HttpRequest
+import java.net.http.HttpRequest.BodyPublishers
+import java.net.http.HttpResponse.BodyHandlers
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("com.google.code.gson:gson:2.9.0")
+    }
+}
+
 plugins {
     id("architectury-plugin") version "3.4.+"
     id("dev.architectury.loom") version "0.11.0.+" apply false
@@ -34,6 +52,7 @@ allprojects {
 
     repositories {
         mavenCentral()
+        maven("https://jitpack.io")
     }
 
     tasks {
@@ -47,9 +66,51 @@ allprojects {
 tasks {
     val publishToModrinth by registering
     val publishToCurseforge by registering
+
+    val updateApiVersion by registering {
+        onlyIf { hasProperty("xander-api.username") && hasProperty("xander-api.password") }
+
+        val gson = Gson()
+
+        val client = HttpClient.newHttpClient()
+
+        val loginRequest = HttpRequest.newBuilder(URI.create("https://api.isxander.dev/login")).apply {
+            val json = JsonObject()
+            json.addProperty("username", findProperty("xander-api.username")?.toString())
+            json.addProperty("password", findProperty("xander-api.password")?.toString())
+            POST(BodyPublishers.ofString(gson.toJson(json).also { println(it) }))
+            header("Content-Type", "application/json")
+        }.build()
+
+        val loginResponse = client.send(loginRequest, BodyHandlers.ofString())
+        if (loginResponse.statusCode() != 200) {
+            println("FAILED TO LOGIN TO API.ISXANDER.DEV")
+            println(loginResponse.body())
+            println(loginResponse.statusCode())
+            return@registering
+        }
+
+        val loginResponseJson = gson.fromJson(loginResponse.body(), JsonObject::class.java)
+        val jwtToken = loginResponseJson.get("token").asString
+
+        val loaders = listOf("forge", "fabric")
+        val minecraftVersion: String by rootProject
+        for (loader in loaders) {
+            val newVersionRequest = HttpRequest.newBuilder(URI.create("https://api.isxander.dev/updater/new/debugify?loader=$loader&minecraft=$minecraftVersion&version=${project.version}")).apply {
+                GET()
+                header("Authorization", "Bearer ${jwtToken.also { println(it) }}")
+            }.build()
+
+            val response = client.send(newVersionRequest, BodyHandlers.ofString())
+            println(response.body())
+            println(response.statusCode())
+        }
+    }
+
     register("publish") {
         dependsOn("clean")
         dependsOn(publishToModrinth)
         dependsOn(publishToCurseforge)
+        dependsOn(updateApiVersion)
     }
 }

@@ -33,6 +33,9 @@ dependencies {
 
     common(project(path = ":common", configuration = "namedElements")) { isTransitive = false }
     shadowCommon(project(path = ":common", configuration = "transformProductionForge")) { isTransitive = false }
+
+    implementation("com.github.zafarkhaja:java-semver:0.9.+")
+    shadowCommon("com.github.zafarkhaja:java-semver:0.9.+")
 }
 
 tasks {
