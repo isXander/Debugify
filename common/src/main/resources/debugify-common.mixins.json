@@ -17,6 +17,7 @@
   ],
   "mixins": [
     "mc121903.CommandBlockMinecartEntityMixin",
+    "mc124177.ServerPlayerEntityMixin",
     "mc14923.ServerPlayNetworkHandlerMixin",
     "mc231743.FlowerPotBlockMixin"
   ]
