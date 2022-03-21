@@ -1,5 +1,6 @@
 # List of Patched Bugs
 ## Unpatched in vanilla
+### Client
 * [MC-234898](https://bugs.mojang.com/browse/MC-234898) - The "Get a trial!" button isn't consistently displayed within the realms menu
 * [MC-231743](https://bugs.mojang.com/browse/MC-231743) - minecraft.used:minecraft.POTTABLE_PLANT doesn't increase when placing plants into flower pots
 * [MC-231097](https://bugs.mojang.com/browse/MC-231097) - Holding the "Use" button continues to slow down the player even after the used item has been dropped
@@ -12,6 +13,8 @@
 * [MC-79545](https://bugs.mojang.com/browse/MC-79545) - The experience bar disappears when too many levels are given to the player
 * [MC-80859](https://bugs.mojang.com/browse/MC-80859) - Starting to drag item stacks over other compatible stacks makes the latter invisible until appearance change (stack size increases)
 * [MC-121903](https://bugs.mojang.com/browse/MC-121903) - Command block minecarts do not save execution cooldown to NBT
+* [MC-93018](https://bugs.mojang.com/browse/MC-93018) - Wild wolves show breeding hearts but do not breed
+* [MC-116379](https://bugs.mojang.com/browse/MC-116379) - Punching with a cast fishing rod in the off-hand detaches fishing line from rod
 * [MC-124177](https://bugs.mojang.com/browse/MC-124177) - Teleporting to another dimension loses some client states
 
 ## Patched in snapshots
