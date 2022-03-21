@@ -34,10 +34,15 @@ dependencies {
     common(project(path = ":common", configuration = "namedElements")) { isTransitive = false }
     shadowCommon(project(path = ":common", configuration = "transformProductionForge")) { isTransitive = false }
 
-    implementation("com.github.zafarkhaja:java-semver:0.9.+")
-    shadowCommon("com.github.zafarkhaja:java-semver:0.9.+")
+
+    "com.github.zafarkhaja:java-semver:0.9.+".let {
+        implementation(it)
+        forgeRuntimeLibrary(it)
+        shadowCommon(it)
+    }
 
     "com.github.llamalad7:mixinextras:0.0.+".let {
+        forgeRuntimeLibrary(it)
         implementation(it)
         annotationProcessor(it)
         shadowCommon(it)
