@@ -7,6 +7,7 @@
   },
   "plugin": "cc.woverflow.debugify.utils.MixinPlugin",
   "client": [
+    "mc116379.FishingBobberEntityRendererMixin",
     "mc122627.CommandSuggestorMixin",
     "mc165381.ClientPlayerEntityMixin",
     "mc165595.GuardianEntityRendererMixin",
@@ -18,6 +19,7 @@
   "mixins": [
     "mc121903.CommandBlockMinecartEntityMixin",
     "mc14923.ServerPlayNetworkHandlerMixin",
-    "mc231743.FlowerPotBlockMixin"
+    "mc231743.FlowerPotBlockMixin",
+    "mc93018.AnimalEntityMixin"
   ]
 }
