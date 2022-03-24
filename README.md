@@ -12,13 +12,11 @@ You can use it on both! There are a lots of fixes for both the server and the cl
 
 # Credits
 ## Project Staff
-- **Owner:** [@isxander](https://modrinth.com/user/isxander)
-- **Owner:** [@wyvest](https://modrinth.com/user/wyvest)
+- **Owners:** [@isxander](https://modrinth.com/user/isxander), [@wyvest](https://modrinth.com/user/wyvest)
 - **Admin:** [@Microcontrollers](https://modrinth.com/user/Microcontrollers)
 
-- **Developer:** [@Cepetir](https://modrinth.com/user/Cepetir)
-- **Developer:** [@Scherso](https://modrinth.com/user/Scherso)
+- **Developers:** [@Cepetir](https://modrinth.com/user/Cepetir), [@Scherso](https://modrinth.com/user/Scherso)
 
 - **Designer:** [@MoonTidez](https://modrinth.com/user/MoonTidez)
 
-*Logo design by @MoonTidez*
+*Logo design by MoonTidez*
