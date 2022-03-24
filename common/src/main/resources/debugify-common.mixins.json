@@ -9,6 +9,7 @@
   "client": [
     "mc116379.FishingBobberEntityRendererMixin",
     "mc122627.CommandSuggestorMixin",
+    "mc127970.HeldItemRendererMixin",
     "mc165381.ClientPlayerEntityMixin",
     "mc165595.GuardianEntityRendererMixin",
     "mc231097.ClientPlayerEntityMixin",

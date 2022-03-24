@@ -10,6 +10,7 @@
 * [MC-79545](https://bugs.mojang.com/browse/MC-79545) - The experience bar disappears when too many levels are given to the player
 * [MC-80859](https://bugs.mojang.com/browse/MC-80859) - Starting to drag item stacks over other compatible stacks makes the latter invisible until appearance change (stack size increases)
 * [MC-116379](https://bugs.mojang.com/browse/MC-116379) - Punching with a cast fishing rod in the off-hand detaches fishing line from rod
+* [MC-127970](https://bugs.mojang.com/browse/MC-127970) - Using riptide on a trident with an item in your off-hand causes visual glitch with the item in your offhand
 ### Server Side (Both)
 * [MC-231743](https://bugs.mojang.com/browse/MC-231743) - minecraft.used:minecraft.POTTABLE_PLANT doesn't increase when placing plants into flower pots
 * [MC-198464](https://bugs.mojang.com/browse/MC-198464) - snowy_butchers_shop_1 misplaced block
