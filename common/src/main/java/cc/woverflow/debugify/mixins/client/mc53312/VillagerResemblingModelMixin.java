@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
  *
  * @author TheRandomLabs
  */
-
 @Mixin(VillagerResemblingModel.class)
 public final class VillagerResemblingModelMixin {
     @ModifyConstant(method = "getModelData", constant = @Constant(floatValue = 18.0F))
