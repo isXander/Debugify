@@ -16,11 +16,11 @@
     "client.mc231097.ClientPlayerEntityMixin",
     "client.mc234898.RealmsMainScreenMixin",
     "client.mc79545.InGameHudMixin",
-    "client.mc80859.HandledScreenMixin"
+    "client.mc80859.HandledScreenMixin",
+    "client.mc140646.TextFieldWidgetMixin",
+    "client.mc4490.FishingBobberEntityRendererMixin"
   ],
   "mixins": [
-    "client.mc140646.TextFieldWidgetMixin",
-    "client.mc4490.FishingBobberEntityRendererMixin",
     "server.mc121903.CommandBlockMinecartEntityMixin",
     "server.mc124177.ServerPlayerEntityMixin",
     "server.mc14923.ServerPlayNetworkHandlerMixin",
