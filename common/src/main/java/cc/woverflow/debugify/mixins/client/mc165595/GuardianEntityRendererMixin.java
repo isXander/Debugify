@@ -7,8 +7,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 /**
- * Adapted from a Sodium PR under GPL 3 License
- * https://github.com/AMereBagatelle/sodium-fabric/blob/guardian-beam-fix/LICENSE.txt
+ * Taken from a closed, unmerged Sodium PR under LGPLv3 License
+ * https://github.com/AMereBagatelle/sodium-fabric/tree/guardian-beam-fix
  * @author AMereBagatelle
  */
 @Mixin(value = GuardianEntityRenderer.class, priority = 900)
