@@ -18,6 +18,7 @@ public class ConfigGuiHelper {
             AbstractConfigListEntry<?> entry = builder.entryBuilder()
                     .startBooleanToggle(new LiteralText(bug), enabled)
                     .setSaveConsumer((toggled) -> config.getBugFixes().replace(bug, toggled))
+                    .setDefaultValue(true)
                     .requireRestart()
                     .build();
 
