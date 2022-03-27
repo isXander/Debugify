@@ -3,6 +3,7 @@
 ### Client Side
 | Bug ID                                                | Name                                                                                                                                 |
 |-------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| [MC-4490](https://bugs.mojang.com/browse/MC-4490)     | Fishing line not attached to fishing rod in third person while crouching                                                             |
 | [MC-79545](https://bugs.mojang.com/browse/MC-79545)   | The experience bar disappears when too many levels are given to the player                                                           |
 | [MC-80859](https://bugs.mojang.com/browse/MC-80859)   | Starting to drag item stacks over other compatible stacks makes the latter invisible until appearance change (stack size increases)  |
 | [MC-116379](https://bugs.mojang.com/browse/MC-116379) | Punching with a cast fishing rod in the off-hand detaches fishing line from rod                                                      |
