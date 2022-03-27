@@ -53,6 +53,8 @@ allprojects {
     repositories {
         mavenCentral()
         maven("https://jitpack.io")
+        maven("https://maven.shedaniel.me")
+        maven("https://maven.terraformersmc.com")
     }
 
     tasks {

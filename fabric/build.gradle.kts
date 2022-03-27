@@ -20,6 +20,7 @@ val shadowCommon by configurations.creating
 
 dependencies {
     val fabricLoaderVersion: String by rootProject
+    val clothVersion: String by rootProject
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
@@ -34,6 +35,12 @@ dependencies {
         annotationProcessor(it)
         include(it)
     }
+
+    modImplementation("me.shedaniel.cloth:cloth-config-fabric:$clothVersion") {
+        exclude(module = "fabric-api")
+    }
+
+    modImplementation("com.terraformersmc:modmenu:3.+")
 }
 
 tasks {

@@ -28,6 +28,7 @@ val shadowCommon by configurations.creating
 dependencies {
     val minecraftVersion: String by rootProject
     val forgeVersion: String by rootProject
+    val clothVersion: String by rootProject
 
     forge("net.minecraftforge:forge:$minecraftVersion-$forgeVersion")
 
@@ -47,6 +48,8 @@ dependencies {
         annotationProcessor(it)
         shadowCommon(it)
     }
+
+    modImplementation("me.shedaniel.cloth:cloth-config-forge:$clothVersion")
 }
 
 tasks {

@@ -4,6 +4,7 @@ plugins {
 
 dependencies {
     val fabricLoaderVersion: String by rootProject
+    val clothVersion: String by rootProject
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
@@ -11,6 +12,8 @@ dependencies {
 
     implementation("com.github.llamalad7:mixinextras:0.0.+")
     annotationProcessor("com.github.llamalad7:mixinextras:0.0.+")
+
+    modImplementation("me.shedaniel.cloth:cloth-config:$clothVersion")
 }
 
 architectury {

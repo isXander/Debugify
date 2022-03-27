@@ -7,6 +7,6 @@
   },
   "plugin": "cc.woverflow.debugify.utils.MixinPlugin",
   "client": [
-    "mc176559.ClientPlayerInteractionManagerMixin"
+    "client.mc176559.ClientPlayerInteractionManagerMixin"
   ]
 }
