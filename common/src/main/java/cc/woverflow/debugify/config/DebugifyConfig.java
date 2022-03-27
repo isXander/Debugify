@@ -5,11 +5,6 @@ import cc.woverflow.debugify.utils.ExpectUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
-import me.shedaniel.clothconfig2.api.ConfigBuilder;
-import me.shedaniel.clothconfig2.api.ConfigCategory;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.text.LiteralText;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -71,23 +66,7 @@ public class DebugifyConfig {
         return bugFixes.getOrDefault(bug, false);
     }
 
-    public Screen createConfigGui(Screen parent) {
-        ConfigBuilder builder = ConfigBuilder.create()
-                .setTitle(new LiteralText("Debugify"))
-                .setSavingRunnable(this::save)
-                .setParentScreen(parent);
-
-        ConfigCategory category = builder.getOrCreateCategory(new LiteralText("Fixes"));
-        bugFixes.forEach((bug, enabled) -> {
-            AbstractConfigListEntry<?> entry = builder.entryBuilder()
-                    .startBooleanToggle(new LiteralText(bug), enabled)
-                    .setSaveConsumer((toggled) -> bugFixes.replace(bug, toggled))
-                    .requireRestart()
-                    .build();
-
-            category.addEntry(entry);
-        });
-
-        return builder.build();
+    public Map<String, Boolean> getBugFixes() {
+        return bugFixes;
     }
 }
