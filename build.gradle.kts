@@ -87,6 +87,8 @@ tasks {
         val loginResponse = client.send(loginRequest, BodyHandlers.ofString())
         if (loginResponse.statusCode() != 200) {
             println("FAILED TO LOGIN TO API.ISXANDER.DEV")
+            println("STATUS CODE: ${loginResponse.statusCode()}")
+            println("RESPONSE: ${loginResponse.body()}")
             return@registering
         }
 
