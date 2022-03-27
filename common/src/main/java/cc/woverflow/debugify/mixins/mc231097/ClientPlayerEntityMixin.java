@@ -10,11 +10,14 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ClientPlayerEntity.class)
-public class ClientPlayerEntityMixin {
+public abstract class ClientPlayerEntityMixin {
     @Shadow @Final protected MinecraftClient client;
+
+    @Shadow public abstract boolean isUsingItem();
 
     @Inject(method = "dropSelectedItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerInventory;dropSelectedItem(Z)Lnet/minecraft/item/ItemStack;", shift = At.Shift.AFTER))
     private void onDropItem(boolean entireStack, CallbackInfoReturnable<Boolean> cir) {
-        client.interactionManager.stopUsingItem((ClientPlayerEntity)(Object)this);
+        if (isUsingItem())
+            client.interactionManager.stopUsingItem((ClientPlayerEntity)(Object)this);
     }
 }
