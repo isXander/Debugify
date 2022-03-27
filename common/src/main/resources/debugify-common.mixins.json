@@ -15,7 +15,8 @@
     "mc231097.ClientPlayerEntityMixin",
     "mc234898.RealmsMainScreenMixin",
     "mc79545.InGameHudMixin",
-    "mc80859.HandledScreenMixin"
+    "mc80859.HandledScreenMixin",
+    "mc121772.MouseMixin"
   ],
   "mixins": [
     "mc121903.CommandBlockMinecartEntityMixin",
