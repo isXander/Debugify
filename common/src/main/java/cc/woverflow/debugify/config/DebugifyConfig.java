@@ -16,8 +16,11 @@ import java.util.stream.Collectors;
 public class DebugifyConfig {
     private final Path configPath = ExpectUtils.getConfigPath().resolve("debugify.json");
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
     private final Map<String, Boolean> jsonBugFixes = new HashMap<>();
     private final Map<String, Boolean> bugFixes = new HashMap<>();
+
+    private boolean preloaded = false;
 
     public void registerBugFix(String id) {
         boolean enabled = jsonBugFixes.getOrDefault(id, true);
@@ -25,6 +28,9 @@ public class DebugifyConfig {
     }
 
     public void preload() {
+        if (preloaded) return;
+        preloaded = true;
+
         if (!Files.exists(configPath)) {
             return;
         }
