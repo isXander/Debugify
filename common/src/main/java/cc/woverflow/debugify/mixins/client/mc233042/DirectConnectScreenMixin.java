@@ -11,6 +11,9 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class DirectConnectScreenMixin {
     @Shadow private TextFieldWidget addressField;
 
+    /**
+     * Set setTextFieldFocused to false as it seems to fix the issue
+     */
     @Redirect(method = "init", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/widget/TextFieldWidget;setTextFieldFocused(Z)V"))
     private void unfocusTextField(TextFieldWidget instance, boolean focused) {
         this.addressField.setTextFieldFocused(false);

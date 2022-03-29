@@ -19,6 +19,10 @@ public class AddServerScreenMixin extends Screen {
     @Shadow
     private TextFieldWidget serverNameField;
 
+    /**
+     * setTextFieldFocused only makes the prompt appear focused, but does not allow for any text inputs
+     * Set this to false and use the correct method
+     */
     @Inject(method = "init", at = @At("RETURN"))
     private void setFocus(CallbackInfo ci) {
         this.serverNameField.setTextFieldFocused(false);
