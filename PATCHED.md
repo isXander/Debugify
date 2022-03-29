@@ -18,6 +18,7 @@
 | [MC-176559](https://bugs.mojang.com/browse/MC-176559) | Breaking process resets when a pickaxe enchanted with Mending mends by XP / Mending slows down breaking blocks again *(fabric only)* |
 | [MC-231097](https://bugs.mojang.com/browse/MC-231097) | Holding the "Use" button continues to slow down the player even after the used item has been dropped                                 |
 | [MC-234898](https://bugs.mojang.com/browse/MC-234898) | The "Get a trial!" button isn't consistently displayed within the realms menu                                                        |
+| [MC-123739](https://bugs.mojang.com/browse/MC-123739) | Recipe book entries are not sorted in any meaningful manner. In fact, the order can even change randomly after a reload.             |
 
 ### Server Side (Both)
 | Bug ID                                                | Name                                                                                          |
