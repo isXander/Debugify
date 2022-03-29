@@ -35,9 +35,10 @@
     "java": ">=17"
   },
   "recommends": {
-    "cloth-config2": "6.x.x"
-  },
-  "suggests": {
+    "cloth-config2": "6.x.x",
     "modmenu": "*"
+  },
+  "breaks": {
+    "forgetmechunk": "*"
   }
 }

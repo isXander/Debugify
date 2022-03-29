@@ -7,6 +7,7 @@
   },
   "plugin": "cc.woverflow.debugify.utils.MixinPlugin",
   "client": [
+    "client.mc108948.BoatEntityMixin",
     "client.mc111516.PlayerEntityRendererMixin",
     "client.mc116379.FishingBobberEntityRendererMixin",
     "client.mc121772.MouseMixin",
@@ -14,6 +15,7 @@
     "client.mc127970.HeldItemRendererMixin",
     "client.mc140646.TextFieldWidgetMixin",
     "client.mc151412.AddServerScreenMixin",
+    "client.mc162253.ClientPlayNetworkHandlerMixin",
     "client.mc165381.ClientPlayerEntityMixin",
     "client.mc165595.GuardianEntityRendererMixin",
     "client.mc231097.ClientPlayerEntityMixin",
@@ -22,6 +24,7 @@
     "client.mc4490.FishingBobberEntityRendererMixin",
     "client.mc53312.VillagerResemblingModelMixin",
     "client.mc79545.InGameHudMixin",
+    "client.mc93384.LivingEntityMixin",
     "client.mc80859.HandledScreenMixin"
   ],
   "mixins": [
