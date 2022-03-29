@@ -21,6 +21,7 @@
     "client.mc165381.ClientPlayerEntityMixin",
     "client.mc165595.GuardianEntityRendererMixin",
     "client.mc231097.ClientPlayerEntityMixin",
+    "client.mc233042.DirectConnectScreenMixin",
     "client.mc234898.RealmsMainScreenMixin"
   ],
   "mixins": [
