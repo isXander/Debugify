@@ -7,10 +7,6 @@
   },
   "plugin": "cc.woverflow.debugify.utils.MixinPlugin",
   "client": [
-    "client.mc4490.FishingBobberEntityRendererMixin",
-    "client.mc53312.VillagerResemblingModelMixin",
-    "client.mc79545.InGameHudMixin",
-    "client.mc80859.HandledScreenMixin",
     "client.mc111516.PlayerEntityRendererMixin",
     "client.mc116379.FishingBobberEntityRendererMixin",
     "client.mc121772.MouseMixin",
@@ -23,12 +19,18 @@
     "client.mc231097.ClientPlayerEntityMixin",
     "client.mc233042.DirectConnectScreenMixin",
     "client.mc234898.RealmsMainScreenMixin"
+    "client.mc234898.RealmsMainScreenMixin",
+    "client.mc4490.FishingBobberEntityRendererMixin",
+    "client.mc53312.VillagerResemblingModelMixin",
+    "client.mc79545.InGameHudMixin",
+    "client.mc80859.HandledScreenMixin"
   ],
   "mixins": [
     "server.mc121903.CommandBlockMinecartEntityMixin",
     "server.mc124177.ServerPlayerEntityMixin",
     "server.mc14923.ServerPlayNetworkHandlerMixin",
     "server.mc231743.FlowerPotBlockMixin",
+    "server.mc84873.LivingEntityMixin",
     "server.mc93018.AnimalEntityMixin"
   ]
 }
