@@ -20,7 +20,8 @@
     "client.mc4490.FishingBobberEntityRendererMixin",
     "client.mc53312.VillagerResemblingModelMixin",
     "client.mc79545.InGameHudMixin",
-    "client.mc80859.HandledScreenMixin"
+    "client.mc80859.HandledScreenMixin",
+    "client.mc162253.ClientPlayNetworkHandlerMixin"
   ],
   "mixins": [
     "server.mc121903.CommandBlockMinecartEntityMixin",
