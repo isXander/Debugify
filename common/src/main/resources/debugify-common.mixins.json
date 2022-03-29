@@ -13,6 +13,7 @@
     "client.mc122627.CommandSuggestorMixin",
     "client.mc127970.HeldItemRendererMixin",
     "client.mc140646.TextFieldWidgetMixin",
+    "client.mc162253.ClientPlayNetworkHandlerMixin",
     "client.mc165381.ClientPlayerEntityMixin",
     "client.mc165595.GuardianEntityRendererMixin",
     "client.mc231097.ClientPlayerEntityMixin",
@@ -21,7 +22,7 @@
     "client.mc53312.VillagerResemblingModelMixin",
     "client.mc79545.InGameHudMixin",
     "client.mc80859.HandledScreenMixin",
-    "client.mc162253.ClientPlayNetworkHandlerMixin"
+    "client.mc108948.BoatEntityMixin"
   ],
   "mixins": [
     "server.mc121903.CommandBlockMinecartEntityMixin",
