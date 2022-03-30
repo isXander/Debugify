@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc121772;
 
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.Mouse;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -13,6 +14,6 @@ public class MouseMixin {
      */
     @ModifyVariable(method = "onMouseScroll", at = @At("HEAD"), ordinal = 1, argsOnly = true)
     private double scrollFix(double vertical1, long window, double horizontal, double vertical2) {
-        return vertical1 == 0 ? horizontal : vertical1;
+        return vertical1 == 0 && MinecraftClient.IS_SYSTEM_MAC ? horizontal : vertical1;
     }
 }
