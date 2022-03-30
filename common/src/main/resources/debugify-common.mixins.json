@@ -17,7 +17,7 @@
     "client.mc162253.ClientPlayNetworkHandlerMixin",
     "client.mc165381.ClientPlayerEntityMixin",
     "client.mc165595.GuardianEntityRendererMixin",
-    "client.mc123739.ClientRecipeBookMixin"
+    "client.mc123739.ClientRecipeBookMixin",
     "client.mc234898.RealmsMainScreenMixin",
     "client.mc53312.VillagerResemblingModelMixin",
     "client.mc79545.InGameHudMixin",
