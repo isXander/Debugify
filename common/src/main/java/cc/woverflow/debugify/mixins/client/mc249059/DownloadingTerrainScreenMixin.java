@@ -1,0 +1,22 @@
+package cc.woverflow.debugify.mixins.client.mc249059;
+
+import net.minecraft.client.gui.screen.DownloadingTerrainScreen;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+@Mixin(DownloadingTerrainScreen.class)
+public class DownloadingTerrainScreenMixin {
+    @Shadow private boolean closeOnNextTick;
+
+    /**
+     * for some reason mojang waits 2 seconds even after
+     * the terrain is ready (guessing to avoid lag of spawning entities?)
+     */
+    @Inject(method = "setReady", at = @At("HEAD"))
+    private void onReady(CallbackInfo ci) {
+        closeOnNextTick = true;
+    }
+}

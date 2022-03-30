@@ -28,6 +28,7 @@
 | [MC-233042](https://bugs.mojang.com/browse/MC-233042) | Server Address field isn't focused when Direct Connection menu is opened                                                             |
 | [MC-234898](https://bugs.mojang.com/browse/MC-234898) | The "Get a trial!" button isn't consistently displayed within the realms menu                                                        |
 | [MC-235035](https://bugs.mojang.com/browse/MC-235035) | Sleeping in a custom dimension with "natural" set to false causes crash *(fabric only)*                                              |
+| [MC-249059](https://bugs.mojang.com/browse/MC-249059) | Loading terrain screen cannot close before 2 seconds have passed                                                                     |
 
 ### Server Side (Both)
 | Bug ID                                                | Name                                                                                          |

@@ -30,6 +30,7 @@
     "client.mc93384.LivingEntityMixin"
   ],
   "mixins": [
+    "client.mc249059.DownloadingTerrainScreenMixin",
     "server.mc121903.CommandBlockMinecartEntityMixin",
     "server.mc124177.ServerPlayerEntityMixin",
     "server.mc132878.ArmorStandEntityMixin",
