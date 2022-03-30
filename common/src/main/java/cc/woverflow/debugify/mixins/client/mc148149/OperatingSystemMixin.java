@@ -12,9 +12,12 @@ import java.net.URL;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * Taken from https://github.com/altrisi/FastOpenLinksAndFolders
- * under LGPL-3.0.
- * Adapted to allow use in forge as well as fabric.
+ * Taken from FastOpenLinksAndFolders
+ * https://github.com/altrisi/FastOpenLinksAndFolders
+ * under LGPLv3 license
+ *
+ * Adapted to work in a multi-loader environment
+ *
  * @author altrisi
  */
 @Mixin(Util.OperatingSystem.class)

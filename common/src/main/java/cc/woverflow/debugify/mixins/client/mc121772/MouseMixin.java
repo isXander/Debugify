@@ -9,8 +9,13 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(Mouse.class)
 public class MouseMixin {
     /**
-     * Adapted from https://github.com/nelson2tm/shift-scroll-fix
+     * Taken from Shift-Scroll Fix
+     * https://github.com/nelson2tm/shift-scroll-fix
      * under MIT license
+     *
+     * Adapted to work in a multi-loader environment
+     *
+     * @author nelson2tm
      */
     @ModifyVariable(method = "onMouseScroll", at = @At("HEAD"), ordinal = 1, argsOnly = true)
     private double scrollFix(double vertical1, long window, double horizontal, double vertical2) {

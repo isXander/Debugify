@@ -14,6 +14,8 @@
     "client.mc122627.CommandSuggestorMixin",
     "client.mc127970.HeldItemRendererMixin",
     "client.mc140646.TextFieldWidgetMixin",
+    "client.mc145929.InGameHudMixin",
+    "client.mc148149.OperatingSystemMixin",
     "client.mc151412.AddServerScreenMixin",
     "client.mc162253.ClientPlayNetworkHandlerMixin",
     "client.mc165381.ClientPlayerEntityMixin",
@@ -25,13 +27,12 @@
     "client.mc53312.VillagerResemblingModelMixin",
     "client.mc79545.InGameHudMixin",
     "client.mc80859.HandledScreenMixin",
-    "client.mc93384.LivingEntityMixin",
-    "client.mc148149.OperatingSystemMixin"
+    "client.mc93384.LivingEntityMixin"
   ],
   "mixins": [
-    "server.mc132878.ArmorStandEntityMixin",
     "server.mc121903.CommandBlockMinecartEntityMixin",
     "server.mc124177.ServerPlayerEntityMixin",
+    "server.mc132878.ArmorStandEntityMixin",
     "server.mc14923.ServerPlayNetworkHandlerMixin",
     "server.mc200418.ZombieVillagerEntityMixin",
     "server.mc223153.BlocksMixin",
