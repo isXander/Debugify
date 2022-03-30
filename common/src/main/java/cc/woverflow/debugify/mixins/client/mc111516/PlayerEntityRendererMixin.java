@@ -6,7 +6,11 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 /**
- * Taken from https://github.com/TheRandomLabs/RandomPatches under MIT license
+ * Taken from RandomPatches
+ * https://github.com/TheRandomLabs/RandomPatches
+ * under MIT license
+ *
+ * Adapted to work in newer versions and a multi-loader environment
  *
  * @author TheRandomLabs
  */

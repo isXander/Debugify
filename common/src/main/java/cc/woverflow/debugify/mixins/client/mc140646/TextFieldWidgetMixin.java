@@ -14,6 +14,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  * under LGPLv3 license
  *
  * Adapted to work in a multi-loader environment
+ *
+ * @author j-tai
  */
 @Mixin(TextFieldWidget.class)
 public abstract class TextFieldWidgetMixin {

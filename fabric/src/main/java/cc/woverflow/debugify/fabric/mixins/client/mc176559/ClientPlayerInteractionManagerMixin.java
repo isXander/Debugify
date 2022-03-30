@@ -28,9 +28,13 @@ public class ClientPlayerInteractionManagerMixin {
     }
 
     /**
-     * This code is taken from MinecraftForge under LGPLv2.1
+     * Taken from MinecraftForge
      * https://github.com/MinecraftForge/MinecraftForge/blob/9d74a3520fa9d47db27fed74dcdd462956dd90ec/src/main/java/net/minecraftforge/common/extensions/IForgeItem.java
+     * under LGPLv2.1 license
+     *
      * It has been adapted into a mixin with yarn mappings for use in fabric
+     *
+     * @author BlueAgent
      */
     private boolean canCauseBlockBreakReset(ItemStack oldStack, ItemStack newStack) {
         if (!newStack.isOf(oldStack.getItem()))
