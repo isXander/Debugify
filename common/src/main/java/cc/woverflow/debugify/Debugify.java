@@ -32,5 +32,6 @@ public class Debugify {
         }, "debugify-concurrent").start();
 
         logger.info("Successfully Debugify'd your game!");
+        logger.info("Proudly fixes {} bugs!", config.getBugFixes().size());
     }
 }
