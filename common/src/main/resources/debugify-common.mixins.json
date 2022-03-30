@@ -32,6 +32,7 @@
     "server.mc121903.CommandBlockMinecartEntityMixin",
     "server.mc124177.ServerPlayerEntityMixin",
     "server.mc14923.ServerPlayNetworkHandlerMixin",
+    "server.mc200418.ZombieVillagerEntityMixin",
     "server.mc231743.FlowerPotBlockMixin",
     "server.mc84873.LivingEntityMixin",
     "server.mc93018.AnimalEntityMixin"
