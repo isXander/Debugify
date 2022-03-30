@@ -29,6 +29,7 @@
   ],
   "mixins": [
     "client.mc132878.ArmorStandEntityMixin",
+    "client.mc148149.OperatingSystemMixin",
     "server.mc121903.CommandBlockMinecartEntityMixin",
     "server.mc124177.ServerPlayerEntityMixin",
     "server.mc14923.ServerPlayNetworkHandlerMixin",
