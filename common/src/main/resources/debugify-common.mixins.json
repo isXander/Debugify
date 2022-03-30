@@ -25,11 +25,11 @@
     "client.mc53312.VillagerResemblingModelMixin",
     "client.mc79545.InGameHudMixin",
     "client.mc80859.HandledScreenMixin",
-    "client.mc93384.LivingEntityMixin"
+    "client.mc93384.LivingEntityMixin",
+    "client.mc148149.OperatingSystemMixin"
   ],
   "mixins": [
-    "client.mc132878.ArmorStandEntityMixin",
-    "client.mc148149.OperatingSystemMixin",
+    "server.mc132878.ArmorStandEntityMixin",
     "server.mc121903.CommandBlockMinecartEntityMixin",
     "server.mc124177.ServerPlayerEntityMixin",
     "server.mc14923.ServerPlayNetworkHandlerMixin",

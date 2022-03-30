@@ -1,4 +1,4 @@
-package cc.woverflow.debugify.mixins.client.mc132878;
+package cc.woverflow.debugify.mixins.server.mc132878;
 
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.decoration.ArmorStandEntity;
