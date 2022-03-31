@@ -1,5 +1,5 @@
 # Debugify
-## What the hell is debugify?
+## What the hell is Debugify?
 Debugify is a community project to clean up the forgotten bugs of Minecraft found on the Minecraft bug tracker, fixing those pesky bugs with a low priority from Mojang that they never get around to.
 
 ## What does this mod replace?
