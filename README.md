@@ -15,7 +15,7 @@ You can use it on both! There are a lots of fixes for both the server and the cl
 - **Owners:** [@isxander](https://modrinth.com/user/isxander), [@wyvest](https://modrinth.com/user/wyvest)
 - **Admin:** [@Microcontrollers](https://modrinth.com/user/Microcontrollers)
 
-- **Developers:** [@Cepetir](https://modrinth.com/user/Cepetir), [@Scherso](https://modrinth.com/user/Scherso)
+- **Developers:** [@Cephetir](https://modrinth.com/user/Cephetir), [@Scherso](https://modrinth.com/user/Scherso)
 
 - **Designer:** [@MoonTidez](https://modrinth.com/user/MoonTidez)
 
