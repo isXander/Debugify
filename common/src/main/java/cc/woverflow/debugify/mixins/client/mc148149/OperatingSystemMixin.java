@@ -4,6 +4,9 @@ import net.minecraft.util.Util;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -29,11 +32,10 @@ public abstract class OperatingSystemMixin {
      * @author altrisi
      * @reason Make opening screenshots and chat links non-blocking
      *
-     * funny aliases with remap false because yet another
-     * architectury bug falsely remapping to mojang srg
+     * should be using @Overwrite but architectury doesn't like that
      */
-    @Overwrite(aliases = {"method_673", "m_137648_"}, remap = false)
-    public void open(URI uri) {
+    @Inject(method = "open(Ljava/net/URI;)V", at = @At("HEAD"), cancellable = true)
+    public void openUri(URI uri, CallbackInfo ci) {
         CompletableFuture.runAsync(() -> {
             try {
                 this.open(uri.toURL());
@@ -42,17 +44,18 @@ public abstract class OperatingSystemMixin {
                 e.printStackTrace();
             }
         });
+
+        ci.cancel();
     }
 
     /**
      * @author altrisi
      * @reason Make opening resourcepack and datapacks folder non-blocking
      *
-     * funny aliases with remap false because yet another
-     * architectury bug falsely remapping to mojang srg
+     * should be using @Overwrite but architectury doesn't like that
      */
-    @Overwrite(aliases = {"method_672", "m_137644_"}, remap = false)
-    public void open(File file) {
+    @Inject(method = "open(Ljava/io/File;)V", at = @At("HEAD"), cancellable = true)
+    public void openFile(File file, CallbackInfo ci) {
         CompletableFuture.runAsync(() -> {
             try {
                 this.open(file.toURI().toURL());
@@ -61,5 +64,7 @@ public abstract class OperatingSystemMixin {
                 e.printStackTrace();
             }
         });
+
+        ci.cancel();
     }
 }
