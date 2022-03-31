@@ -15,6 +15,7 @@
 | [MC-116379](https://bugs.mojang.com/browse/MC-116379) | Punching with a cast fishing rod in the off-hand detaches fishing line from rod                                                      |
 | [MC-121772](https://bugs.mojang.com/browse/MC-121772) | Can't scroll while holding SHIFT on macOS                                                                                            |
 | [MC-122627](https://bugs.mojang.com/browse/MC-122627) | Tab suggestion box has missing padding on right side                                                                                 |
+| [MC-123739](https://bugs.mojang.com/browse/MC-123739) | Recipe book entries are not sorted in any meaningful manner. In fact, the order can even change randomly after a reload.             |
 | [MC-127970](https://bugs.mojang.com/browse/MC-127970) | Using riptide on a trident with an item in your off-hand causes visual glitch with the item in your offhand                          |
 | [MC-140646](https://bugs.mojang.com/browse/MC-140646) | Text fields don't scroll while selecting text with Shift                                                                             |
 | [MC-145929](https://bugs.mojang.com/browse/MC-145929) | Actionbar text may be difficult to read without text background enabled                                                              |
