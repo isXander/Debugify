@@ -34,10 +34,10 @@ public abstract class RealmsMainScreenMixin extends Screen {
     }
 
     /**
-     * workaround for architectury bug where
-     * intermediary is remapped to mojang srgs in forge dev env
+     * avoid checks to see if realms trial
+     * is available as it's a faulty check
      */
-    @Inject(method = {"method_24989", "m_86596_"}, at = @At("HEAD"), cancellable = true, remap = false, require = 1)
+    @Inject(method = "method_24989", at = @At("HEAD"), cancellable = true)
     private void onPressTrialButton(ButtonWidget button, CallbackInfo ci) {
         Util.getOperatingSystem().open("https://aka.ms/startjavarealmstrial");
         this.client.setScreen(this.lastScreen);

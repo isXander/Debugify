@@ -19,11 +19,12 @@ public class DebugifyConfig {
 
     private final Map<String, Boolean> jsonBugFixes = new HashMap<>();
     private final Map<String, Boolean> bugFixes = new HashMap<>();
+    private boolean defaultDisabled = false;
 
     private boolean preloaded = false;
 
     public void registerBugFix(String id) {
-        boolean enabled = jsonBugFixes.getOrDefault(id, true);
+        boolean enabled = jsonBugFixes.getOrDefault(id, !defaultDisabled);
         bugFixes.put(id, enabled);
     }
 
@@ -46,6 +47,10 @@ public class DebugifyConfig {
                     .map((entry) -> new AbstractMap.SimpleEntry<>(entry.getKey(), entry.getValue().getAsBoolean()))
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
+            if (json.has("default_disabled")) {
+                defaultDisabled = json.get("default_disabled").getAsBoolean();
+            }
+
             jsonBugFixes.clear();
             jsonBugFixes.putAll(bugFixes);
         } catch (Exception e) {
@@ -60,6 +65,9 @@ public class DebugifyConfig {
 
             JsonObject json = new JsonObject();
             bugFixes.forEach(json::addProperty);
+            if (defaultDisabled) {
+                json.addProperty("default_disabled", true);
+            }
 
             Files.createFile(configPath);
             Files.writeString(configPath, gson.toJson(json));

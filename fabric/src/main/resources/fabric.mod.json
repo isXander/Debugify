@@ -39,6 +39,7 @@
     "modmenu": "*"
   },
   "breaks": {
-    "forgetmechunk": "*"
+    "forgetmechunk": "*",
+    "fastopenlinksandfolders": "*"
   }
 }

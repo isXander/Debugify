@@ -18,13 +18,18 @@
 | [MC-123739](https://bugs.mojang.com/browse/MC-123739) | Recipe book entries are not sorted in any meaningful manner. In fact, the order can even change randomly after a reload.             |
 | [MC-127970](https://bugs.mojang.com/browse/MC-127970) | Using riptide on a trident with an item in your off-hand causes visual glitch with the item in your offhand                          |
 | [MC-140646](https://bugs.mojang.com/browse/MC-140646) | Text fields don't scroll while selecting text with Shift                                                                             |
+| [MC-145929](https://bugs.mojang.com/browse/MC-145929) | Actionbar text may be difficult to read without text background enabled                                                              |
+| [MC-148149](https://bugs.mojang.com/browse/MC-148149) | Linux game crash when opening links                                                                                                  |
+| [MC-151412](https://bugs.mojang.com/browse/MC-151412) | "Edit Server Info" window does not focus "Server Name" text field automatically                                                      |
 | [MC-162253](https://bugs.mojang.com/browse/MC-162253) | Lag spike when crossing certain chunk borders                                                                                        |
 | [MC-165381](https://bugs.mojang.com/browse/MC-165381) | Block breaking can be delayed by dropping/throwing the tool while breaking a block                                                   |
 | [MC-165595](https://bugs.mojang.com/browse/MC-165595) | Guardian beam does not render when over a certain "Time" in level.dat                                                                |
 | [MC-176559](https://bugs.mojang.com/browse/MC-176559) | Breaking process resets when a pickaxe enchanted with Mending mends by XP / Mending slows down breaking blocks again *(fabric only)* |
 | [MC-231097](https://bugs.mojang.com/browse/MC-231097) | Holding the "Use" button continues to slow down the player even after the used item has been dropped                                 |
+| [MC-233042](https://bugs.mojang.com/browse/MC-233042) | Server Address field isn't focused when Direct Connection menu is opened                                                             |
 | [MC-234898](https://bugs.mojang.com/browse/MC-234898) | The "Get a trial!" button isn't consistently displayed within the realms menu                                                        |
 | [MC-235035](https://bugs.mojang.com/browse/MC-235035) | Sleeping in a custom dimension with "natural" set to false causes crash *(fabric only)*                                              |
+| [MC-249059](https://bugs.mojang.com/browse/MC-249059) | Loading terrain screen cannot close before 2 seconds have passed                                                                     |
 
 ### Server Side (Both)
 | Bug ID                                                | Name                                                                                          |
@@ -34,6 +39,9 @@
 | [MC-93018](https://bugs.mojang.com/browse/MC-93018)   | Wild wolves show breeding hearts but do not breed                                             |
 | [MC-121903](https://bugs.mojang.com/browse/MC-121903) | Command block minecarts do not save execution cooldown to NBT                                 |
 | [MC-124177](https://bugs.mojang.com/browse/MC-124177) | Teleporting to another dimension loses some client states                                     |
+| [MC-132878](https://bugs.mojang.com/browse/MC-132878) | Armor stands destroyed by explosions/lava/fire don't produce particles                        |
+| [MC-200418](https://bugs.mojang.com/browse/MC-200418) | Cured baby zombie villagers stay as jockey variant                                            |
+| [MC-223153](https://bugs.mojang.com/browse/MC-223153) | Block of Raw Copper uses stone sounds instead of copper sounds                                |
 | [MC-231743](https://bugs.mojang.com/browse/MC-231743) | minecraft.used:minecraft.POTTABLE_PLANT doesn't increase when placing plants into flower pots |
 
 ## Patched in snapshots

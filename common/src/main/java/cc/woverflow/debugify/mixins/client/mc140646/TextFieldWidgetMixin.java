@@ -14,6 +14,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  * under LGPLv3 license
  *
  * Adapted to work in a multi-loader environment
+ *
+ * @author j-tai
  */
 @Mixin(TextFieldWidget.class)
 public abstract class TextFieldWidgetMixin {
@@ -29,10 +31,7 @@ public abstract class TextFieldWidgetMixin {
      * Scrolling logic is in {@code setSelectionEnd} so we call it
      * and don't let the method actually modify the selectionEnd
      */
-    @Inject(
-            method = "setCursor",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/widget/TextFieldWidget;setSelectionStart(I)V", shift = At.Shift.AFTER)
-    )
+    @Inject(method = "setCursor", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/widget/TextFieldWidget;setSelectionStart(I)V", shift = At.Shift.AFTER))
     private void onSetCursor(int cursor, CallbackInfo ci) {
         if (selecting) {
             int end = selectionEnd;
