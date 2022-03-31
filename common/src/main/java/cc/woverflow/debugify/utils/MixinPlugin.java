@@ -32,9 +32,7 @@ public class MixinPlugin implements IMixinConfigPlugin {
     }
 
     @Override
-    public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {
-        Debugify.config.save();
-    }
+    public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {}
 
     @Override
     public List<String> getMixins() { return null; }

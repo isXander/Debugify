@@ -14,6 +14,7 @@ architectury {
 loom {
     forge.apply {
         mixinConfig("debugify-common.mixins.json")
+        mixinConfig("debugify.mixins.json")
         convertAccessWideners.set(true)
     }
 }

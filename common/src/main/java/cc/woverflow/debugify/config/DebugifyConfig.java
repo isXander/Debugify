@@ -24,6 +24,9 @@ public class DebugifyConfig {
     private boolean preloaded = false;
 
     public void registerBugFix(String id) {
+        if (bugFixes.containsKey(id))
+            return;
+
         boolean enabled = jsonBugFixes.getOrDefault(id, !defaultDisabled);
         bugFixes.put(id, enabled);
     }
@@ -82,5 +85,9 @@ public class DebugifyConfig {
 
     public Map<String, Boolean> getBugFixes() {
         return bugFixes;
+    }
+
+    public boolean doesJsonMatchConfig() {
+        return jsonBugFixes.equals(bugFixes);
     }
 }

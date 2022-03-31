@@ -28,8 +28,11 @@ public abstract class OperatingSystemMixin {
     /**
      * @author altrisi
      * @reason Make opening screenshots and chat links non-blocking
+     *
+     * funny aliases with remap false because yet another
+     * architectury bug falsely remapping to mojang srg
      */
-    @Overwrite
+    @Overwrite(aliases = {"method_673", "m_137648_"}, remap = false)
     public void open(URI uri) {
         CompletableFuture.runAsync(() -> {
             try {
@@ -44,8 +47,11 @@ public abstract class OperatingSystemMixin {
     /**
      * @author altrisi
      * @reason Make opening resourcepack and datapacks folder non-blocking
+     *
+     * funny aliases with remap false because yet another
+     * architectury bug falsely remapping to mojang srg
      */
-    @Overwrite
+    @Overwrite(aliases = {"method_672", "m_137644_"}, remap = false)
     public void open(File file) {
         CompletableFuture.runAsync(() -> {
             try {

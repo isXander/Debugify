@@ -20,6 +20,11 @@ public class Debugify {
     }
 
     public static void onInitialize() {
+        if (!config.doesJsonMatchConfig()) {
+            logger.info("Saving config because the loaded bug fixes are different to stored json.");
+            config.save();
+        }
+
         new Thread(() -> {
             Version latestVersion = UpdateChecker.getLatestVersion();
 
