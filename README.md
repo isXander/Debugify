@@ -29,7 +29,7 @@ Yes! Of course! We even hid a little feature in the mod for you! The constant up
 **Co-owner:** [@wyvest](https://modrinth.com/user/wyvest)
 **Admin:** [@Microcontrollers](https://modrinth.com/user/Microcontrollers)
 
-**Developer:** [@Cepetir](https://modrinth.com/user/Cepetir)
+**Developer:** [@Cephetir](https://modrinth.com/user/Cephetir)
 **Developer:** [@Scherso](https://modrinth.com/user/Scherso)
 
 **Designer:** [@MoonTidez](https://modrinth.com/user/MoonTidez)
