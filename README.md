@@ -12,7 +12,7 @@ This mod replaces many mods and implements fixes from some others
 All of these mods have helped us create Debugify. We thank you very much for your effort! We made sure to follow the license of every one of these mods when creating our own version.
 
 ## Links and other info
-[GitHub](https://github.com/W-OVERFLOW/Debugify) • [Curseforge](https://curseforge.com/minecraft/mc-mods/debugify) • [Patched bugs (GitHub List)](https://github.com/W-OVERFLOW/Debugify/blob/1.18/PATCHED.md) • [Discord (W-OVERFLOW)](https://discord.gg/x9d4h2CV)
+[GitHub](https://github.com/W-OVERFLOW/Debugify) • [Curseforge](https://curseforge.com/minecraft/mc-mods/debugify) • [Patched bugs (GitHub List)](https://github.com/W-OVERFLOW/Debugify/blob/1.18/PATCHED.md) • [Discord (W-OVERFLOW)](https://woverflow.cc/discord)
 
 ## Can I include this in my modpack?
 Yes! Of course! We even hid a little feature in the mod for you! The constant updates may be exhausting to maintain, so we added a hidden config option that defaults new bug fixes to off, until you get round to looking at it.
