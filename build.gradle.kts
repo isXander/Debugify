@@ -21,7 +21,7 @@ plugins {
     id("dev.architectury.loom") version "0.11.0.+" apply false
     id("io.github.juuxel.loom-quiltflower") version "1.+" apply false
 
-    id("com.modrinth.minotaur") version "2.+" apply false
+    id("com.modrinth.minotaur") version "2.+"
     id("com.matthewprenger.cursegradle") version "1.4.+" apply false
 }
 
@@ -107,9 +107,16 @@ tasks {
         }
     }
 
+    modrinth {
+        token.set(findProperty("modrinth.token")?.toString())
+        projectId.set("QwxR6Gcd")
+        syncBodyFrom.set(file("README.md").readText())
+    }
+
     register("publish") {
         dependsOn("clean")
         dependsOn(publishToModrinth)
+        dependsOn(":modrinthSyncBody")
         dependsOn(publishToCurseforge)
         dependsOn(updateApiVersion)
     }
