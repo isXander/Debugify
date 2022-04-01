@@ -23,6 +23,7 @@
     "client.mc165381.ClientPlayerEntityMixin",
     "client.mc165595.GuardianEntityRendererMixin",
     "client.mc215531.InGameHudMixin",
+    "client.mc217716.GameRendererMixin",
     "client.mc231097.ClientPlayerEntityMixin",
     "client.mc233042.DirectConnectScreenMixin",
     "client.mc234898.RealmsMainScreenMixin",
@@ -31,7 +32,6 @@
     "client.mc53312.VillagerResemblingModelMixin",
     "client.mc79545.InGameHudMixin",
     "client.mc80859.HandledScreenMixin",
-    "client.mc217716.GameRendererMixin",
     "client.mc93384.LivingEntityMixin"
   ],
   "mixins": [
@@ -49,6 +49,7 @@
     "server.mc231743.FlowerPotBlockMixin",
     "server.mc69216.ServerPlayerEntityMixin",
     "server.mc84873.LivingEntityMixin",
+    "server.mc90084.BoatEntityMixin",
     "server.mc93018.AnimalEntityMixin"
   ]
 }
