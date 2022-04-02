@@ -19,6 +19,7 @@
     "client.mc145929.InGameHudMixin",
     "client.mc148149.OperatingSystemMixin",
     "client.mc151412.AddServerScreenMixin",
+    "client.mc159163.ClientPlayNetworkHandlerMixin",
     "client.mc162253.ClientPlayNetworkHandlerMixin",
     "client.mc165381.ClientPlayerEntityMixin",
     "client.mc165595.GuardianEntityRendererMixin",
@@ -32,10 +33,11 @@
     "client.mc53312.VillagerResemblingModelMixin",
     "client.mc79545.InGameHudMixin",
     "client.mc80859.HandledScreenMixin",
-    "client.mc93384.LivingEntityMixin",
-    "client.mc159163.ClientPlayNetworkHandlerMixin"
+    "client.mc93384.LivingEntityMixin"
   ],
   "mixins": [
+    "client.mc199467.LivingEntityRendererMixin",
+    "server.mc199467.MathHelperMixin",
     "server.mc119417.ServerPlayerEntityMixin",
     "server.mc119754.FireworkRocketEntityMixin",
     "server.mc121903.CommandBlockMinecartEntityMixin",
