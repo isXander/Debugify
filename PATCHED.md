@@ -46,6 +46,7 @@
 | [MC-88371](https://bugs.mojang.com/browse/MC-88371)   | Ender Dragon flies down in the void when the exit portal is destroyed                              |
 | [MC-90084](https://bugs.mojang.com/browse/MC-90084)   | When sitting in boats and boats with chest mobs legs penetrate the hull                            |
 | [MC-93018](https://bugs.mojang.com/browse/MC-93018)   | Wild wolves show breeding hearts but do not breed                                                  |
+| [MC-100991](https://bugs.mojang.com/browse/MC-100991) | Killing entities with a fishing rod doesn't count as a kill                                        |
 | [MC-119417](https://bugs.mojang.com/browse/MC-119417) | A spectator can occupy a bed if they enter it and then are switched to spectator mode              |
 | [MC-119754](https://bugs.mojang.com/browse/MC-119754) | Firework boosting on elytra continues in spectator mode                                            |
 | [MC-121903](https://bugs.mojang.com/browse/MC-121903) | Command block minecarts do not save execution cooldown to NBT                                      |
