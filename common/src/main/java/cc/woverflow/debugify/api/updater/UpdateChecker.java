@@ -21,11 +21,12 @@ public class UpdateChecker {
         HttpRequest request = HttpRequest.newBuilder(URI.create(String.format("https://api.isxander.dev/updater/latest/debugify?loader=%s&minecraft=%s", Loader.getLoader().id, SharedConstants.getGameVersion().getName())))
                 .build();
 
-        HttpResponse<String> response = null;
+        HttpResponse<String> response;
         try {
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
+            return null;
         }
 
         if (response.statusCode() != 200) {

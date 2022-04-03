@@ -12,10 +12,13 @@ architectury {
 }
 
 loom {
+    accessWidenerPath.set(project(":common").loom.accessWidenerPath)
+
     forge.apply {
         mixinConfig("debugify-common.mixins.json")
         mixinConfig("debugify.mixins.json")
         convertAccessWideners.set(true)
+        extraAccessWideners.add(loom.accessWidenerPath.get().asFile.name)
     }
 }
 
@@ -65,6 +68,7 @@ tasks {
 
     shadowJar {
         relocate("com.llamalad7.mixinextras", "cc.woverflow.debugify.lib.mixinextras")
+        relocate("com.github.zafarkhaja.semver", "cc.woverflow.debugify.lib.jsemver")
 
         exclude("fabric.mod.json")
         exclude("architectury.common.json")

@@ -11,6 +11,10 @@ architectury {
     fabric()
 }
 
+loom {
+    accessWidenerPath.set(project(":common").loom.accessWidenerPath)
+}
+
 val common by configurations.creating {
     configurations.compileClasspath.get().extendsFrom(this)
     configurations.runtimeClasspath.get().extendsFrom(this)
@@ -63,6 +67,7 @@ tasks {
     }
 
     remapJar {
+        injectAccessWidener.set(true)
         inputFile.set(shadowJar.get().archiveFile)
         dependsOn(shadowJar)
         archiveClassifier.set(null as String?)

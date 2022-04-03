@@ -20,6 +20,10 @@ architectury {
     common()
 }
 
+loom {
+    accessWidenerPath.set(file("src/main/resources/debugify.accesswidener"))
+}
+
 blossom {
     val debugifyClass = "src/main/java/cc/woverflow/debugify/Debugify.java"
 
