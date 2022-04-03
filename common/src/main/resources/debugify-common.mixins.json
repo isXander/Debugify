@@ -36,7 +36,6 @@
     "client.mc93384.LivingEntityMixin"
   ],
   "mixins": [
-    "server.mc199467.MathHelperMixin",
     "server.mc119417.ServerPlayerEntityMixin",
     "server.mc119754.FireworkRocketEntityMixin",
     "server.mc121903.CommandBlockMinecartEntityMixin",
@@ -45,12 +44,14 @@
     "server.mc132878.ArmorStandEntityMixin",
     "server.mc14923.ServerPlayNetworkHandlerMixin",
     "server.mc193343.LivingEntityMixin",
+    "server.mc199467.MathHelperMixin",
     "server.mc200418.ZombieVillagerEntityMixin",
     "server.mc215530.ServerPlayerEntityMixin",
     "server.mc223153.BlocksMixin",
     "server.mc231743.FlowerPotBlockMixin",
     "server.mc69216.ServerPlayerEntityMixin",
     "server.mc84873.LivingEntityMixin",
+    "server.mc88371.LandingPhaseMixin",
     "server.mc90084.BoatEntityMixin",
     "server.mc93018.AnimalEntityMixin"
   ]
