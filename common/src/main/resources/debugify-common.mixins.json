@@ -36,7 +36,6 @@
     "client.mc93384.LivingEntityMixin"
   ],
   "mixins": [
-    "client.mc199467.LivingEntityRendererMixin",
     "server.mc199467.MathHelperMixin",
     "server.mc119417.ServerPlayerEntityMixin",
     "server.mc119754.FireworkRocketEntityMixin",

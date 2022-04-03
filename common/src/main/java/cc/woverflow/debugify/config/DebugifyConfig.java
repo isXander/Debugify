@@ -59,6 +59,8 @@ public class DebugifyConfig {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        Debugify.logger.info("Done.");
     }
 
     public void save() {

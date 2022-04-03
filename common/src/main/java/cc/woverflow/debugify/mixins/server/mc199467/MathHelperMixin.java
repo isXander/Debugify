@@ -10,6 +10,9 @@ public class MathHelperMixin {
     /**
      * Without this, large radians from entity ages caused
      * integer overflows. Simply modulo it so that doesn't happen
+     *
+     * While this bug is reportedly the issue of the client,
+     * the root cause is in both environments, hence it's located here
      */
     @ModifyVariable(method = "cos", at = @At("HEAD"), ordinal = 0, argsOnly = true)
     private static float getRadians(float value) {
