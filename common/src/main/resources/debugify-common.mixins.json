@@ -36,7 +36,6 @@
     "client.mc93384.LivingEntityMixin"
   ],
   "mixins": [
-    "server.mc100991.EntityMixin",
     "server.mc100991.FishingBobberEntityMixin",
     "server.mc100991.ProjectileEntityMixin",
     "server.mc119417.ServerPlayerEntityMixin",
@@ -46,6 +45,7 @@
     "server.mc129909.ServerPlayerEntityMixin",
     "server.mc132878.ArmorStandEntityMixin",
     "server.mc14923.ServerPlayNetworkHandlerMixin",
+    "server.mc155509.PufferfishEntityMixin",
     "server.mc193343.LivingEntityMixin",
     "server.mc199467.MathHelperMixin",
     "server.mc200418.ZombieVillagerEntityMixin",

@@ -53,6 +53,7 @@
 | [MC-124177](https://bugs.mojang.com/browse/MC-124177) | Teleporting to another dimension loses some client states                                          |
 | [MC-129909](https://bugs.mojang.com/browse/MC-129909) | Players in spectator mode continue to consume foods and liquids shortly after switching game modes |
 | [MC-132878](https://bugs.mojang.com/browse/MC-132878) | Armor stands destroyed by explosions/lava/fire don't produce particles                             |
+| [MC-155509](https://bugs.mojang.com/browse/MC-155509) | Puffed pufferfish can hurt the player while dying                                                  |
 | [MC-193343](https://bugs.mojang.com/browse/MC-193343) | Soul Speed effect remains after switching to spectator mode                                        |
 | [MC-199467](https://bugs.mojang.com/browse/MC-199467) | Certain entity animations stop after they've existed in world for too long                         |
 | [MC-200418](https://bugs.mojang.com/browse/MC-200418) | Cured baby zombie villagers stay as jockey variant                                                 |
