@@ -51,6 +51,7 @@
     "server.mc193343.LivingEntityMixin",
     "server.mc199467.MathHelperMixin",
     "server.mc200418.ZombieVillagerEntityMixin",
+    "server.mc214147.SkeletonEntityMixin",
     "server.mc215530.ServerPlayerEntityMixin",
     "server.mc223153.BlocksMixin",
     "server.mc231743.FlowerPotBlockMixin",

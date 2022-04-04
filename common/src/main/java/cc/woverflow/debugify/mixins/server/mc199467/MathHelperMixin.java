@@ -15,7 +15,16 @@ public class MathHelperMixin {
      * the root cause is in both environments, hence it's located here
      */
     @ModifyVariable(method = "cos", at = @At("HEAD"), ordinal = 0, argsOnly = true)
-    private static float getRadians(float value) {
+    private static float modifyCosRadians(float value) {
+        return value % 360;
+    }
+
+    /**
+     * Not necessarily needed however it's nice for parity and is affected
+     * when MC-165595 is disabled
+     */
+    @ModifyVariable(method = "sin", at = @At("HEAD"), ordinal = 0, argsOnly = true)
+    private static float modifySinRadians(float value) {
         return value % 360;
     }
 }
