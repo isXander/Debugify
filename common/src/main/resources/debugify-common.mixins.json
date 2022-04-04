@@ -33,10 +33,10 @@
     "client.mc53312.VillagerResemblingModelMixin",
     "client.mc79545.InGameHudMixin",
     "client.mc80859.HandledScreenMixin",
-    "client.mc93384.LivingEntityMixin"
+    "client.mc93384.LivingEntityMixin",
+    "client.mc183776.KeyboardMixin"
   ],
   "mixins": [
-    "client.mc183776.KeyboardMixin",
     "server.mc100991.FishingBobberEntityMixin",
     "server.mc100991.ProjectileEntityMixin",
     "server.mc119417.ServerPlayerEntityMixin",

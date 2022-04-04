@@ -40,6 +40,8 @@
   },
   "breaks": {
     "forgetmechunk": "*",
-    "fastopenlinksandfolders": "*"
+    "fastopenlinksandfolders": "*",
+    "shadowedactionbar": "*",
+    "shiftscrollfix": "*"
   }
 }
