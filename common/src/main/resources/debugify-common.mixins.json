@@ -58,6 +58,7 @@
     "server.mc69216.ServerPlayerEntityMixin",
     "server.mc84873.LivingEntityMixin",
     "server.mc88371.LandingPhaseMixin",
+    "server.mc89146.ChunkMixin",
     "server.mc90084.BoatEntityMixin",
     "server.mc93018.AnimalEntityMixin"
   ]

@@ -46,6 +46,7 @@
 | [MC-81773](https://bugs.mojang.com/browse/MC-81773)   | Bows and tridents drawn in survival/creative/adventure mode can be released in spectator mode      |
 | [MC-84873](https://bugs.mojang.com/browse/MC-84873)   | DeathTime values 20+ cause corrupted mobs                                                          |
 | [MC-88371](https://bugs.mojang.com/browse/MC-88371)   | Ender Dragon flies down in the void when the exit portal is destroyed                              |
+| [MC-89146](https://bugs.mojang.com/browse/MC-89146)   | Pistons forget update when being reloaded                                                          |
 | [MC-90084](https://bugs.mojang.com/browse/MC-90084)   | When sitting in boats and boats with chest mobs legs penetrate the hull                            |
 | [MC-93018](https://bugs.mojang.com/browse/MC-93018)   | Wild wolves show breeding hearts but do not breed                                                  |
 | [MC-100991](https://bugs.mojang.com/browse/MC-100991) | Killing entities with a fishing rod doesn't count as a kill                                        |
