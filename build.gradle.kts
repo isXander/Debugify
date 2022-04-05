@@ -69,10 +69,11 @@ allprojects {
 }
 
 tasks {
-    val publishToModrinth by registering
-    val publishToCurseforge by registering
+    val publishToModrinth by registering { group = "debugify" }
+    val publishToCurseforge by registering { group = "debugify" }
 
     val updateApiVersion by registering {
+        group = "debugify"
         onlyIf { hasProperty("xander-api.username") && hasProperty("xander-api.password") }
 
         val gson = Gson()
@@ -128,18 +129,16 @@ tasks {
     }
 
     register("publishDebugify") {
+        group = "debugify"
+
         dependsOn("clean")
 
-        if (hasProperty("modrinth.token")) {
-            dependsOn(publishToModrinth)
-            dependsOn(":modrinthSyncBody")
-        }
+        dependsOn(publishToModrinth)
+        dependsOn(":modrinthSyncBody")
 
-        if (hasProperty("curseforge.token"))
-            dependsOn(publishToCurseforge)
+        dependsOn(publishToCurseforge)
 
-        if (hasProperty("github.token"))
-            dependsOn("githubRelease")
+        dependsOn("githubRelease")
 
         dependsOn(updateApiVersion)
     }
