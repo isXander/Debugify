@@ -29,6 +29,7 @@
     "client.mc231097.ClientPlayerEntityMixin",
     "client.mc233042.DirectConnectScreenMixin",
     "client.mc234898.RealmsMainScreenMixin",
+    "client.mc249021.RealmsMainScreenMixin",
     "client.mc249059.DownloadingTerrainScreenMixin",
     "client.mc46766.MinecraftClientMixin",
     "client.mc53312.VillagerResemblingModelMixin",

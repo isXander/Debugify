@@ -1,45 +1,45 @@
-package cc.woverflow.debugify.mixins.client.mc234898;
+package cc.woverflow.debugify.mixins.client.mc249021;
 
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.realms.dto.RealmsServer;
 import net.minecraft.client.realms.gui.screen.RealmsMainScreen;
 import net.minecraft.text.Text;
-import net.minecraft.util.Util;
 import org.jetbrains.annotations.Nullable;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.List;
+
 @Mixin(RealmsMainScreen.class)
 public abstract class RealmsMainScreenMixin extends Screen {
-    @Shadow private ButtonWidget createTrialButton;
-
     protected RealmsMainScreenMixin(Text title) {
         super(title);
     }
 
-    @Shadow public abstract boolean shouldShowPopup();
+    @Shadow private RealmsMainScreen.PendingInvitesButton pendingInvitesButton;
 
-    @Shadow @Final Screen lastScreen;
+    @Shadow private ButtonWidget newsButton;
+
+    @Shadow private List<RealmsServer> realmsServers;
 
     @Inject(method = "updateButtonStates", at = @At("RETURN"))
     private void onAddButtons(@Nullable RealmsServer server, CallbackInfo ci) {
-        createTrialButton.visible = this.shouldShowPopup();
-        createTrialButton.active = this.shouldShowPopup();
-    }
+        // using shouldShowPopup leads to the news button never being shown
+        if (!this.realmsServers.isEmpty()) {
+            newsButton.visible = true;
+            newsButton.active = true;
+        }
 
-    /**
-     * avoid checks to see if realms trial
-     * is available as it's a faulty check
-     */
-    @Inject(method = "method_24989", at = @At("HEAD"), cancellable = true)
-    private void onPressTrialButton(ButtonWidget button, CallbackInfo ci) {
-        Util.getOperatingSystem().open("https://aka.ms/startjavarealmstrial");
-        this.client.setScreen(this.lastScreen);
-        ci.cancel();
+        /**
+         * set visible at all times as it appears that you can view
+         * invitations before the servers have finished loading
+         *
+         * cannot fully test as I do not have any invitations
+         */
+        pendingInvitesButton.visible = true;
     }
 }
