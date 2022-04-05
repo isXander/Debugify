@@ -41,6 +41,7 @@
 ### Server Side (Both)
 | Bug ID                                                | Name                                                                                               |
 |-------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| [MC-7569](https://bugs.mojang.com/browse/MC-7569)     | RCON output has newlines removed *(fabric only)*                                                   |
 | [MC-14923](https://bugs.mojang.com/browse/MC-14923)   | Players can be kicked for spamming in a singleplayer world with cheats disabled                    |
 | [MC-30391](https://bugs.mojang.com/browse/MC-30391)   | Chickens, blazes and the wither emit particles when landing from a height, despite falling slowly  |
 | [MC-69216](https://bugs.mojang.com/browse/MC-69216)   | Switching to spectator mode while fishing keeps rod cast                                           |

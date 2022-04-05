@@ -9,5 +9,8 @@
   "client": [
     "client.mc176559.ClientPlayerInteractionManagerMixin",
     "client.mc235035.ClientPlayNetworkHandlerMixin"
+  ],
+  "mixins": [
+    "server.mc7569.RconCommandOutputMixin"
   ]
 }
