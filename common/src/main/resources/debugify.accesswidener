@@ -1,3 +1,4 @@
 accessWidener v1 named
 
 accessible class net/minecraft/entity/mob/SilverfishEntity$WanderAndInfestGoal
+accessible class net/minecraft/client/realms/gui/screen/RealmsMainScreen$PendingInvitesButton
