@@ -95,6 +95,7 @@ modrinth {
     uploadFile.set(tasks.remapJar.get())
     gameVersions.set(listOf(minecraftVersion))
     loaders.set(listOf(project.name))
+    changelog.set(extra["changelog"].toString())
 }
 
 rootProject.tasks["publishToModrinth"].dependsOn(tasks["modrinth"])
@@ -112,6 +113,9 @@ if (hasProperty("curseforge.token")) {
             addGameVersion(minecraftVersion)
             addGameVersion(project.name.capitalize())
             addGameVersion("Java 17")
+
+            changelog = extra["changelog"]
+            changelogType = "markdown"
         })
 
         options(closureOf<com.matthewprenger.cursegradle.Options> {

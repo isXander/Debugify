@@ -23,6 +23,7 @@ plugins {
 
     id("com.modrinth.minotaur") version "2.+"
     id("com.matthewprenger.cursegradle") version "1.4.+" apply false
+    id("com.github.breadmoirai.github-release") version "2.+"
 }
 
 architectury {
@@ -48,7 +49,9 @@ allprojects {
     apply(plugin = "architectury-plugin")
 
     group = "cc.woverflow"
-    version = "1.5.0"
+    version = "1.6.0"
+
+    val changelog by extra { rootProject.file("changelogs/${project.version}.md").readText() }
 
     repositories {
         mavenCentral()
@@ -113,11 +116,31 @@ tasks {
         syncBodyFrom.set(file("README.md").readText())
     }
 
-    register("publish") {
+    githubRelease {
+        token(findProperty("github.token")?.toString())
+
+        owner("W-OVERFLOW")
+        repo("Debugify")
+        tagName("${project.version}")
+        targetCommitish("1.18")
+        body(extra["changelog"].toString())
+        releaseAssets(project(":fabric").tasks["remapJar"].outputs.files, project(":forge").tasks["remapJar"].outputs.files)
+    }
+
+    register("publishDebugify") {
         dependsOn("clean")
-        dependsOn(publishToModrinth)
-        dependsOn(":modrinthSyncBody")
-        dependsOn(publishToCurseforge)
+
+        if (hasProperty("modrinth.token")) {
+            dependsOn(publishToModrinth)
+            dependsOn(":modrinthSyncBody")
+        }
+
+        if (hasProperty("curseforge.token"))
+            dependsOn(publishToCurseforge)
+
+        if (hasProperty("github.token"))
+            dependsOn("githubRelease")
+
         dependsOn(updateApiVersion)
     }
 }
