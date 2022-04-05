@@ -34,11 +34,12 @@
     "client.mc53312.VillagerResemblingModelMixin",
     "client.mc79545.InGameHudMixin",
     "client.mc80859.HandledScreenMixin",
+    "client.mc26757.ScreenMixin",
     "client.mc93384.LivingEntityMixin"
   ],
   "mixins": [
-    "client.mc26757.ScreenMixin",
     "server.mc100991.FishingBobberEntityMixin",
+    "server.mc72151.WolfEntityMixin",
     "server.mc100991.ProjectileEntityMixin",
     "server.mc119417.ServerPlayerEntityMixin",
     "server.mc119754.FireworkRocketEntityMixin",
