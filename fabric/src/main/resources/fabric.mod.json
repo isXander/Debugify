@@ -21,6 +21,9 @@
     "main": [
       "cc.woverflow.debugify.Debugify::onInitialize"
     ],
+    "client": [
+      "cc.woverflow.debugify.client.DebugifyClient::onInitializeClient"
+    ],
     "modmenu": [
       "cc.woverflow.debugify.fabric.integrations.ModMenuIntegration"
     ]

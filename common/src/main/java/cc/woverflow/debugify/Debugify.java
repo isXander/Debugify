@@ -6,6 +6,8 @@ import com.github.zafarkhaja.semver.Version;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.concurrent.CompletableFuture;
+
 public class Debugify {
     public static Logger logger = LoggerFactory.getLogger("Debugify");
     public static Version version = Version.valueOf("@VERSION@");
@@ -25,7 +27,7 @@ public class Debugify {
             config.save();
         }
 
-        new Thread(() -> {
+        CompletableFuture.runAsync(() -> {
             Version latestVersion = UpdateChecker.getLatestVersion();
 
             if (latestVersion == null)
@@ -34,7 +36,7 @@ public class Debugify {
             if (latestVersion.compareTo(version) > 0) {
                 logger.info("An update is available! You're on {} but the latest is {}!", version, latestVersion);
             }
-        }, "debugify-concurrent").start();
+        });
 
         logger.info("Successfully Debugify'd your game!");
         logger.info("Proudly fixes {} bugs!", config.getBugFixes().size());

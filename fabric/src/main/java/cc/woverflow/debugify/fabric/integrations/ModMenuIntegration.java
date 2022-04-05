@@ -1,7 +1,7 @@
 package cc.woverflow.debugify.fabric.integrations;
 
 import cc.woverflow.debugify.Debugify;
-import cc.woverflow.debugify.config.ConfigGuiHelper;
+import cc.woverflow.debugify.client.utils.ConfigGuiHelper;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 

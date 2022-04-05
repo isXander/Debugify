@@ -1,5 +1,6 @@
-package cc.woverflow.debugify.config;
+package cc.woverflow.debugify.client.utils;
 
+import cc.woverflow.debugify.config.DebugifyConfig;
 import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
@@ -17,6 +18,7 @@ public class ConfigGuiHelper {
         config.getBugFixes().forEach((bug, enabled) -> {
             AbstractConfigListEntry<?> entry = builder.entryBuilder()
                     .startBooleanToggle(new LiteralText(bug), enabled)
+                    .setTooltip(new LiteralText(BugFixDescriptionHolder.get(bug)))
                     .setSaveConsumer((toggled) -> config.getBugFixes().replace(bug, toggled))
                     .setDefaultValue(true)
                     .requireRestart()
