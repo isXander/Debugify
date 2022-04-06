@@ -35,7 +35,8 @@
     "client.mc53312.VillagerResemblingModelMixin",
     "client.mc79545.InGameHudMixin",
     "client.mc80859.HandledScreenMixin",
-    "client.mc93384.LivingEntityMixin"
+    "client.mc93384.LivingEntityMixin",
+    "client.mc147605.ClickableWidgetMixin"
   ],
   "mixins": [
     "server.mc100991.FishingBobberEntityMixin",
