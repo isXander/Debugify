@@ -10,6 +10,7 @@ This mod replaces many mods and implements fixes from some others
 - **[Shift-Scroll Fix](https://www.curseforge.com/minecraft/mc-mods/shift-scroll-fix)**: Replaced
 - **[ForgetMeChunk](https://www.curseforge.com/minecraft/mc-mods/forgetmechunk)**: Replaced
 - **[ChunkSavingFix](https://www.curseforge.com/minecraft/mc-mods/chunk-saving-fix)**: Replaced
+- **[kennytvs-epic-force-close-loading-screen-mod-for-fabric](https://modrinth.com/mod/forcecloseworldloadingscreen)**: Replaced
 - **[TieFix](https://www.curseforge.com/minecraft/mc-mods/tiefix)**: Semi-replaced - some fixes have been implemented
 
 All of these mods have helped us create Debugify. We thank you very much for your effort! We made sure to follow the license of every one of these mods when creating our own version.

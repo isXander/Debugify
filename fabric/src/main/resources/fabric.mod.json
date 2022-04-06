@@ -46,7 +46,8 @@
     "fastopenlinksandfolders": "*",
     "shadowedactionbar": "*",
     "shiftscrollfix": "*",
-    "chunksavingfix": "*"
+    "chunksavingfix": "*",
+    "forcecloseloadingscreen": "*"
   },
   "custom": {
     "modmenu": {
