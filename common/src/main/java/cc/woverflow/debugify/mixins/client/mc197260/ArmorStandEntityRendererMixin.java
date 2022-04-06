@@ -12,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.LightType;
 import org.spongepowered.asm.mixin.Mixin;
 
-import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
 
 @Mixin(ArmorStandEntityRenderer.class)
 public abstract class ArmorStandEntityRendererMixin extends LivingEntityRenderer<ArmorStandEntity, ArmorStandArmorEntityModel> {
@@ -30,8 +30,8 @@ public abstract class ArmorStandEntityRendererMixin extends LivingEntityRenderer
      */
     @Override
     public void render(ArmorStandEntity livingEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int providedLightLevel) {
-        int maxLightLevel = Math.max(providedLightLevel, DoubleStream.of(-0.5, 2, 2.5)
-                .mapToInt(operand -> {
+        int maxLightLevel = Math.max(providedLightLevel, IntStream.of(-1, 2, 3)
+                .map(operand -> {
                     BlockPos pos = livingEntity.getBlockPos().add(0, operand, 0);
                     return LightmapTextureManager.pack(livingEntity.world.getLightLevel(LightType.BLOCK, pos), livingEntity.world.getLightLevel(LightType.SKY, pos));
                 })
