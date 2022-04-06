@@ -23,10 +23,10 @@ public abstract class ArmorStandEntityRendererMixin extends LivingEntityRenderer
 
     /**
      * Overrides the light level passed to the renderer, with the maximum of:
-     * * Half a block below the armor stand
+     * * The block below the armor stand
      * * Bottom of the armor stand
      * * Top of the armor stand
-     * * Half a block above the armor stand
+     * * The block above the armor stand
      */
     @Override
     public void render(ArmorStandEntity livingEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int providedLightLevel) {
