@@ -84,6 +84,10 @@ components["java"].withGroovyBuilder {
     }
 }
 
+quiltflower {
+    addToRuntimeClasspath.set(true)
+}
+
 val minecraftVersion: String by rootProject
 
 modrinth {

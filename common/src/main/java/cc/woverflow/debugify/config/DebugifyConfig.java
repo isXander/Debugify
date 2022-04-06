@@ -18,8 +18,10 @@ public class DebugifyConfig {
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     private final Map<String, Boolean> jsonBugFixes = new HashMap<>();
+
     private final Map<String, Boolean> bugFixes = new HashMap<>();
     private boolean defaultDisabled = false;
+    public boolean optOutUpdater = false;
 
     private boolean preloaded = false;
 
@@ -50,6 +52,9 @@ public class DebugifyConfig {
                     .map((entry) -> new AbstractMap.SimpleEntry<>(entry.getKey(), entry.getValue().getAsBoolean()))
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
+            if (json.has("opt_out_updater")) {
+                optOutUpdater = json.get("opt_out_updater").getAsBoolean();
+            }
             if (json.has("default_disabled")) {
                 defaultDisabled = json.get("default_disabled").getAsBoolean();
             }
@@ -70,6 +75,7 @@ public class DebugifyConfig {
 
             JsonObject json = new JsonObject();
             bugFixes.forEach(json::addProperty);
+            json.addProperty("opt_out_updater", optOutUpdater);
             if (defaultDisabled) {
                 json.addProperty("default_disabled", true);
             }

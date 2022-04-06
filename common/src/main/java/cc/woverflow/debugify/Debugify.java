@@ -28,13 +28,15 @@ public class Debugify {
         }
 
         CompletableFuture.runAsync(() -> {
-            Version latestVersion = UpdateChecker.getLatestVersion();
+            if (!config.optOutUpdater) {
+                Version latestVersion = UpdateChecker.getLatestVersion();
 
-            if (latestVersion == null)
-                return;
+                if (latestVersion == null)
+                    return;
 
-            if (latestVersion.compareTo(version) > 0) {
-                logger.info("An update is available! You're on {} but the latest is {}!", version, latestVersion);
+                if (latestVersion.compareTo(version) > 0) {
+                    logger.info("An update is available! You're on {} but the latest is {}!", version, latestVersion);
+                }
             }
         });
 
