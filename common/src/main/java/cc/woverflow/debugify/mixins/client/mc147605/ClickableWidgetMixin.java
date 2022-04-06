@@ -9,6 +9,11 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Use the focus system of the parent screen, rather than trying to keep
+ * redundant, individual booleans inside each clickable element.
+ * Done by redirecting focus related methods to the parent screen (if available).
+ */
 @Mixin(ClickableWidget.class)
 public class ClickableWidgetMixin {
 
