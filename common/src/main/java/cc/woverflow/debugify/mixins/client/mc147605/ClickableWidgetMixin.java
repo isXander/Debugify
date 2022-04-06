@@ -28,7 +28,7 @@ public class ClickableWidgetMixin {
     @Inject(method = "isFocused", at = @At("HEAD"), cancellable = true)
     private void getScreenFocus(CallbackInfoReturnable<Boolean> cir) {
         if (MinecraftClient.getInstance().currentScreen != null) {
-            cir.setReturnValue(MinecraftClient.getInstance().currentScreen.getFocused().equals(this));
+            cir.setReturnValue(((Element) this).equals(MinecraftClient.getInstance().currentScreen.getFocused()));
         }
     }
 }
