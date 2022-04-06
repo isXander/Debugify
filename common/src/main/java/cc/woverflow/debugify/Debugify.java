@@ -12,6 +12,7 @@ public class Debugify {
     public static Logger logger = LoggerFactory.getLogger("Debugify");
     public static Version version = Version.valueOf("@VERSION@");
     public static DebugifyConfig config = new DebugifyConfig();
+    public static boolean configWasDirty = false;
 
     /**
      * Called from mixin plugin to manage
@@ -22,7 +23,8 @@ public class Debugify {
     }
 
     public static void onInitialize() {
-        if (!config.doesJsonMatchConfig()) {
+        configWasDirty = !config.doesJsonMatchConfig();
+        if (configWasDirty) {
             logger.info("Saving config because the loaded bug fixes are different to stored json.");
             config.save();
         }

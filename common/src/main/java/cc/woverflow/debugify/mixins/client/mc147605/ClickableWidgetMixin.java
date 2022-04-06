@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  */
 @Mixin(ClickableWidget.class)
 public class ClickableWidgetMixin {
-
     @Inject(method = "setFocused", at = @At("HEAD"), cancellable = true)
     private void setScreenFocus(boolean focused, CallbackInfo ci) {
         if (focused && MinecraftClient.getInstance().currentScreen != null) {
