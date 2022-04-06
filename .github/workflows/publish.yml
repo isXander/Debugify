@@ -1,3 +1,5 @@
+name: Publish Debugify
+
 on: workflow_dispatch
 
 jobs:
