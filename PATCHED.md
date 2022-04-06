@@ -21,7 +21,6 @@
 | [MC-127970](https://bugs.mojang.com/browse/MC-127970) | Using riptide on a trident with an item in your off-hand causes visual glitch with the item in your offhand                          |
 | [MC-140646](https://bugs.mojang.com/browse/MC-140646) | Text fields don't scroll while selecting text with Shift                                                                             |
 | [MC-145929](https://bugs.mojang.com/browse/MC-145929) | Actionbar text may be difficult to read without text background enabled                                                              |
-| [MC-147605](https://bugs.mojang.com/browse/MC-147605) | Text cursors can exist in multiple fields                                                                                            |
 | [MC-148149](https://bugs.mojang.com/browse/MC-148149) | Linux game crash when opening links                                                                                                  |
 | [MC-151412](https://bugs.mojang.com/browse/MC-151412) | "Edit Server Info" window does not focus "Server Name" text field automatically                                                      |
 | [MC-159163](https://bugs.mojang.com/browse/MC-159163) | Quickly pressing the sneak key causes the sneak animation to play twice                                                              |
