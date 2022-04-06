@@ -70,6 +70,7 @@
 | [MC-206922](https://bugs.mojang.com/browse/MC-206922) | Items dropped by entities that are killed by lightning instantly disappear                         |
 | [MC-215530](https://bugs.mojang.com/browse/MC-215530) | The freezing effect isn't immediately removed when switching into spectator mode                   |
 | [MC-223153](https://bugs.mojang.com/browse/MC-223153) | Block of Raw Copper uses stone sounds instead of copper sounds                                     |
+| [MC-224729](https://bugs.mojang.com/browse/MC-224729) | Partially generated chunks are not saved in some situations                                        |
 | [MC-231743](https://bugs.mojang.com/browse/MC-231743) | minecraft.used:minecraft.POTTABLE_PLANT doesn't increase when placing plants into flower pots      |
 
 ## Patched in snapshots

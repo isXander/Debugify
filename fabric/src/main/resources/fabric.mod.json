@@ -45,7 +45,8 @@
     "forgetmechunk": "*",
     "fastopenlinksandfolders": "*",
     "shadowedactionbar": "*",
-    "shiftscrollfix": "*"
+    "shiftscrollfix": "*",
+    "chunksavingfix": "*"
   },
   "custom": {
     "modmenu": {

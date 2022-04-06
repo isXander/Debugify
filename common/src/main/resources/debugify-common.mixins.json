@@ -24,6 +24,7 @@
     "client.mc165381.ClientPlayerEntityMixin",
     "client.mc165595.GuardianEntityRendererMixin",
     "client.mc183776.KeyboardMixin",
+    "client.mc197260.ArmorStandEntityRendererMixin",
     "client.mc215531.InGameHudMixin",
     "client.mc217716.GameRendererMixin",
     "client.mc231097.ClientPlayerEntityMixin",
@@ -35,8 +36,7 @@
     "client.mc53312.VillagerResemblingModelMixin",
     "client.mc79545.InGameHudMixin",
     "client.mc80859.HandledScreenMixin",
-    "client.mc93384.LivingEntityMixin",
-    "client.mc197260.ArmorStandEntityRendererMixin"
+    "client.mc93384.LivingEntityMixin"
   ],
   "mixins": [
     "server.mc100991.FishingBobberEntityMixin",
@@ -58,6 +58,7 @@
     "server.mc214147.SkeletonEntityMixin",
     "server.mc215530.ServerPlayerEntityMixin",
     "server.mc223153.BlocksMixin",
+    "server.mc224729.ThreadedAnvilChunkStorageMixin",
     "server.mc231743.FlowerPotBlockMixin",
     "server.mc30391.LivingEntityMixin",
     "server.mc69216.ServerPlayerEntityMixin",
