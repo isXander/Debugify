@@ -49,9 +49,9 @@ allprojects {
     apply(plugin = "architectury-plugin")
 
     group = "cc.woverflow"
-    version = "1.6.0"
+    version = "1.7.0"
 
-    val changelog by extra { rootProject.file("changelogs/${project.version}.md").readText() }
+    val changelog by extra { rootProject.file("changelogs/${project.version}.md").takeIf { it.exists() }?.readText() }
 
     repositories {
         mavenCentral()
