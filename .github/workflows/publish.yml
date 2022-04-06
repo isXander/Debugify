@@ -25,3 +25,9 @@ jobs:
         run: chmod +x gradlew
       - name: Publish to All Platforms
         run: ./gradlew publishDebugify --no-daemon
+        env:
+          xander-api.username: wyvest
+          xander-api.password: ${{ secrets.XANDER_API_PASS }}
+          modrinth.token: ${{ secrets.MODRINTH_XANDER_TOKEN }}
+          curseforge.token: ${{ secrets.CURSEFORGE_CI_TOKEN }}
+          github.token: ${{ secrets.GITHUB_TOKEN }}
