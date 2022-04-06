@@ -9,6 +9,7 @@ on:
       - 'LICENSE'
       - '.gitignore'
       - '.gitattributes'
+      - 'changelogs/*'
   pull_request:
     branches:
       - '*'
@@ -17,6 +18,7 @@ on:
       - 'LICENSE'
       - '.gitignore'
       - '.gitattributes'
+      - 'changelogs/*'
   workflow_dispatch:
 jobs:
   build:
