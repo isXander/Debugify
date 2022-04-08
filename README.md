@@ -1,7 +1,9 @@
-# Debugify
-## What the hell is Debugify?
-Debugify is a project that fixes **over 60** bugs found on the [bug tracker](https://bugs.mojang.com/projects/MC/issues) in Minecraft.
-(and does nothing more!)
+<img width="200" src="https://dl.isxander.dev/logos/debugify/v2/debugify-512x.png" alt="Debugify Icon" align="right">
+<div align="left">
+<h1>Debugify</h1>
+<h3>Debugify is a project that fixes **over 60** bugs found on the [bug tracker](https://bugs.mojang.com/projects/MC/issues) in Minecraft.
+(and does nothing more!)</h3>
+</div>
 
 ## What does this mod replace?
 This mod replaces many mods and implements fixes from some others
