@@ -16,7 +16,6 @@ import java.util.stream.IntStream;
 
 @Mixin(ArmorStandEntityRenderer.class)
 public abstract class ArmorStandEntityRendererMixin extends LivingEntityRenderer<ArmorStandEntity, ArmorStandArmorEntityModel> {
-
     public ArmorStandEntityRendererMixin(EntityRendererFactory.Context ctx, ArmorStandArmorEntityModel model, float shadowRadius) {
         super(ctx, model, shadowRadius);
     }

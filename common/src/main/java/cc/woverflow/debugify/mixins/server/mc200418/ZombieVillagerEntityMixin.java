@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 @Mixin(ZombieVillagerEntity.class)
 public class ZombieVillagerEntityMixin {
     @Inject(method = "finishConversion", at = @At("TAIL"), locals = LocalCapture.CAPTURE_FAILSOFT)
+    @SuppressWarnings("InvalidInjectorMethodSignature")
     private void dismountIfJockey(ServerWorld world, CallbackInfo ci, VillagerEntity villager) {
         if (villager.hasVehicle()) {
             villager.dismountVehicle();

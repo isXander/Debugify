@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(InGameHud.class)
 public class InGameHudMixin {
-    @Shadow @Final protected MinecraftClient client;
+    @Shadow @Final private MinecraftClient client;
 
     /**
      * {@see forge mixin}

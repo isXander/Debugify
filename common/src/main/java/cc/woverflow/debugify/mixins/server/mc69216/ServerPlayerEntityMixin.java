@@ -19,7 +19,8 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
 
     @Inject(method = "changeGameMode", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/network/ServerPlayerEntity;stopRiding()V"))
     private void onChangeToSpectator(GameMode gameMode, CallbackInfoReturnable<Boolean> cir) {
-        if (fishHook != null)
+        if (fishHook != null) {
             fishHook.discard();
+        }
     }
 }

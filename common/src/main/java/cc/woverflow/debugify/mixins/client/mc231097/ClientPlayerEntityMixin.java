@@ -17,7 +17,8 @@ public abstract class ClientPlayerEntityMixin {
 
     @Inject(method = "dropSelectedItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerInventory;dropSelectedItem(Z)Lnet/minecraft/item/ItemStack;", shift = At.Shift.AFTER))
     private void onDropItem(boolean entireStack, CallbackInfoReturnable<Boolean> cir) {
-        if (isUsingItem())
-            client.interactionManager.stopUsingItem((ClientPlayerEntity)(Object)this);
+        if (isUsingItem()) {
+            client.interactionManager.stopUsingItem((ClientPlayerEntity) (Object) this);
+        }
     }
 }

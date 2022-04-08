@@ -1,9 +1,9 @@
 package cc.woverflow.debugify.mixins.client.mc122477;
 
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.util.Util;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(TextFieldWidget.class)
 public class TextFieldWidgetMixin {
+    @Unique
     private int debugify$ticks = 0;
 
     @Inject(method = "tick", at = @At("HEAD"))

@@ -11,6 +11,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(FishingBobberEntity.class)
 public abstract class FishingBobberEntityMixin extends ProjectileEntityMixin {
+    /**
+     * notifies the combat tracker
+     */
     @Inject(method = "pullHookedEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;setVelocity(Lnet/minecraft/util/math/Vec3d;)V"))
     private void onPullEntity(Entity entity, CallbackInfo ci) {
         if (entity instanceof LivingEntity livingEntity) {

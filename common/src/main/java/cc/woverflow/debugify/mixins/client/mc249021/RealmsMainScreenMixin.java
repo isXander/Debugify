@@ -34,7 +34,7 @@ public abstract class RealmsMainScreenMixin extends Screen {
             newsButton.active = true;
         }
 
-        /**
+        /*
          * set visible at all times as it appears that you can view
          * invitations before the servers have finished loading
          *

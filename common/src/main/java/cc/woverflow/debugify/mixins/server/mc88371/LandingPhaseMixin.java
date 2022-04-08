@@ -11,6 +11,7 @@ public class LandingPhaseMixin {
     @ModifyExpressionValue(method = "serverTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;getTopPosition(Lnet/minecraft/world/Heightmap$Type;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/util/math/BlockPos;"))
     private BlockPos getLandingPos(BlockPos pos) {
         if (pos.getY() == 0) {
+            // average height of portal
             return pos.withY(65);
         }
         return pos;
