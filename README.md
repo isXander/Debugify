@@ -1,7 +1,7 @@
 <img width="200" src="https://dl.isxander.dev/logos/debugify/v2/debugify-512x.png" alt="Debugify Icon" align="right">
 <div align="left">
 <h1>Debugify</h1>
-<h3>Debugify is a project that fixes **over 60** bugs found on the [bug tracker](https://bugs.mojang.com/projects/MC/issues) in Minecraft.
+<h3>Debugify is a project that fixes **over 60** bugs found on the <a href="https://bugs.mojang.com/projects/MC/issues">bug tracker</a> in Minecraft.
 (and does nothing more!)</h3>
 </div>
 
