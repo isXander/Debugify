@@ -128,6 +128,10 @@ if (hasProperty("curseforge.token")) {
             addGameVersion(project.name.capitalize())
             addGameVersion("Java 17")
 
+            relations(closureOf<com.matthewprenger.cursegradle.CurseRelation> {
+                requiredDependency("cloth-config-forge")
+            })
+
             changelog = extra["changelog"]
             changelogType = "markdown"
         })

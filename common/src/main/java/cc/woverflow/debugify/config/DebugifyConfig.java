@@ -20,7 +20,7 @@ public class DebugifyConfig {
     private final Map<String, Boolean> jsonBugFixes = new HashMap<>();
 
     private final Map<String, Boolean> bugFixes = new HashMap<>();
-    private boolean defaultDisabled = false;
+    public boolean defaultDisabled = false;
     public boolean optOutUpdater = false;
 
     private boolean preloaded = false;

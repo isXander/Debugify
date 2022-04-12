@@ -37,6 +37,14 @@ public class ConfigGuiHelper {
                 .build();
         miscCategory.addEntry(optOutUpdaterEntry);
 
+        AbstractConfigListEntry<?> defaultDisabledEntry = builder.entryBuilder()
+                .startBooleanToggle(new LiteralText("Default to Disabled"), config.defaultDisabled)
+                .setTooltip(new LiteralText("Default new bug fixes to be disabled rather than enabled."))
+                .setSaveConsumer((toggled) -> config.defaultDisabled = toggled)
+                .setDefaultValue(false)
+                .build();
+        miscCategory.addEntry(defaultDisabledEntry);
+
         return builder.build();
     }
 }

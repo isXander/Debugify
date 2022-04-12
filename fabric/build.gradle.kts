@@ -100,6 +100,7 @@ modrinth {
     gameVersions.set(listOf(minecraftVersion))
     loaders.set(listOf(project.name))
     changelog.set(extra["changelog"].toString())
+    dependencies.add(com.modrinth.minotaur.dependencies.Dependency("modmenu", "optional"))
 }
 
 rootProject.tasks["publishToModrinth"].dependsOn(tasks["modrinth"])
@@ -117,6 +118,11 @@ if (hasProperty("curseforge.token")) {
             addGameVersion(minecraftVersion)
             addGameVersion(project.name.capitalize())
             addGameVersion("Java 17")
+
+            relations(closureOf<com.matthewprenger.cursegradle.CurseRelation> {
+                requiredDependency("cloth-config")
+                optionalDependency("modmenu")
+            })
 
             changelog = extra["changelog"]
             changelogType = "markdown"

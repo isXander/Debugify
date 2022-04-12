@@ -42,6 +42,8 @@
     "client.mc93384.LivingEntityMixin"
   ],
   "mixins": [
+    "client.mc147605.AbstractParentElementMixin",
+    "client.mc147605.TextFieldWidgetMixin",
     "server.mc100991.FishingBobberEntityMixin",
     "server.mc100991.ProjectileEntityMixin",
     "server.mc119417.ServerPlayerEntityMixin",

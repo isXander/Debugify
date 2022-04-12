@@ -1,7 +1,7 @@
 <img width="200" src="https://dl.isxander.dev/logos/debugify/v2/debugify-512x.png" alt="Debugify Icon" align="right">
 <div align="left">
 <h1>Debugify</h1>
-<h3>Debugify is a project that fixes **over 60** bugs found on the <a href="https://bugs.mojang.com/projects/MC/issues">bug tracker</a> in Minecraft.
+<h3>Debugify is a project that fixes <b>over 60</b> bugs found on the <a href="https://bugs.mojang.com/projects/MC/issues">bug tracker</a> in Minecraft.
 (and does nothing more!)</h3>
 </div>
 
@@ -32,7 +32,7 @@ So you should definitely use it on both.
 
 ## Can I include this in my modpack?
 Yes! Of course! We even hid a little feature in the mod for you! The constant updates may be exhausting to maintain,
-so we added a hidden config option that defaults new bug fixes to off, until you get round to looking at it.
+so we added a config option that defaults new bug fixes to off, until you get round to looking at it.
 
 ```json5
 {
@@ -42,6 +42,7 @@ so we added a hidden config option that defaults new bug fixes to off, until you
 ```
 
 ## Credits
-- [**W-OVERFLOW**](https://github.com/orgs/W-OVERFLOW/people)
-- [**Contributors**](https://github.com/W-OVERFLOW/Debugify/graphs/contributors)
-- *Logo design by @MoonTidez*
+- [**isXander**](https://github.com/isXander) - Founder of project
+- [**W-OVERFLOW**](https://github.com/orgs/W-OVERFLOW/people) - Backing organization
+- [**Contributors**](https://github.com/W-OVERFLOW/Debugify/graphs/contributors) - For PRing new fixes!
+- [**MoonTidez**](https://github.com/MoonTidez) - Creating an awesome logo!
