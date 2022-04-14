@@ -4,7 +4,6 @@ plugins {
 
 repositories {
     mavenCentral()
-    mavenLocal()
     gradlePluginPortal()
     maven("https://maven.fabricmc.net")
     maven("https://maven.architectury.dev")
