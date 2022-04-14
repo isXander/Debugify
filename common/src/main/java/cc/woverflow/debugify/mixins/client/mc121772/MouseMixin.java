@@ -9,8 +9,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(Mouse.class)
 public class MouseMixin {
     /**
-     * Taken from Shift-Scroll Fix
-     * https://github.com/nelson2tm/shift-scroll-fix
+     * Taken from <a href="https://github.com/nelson2tm/shift-scroll-fix">Shift-Scroll Fix</a>
      * under MIT license
      *
      * Adapted to work in a multi-loader environment

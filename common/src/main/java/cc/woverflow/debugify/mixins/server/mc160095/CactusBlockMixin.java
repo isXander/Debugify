@@ -17,7 +17,7 @@ public class CactusBlockMixin {
         BlockState state = instance.getBlockState(pos);
         //If it is a moving piston we check the block its moving not the moving piston block itself.
         if (state.isOf(Blocks.MOVING_PISTON) && instance.getBlockEntity(pos) instanceof PistonBlockEntity pistonBlock) {
-            return pistonBlock.getPushedBlock();
+            return pistonBlock.getMovedBlockState();
         }
         return state;
     }

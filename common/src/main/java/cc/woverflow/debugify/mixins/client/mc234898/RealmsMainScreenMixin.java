@@ -36,7 +36,7 @@ public abstract class RealmsMainScreenMixin extends Screen {
      * avoid checks to see if realms trial
      * is available as it's a faulty check
      */
-    @Inject(method = "method_24989", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "m_hsfgqbkv", at = @At("HEAD"), cancellable = true)
     private void onPressTrialButton(ButtonWidget button, CallbackInfo ci) {
         Util.getOperatingSystem().open("https://aka.ms/startjavarealmstrial");
         this.client.setScreen(this.lastScreen);

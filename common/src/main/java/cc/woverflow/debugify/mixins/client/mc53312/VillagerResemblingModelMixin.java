@@ -6,8 +6,7 @@ import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 /**
- * Taken from RandomPatches
- * https://github.com/TheRandomLabs/RandomPatches
+ * Taken from <a href="https://github.com/TheRandomLabs/RandomPatches">RandomPatches</a>
  * under MIT license
  *
  * Adapted to work in newer versions and a multi-loader environment
