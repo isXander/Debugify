@@ -8,4 +8,8 @@ public class ExpectUtilsImpl {
     public static Path getConfigPath() {
         return FabricLoader.getInstance().getConfigDir();
     }
+
+    public static boolean isModLoaded(String modId) {
+        return FabricLoader.getInstance().isModLoaded(modId);
+    }
 }

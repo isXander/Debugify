@@ -9,4 +9,9 @@ public class ExpectUtils {
     public static Path getConfigPath() {
         throw new UnsupportedOperationException();
     }
+
+    @ExpectPlatform
+    public static boolean isModLoaded(String modId) {
+        throw new UnsupportedOperationException();
+    }
 }

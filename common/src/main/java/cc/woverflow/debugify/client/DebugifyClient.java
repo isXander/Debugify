@@ -13,7 +13,10 @@ public class DebugifyClient {
             Debugify.logger.info("Re-caching descriptions because json doesn't match config.");
             bugFixDescriptionCache.trySave();
         } else {
-            bugFixDescriptionCache.load();
+            if (!bugFixDescriptionCache.load()) {
+                Debugify.logger.info("Failed to load descriptions, re-caching.");
+                bugFixDescriptionCache.trySave();
+            }
         }
     }
 }

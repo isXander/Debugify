@@ -43,6 +43,6 @@ public class Debugify {
         });
 
         logger.info("Successfully Debugify'd your game!");
-        logger.info("Proudly fixes {} bugs!", config.getBugFixes().size());
+        logger.info("Proudly fixes {} bugs!", config.getBugFixes().values().stream().filter((enabled) -> enabled).count());
     }
 }

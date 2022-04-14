@@ -42,7 +42,11 @@
     "client.mc53312.VillagerResemblingModelMixin",
     "client.mc79545.InGameHudMixin",
     "client.mc80859.HandledScreenMixin",
-    "client.mc93384.LivingEntityMixin"
+    "client.mc93384.LivingEntityMixin",
+    "client.mc147605.AbstractParentElementMixin",
+    "client.mc147605.TextFieldWidgetMixin",
+    "client.mc53312.IllagerEntityModelMixin",
+    "client.mc53312.ZombieVillagerEntityModelMixin"
   ],
   "mixins": [
     "server.mc100991.FishingBobberEntityMixin",
