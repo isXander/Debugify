@@ -2,6 +2,7 @@ package cc.woverflow.debugify.client.utils;
 
 import cc.woverflow.debugify.Debugify;
 import cc.woverflow.debugify.utils.ExpectUtils;
+import cc.woverflow.debugify.utils.Loader;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -44,7 +45,7 @@ public class BugFixDescriptionCache {
                 JsonObject fields = json.getAsJsonObject("fields");
                 String summary = fields.get("summary").getAsString();
 
-                descriptionHolder.put(id, wrapTextLenient(summary, 50));
+                descriptionHolder.put(id, !(Loader.getLoader() == Loader.FABRIC && ExpectUtils.isModLoaded("tooltipfix")) ? wrapTextLenient(summary, 50) : summary);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -80,11 +81,11 @@ public class BugFixDescriptionCache {
     }
 
     public boolean load() {
+        Debugify.logger.info("Loading Description Cache");
+
         if (!Files.exists(file)) {
             return false;
         }
-
-        Debugify.logger.info("Loading Description Cache");
 
         try {
             String jsonString = Files.readString(file);
@@ -107,6 +108,10 @@ public class BugFixDescriptionCache {
 
     public String get(String id) {
         return descriptionHolder.get(id);
+    }
+
+    public boolean has(String id) {
+        return descriptionHolder.containsKey(id);
     }
 
     private String wrapTextLenient(String text, int charLength) {

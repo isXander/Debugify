@@ -5,6 +5,7 @@ import cc.woverflow.debugify.config.DebugifyConfig;
 import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
+import me.shedaniel.clothconfig2.impl.builders.BooleanToggleBuilder;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.LiteralText;
 
@@ -17,15 +18,16 @@ public class ConfigGuiHelper {
 
         ConfigCategory fixesCategory = builder.getOrCreateCategory(new LiteralText("Fixes"));
         config.getBugFixes().forEach((bug, enabled) -> {
-            AbstractConfigListEntry<?> entry = builder.entryBuilder()
+            BooleanToggleBuilder entry = builder.entryBuilder()
                     .startBooleanToggle(new LiteralText(bug), enabled)
-                    .setTooltip(new LiteralText(DebugifyClient.bugFixDescriptionCache.get(bug)))
                     .setSaveConsumer((toggled) -> config.getBugFixes().replace(bug, toggled))
                     .setDefaultValue(true)
-                    .requireRestart()
-                    .build();
+                    .requireRestart();
 
-            fixesCategory.addEntry(entry);
+            if (DebugifyClient.bugFixDescriptionCache.has(bug))
+                entry.setTooltip(new LiteralText(DebugifyClient.bugFixDescriptionCache.get(bug)));
+
+            fixesCategory.addEntry(entry.build());
         });
 
         ConfigCategory miscCategory = builder.getOrCreateCategory(new LiteralText("Misc"));

@@ -49,7 +49,7 @@ allprojects {
     apply(plugin = "architectury-plugin")
 
     group = "cc.woverflow"
-    version = "1.7.1"
+    version = "1.7.2"
 
     val changelog by extra { rootProject.file("changelogs/${project.version}.md").takeIf { it.exists() }?.readText() }
 
