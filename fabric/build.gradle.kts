@@ -1,10 +1,9 @@
 plugins {
     id("com.github.johnrengelman.shadow") version "7.+"
-    id("com.modrinth.minotaur")
-    id("com.matthewprenger.cursegradle")
+    `platform-publishing`
 }
 
-base.archivesName.set("debugify-${project.name}")
+base.archivesName.set("debugify")
 
 architectury {
     platformSetupLoomIde()
@@ -70,7 +69,8 @@ tasks {
         injectAccessWidener.set(true)
         inputFile.set(shadowJar.get().archiveFile)
         dependsOn(shadowJar)
-        archiveClassifier.set(null as String?)
+        val minecraftVersion: String by rootProject
+        archiveClassifier.set("${project.name}-$minecraftVersion")
     }
 
     jar {
@@ -87,51 +87,3 @@ components["java"].withGroovyBuilder {
 quiltflower {
     addToRuntimeClasspath.set(true)
 }
-
-val minecraftVersion: String by rootProject
-
-modrinth {
-    token.set(findProperty("modrinth.token")?.toString())
-    projectId.set("QwxR6Gcd")
-    versionName.set("[${project.name.capitalize()} $minecraftVersion] ${project.version}")
-    versionNumber.set("${project.version}-${project.name}")
-    versionType.set("release")
-    uploadFile.set(tasks.remapJar.get())
-    gameVersions.set(listOf(minecraftVersion))
-    loaders.set(listOf(project.name))
-    changelog.set(extra["changelog"].toString())
-    dependencies.add(com.modrinth.minotaur.dependencies.Dependency("modmenu", "optional"))
-}
-
-rootProject.tasks["publishToModrinth"].dependsOn(tasks["modrinth"])
-
-if (hasProperty("curseforge.token")) {
-    curseforge {
-        apiKey = findProperty("curseforge.token")
-        project(closureOf<com.matthewprenger.cursegradle.CurseProject> {
-            mainArtifact(tasks.remapJar.get(), closureOf<com.matthewprenger.cursegradle.CurseArtifact> {
-                displayName = "[${project.name.capitalize()} $minecraftVersion] ${project.version}"
-            })
-
-            id = "596224"
-            releaseType = "beta"
-            addGameVersion(minecraftVersion)
-            addGameVersion(project.name.capitalize())
-            addGameVersion("Java 17")
-
-            relations(closureOf<com.matthewprenger.cursegradle.CurseRelation> {
-                requiredDependency("cloth-config")
-                optionalDependency("modmenu")
-            })
-
-            changelog = extra["changelog"]
-            changelogType = "markdown"
-        })
-
-        options(closureOf<com.matthewprenger.cursegradle.Options> {
-            forgeGradleIntegration = false
-        })
-    }
-}
-
-rootProject.tasks["publishToCurseforge"].dependsOn(tasks["curseforge"])

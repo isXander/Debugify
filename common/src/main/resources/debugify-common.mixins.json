@@ -39,14 +39,12 @@
     "client.mc249059.DownloadingTerrainScreenMixin",
     "client.mc4490.FishingBobberEntityRendererMixin",
     "client.mc46766.MinecraftClientMixin",
+    "client.mc53312.IllagerEntityModelMixin",
     "client.mc53312.VillagerResemblingModelMixin",
+    "client.mc53312.ZombieVillagerEntityModelMixin",
     "client.mc79545.InGameHudMixin",
     "client.mc80859.HandledScreenMixin",
-    "client.mc93384.LivingEntityMixin",
-    "client.mc147605.AbstractParentElementMixin",
-    "client.mc147605.TextFieldWidgetMixin",
-    "client.mc53312.IllagerEntityModelMixin",
-    "client.mc53312.ZombieVillagerEntityModelMixin"
+    "client.mc93384.LivingEntityMixin"
   ],
   "mixins": [
     "server.mc100991.FishingBobberEntityMixin",

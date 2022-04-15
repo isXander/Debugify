@@ -69,6 +69,8 @@ afterEvaluate {
 
             dependsOn("githubRelease")
 
+            dependsOn("publishAllPublicationsToMavenRepository")
+
             dependsOn(updateApiVersion)
         }
     }
