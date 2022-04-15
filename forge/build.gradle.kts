@@ -32,6 +32,9 @@ dependencies {
     val minecraftVersion: String by rootProject
     val forgeVersion: String by rootProject
     val clothVersion: String by rootProject
+    val jSemVerVersion: String by rootProject
+    val mixinExtrasVersion: String by rootProject
+    val conditionalMixinVersion: String by rootProject
 
     forge("net.minecraftforge:forge:$minecraftVersion-$forgeVersion")
 
@@ -39,16 +42,22 @@ dependencies {
     shadowCommon(project(path = ":common", configuration = "transformProductionForge")) { isTransitive = false }
 
 
-    "com.github.zafarkhaja:java-semver:0.9.+".let {
+    "com.github.zafarkhaja:java-semver:$jSemVerVersion".let {
         implementation(it)
         forgeRuntimeLibrary(it)
         shadowCommon(it)
     }
 
-    "com.github.llamalad7:mixinextras:0.0.+".let {
+    "com.github.llamalad7:mixinextras:$mixinExtrasVersion".let {
         forgeRuntimeLibrary(it)
         implementation(it)
         annotationProcessor(it)
+        shadowCommon(it)
+    }
+
+    "com.github.Fallen-Breath:conditional-mixin:$conditionalMixinVersion".let {
+        forgeRuntimeLibrary(it)
+        implementation(it)
         shadowCommon(it)
     }
 

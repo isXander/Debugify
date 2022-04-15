@@ -5,15 +5,22 @@ plugins {
 dependencies {
     val fabricLoaderVersion: String by rootProject
     val clothVersion: String by rootProject
+    val mixinExtrasVersion: String by rootProject
+    val conditionalMixinVersion: String by rootProject
+    val jSemVerVersion: String by rootProject
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
-    implementation("com.github.zafarkhaja:java-semver:0.9.+")
+    implementation("com.github.zafarkhaja:java-semver:$jSemVerVersion")
 
-    implementation("com.github.llamalad7:mixinextras:0.0.+")
-    annotationProcessor("com.github.llamalad7:mixinextras:0.0.+")
+    implementation("com.github.llamalad7:mixinextras:$mixinExtrasVersion")
+    annotationProcessor("com.github.llamalad7:mixinextras:$mixinExtrasVersion")
+
+    modImplementation("com.github.Fallen-Breath:conditional-mixin:$conditionalMixinVersion")
 
     modImplementation("me.shedaniel.cloth:cloth-config:$clothVersion")
+
+
 }
 
 architectury {

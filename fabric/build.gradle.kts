@@ -24,18 +24,28 @@ val shadowCommon by configurations.creating
 dependencies {
     val fabricLoaderVersion: String by rootProject
     val clothVersion: String by rootProject
+    val jSemVerVersion: String by rootProject
+    val mixinExtrasVersion: String by rootProject
+    val conditionalMixinVersion: String by rootProject
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
     common(project(path = ":common", configuration = "namedElements")) { isTransitive = false }
     shadowCommon(project(path = ":common", configuration = "transformProductionFabric")) { isTransitive = false }
 
-    implementation("com.github.zafarkhaja:java-semver:0.9.+")
-    shadowCommon("com.github.zafarkhaja:java-semver:0.9.+")
+    "com.github.zafarkhaja:java-semver:$jSemVerVersion".let {
+        implementation(it)
+        shadowCommon(it)
+    }
 
-    "com.github.llamalad7:mixinextras:0.0.+".let {
+    "com.github.llamalad7:mixinextras:$mixinExtrasVersion".let {
         implementation(it)
         annotationProcessor(it)
+        include(it)
+    }
+
+    "com.github.Fallen-Breath:conditional-mixin:$conditionalMixinVersion".let {
+        implementation(it)
         include(it)
     }
 
