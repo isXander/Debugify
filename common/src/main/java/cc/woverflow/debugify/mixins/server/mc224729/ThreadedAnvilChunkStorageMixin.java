@@ -23,7 +23,7 @@ public class ThreadedAnvilChunkStorageMixin {
         return (c) -> predicate.test(c) || c instanceof ProtoChunk;
     }
 
-    @ModifyExpressionValue(method = "save(Lnet/minecraft/server/world/ChunkHolder;)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ChunkHolder;isAccessible()Z"))
+    @ModifyExpressionValue(method = "saveChunkIfNeeded", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ChunkHolder;isAccessible()Z"))
     private boolean alwaysAccessibleChunkSave(boolean accessible) {
         return true;
     }
