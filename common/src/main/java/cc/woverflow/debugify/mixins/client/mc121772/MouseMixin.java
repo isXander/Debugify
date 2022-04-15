@@ -1,11 +1,17 @@
 package cc.woverflow.debugify.mixins.client.mc121772;
 
+import me.fallenbreath.conditionalmixin.api.annotation.Condition;
+import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.Mouse;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
+@Restriction(conflict = {
+        @Condition("mcmouser"),
+        @Condition("shift-scroll-fix")
+})
 @Mixin(Mouse.class)
 public class MouseMixin {
     /**

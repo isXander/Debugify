@@ -41,13 +41,6 @@
     "cloth-config2": "6.x.x",
     "modmenu": "*"
   },
-  "breaks": {
-    "forgetmechunk": "*",
-    "fastopenlinksandfolders": "*",
-    "shadowedactionbar": "*",
-    "shiftscrollfix": "*",
-    "chunksavingfix": "*"
-  },
   "custom": {
     "modmenu": {
       "links": {

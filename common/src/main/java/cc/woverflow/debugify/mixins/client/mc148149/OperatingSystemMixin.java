@@ -1,5 +1,7 @@
 package cc.woverflow.debugify.mixins.client.mc148149;
 
+import me.fallenbreath.conditionalmixin.api.annotation.Condition;
+import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import net.minecraft.util.Util;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -23,6 +25,7 @@ import java.util.concurrent.CompletableFuture;
  *
  * @author altrisi
  */
+@Restriction(conflicts = @Condition("fastopenlinksandfolders"))
 @Mixin(Util.OperatingSystem.class)
 public abstract class OperatingSystemMixin {
     @Shadow

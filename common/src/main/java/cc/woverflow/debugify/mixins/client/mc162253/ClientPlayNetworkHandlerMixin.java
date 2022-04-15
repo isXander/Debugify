@@ -1,12 +1,15 @@
 package cc.woverflow.debugify.mixins.client.mc162253;
 
 import com.llamalad7.mixinextras.injector.WrapWithCondition;
+import me.fallenbreath.conditionalmixin.api.annotation.Condition;
+import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.util.math.ChunkSectionPos;
 import net.minecraft.world.chunk.light.LightingProvider;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
+@Restriction(conflicts = @Condition("forgetmechunk"))
 @Mixin(ClientPlayNetworkHandler.class)
 public class ClientPlayNetworkHandlerMixin {
     /**
