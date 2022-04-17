@@ -55,6 +55,7 @@
     "server.mc124177.ServerPlayerEntityMixin",
     "server.mc129909.ServerPlayerEntityMixin",
     "server.mc132878.ArmorStandEntityMixin",
+    "server.mc135971.ScreenHandlerMixin",
     "server.mc14923.ServerPlayNetworkHandlerMixin",
     "server.mc155509.PufferfishEntityMixin",
     "server.mc160095.CactusBlockMixin",

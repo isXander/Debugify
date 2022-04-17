@@ -23,7 +23,7 @@ public class Debugify {
     }
 
     public static void onInitialize() {
-        configWasDirty = !config.doesJsonMatchConfig();
+        configWasDirty = !config.doesJsonHaveIdenticalKeys();
         if (configWasDirty) {
             logger.info("Saving config because the loaded bug fixes are different to stored json.");
             config.save();

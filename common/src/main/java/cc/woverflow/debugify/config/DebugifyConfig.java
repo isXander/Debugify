@@ -1,7 +1,6 @@
 package cc.woverflow.debugify.config;
 
 import cc.woverflow.debugify.Debugify;
-import cc.woverflow.debugify.fixes.BugFix;
 import cc.woverflow.debugify.fixes.BugFixData;
 import cc.woverflow.debugify.utils.ExpectUtils;
 import com.google.gson.Gson;
@@ -10,9 +9,7 @@ import com.google.gson.JsonObject;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.AbstractMap;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class DebugifyConfig {
@@ -21,7 +18,7 @@ public class DebugifyConfig {
 
     private final Map<String, Boolean> jsonBugFixes = new HashMap<>();
 
-    private final Map<BugFixData, Boolean> bugFixes = new HashMap<>();
+    private final Map<BugFixData, Boolean> bugFixes = new TreeMap<>();
     public boolean defaultDisabled = false;
     public boolean optOutUpdater = false;
 
@@ -97,7 +94,8 @@ public class DebugifyConfig {
         return bugFixes;
     }
 
-    public boolean doesJsonMatchConfig() {
-        return jsonBugFixes.equals(bugFixes);
+    public boolean doesJsonHaveIdenticalKeys() {
+        return jsonBugFixes.keySet().containsAll(bugFixes.keySet().stream().map(BugFixData::bugId).collect(Collectors.toSet()))
+                && jsonBugFixes.size() == bugFixes.size();
     }
 }
