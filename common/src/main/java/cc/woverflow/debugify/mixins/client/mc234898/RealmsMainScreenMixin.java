@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc234898;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.realms.dto.RealmsServer;
@@ -14,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+@BugFix(id = "MC-234898", env = BugFix.Env.CLIENT)
 @Mixin(RealmsMainScreen.class)
 public abstract class RealmsMainScreenMixin extends Screen {
     @Shadow private ButtonWidget createTrialButton;

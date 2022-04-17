@@ -30,11 +30,11 @@ afterEvaluate {
                 val json = JsonObject()
                 json.addProperty("username", findProperty("xander-api.username")?.toString())
                 json.addProperty("password", findProperty("xander-api.password")?.toString())
-                POST(HttpRequest.BodyPublishers.ofString(gson.toJson(json)))
+                POST(BodyPublishers.ofString(gson.toJson(json)))
                 header("Content-Type", "application/json")
             }.build()
 
-            val loginResponse = client.send(loginRequest, HttpResponse.BodyHandlers.ofString())
+            val loginResponse = client.send(loginRequest, BodyHandlers.ofString())
             if (loginResponse.statusCode() != 200) {
                 println("FAILED TO LOGIN TO API.ISXANDER.DEV")
                 println("STATUS CODE: ${loginResponse.statusCode()}")
@@ -53,7 +53,7 @@ afterEvaluate {
                     header("Authorization", "Bearer $jwtToken")
                 }.build()
 
-                val response = client.send(newVersionRequest, HttpResponse.BodyHandlers.ofString())
+                val response = client.send(newVersionRequest, BodyHandlers.ofString())
             }
         }
 

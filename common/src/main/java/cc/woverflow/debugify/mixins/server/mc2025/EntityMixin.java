@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.server.mc2025;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
@@ -12,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+@BugFix(id = "MC-2025", env = BugFix.Env.SERVER)
 @Mixin(Entity.class)
 public abstract class EntityMixin {
     @Shadow public abstract Box getBoundingBox();

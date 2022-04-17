@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc197260;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.client.render.LightmapTextureManager;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.ArmorStandEntityRenderer;
@@ -14,6 +15,7 @@ import org.spongepowered.asm.mixin.Mixin;
 
 import java.util.stream.IntStream;
 
+@BugFix(id = "MC-197260", env = BugFix.Env.CLIENT)
 @Mixin(ArmorStandEntityRenderer.class)
 public abstract class ArmorStandEntityRendererMixin extends LivingEntityRenderer<ArmorStandEntity, ArmorStandArmorEntityModel> {
     public ArmorStandEntityRendererMixin(EntityRendererFactory.Context ctx, ArmorStandArmorEntityModel model, float shadowRadius) {

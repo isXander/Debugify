@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.server.mc179072;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.CreeperIgniteGoal;
@@ -8,6 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 
+@BugFix(id = "MC-179072", env = BugFix.Env.SERVER)
 @Mixin(CreeperIgniteGoal.class)
 public class CreeperIgniteGoalMixin {
     @Shadow private @Nullable LivingEntity target;

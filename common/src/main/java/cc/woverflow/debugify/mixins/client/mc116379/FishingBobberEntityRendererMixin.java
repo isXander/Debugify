@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc116379;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.client.render.entity.FishingBobberEntityRenderer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.FishingBobberEntity;
@@ -10,6 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
+@BugFix(id = "MC-116379", env = BugFix.Env.CLIENT)
 @Mixin(FishingBobberEntityRenderer.class)
 public class FishingBobberEntityRendererMixin {
     @ModifyVariable(method = "render", at = @At("STORE"), ordinal = 2)

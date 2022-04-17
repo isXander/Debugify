@@ -1,5 +1,7 @@
 package cc.woverflow.debugify.mixins.client.mc148149;
 
+import cc.woverflow.debugify.Debugify;
+import cc.woverflow.debugify.fixes.BugFix;
 import me.fallenbreath.conditionalmixin.api.annotation.Condition;
 import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import net.minecraft.util.Util;
@@ -25,7 +27,8 @@ import java.util.concurrent.CompletableFuture;
  *
  * @author altrisi
  */
-@Restriction(conflicts = @Condition("fastopenlinksandfolders"))
+@Restriction(conflict = @Condition("fastopenlinksandfolders"))
+@BugFix(id = "MC-148149", env = BugFix.Env.CLIENT)
 @Mixin(Util.OperatingSystem.class)
 public abstract class OperatingSystemMixin {
     @Shadow
@@ -43,7 +46,7 @@ public abstract class OperatingSystemMixin {
             try {
                 this.open(uri.toURL());
             } catch (MalformedURLException e) {
-                System.err.println("Couldn't open uri '" + uri + "'");
+                Debugify.logger.error("Couldn't open uri '" + uri + "'");
                 e.printStackTrace();
             }
         });
@@ -63,7 +66,7 @@ public abstract class OperatingSystemMixin {
             try {
                 this.open(file.toURI().toURL());
             } catch (MalformedURLException e) {
-                System.err.println("Couldn't open file '" + file + "'");
+                Debugify.logger.error("Couldn't open file '" + file + "'");
                 e.printStackTrace();
             }
         });

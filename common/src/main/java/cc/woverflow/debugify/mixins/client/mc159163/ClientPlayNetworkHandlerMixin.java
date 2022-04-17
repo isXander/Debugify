@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc159163;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.entity.Entity;
@@ -14,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
+@BugFix(id = "MC-159163", env = BugFix.Env.CLIENT)
 @Mixin(ClientPlayNetworkHandler.class)
 public abstract class ClientPlayNetworkHandlerMixin implements ClientPlayPacketListener {
     @Final @Shadow private MinecraftClient client;

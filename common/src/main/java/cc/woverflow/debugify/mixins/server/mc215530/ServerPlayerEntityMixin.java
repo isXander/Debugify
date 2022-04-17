@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.server.mc215530;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -11,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+@BugFix(id = "MC-215530", env = BugFix.Env.SERVER)
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerEntityMixin extends PlayerEntity {
     public ServerPlayerEntityMixin(World world, BlockPos pos, float yaw, GameProfile profile) {

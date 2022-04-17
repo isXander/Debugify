@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc127970;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -11,6 +12,7 @@ import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
+@BugFix(id = "MC-127970", env = BugFix.Env.CLIENT)
 @Mixin(HeldItemRenderer.class)
 public class HeldItemRendererMixin {
     @ModifyExpressionValue(method = "renderFirstPersonItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/AbstractClientPlayerEntity;isUsingRiptide()Z"))

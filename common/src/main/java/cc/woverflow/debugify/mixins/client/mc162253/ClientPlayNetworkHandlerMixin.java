@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc162253;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import com.llamalad7.mixinextras.injector.WrapWithCondition;
 import me.fallenbreath.conditionalmixin.api.annotation.Condition;
 import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
@@ -9,7 +10,8 @@ import net.minecraft.world.chunk.light.LightingProvider;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Restriction(conflicts = @Condition("forgetmechunk"))
+@Restriction(conflict = @Condition("forgetmechunk"))
+@BugFix(id = "MC-162253", env = BugFix.Env.CLIENT)
 @Mixin(ClientPlayNetworkHandler.class)
 public class ClientPlayNetworkHandlerMixin {
     /**

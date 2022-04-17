@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.server.mc100991;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -9,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+@BugFix(id = "MC-100991", env = BugFix.Env.SERVER)
 @Mixin(FishingBobberEntity.class)
 public abstract class FishingBobberEntityMixin extends ProjectileEntityMixin {
     /**

@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.server.mc224729;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import me.fallenbreath.conditionalmixin.api.annotation.Condition;
 import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
@@ -13,7 +14,8 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 import java.util.function.Predicate;
 
-@Restriction(conflicts = @Condition("chunksavingfix"))
+@Restriction(conflict = @Condition("chunksavingfix"))
+@BugFix(id = "MC-224729", env = BugFix.Env.SERVER)
 @Mixin(ThreadedAnvilChunkStorage.class)
 public class ThreadedAnvilChunkStorageMixin {
     @ModifyArg(method = "save(Z)V", at = @At(value = "INVOKE", target = "Ljava/util/stream/Stream;filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", ordinal = 0))

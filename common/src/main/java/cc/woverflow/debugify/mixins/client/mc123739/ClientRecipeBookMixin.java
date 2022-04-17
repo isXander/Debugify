@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc123739;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.client.recipebook.ClientRecipeBook;
 import net.minecraft.client.recipebook.RecipeBookGroup;
 import net.minecraft.recipe.Recipe;
@@ -12,6 +13,7 @@ import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
+@BugFix(id = "MC-123739", env = BugFix.Env.CLIENT)
 @Mixin(ClientRecipeBook.class)
 public abstract class ClientRecipeBookMixin {
     @Redirect(method = "reload", at = @At(value = "INVOKE", target = "Ljava/util/Map;forEach(Ljava/util/function/BiConsumer;)V", ordinal = 0))

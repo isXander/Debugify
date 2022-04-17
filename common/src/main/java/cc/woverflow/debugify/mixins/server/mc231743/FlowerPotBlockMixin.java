@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.server.mc231743;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+@BugFix(id = "MC-231743", env = BugFix.Env.SERVER)
 @Mixin(FlowerPotBlock.class)
 public class FlowerPotBlockMixin {
     @Inject(method = "onUse", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;incrementStat(Lnet/minecraft/util/Identifier;)V"))

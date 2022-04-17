@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc145748;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.client.gui.widget.SliderWidget;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -7,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+@BugFix(id = "MC-145748", env = BugFix.Env.CLIENT)
 @Mixin(SliderWidget.class)
 public class SliderWidgetMixin {
     @Unique

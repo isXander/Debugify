@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc147605;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import cc.woverflow.debugify.fixes.mc147605.TextFieldHolder;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.TextFieldWidget;
@@ -17,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  * Cannot use the screen's focused field either as that is primarily used
  * for widgets which breaks many guis with text fields in widgets
  */
+@BugFix(id = "MC-147605", env = BugFix.Env.CLIENT)
 @Mixin(TextFieldWidget.class)
 public class TextFieldWidgetMixin extends ClickableWidgetMixin {
     @Inject(method = "setTextFieldFocused", at = @At("HEAD"))
@@ -29,7 +31,7 @@ public class TextFieldWidgetMixin extends ClickableWidgetMixin {
     @Override
     protected void getScreenFocus(CallbackInfoReturnable<Boolean> cir) {
         if (MinecraftClient.getInstance().currentScreen != null) {
-            cir.setReturnValue(((TextFieldWidget) (Object) this).equals(((TextFieldHolder) MinecraftClient.getInstance().currentScreen).getFocusedTextField()));
+            cir.setReturnValue(((Object) this).equals(((TextFieldHolder) MinecraftClient.getInstance().currentScreen).getFocusedTextField()));
         }
     }
 }

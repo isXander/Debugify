@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.server.mc121903;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.entity.vehicle.CommandBlockMinecartEntity;
 import net.minecraft.nbt.NbtCompound;
 import org.spongepowered.asm.mixin.Mixin;
@@ -8,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+@BugFix(id = "MC-121903", env = BugFix.Env.SERVER)
 @Mixin(CommandBlockMinecartEntity.class)
 public class CommandBlockMinecartEntityMixin {
     @Shadow private int lastExecuted;

@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.server.mc90084;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.entity.vehicle.BoatEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -7,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+@BugFix(id = "MC-90084", env = BugFix.Env.SERVER)
 @Mixin(BoatEntity.class)
 public class BoatEntityMixin {
     /**

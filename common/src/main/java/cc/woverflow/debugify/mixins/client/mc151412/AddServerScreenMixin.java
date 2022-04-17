@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc151412;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.client.gui.screen.AddServerScreen;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.TextFieldWidget;
@@ -10,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+@BugFix(id = "MC-151412", env = BugFix.Env.CLIENT)
 @Mixin(AddServerScreen.class)
 public class AddServerScreenMixin extends Screen {
     protected AddServerScreenMixin(Text title) {

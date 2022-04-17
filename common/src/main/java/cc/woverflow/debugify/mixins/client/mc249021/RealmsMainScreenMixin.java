@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc249021;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.realms.dto.RealmsServer;
@@ -14,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 
+@BugFix(id = "MC-249021", env = BugFix.Env.CLIENT)
 @Mixin(RealmsMainScreen.class)
 public abstract class RealmsMainScreenMixin extends Screen {
     protected RealmsMainScreenMixin(Text title) {

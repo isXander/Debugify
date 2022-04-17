@@ -1,11 +1,13 @@
 package cc.woverflow.debugify.mixins.server.mc84873;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.entity.LivingEntity;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
+@BugFix(id = "MC-84873", env = BugFix.Env.SERVER)
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
     /**

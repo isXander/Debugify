@@ -1,6 +1,7 @@
 package cc.woverflow.debugify.client.utils;
 
 import cc.woverflow.debugify.Debugify;
+import cc.woverflow.debugify.fixes.BugFixData;
 import cc.woverflow.debugify.utils.ExpectUtils;
 import cc.woverflow.debugify.utils.Loader;
 import com.google.gson.Gson;
@@ -29,7 +30,8 @@ public class BugFixDescriptionCache {
 
         HttpClient client = HttpClient.newHttpClient();
 
-        for (String id : Debugify.config.getBugFixes().keySet()) {
+        for (BugFixData bugData : Debugify.config.getBugFixes().keySet()) {
+            String id = bugData.bugId();
             try {
                 HttpRequest request = HttpRequest.newBuilder(new URI(String.format(url, id)))
                         .build();

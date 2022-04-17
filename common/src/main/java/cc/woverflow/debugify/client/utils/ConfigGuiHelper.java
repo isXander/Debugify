@@ -16,18 +16,22 @@ public class ConfigGuiHelper {
                 .setSavingRunnable(config::save)
                 .setParentScreen(parent);
 
-        ConfigCategory fixesCategory = builder.getOrCreateCategory(new LiteralText("Fixes"));
         config.getBugFixes().forEach((bug, enabled) -> {
+            ConfigCategory category = switch (bug.env()) {
+                case CLIENT -> builder.getOrCreateCategory(new LiteralText("Client"));
+                case SERVER -> builder.getOrCreateCategory(new LiteralText("Server"));
+            };
+
             BooleanToggleBuilder entry = builder.entryBuilder()
-                    .startBooleanToggle(new LiteralText(bug), enabled)
+                    .startBooleanToggle(new LiteralText(bug.bugId()), enabled)
                     .setSaveConsumer((toggled) -> config.getBugFixes().replace(bug, toggled))
                     .setDefaultValue(true)
                     .requireRestart();
 
-            if (DebugifyClient.bugFixDescriptionCache.has(bug))
-                entry.setTooltip(new LiteralText(DebugifyClient.bugFixDescriptionCache.get(bug)));
+            if (DebugifyClient.bugFixDescriptionCache.has(bug.bugId()))
+                entry.setTooltip(new LiteralText(DebugifyClient.bugFixDescriptionCache.get(bug.bugId())));
 
-            fixesCategory.addEntry(entry.build());
+            category.addEntry(entry.build());
         });
 
         ConfigCategory miscCategory = builder.getOrCreateCategory(new LiteralText("Misc"));

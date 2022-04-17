@@ -60,7 +60,7 @@
     "server.mc160095.CactusBlockMixin",
     "server.mc179072.CreeperIgniteGoalMixin",
     "server.mc183990.SilverFishWanderAndInfestGoalMixin",
-    "server.mc193343.LivingEntityMixin",
+    "server.mc193343.PlayerEntityMixin",
     "server.mc199467.MathHelperMixin",
     "server.mc200418.ZombieVillagerEntityMixin",
     "server.mc2025.EntityMixin",

@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc140646;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -17,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  *
  * @author j-tai
  */
+@BugFix(id = "MC-140646", env = BugFix.Env.CLIENT)
 @Mixin(TextFieldWidget.class)
 public abstract class TextFieldWidgetMixin {
     @Shadow

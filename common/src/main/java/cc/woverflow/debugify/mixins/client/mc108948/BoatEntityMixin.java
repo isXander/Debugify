@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc108948;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -10,6 +11,7 @@ import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
+@BugFix(id = "MC-108948", env = BugFix.Env.CLIENT)
 @Mixin(BoatEntity.class)
 public abstract class BoatEntityMixin extends Entity {
     public BoatEntityMixin(EntityType<?> type, World world) {

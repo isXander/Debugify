@@ -1,6 +1,8 @@
 package cc.woverflow.debugify.config;
 
 import cc.woverflow.debugify.Debugify;
+import cc.woverflow.debugify.fixes.BugFix;
+import cc.woverflow.debugify.fixes.BugFixData;
 import cc.woverflow.debugify.utils.ExpectUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -19,18 +21,18 @@ public class DebugifyConfig {
 
     private final Map<String, Boolean> jsonBugFixes = new HashMap<>();
 
-    private final Map<String, Boolean> bugFixes = new HashMap<>();
+    private final Map<BugFixData, Boolean> bugFixes = new HashMap<>();
     public boolean defaultDisabled = false;
     public boolean optOutUpdater = false;
 
     private boolean preloaded = false;
 
-    public void registerBugFix(String id) {
-        if (bugFixes.containsKey(id))
+    public void registerBugFix(BugFixData bugFix) {
+        if (bugFixes.containsKey(bugFix))
             return;
 
-        boolean enabled = jsonBugFixes.getOrDefault(id, !defaultDisabled);
-        bugFixes.put(id, enabled);
+        boolean enabled = jsonBugFixes.getOrDefault(bugFix.bugId(), bugFix.enabledByDefault() && !defaultDisabled);
+        bugFixes.put(bugFix, enabled);
     }
 
     public void preload() {
@@ -74,7 +76,7 @@ public class DebugifyConfig {
             Files.deleteIfExists(configPath);
 
             JsonObject json = new JsonObject();
-            bugFixes.forEach(json::addProperty);
+            bugFixes.forEach((fix, enabled) -> json.addProperty(fix.bugId(), enabled));
             json.addProperty("opt_out_updater", optOutUpdater);
             if (defaultDisabled) {
                 json.addProperty("default_disabled", true);
@@ -87,11 +89,11 @@ public class DebugifyConfig {
         }
     }
 
-    public boolean isBugFixEnabled(String bug) {
+    public boolean isBugFixEnabled(BugFixData bug) {
         return bugFixes.getOrDefault(bug, false);
     }
 
-    public Map<String, Boolean> getBugFixes() {
+    public Map<BugFixData, Boolean> getBugFixes() {
         return bugFixes;
     }
 

@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.server.mc14923;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.filter.TextStream;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
@@ -11,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+@BugFix(id = "MC-14923", env = BugFix.Env.SERVER)
 @Mixin(ServerPlayNetworkHandler.class)
 public class ServerPlayNetworkHandlerMixin {
     @Shadow @Final private MinecraftServer server;

@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc80859;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.screen.slot.Slot;
 import org.spongepowered.asm.mixin.Mixin;
@@ -8,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.Set;
 
+@BugFix(id = "MC-80859", env = BugFix.Env.CLIENT)
 @Mixin(HandledScreen.class)
 public class HandledScreenMixin {
     /**

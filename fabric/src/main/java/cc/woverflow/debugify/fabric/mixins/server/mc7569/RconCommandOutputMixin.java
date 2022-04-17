@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.fabric.mixins.server.mc7569;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.server.rcon.RconCommandOutput;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Final;
@@ -11,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.UUID;
 
+@BugFix(id = "MC-7569", env = BugFix.Env.SERVER)
 @Mixin(RconCommandOutput.class)
 public class RconCommandOutputMixin {
     @Shadow @Final private StringBuffer buffer;

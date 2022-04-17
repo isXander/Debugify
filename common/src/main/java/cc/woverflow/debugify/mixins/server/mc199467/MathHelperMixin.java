@@ -1,10 +1,12 @@
 package cc.woverflow.debugify.mixins.server.mc199467;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.util.math.MathHelper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
+@BugFix(id = "MC-199467", env = BugFix.Env.SERVER)
 @Mixin(MathHelper.class)
 public class MathHelperMixin {
     /**

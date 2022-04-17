@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc249059;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import me.fallenbreath.conditionalmixin.api.annotation.Condition;
 import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import net.minecraft.client.gui.screen.DownloadingTerrainScreen;
@@ -10,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Restriction(conflict = @Condition("forcecloseloadingscreen"))
+@BugFix(id = "MC-249059", env = BugFix.Env.CLIENT)
 @Mixin(DownloadingTerrainScreen.class)
 public class DownloadingTerrainScreenMixin {
     @Shadow private boolean oneTickSkipped;

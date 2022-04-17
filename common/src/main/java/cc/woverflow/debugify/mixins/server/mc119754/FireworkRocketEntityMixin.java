@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.server.mc119754;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.FireworkRocketEntity;
@@ -9,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 import javax.annotation.Nullable;
 
+@BugFix(id = "MC-119754", env = BugFix.Env.SERVER)
 @Mixin(FireworkRocketEntity.class)
 public class FireworkRocketEntityMixin {
     @Shadow @Nullable private LivingEntity shooter;

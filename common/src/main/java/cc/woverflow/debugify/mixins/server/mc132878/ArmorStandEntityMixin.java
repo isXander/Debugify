@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.server.mc132878;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.decoration.ArmorStandEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -9,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+@BugFix(id = "MC-132878", env = BugFix.Env.SERVER)
 @Mixin(ArmorStandEntity.class)
 public abstract class ArmorStandEntityMixin {
     @Shadow protected abstract void spawnBreakParticles();

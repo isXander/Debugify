@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.server.mc160095;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CactusBlock;
@@ -10,6 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
+@BugFix(id = "MC-160095", env = BugFix.Env.SERVER)
 @Mixin(CactusBlock.class)
 public class CactusBlockMixin {
     @Redirect(method = "canPlaceAt", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/WorldView;getBlockState(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/BlockState;", ordinal = 0))

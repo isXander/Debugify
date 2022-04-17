@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc231097;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import org.spongepowered.asm.mixin.Final;
@@ -9,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+@BugFix(id = "MC-231097", env = BugFix.Env.CLIENT)
 @Mixin(ClientPlayerEntity.class)
 public abstract class ClientPlayerEntityMixin {
     @Shadow @Final protected MinecraftClient client;

@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.server.mc124177;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+@BugFix(id = "MC-124117", env = BugFix.Env.SERVER)
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerEntityMixin extends PlayerEntity {
     @Shadow public ServerPlayNetworkHandler networkHandler;

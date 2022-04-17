@@ -1,5 +1,6 @@
 package cc.woverflow.debugify.mixins.server.mc72151;
 
+import cc.woverflow.debugify.fixes.BugFix;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.passive.WolfEntity;
@@ -9,6 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
+@BugFix(id = "MC-72151", env = BugFix.Env.SERVER)
 @Mixin(WolfEntity.class)
 public class WolfEntityMixin {
     @ModifyVariable(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/passive/TameableEntity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z", shift = At.Shift.BEFORE), ordinal = 0, argsOnly = true)
