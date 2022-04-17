@@ -81,9 +81,9 @@
 ## Patched in snapshots
 To delete when next version comes out.
 ### Client Side
-| Bug ID                                                | Name                                                                                               |
-|-------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| [MC-235035](https://bugs.mojang.com/browse/MC-235035) | Sleeping in a custom dimension with "natural" set to false causes crash *(fabric only)*             
+| Bug ID                                                | Name                                                                                    | Fixed in |
+|-------------------------------------------------------|-----------------------------------------------------------------------------------------|----------|
+| [MC-235035](https://bugs.mojang.com/browse/MC-235035) | Sleeping in a custom dimension with "natural" set to false causes crash *(fabric only)* | 22w15a   |
 
 ### Server Side (Both)
 
