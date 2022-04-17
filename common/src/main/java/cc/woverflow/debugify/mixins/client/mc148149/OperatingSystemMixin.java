@@ -2,11 +2,8 @@ package cc.woverflow.debugify.mixins.client.mc148149;
 
 import cc.woverflow.debugify.Debugify;
 import cc.woverflow.debugify.fixes.BugFix;
-import me.fallenbreath.conditionalmixin.api.annotation.Condition;
-import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import net.minecraft.util.Util;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -27,8 +24,7 @@ import java.util.concurrent.CompletableFuture;
  *
  * @author altrisi
  */
-@Restriction(conflict = @Condition("fastopenlinksandfolders"))
-@BugFix(id = "MC-148149", env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-148149", env = BugFix.Env.CLIENT, fabricConflicts = "fastopenlinksandfolders")
 @Mixin(Util.OperatingSystem.class)
 public abstract class OperatingSystemMixin {
     @Shadow

@@ -2,16 +2,13 @@ package cc.woverflow.debugify.mixins.client.mc162253;
 
 import cc.woverflow.debugify.fixes.BugFix;
 import com.llamalad7.mixinextras.injector.WrapWithCondition;
-import me.fallenbreath.conditionalmixin.api.annotation.Condition;
-import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.util.math.ChunkSectionPos;
 import net.minecraft.world.chunk.light.LightingProvider;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Restriction(conflict = @Condition("forgetmechunk"))
-@BugFix(id = "MC-162253", env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-162253", env = BugFix.Env.CLIENT, fabricConflicts = "forgetmechunk")
 @Mixin(ClientPlayNetworkHandler.class)
 public class ClientPlayNetworkHandlerMixin {
     /**

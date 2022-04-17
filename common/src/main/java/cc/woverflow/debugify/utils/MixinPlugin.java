@@ -4,9 +4,10 @@ import cc.woverflow.debugify.Debugify;
 import cc.woverflow.debugify.fixes.BugFix;
 import cc.woverflow.debugify.fixes.BugFixData;
 import com.llamalad7.mixinextras.MixinExtrasBootstrap;
-import me.fallenbreath.conditionalmixin.api.mixin.RestrictiveMixinConfigPlugin;
 import org.objectweb.asm.tree.AnnotationNode;
 import org.objectweb.asm.tree.ClassNode;
+import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
+import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 import org.spongepowered.asm.service.MixinService;
 import org.spongepowered.asm.util.Annotations;
 
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-public class MixinPlugin extends RestrictiveMixinConfigPlugin {
+public class MixinPlugin implements IMixinConfigPlugin {
     @Override
     public void onLoad(String mixinPackage) {
         MixinExtrasBootstrap.init();
@@ -33,11 +34,18 @@ public class MixinPlugin extends RestrictiveMixinConfigPlugin {
         Optional<BugFixData> bugFixOptional = getBugFixForMixin(mixinClassName);
 
         if (bugFixOptional.isEmpty())
-            return super.shouldApplyMixin(targetClassName, mixinClassName);
+            return true;
 
         BugFixData bugFix = bugFixOptional.get();
         Debugify.config.registerBugFix(bugFix);
-        return Debugify.config.isBugFixEnabled(bugFix) && super.shouldApplyMixin(targetClassName, mixinClassName);
+
+        List<String> conflicts = bugFix.getActiveConflicts();
+        if (!conflicts.isEmpty() && Debugify.config.isBugFixEnabled(bugFix)) {
+            Debugify.config.getBugFixes().replace(bugFix, false);
+            Debugify.logger.warn("Disabled " + bugFix.bugId() + " because it's conflicting with: " + String.join(", ", conflicts));
+        }
+
+        return Debugify.config.isBugFixEnabled(bugFix) && bugFix.getActiveConflicts().isEmpty();
     }
 
     private Optional<BugFixData> getBugFixForMixin(String mixinClassName) {
@@ -57,8 +65,9 @@ public class MixinPlugin extends RestrictiveMixinConfigPlugin {
         String id = Annotations.getValue(annotationNode, "id");
         BugFix.Env env = getAnnotationEnumValue(annotationNode, "env", BugFix.Env.class);
         boolean enabledByDefault = Annotations.getValue(annotationNode, "enabled", Boolean.valueOf(true));
+        List<String> conflicts = Annotations.getValue(annotationNode, "conflicts", true);
 
-        return Optional.of(new BugFixData(id, env, enabledByDefault));
+        return Optional.of(new BugFixData(id, env, enabledByDefault, conflicts));
     }
 
     private static <T extends Enum<T>> T getAnnotationEnumValue(AnnotationNode annotation, String key, Class<T> enumClass) {
@@ -73,4 +82,10 @@ public class MixinPlugin extends RestrictiveMixinConfigPlugin {
     public List<String> getMixins() {
         return null;
     }
+
+    @Override
+    public void preApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {}
+
+    @Override
+    public void postApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {}
 }

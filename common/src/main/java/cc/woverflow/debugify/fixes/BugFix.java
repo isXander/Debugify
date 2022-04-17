@@ -14,6 +14,8 @@ public @interface BugFix {
 
     boolean enabled() default true;
 
+    String[] fabricConflicts() default {};
+
     enum Env {
         CLIENT,
         SERVER

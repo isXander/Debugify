@@ -1,8 +1,6 @@
 package cc.woverflow.debugify.mixins.client.mc145929;
 
 import cc.woverflow.debugify.fixes.BugFix;
-import me.fallenbreath.conditionalmixin.api.annotation.Condition;
-import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.util.math.MatrixStack;
@@ -20,11 +18,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
  *
  * @author j-tai
  */
-@Restriction(conflict = {
-        @Condition("tiefix"),
-        @Condition("shadowedactionbar")
-})
-@BugFix(id = "MC-145929", env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-145929", env = BugFix.Env.CLIENT, fabricConflicts = { "tiefix", "shadowedactionbar" })
 @Mixin(InGameHud.class)
 public class InGameHudMixin {
     @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/font/TextRenderer;draw(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/text/Text;FFI)I"))

@@ -1,6 +1,7 @@
 plugins {
     id("architectury-plugin") version "3.4.+"
     `mod-release`
+    `bug-status-checker`
 }
 
 architectury {

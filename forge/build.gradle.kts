@@ -34,7 +34,6 @@ dependencies {
     val clothVersion: String by rootProject
     val jSemVerVersion: String by rootProject
     val mixinExtrasVersion: String by rootProject
-    val conditionalMixinVersion: String by rootProject
 
     forge("net.minecraftforge:forge:$minecraftVersion-$forgeVersion")
 
@@ -52,12 +51,6 @@ dependencies {
         forgeRuntimeLibrary(it)
         implementation(it)
         annotationProcessor(it)
-        shadowCommon(it)
-    }
-
-    "com.github.Fallen-Breath:conditional-mixin:$conditionalMixinVersion".let {
-        forgeRuntimeLibrary(it)
-        implementation(it)
         shadowCommon(it)
     }
 

@@ -26,7 +26,6 @@ dependencies {
     val clothVersion: String by rootProject
     val jSemVerVersion: String by rootProject
     val mixinExtrasVersion: String by rootProject
-    val conditionalMixinVersion: String by rootProject
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
@@ -41,11 +40,6 @@ dependencies {
     "com.github.llamalad7:mixinextras:$mixinExtrasVersion".let {
         implementation(it)
         annotationProcessor(it)
-        include(it)
-    }
-
-    "com.github.Fallen-Breath:conditional-mixin:$conditionalMixinVersion".let {
-        implementation(it)
         include(it)
     }
 
