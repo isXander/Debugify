@@ -49,15 +49,16 @@ tasks.register("checkBugStatuses") {
             null
         }
 
+        val resolved = resolution != null
+        val fixVersions = mutableListOf<String>()
         if (resolution != null) {
-            val fixVersions = mutableListOf<String>()
             fields.getAsJsonArray("fixVersions")?.forEach {
                 fixVersions += it.asJsonObject["name"].asString
             }
 
-            logger.log(LogLevel.ERROR, "$bug: $resolution" + if (!fixVersions.isEmpty()) " - Fix Versions: ${fixVersions.joinToString(", ")}" else "")
             count++
         }
+        logger.log(if (resolved) LogLevel.ERROR else LogLevel.LIFECYCLE, "$bug: ${if (resolved) "Resolved" else "OK!"}" + if (resolved && !fixVersions.isEmpty()) " - Fix Versions: ${fixVersions.joinToString(", ")}" else "")
     }
 
     if (count == 0) {
