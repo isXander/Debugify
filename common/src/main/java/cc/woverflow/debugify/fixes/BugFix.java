@@ -22,17 +22,17 @@ public @interface BugFix {
     String[] fabricConflicts() default {};
 
     enum Env {
-        CLIENT(new LiteralText("Client")),
-        SERVER(new LiteralText("Server"));
+        CLIENT("Client"),
+        SERVER("Server");
 
-        private final Text displayName;
+        private final String displayName;
 
-        Env(Text displayName) {
+        Env(String displayName) {
             this.displayName = displayName;
         }
 
         public Text getDisplayName() {
-            return displayName;
+            return new LiteralText(displayName);
         }
     }
 }

@@ -4,16 +4,16 @@ import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 
 public enum FixCategory {
-    BASIC(new LiteralText("Basic Fixes")),
-    GAMEPLAY(new LiteralText("Gameplay Fixes"));
+    BASIC("Basic Fixes"),
+    GAMEPLAY("Gameplay Fixes");
 
-    private final Text displayName;
+    private final String displayName;
 
-    FixCategory(Text displayName) {
+    FixCategory(String displayName) {
         this.displayName = displayName;
     }
 
     public Text getDisplayName() {
-        return this.displayName;
+        return new LiteralText(this.displayName);
     }
 }
