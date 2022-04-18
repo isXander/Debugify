@@ -71,7 +71,7 @@ afterEvaluate {
 
             dependsOn("githubRelease")
 
-            dependsOn("publish")
+            dependsOn(":fabric:publish", ":forge:publish")
 
             dependsOn(updateApiVersion)
         }
