@@ -2,15 +2,20 @@ package cc.woverflow.debugify.client.utils;
 
 import cc.woverflow.debugify.client.DebugifyClient;
 import cc.woverflow.debugify.config.DebugifyConfig;
-import com.google.common.collect.Lists;
+import cc.woverflow.debugify.fixes.BugFix;
+import cc.woverflow.debugify.fixes.FixCategory;
 import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.impl.builders.BooleanToggleBuilder;
+import me.shedaniel.clothconfig2.impl.builders.SubCategoryBuilder;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.LiteralText;
+import net.minecraft.util.Formatting;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class ConfigGuiHelper {
@@ -20,11 +25,34 @@ public class ConfigGuiHelper {
                 .setSavingRunnable(config::save)
                 .setParentScreen(parent);
 
+        Map<FixCategory, ConfigCategory> fixCategories = new HashMap<>();
+        Map<ConfigCategory, Map<BugFix.Env, SubCategoryBuilder>> fixSubCategories = new HashMap<>();
+        for (FixCategory fixCategory : FixCategory.values()) {
+            var configCategory = builder.getOrCreateCategory(fixCategory.getDisplayName());
+            if (fixCategory == FixCategory.GAMEPLAY) {
+                configCategory.addEntry(builder.entryBuilder()
+                        .startTextDescription(new LiteralText("WARNING: This category contains fixes that may be an unfair advantage!").formatted(Formatting.RED))
+                        .build()
+                );
+                configCategory.addEntry(builder.entryBuilder()
+                        .startBooleanToggle(new LiteralText("Enable In Multiplayer"), config.gameplayFixesInMultiplayer)
+                        .setSaveConsumer((enabled) -> config.gameplayFixesInMultiplayer = enabled)
+                        .build()
+                );
+            }
+
+            fixCategories.put(fixCategory, configCategory);
+
+            Map<BugFix.Env, SubCategoryBuilder> subCategories = new HashMap<>();
+            for (BugFix.Env env : BugFix.Env.values()) {
+                var subCategoryBuilder = builder.entryBuilder().startSubCategory(env.getDisplayName());
+                subCategories.put(env, subCategoryBuilder);
+            }
+            fixSubCategories.put(configCategory, subCategories);
+        }
+
         config.getBugFixes().forEach((bug, enabled) -> {
-            ConfigCategory category = switch (bug.env()) {
-                case CLIENT -> builder.getOrCreateCategory(new LiteralText("Client"));
-                case SERVER -> builder.getOrCreateCategory(new LiteralText("Server"));
-            };
+            SubCategoryBuilder subcategory = fixSubCategories.get(fixCategories.get(bug.category())).get(bug.env());
 
             BooleanToggleBuilder entry = builder.entryBuilder()
                     .startBooleanToggle(new LiteralText(bug.bugId()), enabled)
@@ -42,8 +70,10 @@ public class ConfigGuiHelper {
             if (DebugifyClient.bugFixDescriptionCache.has(bug.bugId()))
                 entry.setTooltip(new LiteralText(DebugifyClient.bugFixDescriptionCache.get(bug.bugId())));
 
-            category.addEntry(entry.build());
+            subcategory.add(entry.build());
         });
+        fixSubCategories.forEach((category, subCategories) ->
+                subCategories.forEach((env, subCategoryBuilder) -> category.addEntry(subCategoryBuilder.build())));
 
         ConfigCategory miscCategory = builder.getOrCreateCategory(new LiteralText("Misc"));
         AbstractConfigListEntry<?> optOutUpdaterEntry = builder.entryBuilder()

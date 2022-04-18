@@ -1,6 +1,7 @@
 package cc.woverflow.debugify.fabric.mixins.client.mc235035;
 
 import cc.woverflow.debugify.fixes.BugFix;
+import cc.woverflow.debugify.fixes.FixCategory;
 import com.llamalad7.mixinextras.injector.WrapWithCondition;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
@@ -11,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.UUID;
 
-@BugFix(id = "MC-235035", env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-235035", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
 @Mixin(ClientPlayNetworkHandler.class)
 public class ClientPlayNetworkHandlerMixin {
     @WrapWithCondition(method = "onGameMessage", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/hud/InGameHud;addChatMessage(Lnet/minecraft/network/MessageType;Lnet/minecraft/text/Text;Ljava/util/UUID;)V"))

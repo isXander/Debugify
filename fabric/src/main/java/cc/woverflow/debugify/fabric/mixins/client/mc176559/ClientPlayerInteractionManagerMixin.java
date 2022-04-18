@@ -1,6 +1,7 @@
 package cc.woverflow.debugify.fabric.mixins.client.mc176559;
 
 import cc.woverflow.debugify.fixes.BugFix;
+import cc.woverflow.debugify.fixes.FixCategory;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.item.ItemStack;
@@ -16,7 +17,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-@BugFix(id = "MC-176559", env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-176559", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
 @Mixin(ClientPlayerInteractionManager.class)
 public class ClientPlayerInteractionManagerMixin {
     @Shadow private ItemStack selectedStack;
