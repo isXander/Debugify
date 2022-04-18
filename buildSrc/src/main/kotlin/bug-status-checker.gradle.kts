@@ -50,7 +50,12 @@ tasks.register("checkBugStatuses") {
         }
 
         if (resolution != null) {
-            logger.log(LogLevel.ERROR, "$bug: $resolution")
+            val fixVersions = mutableListOf<String>()
+            fields.getAsJsonArray("fixVersions")?.forEach {
+                fixVersions += it.asJsonObject["name"].asString
+            }
+
+            logger.log(LogLevel.ERROR, "$bug: $resolution" + if (!fixVersions.isEmpty()) " - Fix Versions: ${fixVersions.joinToString(", ")}" else "")
             count++
         }
     }
@@ -58,6 +63,6 @@ tasks.register("checkBugStatuses") {
     if (count == 0) {
         logger.lifecycle("Nothing to report!")
     } else {
-        logger.lifecycle("\n$count issue${if (count == 1) "" else "s"} need addressing!")
+        error("\n$count issue${if (count == 1) "" else "s"} need addressing!")
     }
 }

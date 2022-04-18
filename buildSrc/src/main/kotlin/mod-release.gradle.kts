@@ -60,6 +60,8 @@ afterEvaluate {
         register("publishDebugify") {
             group = "debugify"
 
+            dependsOn("checkBugStatuses")
+
             dependsOn("clean")
 
             dependsOn(publishToModrinth)
