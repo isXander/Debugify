@@ -6,7 +6,7 @@
 </div>
 
 [![wakatime](https://wakatime.com/badge/github/W-OVERFLOW/Debugify.svg?style=for-the-badge)](https://wakatime.com/badge/github/W-OVERFLOW/Debugify)
-![Lines of Code](https://img.shields.io/tokei/lines/github/W-OVERFLOW/Debugify?color=ff5555&label=Lines%20of%20code&style=for-the-badge)
+![Lines of Code](https://img.shields.io/tokei/lines/github/W-OVERFLOW/Debugify?color=%23ff4747&label=Lines%20of%20code&style=for-the-badge)
 
 ## What does this mod replace?
 This mod replaces many mods and implements fixes from some others
