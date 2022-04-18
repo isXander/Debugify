@@ -2,6 +2,7 @@ package cc.woverflow.debugify.utils;
 
 import cc.woverflow.debugify.Debugify;
 import cc.woverflow.debugify.fixes.BugFix;
+import cc.woverflow.debugify.fixes.FixCategory;
 import cc.woverflow.debugify.fixes.BugFixData;
 import com.llamalad7.mixinextras.MixinExtrasBootstrap;
 import org.objectweb.asm.tree.AnnotationNode;
@@ -63,11 +64,12 @@ public class MixinPlugin implements IMixinConfigPlugin {
             return Optional.empty();
 
         String id = Annotations.getValue(annotationNode, "id");
+        FixCategory category = getAnnotationEnumValue(annotationNode, "category", FixCategory.class);
         BugFix.Env env = getAnnotationEnumValue(annotationNode, "env", BugFix.Env.class);
         boolean enabledByDefault = Annotations.getValue(annotationNode, "enabled", Boolean.valueOf(true));
         List<String> conflicts = Annotations.getValue(annotationNode, "conflicts", true);
 
-        return Optional.of(new BugFixData(id, env, enabledByDefault, conflicts));
+        return Optional.of(new BugFixData(id, category, env, enabledByDefault, conflicts));
     }
 
     private static <T extends Enum<T>> T getAnnotationEnumValue(AnnotationNode annotation, String key, Class<T> enumClass) {

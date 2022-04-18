@@ -16,7 +16,7 @@ tasks.register("checkBugStatuses") {
 
         val patchedBugsFile = rootProject.file("PATCHED.md").readLines()
         var startedUnpatched = false
-        val bugRegex = Regex("\\| \\[(MC-\\d+)]")
+        val bugRegex = Regex("\\|.+\\| \\[(MC-\\d+)]")
         for (line in patchedBugsFile) {
             if (line.startsWith("## ")) {
                 if (startedUnpatched) break

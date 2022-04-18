@@ -2,6 +2,9 @@ package cc.woverflow.debugify;
 
 import cc.woverflow.debugify.api.updater.UpdateChecker;
 import cc.woverflow.debugify.config.DebugifyConfig;
+import cc.woverflow.debugify.fixes.BugFix;
+import cc.woverflow.debugify.utils.ClientUtils;
+import cc.woverflow.debugify.utils.Loader;
 import com.github.zafarkhaja.semver.Version;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,5 +47,12 @@ public class Debugify {
 
         logger.info("Successfully Debugify'd your game!");
         logger.info("Proudly fixes {} bugs!", config.getBugFixes().values().stream().filter((enabled) -> enabled).count());
+    }
+
+    public static boolean isGameplayFixesEnabled() {
+        if (Loader.getEnv() == BugFix.Env.CLIENT && ClientUtils.isInMultiplayerWorld())
+            return config.gameplayFixesInMultiplayer;
+
+        return true;
     }
 }

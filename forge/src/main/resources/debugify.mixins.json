@@ -7,6 +7,6 @@
   },
   "plugin": "cc.woverflow.debugify.utils.MixinPlugin",
   "client": [
-    "client.mc215531.ForgeIngameGuiMixin"
+    "basic.client.mc215531.ForgeIngameGuiMixin"
   ]
 }

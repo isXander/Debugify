@@ -17,10 +17,11 @@ public class DebugifyConfig {
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     private final Map<String, Boolean> jsonBugFixes = new HashMap<>();
-
     private final Map<BugFixData, Boolean> bugFixes = new TreeMap<>();
+
     public boolean defaultDisabled = false;
     public boolean optOutUpdater = false;
+    public boolean gameplayFixesInMultiplayer = false;
 
     private boolean preloaded = false;
 
@@ -57,6 +58,9 @@ public class DebugifyConfig {
             if (json.has("default_disabled")) {
                 defaultDisabled = json.get("default_disabled").getAsBoolean();
             }
+            if (json.has("gameplay_fixes_in_multiplayer")) {
+                gameplayFixesInMultiplayer = json.get("gameplay_fixes_in_multiplayer").getAsBoolean();
+            }
 
             jsonBugFixes.clear();
             jsonBugFixes.putAll(bugFixes);
@@ -75,9 +79,8 @@ public class DebugifyConfig {
             JsonObject json = new JsonObject();
             bugFixes.forEach((fix, enabled) -> json.addProperty(fix.bugId(), enabled));
             json.addProperty("opt_out_updater", optOutUpdater);
-            if (defaultDisabled) {
-                json.addProperty("default_disabled", true);
-            }
+            json.addProperty("gameplay_fixes_in_multiplayer", gameplayFixesInMultiplayer);
+            json.addProperty("default_disabled", defaultDisabled);
 
             Files.createFile(configPath);
             Files.writeString(configPath, gson.toJson(json));
