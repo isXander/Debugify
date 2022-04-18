@@ -47,6 +47,7 @@
     "basic.client.mc93384.LivingEntityMixin"
   ],
   "mixins": [
+    "basic.client.mc237493.TelemetryManagerMixin",
     "basic.server.mc100991.FishingBobberEntityMixin",
     "basic.server.mc100991.ProjectileEntityMixin",
     "basic.server.mc119417.ServerPlayerEntityMixin",

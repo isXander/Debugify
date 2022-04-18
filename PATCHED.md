@@ -38,6 +38,7 @@
 | Basic    | [MC-231097](https://bugs.mojang.com/browse/MC-231097) | Holding the "Use" button continues to slow down the player even after the used item has been dropped                                 |
 | Basic    | [MC-233042](https://bugs.mojang.com/browse/MC-233042) | Server Address field isn't focused when Direct Connection menu is opened                                                             |
 | Basic    | [MC-234898](https://bugs.mojang.com/browse/MC-234898) | The "Get a trial!" button isn't consistently displayed within the realms menu                                                        |
+| Basic    | [MC-237493](https://bugs.mojang.com/browse/MC-237493) | Telemetry cannot be disabled                                                                                                         |
 | Basic    | [MC-249021](https://bugs.mojang.com/browse/MC-249021) | The invitation and news buttons aren't consistently displayed within the realms menu                                                 |
 | Basic    | [MC-249059](https://bugs.mojang.com/browse/MC-249059) | Loading terrain screen cannot close before 2 seconds have passed                                                                     |
 
