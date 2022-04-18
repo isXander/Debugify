@@ -47,8 +47,6 @@
     "basic.client.mc93384.LivingEntityMixin"
   ],
   "mixins": [
-    "gameplay.client.mc12829.LivingEntityMixin",
-    "gameplay.client.mc12829.PlayerEntityMixin",
     "basic.server.mc100991.FishingBobberEntityMixin",
     "basic.server.mc100991.ProjectileEntityMixin",
     "basic.server.mc119417.ServerPlayerEntityMixin",
@@ -81,6 +79,9 @@
     "basic.server.mc88371.LandingPhaseMixin",
     "basic.server.mc89146.ChunkMixin",
     "basic.server.mc90084.BoatEntityMixin",
-    "basic.server.mc93018.AnimalEntityMixin"
+    "basic.server.mc93018.AnimalEntityMixin",
+    "gameplay.client.mc12829.LivingEntityMixin",
+    "gameplay.client.mc12829.PlayerEntityMixin",
+    "gameplay.server.mc31819.PlayerEntityMixin"
   ]
 }
