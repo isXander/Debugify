@@ -1,4 +1,4 @@
-package cc.woverflow.debugify.fabric.mixins.client.mc176559;
+package cc.woverflow.debugify.fabric.mixins.basic.client.mc176559;
 
 import cc.woverflow.debugify.fixes.BugFix;
 import cc.woverflow.debugify.fixes.FixCategory;
