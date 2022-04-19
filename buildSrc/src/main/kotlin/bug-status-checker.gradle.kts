@@ -43,15 +43,15 @@ tasks.register("checkBugStatuses") {
         val json = gson.fromJson(response.body(), JsonObject::class.java)
 
         val fields = json.getAsJsonObject("fields")
-        val resolution = if (fields.has("resolution") && !fields.get("resolution").isJsonNull) {
-            fields.getAsJsonObject("resolution")["name"].asString
+        val resolutionId = if (fields.has("resolution") && !fields.get("resolution").isJsonNull) {
+            fields.getAsJsonObject("resolution")["id"].asString.toInt()
         } else {
-            null
+            -1
         }
 
-        val resolved = resolution != null
+        val resolved = resolutionId == 1
         val fixVersions = mutableListOf<String>()
-        if (resolution != null) {
+        if (resolved) {
             fields.getAsJsonArray("fixVersions")?.forEach {
                 fixVersions += it.asJsonObject["name"].asString
             }
