@@ -6,6 +6,7 @@ import com.mojang.authlib.GameProfile;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.packet.s2c.play.EntityStatusEffectS2CPacket;
+import net.minecraft.network.packet.s2c.play.ExperienceBarUpdateS2CPacket;
 import net.minecraft.network.packet.s2c.play.PlayerAbilitiesS2CPacket;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -32,6 +33,7 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
             networkHandler.sendPacket(new EntityStatusEffectS2CPacket(this.getId(), eff));
         }
 
+        this.networkHandler.sendPacket(new ExperienceBarUpdateS2CPacket(experienceProgress, totalExperience, experienceLevel));
         this.networkHandler.sendPacket(new PlayerAbilitiesS2CPacket(this.getAbilities()));
     }
 }

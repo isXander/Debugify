@@ -28,7 +28,7 @@ public class ConfigGuiHelper {
         Map<FixCategory, ConfigCategory> fixCategories = new HashMap<>();
         Map<ConfigCategory, Map<BugFix.Env, SubCategoryBuilder>> fixSubCategories = new HashMap<>();
         for (FixCategory fixCategory : FixCategory.values()) {
-            var configCategory = builder.getOrCreateCategory(fixCategory.getDisplayName());
+            var configCategory = builder.getOrCreateCategory(new LiteralText(fixCategory.getDisplayName()));
             if (fixCategory == FixCategory.GAMEPLAY) {
                 configCategory.addEntry(builder.entryBuilder()
                         .startTextDescription(new LiteralText("WARNING: This category contains fixes that may be an unfair advantage!").formatted(Formatting.RED))
@@ -45,7 +45,7 @@ public class ConfigGuiHelper {
 
             Map<BugFix.Env, SubCategoryBuilder> subCategories = new HashMap<>();
             for (BugFix.Env env : BugFix.Env.values()) {
-                var subCategoryBuilder = builder.entryBuilder().startSubCategory(env.getDisplayName());
+                var subCategoryBuilder = builder.entryBuilder().startSubCategory(new LiteralText(env.getDisplayName()));
                 subCategories.put(env, subCategoryBuilder);
             }
             fixSubCategories.put(configCategory, subCategories);

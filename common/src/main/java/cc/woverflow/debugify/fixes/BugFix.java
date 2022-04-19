@@ -1,8 +1,5 @@
 package cc.woverflow.debugify.fixes;
 
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.Text;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -31,8 +28,8 @@ public @interface BugFix {
             this.displayName = displayName;
         }
 
-        public Text getDisplayName() {
-            return new LiteralText(displayName);
+        public String getDisplayName() {
+            return displayName;
         }
     }
 }

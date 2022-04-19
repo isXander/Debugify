@@ -1,8 +1,5 @@
 package cc.woverflow.debugify.fixes;
 
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.Text;
-
 public enum FixCategory {
     BASIC("Basic Fixes"),
     GAMEPLAY("Gameplay Fixes");
@@ -13,7 +10,7 @@ public enum FixCategory {
         this.displayName = displayName;
     }
 
-    public Text getDisplayName() {
-        return new LiteralText(this.displayName);
+    public String getDisplayName() {
+        return this.displayName;
     }
 }
