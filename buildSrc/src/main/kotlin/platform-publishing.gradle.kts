@@ -17,7 +17,7 @@ modrinth {
     versionType.set("release")
     uploadFile.set(tasks["remapJar"])
     gameVersions.set(listOf(minecraftVersion))
-    loaders.set(listOf(project.name))
+    loaders.set(if (project.name == "fabric") listOf("fabric", "quilt") else listOf(project.name))
     changelog.set(extra["changelog"].toString())
     if (project.name == "fabric")
         dependencies.add(Dependency("modmenu", "optional"))
