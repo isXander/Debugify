@@ -50,19 +50,19 @@ body:
     validations:
       required: true
 
-    - type: dropdown
-      id: loader
-      attributes:
-        label: Mod Loader
-        description: What mod loader are you using?
-        multiple: true
-        options:
-          - N/A
-          - Forge
-          - Fabric
-          - Quilt
-      validations:
-        required: true
+  - type: dropdown
+    id: loader
+    attributes:
+      label: Mod Loader
+      description: What mod loader are you using?
+      multiple: true
+      options:
+        - N/A
+        - Forge
+        - Fabric
+        - Quilt
+    validations:
+      required: true
 
   - type: textarea
     id: logs-extra-context
