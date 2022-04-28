@@ -47,11 +47,6 @@ public class DebugifyConfig {
             String jsonString = Files.readString(configPath);
             JsonObject json = gson.fromJson(jsonString, JsonObject.class);
 
-            Map<String, Boolean> bugFixes = json.entrySet().stream()
-                    .filter((entry) -> entry.getKey().startsWith("MC-") && entry.getValue().isJsonPrimitive() && entry.getValue().getAsJsonPrimitive().isBoolean())
-                    .map((entry) -> new AbstractMap.SimpleEntry<>(entry.getKey(), entry.getValue().getAsBoolean()))
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-
             if (json.has("opt_out_updater")) {
                 optOutUpdater = json.get("opt_out_updater").getAsBoolean();
             }
@@ -61,6 +56,11 @@ public class DebugifyConfig {
             if (json.has("gameplay_fixes_in_multiplayer")) {
                 gameplayFixesInMultiplayer = json.get("gameplay_fixes_in_multiplayer").getAsBoolean();
             }
+
+            Map<String, Boolean> bugFixes = json.entrySet().stream()
+                    .filter((entry) -> entry.getKey().startsWith("MC-") && entry.getValue().isJsonPrimitive() && entry.getValue().getAsJsonPrimitive().isBoolean())
+                    .map((entry) -> new AbstractMap.SimpleEntry<>(entry.getKey(), entry.getValue().getAsBoolean()))
+                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
             jsonBugFixes.clear();
             jsonBugFixes.putAll(bugFixes);
@@ -77,7 +77,9 @@ public class DebugifyConfig {
             Files.deleteIfExists(configPath);
 
             JsonObject json = new JsonObject();
-            bugFixes.forEach((fix, enabled) -> json.addProperty(fix.bugId(), enabled));
+            bugFixes.forEach((fix, enabled) -> {
+                if (!defaultDisabled || enabled) json.addProperty(fix.bugId(), enabled);
+            });
             json.addProperty("opt_out_updater", optOutUpdater);
             json.addProperty("gameplay_fixes_in_multiplayer", gameplayFixesInMultiplayer);
             json.addProperty("default_disabled", defaultDisabled);
