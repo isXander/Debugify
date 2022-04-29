@@ -35,8 +35,10 @@
     "basic.client.mc231097.ClientPlayerEntityMixin",
     "basic.client.mc233042.DirectConnectScreenMixin",
     "basic.client.mc234898.RealmsMainScreenMixin",
+    "basic.client.mc237493.TelemetryManagerMixin",
     "basic.client.mc249021.RealmsMainScreenMixin",
     "basic.client.mc249059.DownloadingTerrainScreenMixin",
+    "basic.client.mc26757.ScreenMixin",
     "basic.client.mc4490.FishingBobberEntityRendererMixin",
     "basic.client.mc46766.MinecraftClientMixin",
     "basic.client.mc53312.IllagerEntityModelMixin",
@@ -44,10 +46,12 @@
     "basic.client.mc53312.ZombieVillagerEntityModelMixin",
     "basic.client.mc79545.InGameHudMixin",
     "basic.client.mc80859.HandledScreenMixin",
-    "basic.client.mc93384.LivingEntityMixin"
+    "basic.client.mc93384.LivingEntityMixin",
+    "gameplay.client.mc12829.LivingEntityMixin",
+    "gameplay.client.mc12829.PlayerEntityMixin"
   ],
   "mixins": [
-    "basic.client.mc237493.TelemetryManagerMixin",
+    "basic.client.mc165182.InventoryScreenMixin",
     "basic.server.mc100991.FishingBobberEntityMixin",
     "basic.server.mc100991.ProjectileEntityMixin",
     "basic.server.mc119417.ServerPlayerEntityMixin",
@@ -81,8 +85,6 @@
     "basic.server.mc89146.ChunkMixin",
     "basic.server.mc90084.BoatEntityMixin",
     "basic.server.mc93018.AnimalEntityMixin",
-    "gameplay.client.mc12829.LivingEntityMixin",
-    "gameplay.client.mc12829.PlayerEntityMixin",
     "gameplay.server.mc31819.PlayerEntityMixin"
   ]
 }

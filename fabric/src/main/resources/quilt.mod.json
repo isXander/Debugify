@@ -50,6 +50,10 @@
       {
         "id": "no-telemetry",
         "versions": "*"
+      },
+      {
+        "id": "tooltipfix",
+        "versions": "*"
       }
     ],
     "metadata": {

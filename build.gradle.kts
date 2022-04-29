@@ -18,7 +18,7 @@ allprojects {
     apply(plugin = "architectury-plugin")
 
     group = "cc.woverflow"
-    version = "1.9.0"
+    version = "1.10.0"
 
     extra.set("changelog", rootProject.file("changelogs/${project.version}.md").takeIf { it.exists() }?.readText())
 

@@ -47,7 +47,8 @@
     "shadowedactionbar": "*",
     "shiftscrollfix": "*",
     "chunksavingfix": "*",
-    "no-telemetry": "*"
+    "no-telemetry": "*",
+    "tooltipfix": "*"
   },
   "custom": {
     "modmenu": {
