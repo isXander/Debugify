@@ -53,7 +53,7 @@ dependencies {
 tasks {
     processResources {
         inputs.property("version", project.version)
-        filesMatching("fabric.mod.json") {
+        filesMatching(listOf("fabric.mod.json", "quilt.mod.json")) {
             expand(
                 mutableMapOf(
                     "version" to project.version

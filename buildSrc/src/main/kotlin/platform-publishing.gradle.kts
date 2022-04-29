@@ -21,6 +21,7 @@ modrinth {
     changelog.set(extra["changelog"].toString())
     if (project.name == "fabric")
         dependencies.add(Dependency("modmenu", "optional"))
+    dependencies.add(Dependency("cloth-config", "optional"))
 }
 
 rootProject.tasks["publishToModrinth"].dependsOn(tasks["modrinth"])
