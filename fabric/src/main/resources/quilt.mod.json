@@ -74,7 +74,7 @@
         "homepage": "https://woverflow.cc",
         "discord": "https://discord.gg/woverflow"
       },
-      "license": "LGPLv3",
+      "license": "LGPL-3.0",
       "icon": "debugify.png"
     }
   },
