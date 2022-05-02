@@ -48,7 +48,8 @@
     "shiftscrollfix": "*",
     "chunksavingfix": "*",
     "no-telemetry": "*",
-    "tooltipfix": "*"
+    "tooltipfix": "*",
+    "title-fix": "*"
   },
   "custom": {
     "modmenu": {

@@ -54,6 +54,10 @@
       {
         "id": "tooltipfix",
         "versions": "*"
+      },
+      {
+        "id": "title-fix",
+        "versions": "*"
       }
     ],
     "metadata": {
