@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.List;
 
-@BugFix(id = "MC-26757", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, fabricConflicts = "tooltipfix")
+@BugFix(id = "MC-26757", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
 @Mixin(Screen.class)
 public class ScreenMixin {
     @Unique

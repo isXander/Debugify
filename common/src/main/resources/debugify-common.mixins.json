@@ -48,10 +48,10 @@
     "basic.client.mc80859.HandledScreenMixin",
     "basic.client.mc93384.LivingEntityMixin",
     "gameplay.client.mc12829.LivingEntityMixin",
-    "gameplay.client.mc12829.PlayerEntityMixin"
+    "gameplay.client.mc12829.PlayerEntityMixin",
+    "basic.client.mc55347.InGameHudMixin"
   ],
   "mixins": [
-    "basic.client.mc165182.InventoryScreenMixin",
     "basic.server.mc100991.FishingBobberEntityMixin",
     "basic.server.mc100991.ProjectileEntityMixin",
     "basic.server.mc119417.ServerPlayerEntityMixin",
