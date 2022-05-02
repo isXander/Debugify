@@ -38,7 +38,6 @@
     "basic.client.mc237493.TelemetryManagerMixin",
     "basic.client.mc249021.RealmsMainScreenMixin",
     "basic.client.mc249059.DownloadingTerrainScreenMixin",
-    "basic.client.mc26757.ScreenMixin",
     "basic.client.mc4490.FishingBobberEntityRendererMixin",
     "basic.client.mc46766.MinecraftClientMixin",
     "basic.client.mc53312.IllagerEntityModelMixin",

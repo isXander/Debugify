@@ -18,6 +18,7 @@ This mod replaces many mods and implements fixes from some others
 - **[force-close-world-loading-screen](https://modrinth.com/mod/forcecloseworldloadingscreen)**: Replaced
 - **[No Telemetry](https://www.curseforge.com/minecraft/mc-mods/no-telemetry/)**: Replaced
 - **[Tooltip Fix](https://www.curseforge.com/minecraft/mc-mods/tooltipfix)** - Replaced but with a different method (bedrock parity)
+- **[Title Fix Mod](https://modrinth.com/mod/title-fix-mod)**
 - **[TieFix](https://www.curseforge.com/minecraft/mc-mods/tiefix)**: Semi-replaced - some fixes have been implemented
 
 All of these mods have helped us create Debugify. We thank you very much for your effort! We made sure to follow the license of every one of these mods when creating our own version.

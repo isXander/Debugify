@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@BugFix(id = "MC-55347", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-55347", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, fabricConflicts = "title-fix")
 @Mixin(InGameHud.class)
 public abstract class InGameHudMixin {
     @Shadow public abstract void clearTitle();

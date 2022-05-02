@@ -16,8 +16,12 @@ dependencies {
     val minecraftVersion: String by rootProject
 
     minecraft("com.mojang:minecraft:$minecraftVersion")
-    mappings(loom.layered {
-        officialMojangMappings()
-        addLayer(quiltMappings.mappings("org.quiltmc:quilt-mappings:$minecraftVersion+build.+:v2"))
-    })
+    // temporarily swapping back to yarn while
+    // https://github.com/fabricmc/tiny-remapper/issues/92
+    // is open
+    // mappings(loom.layered {
+    //     officialMojangMappings()
+    //     addLayer(quiltMappings.mappings("org.quiltmc:quilt-mappings:$minecraftVersion+build.+:v2"))
+    // })
+    mappings("net.fabricmc:yarn:$minecraftVersion+build.+:v2")
 }

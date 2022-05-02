@@ -12,14 +12,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-249059", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, fabricConflicts = "forcecloseloadingscreen")
 @Mixin(DownloadingTerrainScreen.class)
 public class DownloadingTerrainScreenMixin {
-    @Shadow private boolean oneTickSkipped;
+    @Shadow private boolean closeOnNextTick;
 
     /**
      * for some reason mojang waits 2 seconds even after
      * the terrain is ready (guessing to avoid lag of spawning entities?)
      */
-    @Inject(method = "setLoadingPacketsReceived", at = @At("HEAD"))
+    @Inject(method = "setReady", at = @At("HEAD"))
     private void onReady(CallbackInfo ci) {
-        oneTickSkipped = true;
+        closeOnNextTick = true;
     }
 }

@@ -8,7 +8,8 @@
   "plugin": "cc.woverflow.debugify.utils.MixinPlugin",
   "client": [
     "basic.client.mc176559.ClientPlayerInteractionManagerMixin",
-    "basic.client.mc235035.ClientPlayNetworkHandlerMixin"
+    "basic.client.mc235035.ClientPlayNetworkHandlerMixin",
+    "basic.client.mc26757.ScreenMixin"
   ],
   "mixins": [
     "basic.server.mc7569.RconCommandOutputMixin"
