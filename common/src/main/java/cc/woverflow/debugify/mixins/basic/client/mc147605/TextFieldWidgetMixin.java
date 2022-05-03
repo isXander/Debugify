@@ -30,8 +30,8 @@ public abstract class TextFieldWidgetMixin extends ClickableWidgetMixin {
      * rather than each text field having their own
      * focused value
      */
-    @Inject(method = "setTextFieldFocused", at = @At("HEAD"))
-    private void focusSelf(boolean focused, CallbackInfo ci) {
+    @Override
+    protected void focusSelf(boolean focused, CallbackInfo ci) {
         if (focused && MinecraftClient.getInstance().currentScreen != null) {
             ((TextFieldHolder) MinecraftClient.getInstance().currentScreen).setFocusedTextField((TextFieldWidget) (Object) this);
         }
@@ -45,7 +45,7 @@ public abstract class TextFieldWidgetMixin extends ClickableWidgetMixin {
      * focused = !(!focused) aka does nothing
      */
     @Override
-    protected boolean modifySetFocus(boolean focus) {
+    protected boolean modifyChangeFocus(boolean focus) {
         return !focus;
     }
 
@@ -53,7 +53,7 @@ public abstract class TextFieldWidgetMixin extends ClickableWidgetMixin {
      * now do actual code mojang should have wrote
      */
     @Override
-    protected void setTextFocus(boolean lookForwards, CallbackInfoReturnable<Boolean> cir) {
+    protected void changeFocus(boolean lookForwards, CallbackInfoReturnable<Boolean> cir) {
         setTextFieldFocused(!isFocused());
     }
 

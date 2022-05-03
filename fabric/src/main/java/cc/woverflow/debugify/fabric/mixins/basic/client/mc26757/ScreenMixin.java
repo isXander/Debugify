@@ -6,6 +6,7 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.tooltip.TooltipComponent;
 import net.minecraft.client.util.math.MatrixStack;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -16,6 +17,7 @@ import java.util.List;
 @BugFix(id = "MC-26757", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
 @Mixin(Screen.class)
 public class ScreenMixin {
+    @Shadow public int height;
     @Unique
     private int debugify$modifiedX;
 
@@ -28,12 +30,22 @@ public class ScreenMixin {
     }
 
     private void doCenterTooltip(int mouseX, int mouseY, int width, int height, int x, int y) {
-        if (x < 0) {
+        if (x < -6) {
             debugify$modifiedX = mouseX - width / 2;
-
             debugify$modifiedY = mouseY - height - 12;
+
             if (debugify$modifiedY < 6) {
-                debugify$modifiedY = mouseY + 12;
+                // find amount of obstruction to decide if it
+                // is best to be above or below cursor
+                var below = mouseY + 12;
+                var belowObstruction = -Math.max(0, below + height - this.height);
+                var aboveObstruction = -debugify$modifiedY;
+                System.out.println("belowObstruction " + belowObstruction);
+                System.out.println("aboveObstruction " + aboveObstruction);
+
+                if (belowObstruction < aboveObstruction) {
+                    debugify$modifiedY = below;
+                }
             }
         } else {
             debugify$modifiedX = x;
