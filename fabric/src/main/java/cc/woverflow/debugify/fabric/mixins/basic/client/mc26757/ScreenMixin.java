@@ -30,7 +30,7 @@ public class ScreenMixin {
     }
 
     private void doCenterTooltip(int mouseX, int mouseY, int width, int height, int x, int y) {
-        if (x < -6) {
+        if (x < -2) {
             debugify$modifiedX = mouseX - width / 2;
             debugify$modifiedY = mouseY - height - 12;
 
@@ -38,10 +38,8 @@ public class ScreenMixin {
                 // find amount of obstruction to decide if it
                 // is best to be above or below cursor
                 var below = mouseY + 12;
-                var belowObstruction = -Math.max(0, below + height - this.height);
+                var belowObstruction = below + height - this.height;
                 var aboveObstruction = -debugify$modifiedY;
-                System.out.println("belowObstruction " + belowObstruction);
-                System.out.println("aboveObstruction " + aboveObstruction);
 
                 if (belowObstruction < aboveObstruction) {
                     debugify$modifiedY = below;
