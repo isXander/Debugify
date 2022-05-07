@@ -41,7 +41,7 @@ if (hasProperty("curseforge.token")) {
             addGameVersion("Java 17")
 
             relations(closureOf<com.matthewprenger.cursegradle.CurseRelation> {
-                requiredDependency(if (project.name == "fabric") "cloth-config" else "cloth-config-forge")
+                requiredDependency("cloth-config")
                 if (project.name == "fabric")
                     optionalDependency("modmenu")
             })
