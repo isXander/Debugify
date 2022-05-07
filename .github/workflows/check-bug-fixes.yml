@@ -36,4 +36,4 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Check bug statuses
-        run: ./gradlew chuckBugStatuses --no-daemon
+        run: ./gradlew checkBugStatuses --no-daemon
