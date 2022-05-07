@@ -13,6 +13,7 @@
     "basic.client.mc116379.FishingBobberEntityRendererMixin",
     "basic.client.mc121772.MouseMixin",
     "basic.client.mc122477.TextFieldWidgetMixin",
+    "basic.client.mc122477.RenderSystemMixin",
     "basic.client.mc122627.CommandSuggestorMixin",
     "basic.client.mc123739.ClientRecipeBookMixin",
     "basic.client.mc127970.HeldItemRendererMixin",
@@ -43,12 +44,12 @@
     "basic.client.mc53312.IllagerEntityModelMixin",
     "basic.client.mc53312.VillagerResemblingModelMixin",
     "basic.client.mc53312.ZombieVillagerEntityModelMixin",
+    "basic.client.mc55347.InGameHudMixin",
     "basic.client.mc79545.InGameHudMixin",
     "basic.client.mc80859.HandledScreenMixin",
     "basic.client.mc93384.LivingEntityMixin",
     "gameplay.client.mc12829.LivingEntityMixin",
-    "gameplay.client.mc12829.PlayerEntityMixin",
-    "basic.client.mc55347.InGameHudMixin"
+    "gameplay.client.mc12829.PlayerEntityMixin"
   ],
   "mixins": [
     "basic.server.mc100991.FishingBobberEntityMixin",
