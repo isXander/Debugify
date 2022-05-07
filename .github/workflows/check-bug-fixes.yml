@@ -16,7 +16,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build with gradle
+    name: Check bug status
 
     steps:
       - uses: actions/checkout@v2
