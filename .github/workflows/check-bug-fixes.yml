@@ -1,4 +1,4 @@
-name: Gradle CI
+name: Bug Status Check
 
 on:
   push:
