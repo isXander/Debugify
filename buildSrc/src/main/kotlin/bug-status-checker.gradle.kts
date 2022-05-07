@@ -9,7 +9,7 @@ tasks.register("checkBugStatuses") {
     group = "debugify"
 
     logger.lifecycle("\n")
-    logger.log(LogLevel.ERROR, "CHECKING BUG STATUSES\n")
+    logger.error("CHECKING BUG STATUSES\n")
 
     val bugsToCheck = run {
         val bugs = mutableListOf<String>()
@@ -64,6 +64,7 @@ tasks.register("checkBugStatuses") {
     if (count == 0) {
         logger.lifecycle("Nothing to report!")
     } else {
-        error("\n$count issue${if (count == 1) "" else "s"} need addressing!")
+        logger.error("\n$count issue${if (count == 1) "" else "s"} need addressing!")
+        throw GradleScriptException("bug statuses not ok!", RuntimeException("$count issue${if (count == 1) "" else "s"} need addressing!"))
     }
 }

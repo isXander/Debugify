@@ -1,4 +1,4 @@
-import com.modrinth.minotaur.dependencies.Dependency
+import com.modrinth.minotaur.dependencies.ModDependency
 
 plugins {
     id("com.modrinth.minotaur")
@@ -20,8 +20,8 @@ modrinth {
     loaders.set(if (project.name == "fabric") listOf("fabric", "quilt") else listOf(project.name))
     changelog.set(extra["changelog"].toString())
     if (project.name == "fabric")
-        dependencies.add(Dependency("modmenu", "optional"))
-    dependencies.add(Dependency("cloth-config", "optional"))
+        dependencies.add(ModDependency("mOgUt4GM", "optional"))
+    dependencies.add(ModDependency("9s6osm5g", "optional"))
 }
 
 rootProject.tasks["publishToModrinth"].dependsOn(tasks["modrinth"])
