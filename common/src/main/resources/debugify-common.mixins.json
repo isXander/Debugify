@@ -12,8 +12,8 @@
     "basic.client.mc111516.PlayerEntityRendererMixin",
     "basic.client.mc116379.FishingBobberEntityRendererMixin",
     "basic.client.mc121772.MouseMixin",
-    "basic.client.mc122477.TextFieldWidgetMixin",
     "basic.client.mc122477.RenderSystemMixin",
+    "basic.client.mc122477.TextFieldWidgetMixin",
     "basic.client.mc122627.CommandSuggestorMixin",
     "basic.client.mc123739.ClientRecipeBookMixin",
     "basic.client.mc127970.HeldItemRendererMixin",
@@ -49,7 +49,9 @@
     "basic.client.mc80859.HandledScreenMixin",
     "basic.client.mc93384.LivingEntityMixin",
     "gameplay.client.mc12829.LivingEntityMixin",
-    "gameplay.client.mc12829.PlayerEntityMixin"
+    "gameplay.client.mc12829.PlayerEntityMixin",
+    "basic.client.mc228976.EntityMixin",
+    "basic.client.mc228976.LivingEntityMixin"
   ],
   "mixins": [
     "basic.server.mc100991.FishingBobberEntityMixin",

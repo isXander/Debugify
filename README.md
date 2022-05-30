@@ -19,6 +19,7 @@ This mod replaces many mods and implements fixes from some others
 - **[No Telemetry](https://www.curseforge.com/minecraft/mc-mods/no-telemetry/)**: Replaced
 - **[ToolTipFix](https://www.curseforge.com/minecraft/mc-mods/tooltipfix)**: Replaced but with a different method (bedrock parity)
 - **[Title Fix Mod](https://modrinth.com/mod/title-fix-mod)**: Replaced
+- **[Entity Collision FPS Fix Refabricated](https://www.curseforge.com/minecraft/mc-mods/entity-collision-fps-fix-fabric)**: Replaced
 - **[TieFix](https://www.curseforge.com/minecraft/mc-mods/tiefix)**: Semi-replaced - some fixes have been implemented
 
 All of these mods have helped us create Debugify. We thank you very much for your effort! We made sure to follow the license of every one of these mods when creating our own version.
@@ -49,5 +50,5 @@ so we added a config option that defaults new bug fixes to off, until you get ro
 
 ## Credits
 - [**isXander**](https://github.com/isXander) - Founder of project
-- [**Contributors**](https://github.com/W-OVERFLOW/Debugify/graphs/contributors) - For PRing new fixes!
+- [**Contributors**](https://github.com/isXander/Debugify/graphs/contributors) - For PRing new fixes!
 - [**MoonTidez**](https://github.com/MoonTidez) - Creating an awesome logo!
