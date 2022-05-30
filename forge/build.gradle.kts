@@ -68,8 +68,8 @@ tasks {
     }
 
     shadowJar {
-        relocate("com.llamalad7.mixinextras", "cc.woverflow.debugify.lib.mixinextras")
-        relocate("com.github.zafarkhaja.semver", "cc.woverflow.debugify.lib.jsemver")
+        relocate("com.llamalad7.mixinextras", "dev.isxander.debugify.lib.mixinextras")
+        relocate("com.github.zafarkhaja.semver", "dev.isxander.debugify.lib.jsemver")
 
         exclude("fabric.mod.json")
         exclude("architectury.common.json")

@@ -17,7 +17,7 @@ allprojects {
     apply(plugin = "java")
     apply(plugin = "architectury-plugin")
 
-    group = "cc.woverflow"
+    group = "dev.isxander"
     version = "1.10.0"
 
     extra.set("changelog", rootProject.file("changelogs/${project.version}.md").takeIf { it.exists() }?.readText())

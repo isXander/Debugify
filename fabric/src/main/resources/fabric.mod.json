@@ -6,26 +6,25 @@
   "description": "Fixes Minecraft bugs found on the bug tracker",
   "authors": [
     "isXander",
-    "W-OVERFLOW",
     "Contributors"
   ],
   "contact": {
-    "homepage": "https://woverflow.cc",
-    "issues": "https://github.com/W-OVERFLOW/Debugify/issues",
-    "sources": "https://github.com/W-OVERFLOW/Debugify"
+    "homepage": "https://isxander.dev",
+    "issues": "https://github.com/isXander/Debugify/issues",
+    "sources": "https://github.com/isXander/Debugify"
   },
   "license": "LGPLv3",
   "environment": "*",
   "icon": "debugify.png",
   "entrypoints": {
     "main": [
-      "cc.woverflow.debugify.Debugify::onInitialize"
+      "dev.isxander.debugify.Debugify::onInitialize"
     ],
     "client": [
-      "cc.woverflow.debugify.client.DebugifyClient::onInitializeClient"
+      "dev.isxander.debugify.client.DebugifyClient::onInitializeClient"
     ],
     "modmenu": [
-      "cc.woverflow.debugify.fabric.integrations.ModMenuIntegration"
+      "dev.isxander.debugify.fabric.integrations.ModMenuIntegration"
     ]
   },
   "mixins": [
@@ -54,7 +53,7 @@
   "custom": {
     "modmenu": {
       "links": {
-        "Patched Bugs": "https://github.com/W-OVERFLOW/Debugify/blob/1.18/PATCHED.md#unpatched-in-vanilla"
+        "Patched Bugs": "https://github.com/isXander/Debugify/blob/1.18/PATCHED.md#unpatched-in-vanilla"
       }
     }
   }

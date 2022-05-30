@@ -27,7 +27,7 @@ loom {
 }
 
 blossom {
-    val debugifyClass = "src/main/java/cc/woverflow/debugify/Debugify.java"
+    val debugifyClass = "src/main/java/dev/isxander/debugify/Debugify.java"
 
     replaceToken("@VERSION@", project.version, debugifyClass)
 }

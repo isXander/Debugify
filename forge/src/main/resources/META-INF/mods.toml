@@ -7,7 +7,7 @@ loaderVersion = "[38,)"
 # Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
 license = "LGPLv3.0"
 # A URL to refer people to when problems occur with this mod
-issueTrackerURL = "https://github.com/W-OVERFLOW/Debugify/issues"
+issueTrackerURL = "https://github.com/isXander/Debugify/issues"
 # If the mods defined in this file should show as separate resource packs
 showAsResourcePack = false
 
@@ -15,9 +15,9 @@ showAsResourcePack = false
 modId = "debugify"
 version = "${version}"
 displayName = "Debugify"
-displayURL = "https://woverflow.cc"
+displayURL = "https://isxander.dev"
 logoFile = "debugify.png"
-authors = "W-OVERFLOW"
+authors = "isXander"
 description = '''
       Fixes Minecraft bugs found on the bug tracker
       '''

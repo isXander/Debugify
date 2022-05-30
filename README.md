@@ -5,8 +5,8 @@
 (and does nothing more!)</h3>
 </div>
 
-[![wakatime](https://wakatime.com/badge/github/W-OVERFLOW/Debugify.svg?style=for-the-badge)](https://wakatime.com/badge/github/W-OVERFLOW/Debugify)
-![Lines of Code](https://img.shields.io/tokei/lines/github/W-OVERFLOW/Debugify?color=%23ff4747&label=Lines%20of%20code&style=for-the-badge)
+[![wakatime](https://wakatime.com/badge/github/isXander/Debugify.svg?style=for-the-badge)](https://wakatime.com/badge/github/W-OVERFLOW/Debugify)
+![Lines of Code](https://img.shields.io/tokei/lines/github/isXander/Debugify?color=%23ff4747&label=Lines%20of%20code&style=for-the-badge)
 
 ## What does this mod replace?
 This mod replaces many mods and implements fixes from some others
@@ -24,7 +24,7 @@ This mod replaces many mods and implements fixes from some others
 All of these mods have helped us create Debugify. We thank you very much for your effort! We made sure to follow the license of every one of these mods when creating our own version.
 
 ## Links and other info
-[GitHub](https://github.com/W-OVERFLOW/Debugify) • [Curseforge](https://curseforge.com/minecraft/mc-mods/debugify) • [Patched bugs (GitHub List)](https://github.com/W-OVERFLOW/Debugify/blob/1.18/PATCHED.md) • [Discord (W-OVERFLOW)](https://woverflow.cc/discord)
+[GitHub](https://github.com/isXander/Debugify) • [Curseforge](https://curseforge.com/minecraft/mc-mods/debugify) • [Patched bugs (GitHub List)](https://github.com/isXander/Debugify/blob/1.18/PATCHED.md) • [Discord](https://short.isxander.dev/discord)
 
 ## What if I want to enable some bug fixes, but not others?
 Debugify has a configuration GUI accessible by Fabric's [Mod Menu](https://modrinth.com/mod/modmenu) or Forge's Built-in mod list.
@@ -49,6 +49,5 @@ so we added a config option that defaults new bug fixes to off, until you get ro
 
 ## Credits
 - [**isXander**](https://github.com/isXander) - Founder of project
-- [**W-OVERFLOW**](https://github.com/orgs/W-OVERFLOW/people) - Backing organization
 - [**Contributors**](https://github.com/W-OVERFLOW/Debugify/graphs/contributors) - For PRing new fixes!
 - [**MoonTidez**](https://github.com/MoonTidez) - Creating an awesome logo!

@@ -86,7 +86,7 @@ afterEvaluate {
     githubRelease {
         token(findProperty("github.token")?.toString())
 
-        owner("W-OVERFLOW")
+        owner("isXander")
         repo("Debugify")
         tagName("${project.version}")
         targetCommitish("1.18")

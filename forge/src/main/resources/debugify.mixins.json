@@ -1,11 +1,11 @@
 {
   "required": true,
-  "package": "cc.woverflow.debugify.forge.mixins",
+  "package": "dev.isxander.debugify.forge.mixins",
   "compatibilityLevel": "JAVA_17",
   "injectors": {
     "defaultRequire": 0
   },
-  "plugin": "cc.woverflow.debugify.utils.MixinPlugin",
+  "plugin": "dev.isxander.debugify.utils.MixinPlugin",
   "client": [
     "basic.client.mc215531.ForgeIngameGuiMixin"
   ]
