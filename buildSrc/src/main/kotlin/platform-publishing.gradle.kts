@@ -8,6 +8,7 @@ plugins {
 }
 
 val minecraftVersion: String by rootProject
+val isFabric = project.name == "fabric"
 
 modrinth {
     token.set(findProperty("modrinth.token")?.toString())
@@ -17,9 +18,9 @@ modrinth {
     versionType.set("release")
     uploadFile.set(tasks["remapJar"])
     gameVersions.set(listOf(minecraftVersion))
-    loaders.set(if (project.name == "fabric") listOf("fabric", "quilt") else listOf(project.name))
+    loaders.set(if (isFabric) listOf("fabric", "quilt") else listOf(project.name))
     changelog.set(extra["changelog"].toString())
-    if (project.name == "fabric")
+    if (isFabric)
         dependencies.add(ModDependency("mOgUt4GM", "optional"))
     dependencies.add(ModDependency("9s6osm5g", "optional"))
 }
@@ -35,14 +36,15 @@ if (hasProperty("curseforge.token")) {
             })
 
             id = "596224"
-            releaseType = if (project.name == "fabric") "beta" else "release"
+            releaseType = if (isFabric) "release" else "beta"
             addGameVersion(minecraftVersion)
             addGameVersion(project.name.capitalize())
+            if (isFabric) addGameVersion("Quilt")
             addGameVersion("Java 17")
 
             relations(closureOf<com.matthewprenger.cursegradle.CurseRelation> {
                 requiredDependency("cloth-config")
-                if (project.name == "fabric")
+                if (isFabric)
                     optionalDependency("modmenu")
             })
 

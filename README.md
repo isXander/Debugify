@@ -5,7 +5,7 @@
 (and does nothing more!)</h3>
 </div>
 
-[![wakatime](https://wakatime.com/badge/github/isXander/Debugify.svg?style=for-the-badge)](https://wakatime.com/badge/github/W-OVERFLOW/Debugify)
+[![wakatime](https://wakatime.com/badge/github/W-OVERFLOW/Debugify.svg?style=for-the-badge)](https://wakatime.com/badge/github/W-OVERFLOW/Debugify)
 ![Lines of Code](https://img.shields.io/tokei/lines/github/isXander/Debugify?color=%23ff4747&label=Lines%20of%20code&style=for-the-badge)
 
 ## What does this mod replace?
@@ -15,7 +15,7 @@ This mod replaces many mods and implements fixes from some others
 - **[Shift-Scroll Fix](https://www.curseforge.com/minecraft/mc-mods/shift-scroll-fix)**: Replaced
 - **[ForgetMeChunk](https://www.curseforge.com/minecraft/mc-mods/forgetmechunk)**: Replaced
 - **[ChunkSavingFix](https://www.curseforge.com/minecraft/mc-mods/chunk-saving-fix)**: Replaced
-- **[force-close-world-loading-screen](https://modrinth.com/mod/forcecloseworldloadingscreen)**: Replaced
+- **[force-close-world-loading-screen](https://modrinth.com/mod/forcecloseworldloadingscreen)**: Replaced (missing advanced features)
 - **[No Telemetry](https://www.curseforge.com/minecraft/mc-mods/no-telemetry/)**: Replaced
 - **[ToolTipFix](https://www.curseforge.com/minecraft/mc-mods/tooltipfix)**: Replaced but with a different method (bedrock parity)
 - **[Title Fix Mod](https://modrinth.com/mod/title-fix-mod)**: Replaced
