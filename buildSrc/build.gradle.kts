@@ -15,9 +15,11 @@ repositories {
 dependencies {
     fun plugin(id: String, version: String) = "$id:$id.gradle.plugin:$version"
 
-    implementation(plugin("dev.architectury.loom", "0.11.+"))
+    implementation(plugin("dev.architectury.loom", "0.12.+"))
     implementation(plugin("io.github.juuxel.loom-quiltflower", "1.7.1"))
-    implementation(plugin("org.quiltmc.quilt-mappings-on-loom", "4.+"))
+    implementation(plugin("org.quiltmc.quilt-mappings-on-loom", "4.+")) {
+        exclude(module = "fabric-loom")
+    }
 
     implementation(plugin("com.modrinth.minotaur", "2.+"))
     implementation(plugin("com.matthewprenger.cursegradle", "1.+"))

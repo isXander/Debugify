@@ -24,6 +24,8 @@ This mod replaces many mods and implements fixes from some others
 
 All of these mods have helped us create Debugify. We thank you very much for your effort! We made sure to follow the license of every one of these mods when creating our own version.
 
+These replaced mods are not hard conflicts and can be used in conjunction with Debugify for any additional advanced features.
+
 ## Links and other info
 [GitHub](https://github.com/isXander/Debugify) • [Curseforge](https://curseforge.com/minecraft/mc-mods/debugify) • [Patched bugs (GitHub List)](https://github.com/isXander/Debugify/blob/1.18/PATCHED.md) • [Discord](https://short.isxander.dev/discord)
 

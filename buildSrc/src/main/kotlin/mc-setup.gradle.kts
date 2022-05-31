@@ -4,10 +4,6 @@ plugins {
     id("org.quiltmc.quilt-mappings-on-loom")
 }
 
-loom {
-    silentMojangMappingsLicense()
-}
-
 /**
  * have to use buildSrc for this because
  * subprojects doesn't allow you to use loom or quiltMappings
