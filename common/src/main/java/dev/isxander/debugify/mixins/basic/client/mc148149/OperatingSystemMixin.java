@@ -5,69 +5,29 @@ import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.util.Util;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URL;
-import java.util.concurrent.CompletableFuture;
+import java.security.AccessController;
+import java.security.PrivilegedActionException;
+import java.security.PrivilegedExceptionAction;
 
-/**
- * Taken from FastOpenLinksAndFolders
- * https://github.com/altrisi/FastOpenLinksAndFolders
- * under LGPLv3 license
- *
- * Adapted to work in a multi-loader environment
- *
- * @author altrisi
- */
 @BugFix(id = "MC-148149", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, fabricConflicts = "fastopenlinksandfolders")
 @Mixin(Util.OperatingSystem.class)
 public abstract class OperatingSystemMixin {
-    @Shadow
-    public abstract void open(URL url);
+    @Shadow protected abstract String[] getURLOpenCommand(URL url);
 
     /**
-     * @author altrisi
-     * @reason Make opening screenshots and chat links non-blocking
-     *
-     * should be using @Overwrite but architectury doesn't like that
+     * @author isXander
      */
-    @Inject(method = "open(Ljava/net/URI;)V", at = @At("HEAD"), cancellable = true)
-    public void openUri(URI uri, CallbackInfo ci) {
-        CompletableFuture.runAsync(() -> {
-            try {
-                this.open(uri.toURL());
-            } catch (MalformedURLException e) {
-                Debugify.logger.error("Couldn't open uri '" + uri + "'");
-                e.printStackTrace();
-            }
-        });
-
-        ci.cancel();
-    }
-
-    /**
-     * @author altrisi
-     * @reason Make opening resourcepack and datapacks folder non-blocking
-     *
-     * should be using @Overwrite but architectury doesn't like that
-     */
-    @Inject(method = "open(Ljava/io/File;)V", at = @At("HEAD"), cancellable = true)
-    public void openFile(File file, CallbackInfo ci) {
-        CompletableFuture.runAsync(() -> {
-            try {
-                this.open(file.toURI().toURL());
-            } catch (MalformedURLException e) {
-                Debugify.logger.error("Couldn't open file '" + file + "'");
-                e.printStackTrace();
-            }
-        });
-
-        ci.cancel();
+    @Overwrite
+    public void open(URL url) {
+        try {
+            Debugify.logger.info("Opening non-blocking URL. You may see system errors in the logs you can ignore.");
+            AccessController.doPrivileged((PrivilegedExceptionAction<Process>)() -> new ProcessBuilder().command(this.getURLOpenCommand(url)).redirectError(ProcessBuilder.Redirect.INHERIT).start());
+        } catch (PrivilegedActionException e) {
+            UtilAccessor.getLogger().error("Couldn't open url '{}'", url, e);
+        }
     }
 }

@@ -49,6 +49,7 @@
     "basic.client.mc80859.HandledScreenMixin",
     "basic.client.mc93384.LivingEntityMixin",
     "basic.client.mc210318.BookEditScreenMixin",
+    "basic.client.mc148149.UtilAccessor",
     "gameplay.client.mc12829.LivingEntityMixin",
     "gameplay.client.mc12829.PlayerEntityMixin"
   ],
