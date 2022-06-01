@@ -20,9 +20,9 @@ allprojects {
     apply(plugin = "io.github.p03w.machete")
 
     group = "dev.isxander"
-    version = "1.11.0"
+    version = "2.0.0"
 
-    extra.set("changelog", rootProject.file("changelogs/${project.version}.md").takeIf { it.exists() }?.readText())
+    extra.set("changelog", rootProject.file("changelogs/${project.version}.md").takeIf { it.exists() }?.readText() ?: "No changelog provided.")
 
     repositories {
         mavenCentral()
