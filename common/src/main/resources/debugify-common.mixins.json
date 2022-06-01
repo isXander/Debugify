@@ -48,7 +48,6 @@
     "basic.client.mc79545.InGameHudMixin",
     "basic.client.mc80859.HandledScreenMixin",
     "basic.client.mc93384.LivingEntityMixin",
-    "basic.client.mc210318.BookEditScreenMixin",
     "gameplay.client.mc12829.LivingEntityMixin",
     "gameplay.client.mc12829.PlayerEntityMixin"
   ],
