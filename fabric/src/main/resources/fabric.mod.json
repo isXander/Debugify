@@ -3,7 +3,7 @@
   "id": "debugify",
   "version": "${version}",
   "name": "Debugify",
-  "description": "Fixes Minecraft bugs found on the bug tracker",
+  "description": "${description}",
   "authors": [
     "isXander",
     "Contributors"

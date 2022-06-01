@@ -60,9 +60,11 @@ dependencies {
 tasks {
     processResources {
         inputs.property("version", project.version)
+        inputs.property("description", modDescription)
         filesMatching("META-INF/mods.toml") {
             expand(
-                "version" to project.version
+                "version" to project.version,
+                "description" to modDescription,
             )
         }
     }

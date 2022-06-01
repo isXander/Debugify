@@ -9,8 +9,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 /**
- * Taken from a Sodium PR
- * https://github.com/AMereBagatelle/sodium-fabric/tree/guardian-beam-fix
+ * Taken from Sodium Extra
+ * https://github.com/FlashyReese/sodium-extra-fabric
  * under LGLv3 license
  *
  * Adapted to work in a multi-loader environment
