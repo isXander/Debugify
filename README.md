@@ -27,7 +27,7 @@ All of these mods have helped us create Debugify. We thank you very much for you
 These replaced mods are not hard conflicts and can be used in conjunction with Debugify for any additional advanced features.
 
 ## Links and other info
-[GitHub](https://github.com/isXander/Debugify) • [Curseforge](https://curseforge.com/minecraft/mc-mods/debugify) • [Patched bugs (GitHub List)](https://github.com/isXander/Debugify/blob/1.18/PATCHED.md) • [Discord](https://short.isxander.dev/discord)
+[GitHub](https://github.com/isXander/Debugify) • [Curseforge](https://curseforge.com/minecraft/mc-mods/debugify) • [Patched bugs (GitHub List)](https://github.com/isXander/Debugify/blob/1.19/PATCHED.md) • [Discord](https://short.isxander.dev/discord)
 
 ## What if I want to enable some bug fixes, but not others?
 Debugify has a configuration GUI accessible by Fabric's [Mod Menu](https://modrinth.com/mod/modmenu) or Forge's Built-in mod list.

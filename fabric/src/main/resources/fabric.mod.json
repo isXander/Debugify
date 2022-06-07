@@ -32,8 +32,8 @@
     "debugify.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.13.0",
-    "minecraft": "1.18.2",
+    "fabricloader": ">=0.14.0",
+    "minecraft": "1.19",
     "java": ">=17"
   },
   "recommends": {
@@ -53,7 +53,7 @@
   "custom": {
     "modmenu": {
       "links": {
-        "Patched Bugs": "https://github.com/isXander/Debugify/blob/1.18/PATCHED.md#unpatched-in-vanilla"
+        "Patched Bugs": "https://github.com/isXander/Debugify/blob/1.19/PATCHED.md#unpatched-in-vanilla"
       }
     }
   }

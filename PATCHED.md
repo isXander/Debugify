@@ -86,15 +86,14 @@
 ## Patched in snapshots
 To delete when next version comes out.
 ### Client Side
-| Bug ID                                                         | Name                                                                                    | Fixed in |
-|----------------------------------------------------------------|-----------------------------------------------------------------------------------------|----------|
-| [MC-53312](https://bugs.mojang.com/browse/MC-53312)            | Illager/(zombie) villager/witch robes don't render the last two rows of pixels          | 22w17a   |
-| [MC-235035](https://bugs.mojang.com/browse/MC-235035)          | Sleeping in a custom dimension with "natural" set to false causes crash *(fabric only)* | 22w15a   |
-| [MC-249021](https://bugs.mojang.com/browse/MC-249021)          | The invitation and news buttons aren't consistently displayed within the realms menu    | 22w18a   |
-
 ### Server Side (Both)
 
 ## Previously patched
 Bugs that this mod has patched but has been superseded by a vanilla update.
 ### Client Side
+| Bug ID                                                         | Name                                                                                    | Fixed in |
+|----------------------------------------------------------------|-----------------------------------------------------------------------------------------|----------|
+| [MC-53312](https://bugs.mojang.com/browse/MC-53312)            | Illager/(zombie) villager/witch robes don't render the last two rows of pixels          | 22w17a   |
+| [MC-235035](https://bugs.mojang.com/browse/MC-235035)          | Sleeping in a custom dimension with "natural" set to false causes crash *(fabric only)* | 22w15a   |
+
 ### Server Side (Both)

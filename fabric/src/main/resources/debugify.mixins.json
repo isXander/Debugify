@@ -8,7 +8,6 @@
   "plugin": "dev.isxander.debugify.utils.MixinPlugin",
   "client": [
     "basic.client.mc176559.ClientPlayerInteractionManagerMixin",
-    "basic.client.mc235035.ClientPlayNetworkHandlerMixin",
     "basic.client.mc26757.ScreenMixin",
     "basic.client.mc112730.ChunkBuilderBuiltChunkRebuildTaskMixin"
   ],

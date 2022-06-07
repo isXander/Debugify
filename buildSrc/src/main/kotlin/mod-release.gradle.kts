@@ -89,7 +89,7 @@ afterEvaluate {
         owner("isXander")
         repo("Debugify")
         tagName("${project.version}")
-        targetCommitish("1.18")
+        targetCommitish("1.19")
         body(extra["changelog"].toString())
         releaseAssets(project(":fabric").tasks["remapJar"].outputs.files, project(":forge").tasks["remapJar"].outputs.files)
     }

@@ -30,7 +30,7 @@ body:
     id: adheres-to-guidelines
     attributes:
       label: Bug adhere to the guidelines.
-      description: You made sure that the bug adheres to the [guidelines](https://github.com/W-OVERFLOW/Debugify/blob/1.18/GUIDELINES.md).
+      description: You made sure that the bug adheres to the [guidelines](https://github.com/isXander/Debugify/blob/1.19/GUIDELINES.md).
       options:
         - label: I made sure that this bug adheres to the guidelines.
           required: true
