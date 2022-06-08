@@ -37,7 +37,7 @@
     "java": ">=17"
   },
   "recommends": {
-    "cloth-config2": "6.x.x",
+    "cloth-config2": "7.x.x",
     "modmenu": "*"
   },
   "conflicts": {

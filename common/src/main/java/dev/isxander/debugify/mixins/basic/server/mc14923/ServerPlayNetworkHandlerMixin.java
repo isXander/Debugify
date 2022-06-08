@@ -1,5 +1,6 @@
 package dev.isxander.debugify.mixins.basic.server.mc14923;
 
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.server.MinecraftServer;
@@ -25,10 +26,8 @@ public class ServerPlayNetworkHandlerMixin {
      * but in singleplayer, with cheats off, you are not opped.
      * This mixin also checks if the user is the host.
      */
-    @Inject(method = "handleMessage", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/network/ServerPlayNetworkHandler;disconnect(Lnet/minecraft/text/Text;)V"), cancellable = true)
-    public void onMessage(TextStream.Message message, CallbackInfo ci){
-        if (this.server.isHost(this.player.getGameProfile())) {
-            ci.cancel();
-        }
+    @ModifyExpressionValue(method = "checkForSpam", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/PlayerManager;isOperator(Lcom/mojang/authlib/GameProfile;)Z"))
+    public boolean onMessage(boolean operator){
+        return operator || this.server.isHost(this.player.getGameProfile());
     }
 }

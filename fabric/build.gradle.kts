@@ -47,7 +47,11 @@ dependencies {
         exclude(module = "fabric-api")
     }
 
-    modImplementation("com.terraformersmc:modmenu:3.+")
+    modImplementation("com.terraformersmc:modmenu:4.+") {
+        exclude(module = "fabric-api")
+    }
+
+    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.55.0+1.19")
 }
 
 tasks {
