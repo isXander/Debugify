@@ -24,6 +24,7 @@
     "basic.client.mc147605.ClickableWidgetMixin",
     "basic.client.mc147605.TextFieldWidgetMixin",
     "basic.client.mc148149.OperatingSystemMixin",
+    "basic.client.mc148149.UtilAccessor",
     "basic.client.mc151412.AddServerScreenMixin",
     "basic.client.mc159163.ClientPlayNetworkHandlerMixin",
     "basic.client.mc162253.ClientPlayNetworkHandlerMixin",
@@ -45,11 +46,11 @@
     "basic.client.mc79545.InGameHudMixin",
     "basic.client.mc80859.HandledScreenMixin",
     "basic.client.mc93384.LivingEntityMixin",
-    "basic.client.mc148149.UtilAccessor",
     "gameplay.client.mc12829.LivingEntityMixin",
     "gameplay.client.mc12829.PlayerEntityMixin"
   ],
   "mixins": [
+    "basic.client.mc577.HandledScreenMixin",
     "basic.server.mc100991.FishingBobberEntityMixin",
     "basic.server.mc100991.ProjectileEntityMixin",
     "basic.server.mc119417.ServerPlayerEntityMixin",
