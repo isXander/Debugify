@@ -43,6 +43,8 @@
     "basic.client.mc4490.FishingBobberEntityRendererMixin",
     "basic.client.mc46766.MinecraftClientMixin",
     "basic.client.mc55347.InGameHudMixin",
+    "basic.client.mc577.HandledScreenMixin",
+    "basic.client.mc197260.LivingEntityRendererMixin",
     "basic.client.mc79545.InGameHudMixin",
     "basic.client.mc80859.HandledScreenMixin",
     "basic.client.mc93384.LivingEntityMixin",
@@ -50,7 +52,6 @@
     "gameplay.client.mc12829.PlayerEntityMixin"
   ],
   "mixins": [
-    "basic.client.mc577.HandledScreenMixin",
     "basic.server.mc100991.FishingBobberEntityMixin",
     "basic.server.mc100991.ProjectileEntityMixin",
     "basic.server.mc119417.ServerPlayerEntityMixin",

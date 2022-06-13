@@ -18,10 +18,8 @@ import java.util.stream.IntStream;
 
 @BugFix(id = "MC-197260", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
 @Mixin(ArmorStandEntityRenderer.class)
-public abstract class ArmorStandEntityRendererMixin extends LivingEntityRenderer<ArmorStandEntity, ArmorStandArmorEntityModel> {
-    public ArmorStandEntityRendererMixin(EntityRendererFactory.Context ctx, ArmorStandArmorEntityModel model, float shadowRadius) {
-        super(ctx, model, shadowRadius);
-    }
+public abstract class ArmorStandEntityRendererMixin extends LivingEntityRendererMixin<ArmorStandEntity, ArmorStandArmorEntityModel> {
+
 
     /**
      * Overrides the light level passed to the renderer, with the maximum of:
@@ -31,14 +29,13 @@ public abstract class ArmorStandEntityRendererMixin extends LivingEntityRenderer
      * * The block above the armor stand
      */
     @Override
-    public void render(ArmorStandEntity livingEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int providedLightLevel) {
-        int maxLightLevel = Math.max(providedLightLevel, IntStream.of(-1, 2, 3)
+    public int modifyProvidedLightLevel(int providedLightLevel, ArmorStandEntity livingEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider) {
+        return Math.max(providedLightLevel, IntStream.of(-1, 2, 3)
                 .map(operand -> {
                     BlockPos pos = livingEntity.getBlockPos().add(0, operand, 0);
                     return LightmapTextureManager.pack(livingEntity.world.getLightLevel(LightType.BLOCK, pos), livingEntity.world.getLightLevel(LightType.SKY, pos));
                 })
                 .max().orElse(providedLightLevel)
         );
-        super.render(livingEntity, f, g, matrixStack, vertexConsumerProvider, maxLightLevel);
     }
 }
