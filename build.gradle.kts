@@ -1,7 +1,6 @@
 plugins {
     id("architectury-plugin") version "3.4.+"
     id("io.github.p03w.machete") version "1.1.2" apply false
-    `mod-release`
     `bug-status-checker`
 }
 
@@ -38,3 +37,6 @@ allprojects {
         }
     }
 }
+
+// has to apply last because it requires the changelog extra property
+apply(plugin = "mod-release")
