@@ -20,9 +20,11 @@ modrinth {
     gameVersions.set(listOf(minecraftVersion))
     loaders.set(if (isFabric) listOf("fabric", "quilt") else listOf(project.name))
     changelog.set(extra["changelog"].toString())
-    if (isFabric)
-        dependencies.add(ModDependency("mOgUt4GM", "optional"))
-    dependencies.add(ModDependency("9s6osm5g", "optional"))
+    dependencies {
+        if (isFabric)
+            optional.project("modmenu")
+        optional.project("cloth-config")
+    }
 }
 
 rootProject.tasks["publishToModrinth"].dependsOn(tasks["modrinth"])

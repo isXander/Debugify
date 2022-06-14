@@ -18,8 +18,8 @@ import java.util.UUID;
 public class RconCommandOutputMixin {
     @Shadow @Final private StringBuffer buffer;
 
-    @Inject(method = "sendSystemMessage", at = @At("RETURN"))
-    private void appendNewline(Text message, UUID sender, CallbackInfo ci) {
+    @Inject(method = "sendMessage", at = @At("RETURN"))
+    private void appendNewline(Text message, CallbackInfo ci) {
         buffer.append(System.lineSeparator());
     }
 }

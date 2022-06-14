@@ -5,8 +5,7 @@
   "name": "Debugify",
   "description": "${description}",
   "authors": [
-    "isXander",
-    "Contributors"
+    "isXander"
   ],
   "contact": {
     "homepage": "https://isxander.dev",
@@ -48,7 +47,8 @@
     "chunksavingfix": "*",
     "no-telemetry": "*",
     "tooltipfix": "*",
-    "title-fix": "*"
+    "title-fix": "*",
+    "entitycollisionfpsfix": "*"
   },
   "custom": {
     "modmenu": {

@@ -1,7 +1,7 @@
 <img width="200" src="https://dl.isxander.dev/logos/debugify/v2/debugify-512x.png" alt="Debugify Icon" align="right">
 <div align="left">
 <h1>Debugify</h1>
-<h3>Debugify is a project that fixes <b>over 60</b> bugs found on the <a href="https://bugs.mojang.com/projects/MC/issues">bug tracker</a> in Minecraft.
+<h3>Debugify is a project that fixes <b>over 70</b> bugs found on the <a href="https://bugs.mojang.com/projects/MC/issues">bug tracker</a> in Minecraft.
 (and does nothing more!)</h3>
 </div>
 
@@ -11,16 +11,15 @@
 ## What does this mod replace?
 This mod replaces many mods and implements fixes from some others
 
-- **[FastOpenLinksAndFolders](https://www.curseforge.com/minecraft/mc-mods/fastopenlinksandfolders)**: Replaced
-- **[Shift-Scroll Fix](https://www.curseforge.com/minecraft/mc-mods/shift-scroll-fix)**: Replaced
-- **[ForgetMeChunk](https://www.curseforge.com/minecraft/mc-mods/forgetmechunk)**: Replaced
-- **[ChunkSavingFix](https://www.curseforge.com/minecraft/mc-mods/chunk-saving-fix)**: Replaced
-- **[force-close-world-loading-screen](https://modrinth.com/mod/forcecloseworldloadingscreen)**: Replaced (missing advanced features)
-- **[No Telemetry](https://www.curseforge.com/minecraft/mc-mods/no-telemetry/)**: Replaced
-- **[ToolTipFix](https://www.curseforge.com/minecraft/mc-mods/tooltipfix)**: Replaced but with a different method (bedrock parity)
-- **[Title Fix Mod](https://modrinth.com/mod/title-fix-mod)**: Replaced
-- **[Entity Collision FPS Fix Refabricated](https://www.curseforge.com/minecraft/mc-mods/entity-collision-fps-fix-fabric)**: Replaced
-- **[TieFix](https://www.curseforge.com/minecraft/mc-mods/tiefix)**: Semi-replaced - some fixes have been implemented
+- **[FastOpenLinksAndFolders](https://www.curseforge.com/minecraft/mc-mods/fastopenlinksandfolders)**: Fixed underlying bug causing MC to lag
+- **[Shift-Scroll Fix](https://www.curseforge.com/minecraft/mc-mods/shift-scroll-fix)**: Superseded
+- **[ForgetMeChunk](https://www.curseforge.com/minecraft/mc-mods/forgetmechunk)**: Superseded
+- **[ChunkSavingFix](https://www.curseforge.com/minecraft/mc-mods/chunk-saving-fix)**: Superseded
+- **[force-close-world-loading-screen](https://modrinth.com/mod/forcecloseworldloadingscreen)**: Missing option to remove menu fully (as it isn't a bug)
+- **[No Telemetry](https://www.curseforge.com/minecraft/mc-mods/no-telemetry/)**: Superseded
+- **[ToolTipFix](https://www.curseforge.com/minecraft/mc-mods/tooltipfix)**: Alternative method - tooltips still go off-screen in modded scenarios
+- **[Title Fix Mod](https://modrinth.com/mod/title-fix-mod)**: Superseded
+- **[Entity Collision FPS Fix Refabricated](https://www.curseforge.com/minecraft/mc-mods/entity-collision-fps-fix-fabric)**: Superseded
 
 All of these mods have helped us create Debugify. We thank you very much for your effort! We made sure to follow the license of every one of these mods when creating our own version.
 

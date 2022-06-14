@@ -32,6 +32,7 @@
     "basic.client.mc165595.GuardianEntityRendererMixin",
     "basic.client.mc183776.KeyboardMixin",
     "basic.client.mc197260.ArmorStandEntityRendererMixin",
+    "basic.client.mc197260.LivingEntityRendererMixin",
     "basic.client.mc215531.InGameHudMixin",
     "basic.client.mc217716.GameRendererMixin",
     "basic.client.mc228976.EntityMixin",
@@ -44,12 +45,12 @@
     "basic.client.mc46766.MinecraftClientMixin",
     "basic.client.mc55347.InGameHudMixin",
     "basic.client.mc577.HandledScreenMixin",
-    "basic.client.mc197260.LivingEntityRendererMixin",
     "basic.client.mc79545.InGameHudMixin",
     "basic.client.mc80859.HandledScreenMixin",
     "basic.client.mc93384.LivingEntityMixin",
     "gameplay.client.mc12829.LivingEntityMixin",
-    "gameplay.client.mc12829.PlayerEntityMixin"
+    "gameplay.client.mc12829.PlayerEntityMixin",
+    "basic.client.mc143474.ClientPlayNetworkHandlerMixin"
   ],
   "mixins": [
     "basic.server.mc100991.FishingBobberEntityMixin",
@@ -77,6 +78,7 @@
     "basic.server.mc223153.BlocksMixin",
     "basic.server.mc224729.ThreadedAnvilChunkStorageMixin",
     "basic.server.mc231743.FlowerPotBlockMixin",
+    "basic.server.mc232869.StriderEntityMixin",
     "basic.server.mc30391.LivingEntityMixin",
     "basic.server.mc69216.ServerPlayerEntityMixin",
     "basic.server.mc72151.WolfEntityMixin",

@@ -21,7 +21,7 @@ dependencies {
         exclude(module = "fabric-loom")
     }
 
-    implementation(plugin("com.modrinth.minotaur", "2.+"))
+    implementation(plugin("com.modrinth.minotaur", "2.3.+"))
     implementation(plugin("com.matthewprenger.cursegradle", "1.+"))
     implementation(plugin("com.github.breadmoirai.github-release", "2.+"))
     implementation("com.google.code.gson:gson:2.9.0")

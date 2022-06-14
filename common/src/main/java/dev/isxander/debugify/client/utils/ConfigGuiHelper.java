@@ -57,7 +57,7 @@ public class ConfigGuiHelper {
             BooleanToggleBuilder entry = builder.entryBuilder()
                     .startBooleanToggle(Text.literal(bug.bugId()), enabled)
                     .setSaveConsumer((toggled) -> config.getBugFixes().replace(bug, toggled))
-                    .setDefaultValue(true)
+                    .setDefaultValue(bug.enabledByDefault())
                     .setErrorSupplier((b) -> {
                         List<String> conflicts = bug.getActiveConflicts();
                         if (!b || conflicts.isEmpty())
