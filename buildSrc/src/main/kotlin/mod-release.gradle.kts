@@ -78,7 +78,7 @@ tasks {
 
 modrinth {
     token.set(findProperty("modrinth.token")?.toString())
-    projectId.set("QwxR6Gcd")
+    projectId.set("debugify")
     syncBodyFrom.set(file("README.md").readText())
 }
 

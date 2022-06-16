@@ -30,8 +30,11 @@ public class ScreenMixin {
     }
 
     private void doCenterTooltip(int mouseX, int mouseY, int width, int height, int x, int y) {
+        debugify$modifiedX = x;
+        debugify$modifiedY = y;
+
         if (x < -2) {
-            debugify$modifiedX = mouseX - width / 2;
+            debugify$modifiedX = Math.max(mouseX - width / 2, 2);
             debugify$modifiedY = mouseY - height - 12;
 
             if (debugify$modifiedY < 6) {
@@ -45,9 +48,8 @@ public class ScreenMixin {
                     debugify$modifiedY = below;
                 }
             }
-        } else {
-            debugify$modifiedX = x;
-            debugify$modifiedY = y;
+        } else if (y + height > this.height + 2) {
+            debugify$modifiedY = Math.max(this.height - height - 4, 4);
         }
     }
 
