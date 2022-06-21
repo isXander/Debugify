@@ -64,7 +64,7 @@ tasks {
         dependsOn("clean")
 
         dependsOn(publishToModrinth)
-        dependsOn(":modrinthSyncBody")
+        dependsOn("modrinthSyncBody")
 
         dependsOn(publishToCurseforge)
 
@@ -74,12 +74,6 @@ tasks {
 
         dependsOn(updateApiVersion)
     }
-}
-
-modrinth {
-    token.set(findProperty("modrinth.token")?.toString())
-    projectId.set("debugify")
-    syncBodyFrom.set(file("README.md").readText())
 }
 
 githubRelease {

@@ -12,7 +12,7 @@ val isFabric = project.name == "fabric"
 
 modrinth {
     token.set(findProperty("modrinth.token")?.toString())
-    projectId.set("QwxR6Gcd")
+    projectId.set("debugify")
     versionName.set("[${project.name.capitalize()} $minecraftVersion] ${project.version}")
     versionNumber.set("${project.version}-${project.name}")
     versionType.set("release")
@@ -25,6 +25,7 @@ modrinth {
             optional.project("modmenu")
         optional.project("cloth-config")
     }
+    syncBodyFrom.set(rootProject.file("README.md").readText())
 }
 
 rootProject.tasks["publishToModrinth"].dependsOn(tasks["modrinth"])
@@ -74,11 +75,11 @@ publishing {
     }
 
     repositories {
-        if (hasProperty("woverflow.username") && hasProperty("woverflow.token")) {
-            maven(url = "https://repo.woverflow.cc/releases") {
+        if (hasProperty("xander-repo.username") && hasProperty("xander-repo.password")) {
+            maven(url = "https://maven.isxander.dev/releases") {
                 credentials {
-                    username = property("woverflow.username")?.toString()
-                    password = property("woverflow.token")?.toString()
+                    username = property("xander-repo.username")?.toString()
+                    password = property("xander-repo.password")?.toString()
                 }
             }
         }

@@ -19,7 +19,7 @@ allprojects {
     apply(plugin = "io.github.p03w.machete")
 
     group = "dev.isxander"
-    version = "2.1.1"
+    version = "2.2.0"
 
     extra.set("changelog", rootProject.file("changelogs/${project.version}.md").takeIf { it.exists() }?.readText() ?: "No changelog is provided")
 

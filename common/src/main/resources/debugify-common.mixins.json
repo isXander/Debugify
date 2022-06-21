@@ -18,6 +18,7 @@
     "basic.client.mc123739.ClientRecipeBookMixin",
     "basic.client.mc127970.HeldItemRendererMixin",
     "basic.client.mc140646.TextFieldWidgetMixin",
+    "basic.client.mc143474.ClientPlayNetworkHandlerMixin",
     "basic.client.mc145748.SliderWidgetMixin",
     "basic.client.mc145929.InGameHudMixin",
     "basic.client.mc147605.AbstractParentElementMixin",
@@ -35,6 +36,8 @@
     "basic.client.mc197260.LivingEntityRendererMixin",
     "basic.client.mc215531.InGameHudMixin",
     "basic.client.mc217716.GameRendererMixin",
+    "basic.client.mc22882.HandledScreenMixin",
+    "basic.client.mc22882.MinecraftClientMixin",
     "basic.client.mc228976.EntityMixin",
     "basic.client.mc228976.LivingEntityMixin",
     "basic.client.mc231097.ClientPlayerEntityMixin",
@@ -49,8 +52,7 @@
     "basic.client.mc80859.HandledScreenMixin",
     "basic.client.mc93384.LivingEntityMixin",
     "gameplay.client.mc12829.LivingEntityMixin",
-    "gameplay.client.mc12829.PlayerEntityMixin",
-    "basic.client.mc143474.ClientPlayNetworkHandlerMixin"
+    "gameplay.client.mc12829.PlayerEntityMixin"
   ],
   "mixins": [
     "basic.server.mc100991.FishingBobberEntityMixin",
