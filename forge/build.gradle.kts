@@ -28,6 +28,10 @@ val common by configurations.creating {
 }
 val shadowCommon by configurations.creating
 
+java {
+    withSourcesJar()
+}
+
 dependencies {
     val minecraftVersion: String by rootProject
     val forgeVersion: String by rootProject
@@ -85,6 +89,11 @@ tasks {
         dependsOn(shadowJar)
         val minecraftVersion: String by rootProject
         archiveClassifier.set("${project.name}-$minecraftVersion")
+    }
+
+    remapSourcesJar {
+        val minecraftVersion: String by rootProject
+        archiveClassifier.set("${project.name}-$minecraftVersion-sources")
     }
 
     jar {

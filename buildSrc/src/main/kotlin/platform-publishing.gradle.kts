@@ -67,8 +67,8 @@ val publicationName = "debugify${project.name.capitalize()}"
 publishing {
     publications {
         create<MavenPublication>(publicationName) {
-            groupId = group.toString()
-            artifactId = base.archivesName.get()
+            groupId = "dev.isxander"
+            artifactId = "debugify"
 
             from(components["java"])
         }
