@@ -23,7 +23,7 @@ public class ForgeGuiMixin extends InGameHud {
      * you so so so so so so so much
      */
     @ModifyExpressionValue(method = "renderHelmet", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/Perspective;isFirstPerson()Z"))
-    private boolean shouldRenderPumpkin(boolean firstPerson) {
+    boolean shouldRenderPumpkin(boolean firstPerson) {
         return firstPerson && !client.player.isSpectator();
     }
 }
