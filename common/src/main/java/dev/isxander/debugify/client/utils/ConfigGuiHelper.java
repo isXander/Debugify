@@ -76,14 +76,6 @@ public class ConfigGuiHelper {
                 subCategories.forEach((env, subCategoryBuilder) -> category.addEntry(subCategoryBuilder.build())));
 
         ConfigCategory miscCategory = builder.getOrCreateCategory(Text.literal("Misc"));
-        AbstractConfigListEntry<?> optOutUpdaterEntry = builder.entryBuilder()
-                .startBooleanToggle(Text.literal("Opt Out Updater"), config.optOutUpdater)
-                .setTooltip(Text.literal("Stop Debugify checking for updates on launch."))
-                .setSaveConsumer((toggled) -> config.optOutUpdater = toggled)
-                .setDefaultValue(false)
-                .build();
-        miscCategory.addEntry(optOutUpdaterEntry);
-
         AbstractConfigListEntry<?> defaultDisabledEntry = builder.entryBuilder()
                 .startBooleanToggle(Text.literal("Default to Disabled"), config.defaultDisabled)
                 .setTooltip(Text.literal("Default new bug fixes to be disabled rather than enabled."))

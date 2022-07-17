@@ -10,8 +10,6 @@ dependencies {
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
-    implementation("com.github.zafarkhaja:java-semver:$jSemVerVersion")
-
     implementation("com.github.llamalad7:mixinextras:$mixinExtrasVersion")
     annotationProcessor("com.github.llamalad7:mixinextras:$mixinExtrasVersion")
 
