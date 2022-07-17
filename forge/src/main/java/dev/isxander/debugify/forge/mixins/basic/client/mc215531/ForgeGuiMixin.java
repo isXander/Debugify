@@ -6,14 +6,14 @@ import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraftforge.client.gui.ForgeIngameGui;
+import net.minecraftforge.client.gui.overlay.ForgeGui;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @BugFix(id = "MC-215531", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
-@Mixin(ForgeIngameGui.class)
-public class ForgeIngameGuiMixin extends InGameHud {
-    public ForgeIngameGuiMixin(MinecraftClient client, ItemRenderer itemRenderer) {
+@Mixin(ForgeGui.class)
+public class ForgeGuiMixin extends InGameHud {
+    public ForgeGuiMixin(MinecraftClient client, ItemRenderer itemRenderer) {
         super(client, itemRenderer);
     }
 
