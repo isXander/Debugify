@@ -59,6 +59,7 @@
     "basic.server.mc100991.ProjectileEntityMixin",
     "basic.server.mc119417.ServerPlayerEntityMixin",
     "basic.server.mc119754.FireworkRocketEntityMixin",
+    "basic.server.mc121706.BowAttackGoalMixin",
     "basic.server.mc121903.CommandBlockMinecartEntityMixin",
     "basic.server.mc124177.ServerPlayerEntityMixin",
     "basic.server.mc129909.ServerPlayerEntityMixin",
