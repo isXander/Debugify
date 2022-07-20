@@ -4,14 +4,8 @@ on:
   push:
     branches:
       - '*'
-    paths-ignore:
-      - 'README.md'
-      - 'PATCHED.md'
-      - 'GUIDELINES.md'
-      - 'LICENSE'
-      - '.gitignore'
-      - '.editorconfig'
-      - 'changelogs/**'
+  schedule:
+    - cron: 0 0 * * *
   workflow_dispatch:
 jobs:
   build:
@@ -19,22 +13,12 @@ jobs:
     name: Check bug status
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK
-        uses: actions/setup-java@v2.3.1
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          java-version: 17
-          distribution: temurin
-      - uses: actions/cache@v2
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-            ./.gradle/loom-cache
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-      - name: Check bug statuses
-        run: ./gradlew checkBugStatuses --no-daemon
+          python-version: '3.x'
+      - name: Install pip requirements
+        run: pip install requests
+      - name: Run script
+        run: python scripts/check_bug_fixes.py

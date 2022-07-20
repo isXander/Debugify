@@ -24,5 +24,5 @@ dependencies {
     implementation(plugin("com.modrinth.minotaur", "2.3.+"))
     implementation(plugin("com.matthewprenger.cursegradle", "1.+"))
     implementation(plugin("com.github.breadmoirai.github-release", "2.+"))
-    implementation("com.google.code.gson:gson:2.9.0")
+    implementation(plugin("ru.vyarus.use-python", "2.3.+"))
 }
