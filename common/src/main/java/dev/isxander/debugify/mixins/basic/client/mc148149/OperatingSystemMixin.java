@@ -25,7 +25,12 @@ public abstract class OperatingSystemMixin {
     public void open(URL url) {
         try {
             Debugify.logger.info("Opening non-blocking URL. You may see system errors in the logs you can ignore.");
-            AccessController.doPrivileged((PrivilegedExceptionAction<Process>)() -> new ProcessBuilder().command(this.getURLOpenCommand(url)).redirectError(ProcessBuilder.Redirect.INHERIT).start());
+            AccessController.doPrivileged((PrivilegedExceptionAction<Process>)() ->
+                    new ProcessBuilder()
+                            .command(this.getURLOpenCommand(url))
+                            .redirectError(ProcessBuilder.Redirect.INHERIT)
+                            .start()
+            );
         } catch (PrivilegedActionException e) {
             UtilAccessor.getLogger().error("Couldn't open url '{}'", url, e);
         }
