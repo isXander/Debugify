@@ -34,7 +34,7 @@ for bug in bugs:
     json_response = response.json()
 
     fields = json_response['fields']
-    resolution_id = fields['resolution']['id'] if 'resolution' in fields and fields['resolution'] is not None else -1
+    resolution_id = int(fields['resolution']['id']) if fields['resolution'] is not None else -1
 
     resolved = resolution_id == 1
     fix_versions = []
