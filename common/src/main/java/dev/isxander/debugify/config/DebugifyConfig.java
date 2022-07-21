@@ -38,6 +38,9 @@ public class DebugifyConfig {
         preloaded = true;
 
         if (!Files.exists(configPath)) {
+            if (ExpectUtils.isModLoaded("yosbr") && Files.exists(configPath.getParent().resolve("yosbr/" + configPath.getFileName().toString()))) {
+                throw new YosbrError();
+            }
             return;
         }
 
@@ -102,5 +105,11 @@ public class DebugifyConfig {
     public boolean doesJsonHaveIdenticalKeys() {
         return jsonBugFixes.keySet().containsAll(bugFixes.keySet().stream().map(BugFixData::bugId).collect(Collectors.toSet()))
                 && jsonBugFixes.size() == bugFixes.size();
+    }
+
+    private static class YosbrError extends Error {
+        public YosbrError() {
+            super("Debugify config loaded using YOSBR mod! This doesn't work! Please move 'debugify.json' out of the 'yosbr' folder!");
+        }
     }
 }
