@@ -41,9 +41,9 @@ public class MixinPlugin implements IMixinConfigPlugin {
         Debugify.config.registerBugFix(bugFix);
 
         List<String> conflicts = bugFix.getActiveConflicts();
-        if (!conflicts.isEmpty() && Debugify.config.isBugFixEnabled(bugFix)) {
+        if (!conflicts.isEmpty()) {
             Debugify.config.getBugFixes().replace(bugFix, false);
-            Debugify.logger.warn("Disabled " + bugFix.bugId() + " because it's conflicting with: " + String.join(", ", conflicts));
+            Debugify.logger.warn("Force disabled " + bugFix.bugId() + " because it's conflicting with: " + String.join(", ", conflicts));
         }
 
         return Debugify.config.isBugFixEnabled(bugFix) && bugFix.getActiveConflicts().isEmpty();
@@ -55,8 +55,7 @@ public class MixinPlugin implements IMixinConfigPlugin {
         try {
             ClassNode classNode = MixinService.getService().getBytecodeProvider().getClassNode(mixinClassName);
             annotationNode = Annotations.getVisible(classNode, BugFix.class);
-        }
-        catch (ClassNotFoundException | IOException e) {
+        } catch (ClassNotFoundException | IOException e) {
             annotationNode = null;
         }
 
@@ -67,7 +66,7 @@ public class MixinPlugin implements IMixinConfigPlugin {
         FixCategory category = getAnnotationEnumValue(annotationNode, "category", FixCategory.class);
         BugFix.Env env = getAnnotationEnumValue(annotationNode, "env", BugFix.Env.class);
         boolean enabledByDefault = Annotations.getValue(annotationNode, "enabled", Boolean.valueOf(true));
-        List<String> conflicts = Annotations.getValue(annotationNode, "conflicts", true);
+        List<String> conflicts = Annotations.getValue(annotationNode, "fabricConflicts", true);
 
         return Optional.of(new BugFixData(id, category, env, enabledByDefault, conflicts));
     }
