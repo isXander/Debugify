@@ -1,0 +1,14 @@
+{
+  "debugify.name": "Debugify",
+  "debugify.basic": "Correções básicas",
+  "debugify.gameplay": "Correções de Jogabilidade",
+  "debugify.gameplay.warning": "AVISO: Esta categoria contém correções que podem lhe dar vantagem injusta!",
+  "debugify.gameplay.enable_in_multiplayer": "Habilitado no Multijogador",
+  "debugify.error.conflict.single": "%s está causando conflito com %s",
+  "debugify.error.conflict.multiple": "%s está causando conflito com os seguintes mods: %s",
+  "debugify.misc": "Miscelânea",
+  "debugify.misc.default_disabled": "Desligado é padrão",
+  "debugify.misc.default_disabled.description": "Novas correções de erros ficarão desabilitadas em vez de habilitadas.",
+  "debugify.env.client": "Cliente",
+  "debugify.env.server": "Servidor"
+}
