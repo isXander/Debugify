@@ -20,7 +20,6 @@
     "basic.client.mc140646.TextFieldWidgetMixin",
     "basic.client.mc143474.ClientPlayNetworkHandlerMixin",
     "basic.client.mc145748.SliderWidgetMixin",
-    "basic.client.mc145929.InGameHudMixin",
     "basic.client.mc147605.AbstractParentElementMixin",
     "basic.client.mc147605.ClickableWidgetMixin",
     "basic.client.mc147605.TextFieldWidgetMixin",

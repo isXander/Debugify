@@ -28,7 +28,8 @@ for line in patched_lines:
         continue
     bugs.append(match.group(1))
 
-count = 0
+resolved_count = 0
+duplicate_count = 0
 for bug in bugs:
     response = requests.get(f'https://bugs.mojang.com/rest/api/2/issue/{bug}')
     json_response = response.json()
@@ -36,23 +37,53 @@ for bug in bugs:
     fields = json_response['fields']
     resolution_id = int(fields['resolution']['id']) if fields['resolution'] is not None else -1
 
-    resolved = resolution_id == 1
-    fix_versions = []
-    if resolved:
-        for version in fields['fixVersions'] or []:
-            fix_versions.append(version['name'])
+    message_color = ''
+    match resolution_id:
+        case 1 | 5:  # resolved
+            resolved_count += 1
+            bug_status = "Resolved"
+            message_color = '\033[91m'
 
-        count += 1
+            fix_versions = []
+            for version in fields['fixVersions'] or []:
+                fix_versions.append(version['name'])
 
-    message = f'{bug}: {"Resolved" if resolved else "OK!"}'
-    if resolved:
-        if len(fix_versions) > 0:
-            message += f' - Fix Versions: {", ".join(fix_versions)}'
-        message = '\033[91m' + message + '\033[0m'
-    print(message, file=sys.stderr if resolved else sys.stdout)
+            if len(fix_versions) > 0:
+                bug_status += f' - Fix Versions: {", ".join(fix_versions)}'
 
-if count == 0:
+        case 3:  # duplicate
+            duplicate_count += 1
+            bug_status = "Duplicate"
+            message_color = '\033[33m'
+
+            duplicates = None
+            duplicate_fixed = False
+            issue_links = fields['issuelinks']
+            for issue in issue_links:
+                if int(issue['type']['id']) == 10102:
+                    duplicates = issue['outwardIssue']['key']
+                    duplicate_fixed = int(issue['outwardIssue']['fields']['status']['id']) == 1 | 5
+                    break
+
+            if duplicates is not None:
+                bug_status += f' of {duplicates}'
+                if duplicate_fixed:
+                    bug_status += f' which is resolved'
+                    message_color = '\033[91m'
+                    resolved_count += 1
+
+        case _:
+            bug_status = 'OK!'
+
+    message = f"{message_color}{bug}: {bug_status}\033[0m"
+    print(message, file=sys.stderr if resolution_id == 1 else sys.stdout)
+
+if resolved_count == 0 and duplicate_count == 0:
     print('\nNothing to report!')
 else:
-    print(f'\n{count} bug{"s" if count > 1 else ""} need removing!')
-    exit(-1)
+    print()
+    if duplicate_count > 0:
+        print(f'\033[33m{duplicate_count} bug{"s have" if duplicate_count > 1 else " has"} been marked as duplicate!')
+    if resolved_count > 0:
+        print(f'\033[91m{resolved_count} bug{"s need" if resolved_count > 1 else " needs"} removing!')
+        exit(-1)
