@@ -29,7 +29,6 @@
 | Basic    | [MC-145748](https://bugs.mojang.com/browse/MC-145748) | Clicking a settings button when there's a slider under the mouse in the next screen plays the click sound twice                      |
 | Basic    | [MC-145929](https://bugs.mojang.com/browse/MC-145929) | Actionbar text may be difficult to read without text background enabled                                                              |
 | Basic    | [MC-147605](https://bugs.mojang.com/browse/MC-147605) | Text cursors can exist in multiple fields                                                                                            |
-| Basic    | [MC-148149](https://bugs.mojang.com/browse/MC-148149) | Linux game crash when opening links                                                                                                  |
 | Basic    | [MC-151412](https://bugs.mojang.com/browse/MC-151412) | "Edit Server Info" window does not focus "Server Name" text field automatically                                                      |
 | Basic    | [MC-159163](https://bugs.mojang.com/browse/MC-159163) | Quickly pressing the sneak key causes the sneak animation to play twice                                                              |
 | Basic    | [MC-162253](https://bugs.mojang.com/browse/MC-162253) | Lag spike when crossing certain chunk borders                                                                                        |
@@ -96,9 +95,10 @@ To delete when next version comes out.
 ## Previously patched
 Bugs that this mod has patched but has been superseded by a vanilla update.
 ### Client Side
-| Bug ID                                                         | Name                                                                                    | Fixed in |
-|----------------------------------------------------------------|-----------------------------------------------------------------------------------------|----------|
-| [MC-53312](https://bugs.mojang.com/browse/MC-53312)            | Illager/(zombie) villager/witch robes don't render the last two rows of pixels          | 22w17a   |
-| [MC-235035](https://bugs.mojang.com/browse/MC-235035)          | Sleeping in a custom dimension with "natural" set to false causes crash *(fabric only)* | 22w15a   |
+| Bug ID                                                | Name                                                                                    | Fixed in    |
+|-------------------------------------------------------|-----------------------------------------------------------------------------------------|-------------|
+| [MC-53312](https://bugs.mojang.com/browse/MC-53312)   | Illager/(zombie) villager/witch robes don't render the last two rows of pixels          | 22w17a      |
+| [MC-148149](https://bugs.mojang.com/browse/MC-148149) | Linux game crash when opening links                                                     | 1.19.1-pre6 |
+| [MC-235035](https://bugs.mojang.com/browse/MC-235035) | Sleeping in a custom dimension with "natural" set to false causes crash *(fabric only)* | 22w15a      |
 
 ### Server Side (Both)

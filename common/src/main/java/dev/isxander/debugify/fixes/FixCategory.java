@@ -1,8 +1,8 @@
 package dev.isxander.debugify.fixes;
 
 public enum FixCategory {
-    BASIC("Basic Fixes"),
-    GAMEPLAY("Gameplay Fixes");
+    BASIC("debugify.basic"),
+    GAMEPLAY("debugify.gameplay");
 
     private final String displayName;
 

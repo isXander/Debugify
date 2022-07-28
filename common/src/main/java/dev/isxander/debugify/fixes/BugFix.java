@@ -19,8 +19,8 @@ public @interface BugFix {
     String[] fabricConflicts() default {};
 
     enum Env {
-        CLIENT("Client"),
-        SERVER("Server");
+        CLIENT("debugify.env.client"),
+        SERVER("debugify.env.server");
 
         private final String displayName;
 

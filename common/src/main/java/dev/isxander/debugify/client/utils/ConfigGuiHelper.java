@@ -21,21 +21,21 @@ import java.util.Optional;
 public class ConfigGuiHelper {
     public static Screen createConfigGui(DebugifyConfig config, Screen parent) {
         ConfigBuilder builder = ConfigBuilder.create()
-                .setTitle(Text.literal("Debugify"))
+                .setTitle(Text.translatable("debugify.name"))
                 .setSavingRunnable(config::save)
                 .setParentScreen(parent);
 
         Map<FixCategory, ConfigCategory> fixCategories = new HashMap<>();
         Map<ConfigCategory, Map<BugFix.Env, SubCategoryBuilder>> fixSubCategories = new HashMap<>();
         for (FixCategory fixCategory : FixCategory.values()) {
-            var configCategory = builder.getOrCreateCategory(Text.literal(fixCategory.getDisplayName()));
+            var configCategory = builder.getOrCreateCategory(Text.translatable(fixCategory.getDisplayName()));
             if (fixCategory == FixCategory.GAMEPLAY) {
                 configCategory.addEntry(builder.entryBuilder()
-                        .startTextDescription(Text.literal("WARNING: This category contains fixes that may be an unfair advantage!").formatted(Formatting.RED))
+                        .startTextDescription(Text.translatable("debugify.gameplay.warning").formatted(Formatting.RED))
                         .build()
                 );
                 configCategory.addEntry(builder.entryBuilder()
-                        .startBooleanToggle(Text.literal("Enable In Multiplayer"), config.gameplayFixesInMultiplayer)
+                        .startBooleanToggle(Text.translatable("debugify.gameplay.enable_in_multiplayer"), config.gameplayFixesInMultiplayer)
                         .setSaveConsumer((enabled) -> config.gameplayFixesInMultiplayer = enabled)
                         .build()
                 );
@@ -45,7 +45,7 @@ public class ConfigGuiHelper {
 
             Map<BugFix.Env, SubCategoryBuilder> subCategories = new HashMap<>();
             for (BugFix.Env env : BugFix.Env.values()) {
-                var subCategoryBuilder = builder.entryBuilder().startSubCategory(Text.literal(env.getDisplayName()));
+                var subCategoryBuilder = builder.entryBuilder().startSubCategory(Text.translatable(env.getDisplayName()));
                 subCategories.put(env, subCategoryBuilder);
             }
             fixSubCategories.put(configCategory, subCategories);
@@ -63,7 +63,10 @@ public class ConfigGuiHelper {
                         if (!b || conflicts.isEmpty())
                             return Optional.empty();
 
-                        return Optional.of(Text.literal(bug.bugId() + " is conflicting with " + (conflicts.size() == 1 ? conflicts.get(0) : "mods " + String.join(", ", conflicts))));
+                        if (conflicts.size() == 1)
+                            return Optional.of(Text.translatable("debugify.error.conflict.single", bug.bugId(), conflicts.get(0)));
+                        else
+                            return Optional.of(Text.translatable("debugify.error.conflict.multiple", bug.bugId(), String.join(", ", conflicts)));
                     })
                     .requireRestart();
 
@@ -75,10 +78,10 @@ public class ConfigGuiHelper {
         fixSubCategories.forEach((category, subCategories) ->
                 subCategories.forEach((env, subCategoryBuilder) -> category.addEntry(subCategoryBuilder.build())));
 
-        ConfigCategory miscCategory = builder.getOrCreateCategory(Text.literal("Misc"));
+        ConfigCategory miscCategory = builder.getOrCreateCategory(Text.translatable("debugify.misc"));
         AbstractConfigListEntry<?> defaultDisabledEntry = builder.entryBuilder()
-                .startBooleanToggle(Text.literal("Default to Disabled"), config.defaultDisabled)
-                .setTooltip(Text.literal("Default new bug fixes to be disabled rather than enabled."))
+                .startBooleanToggle(Text.translatable("debugify.misc.default_disabled"), config.defaultDisabled)
+                .setTooltip(Text.translatable("debugify.misc.default_disabled.description"))
                 .setSaveConsumer((toggled) -> config.defaultDisabled = toggled)
                 .setDefaultValue(false)
                 .build();

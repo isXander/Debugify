@@ -2,7 +2,7 @@
 modLoader = "javafml"
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
 # Forge for 1.18 is version 38
-loaderVersion = "[41,)"
+loaderVersion = "[42,)"
 # The license for your mod. This is mandatory and allows for easier comprehension of your redistributive properties.
 # Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
 license = "LGPLv3.0"
@@ -25,14 +25,14 @@ description = '''
 [[dependencies.debugify]]
 modId = "forge"
 mandatory = true
-versionRange = "[41,)"
+versionRange = "[42,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.debugify]]
 modId = "minecraft"
 mandatory = true
-versionRange = "1.19"
+versionRange = "1.19.1"
 ordering = "NONE"
 side = "BOTH"
 

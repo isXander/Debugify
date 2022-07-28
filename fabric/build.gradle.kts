@@ -55,7 +55,8 @@ dependencies {
         exclude(module = "fabric-api")
     }
 
-    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.55.0+1.19")
+    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.58.5+1.19.1")
+    modImplementation(fabricApi.module("fabric-resource-loader-v0", "0.58.5+1.19.1"))
 }
 
 tasks {
