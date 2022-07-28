@@ -24,6 +24,7 @@ This mod replaces many mods and implements fixes from some others
 - **[Title Fix Mod](https://modrinth.com/mod/title-fix-mod)**: Superseded
 - **[Entity Collision FPS Fix Refabricated](https://www.curseforge.com/minecraft/mc-mods/entity-collision-fps-fix-fabric)**: Superseded
 - **[Ctrl Q](https://www.curseforge.com/minecraft/mc-mods/ctrl-q)**: Superseded
+- **[Skeleton Aiming Fix](https://www.curseforge.com/minecraft/mc-mods/skeleton-aiming-fix)**: Superseded
 
 These superseded mods are not hard conflicts and can be used in conjunction with Debugify for any additional advanced features.
 
