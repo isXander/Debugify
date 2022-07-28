@@ -1,6 +1,6 @@
 plugins {
     id("architectury-plugin") version "3.4.+"
-    id("io.github.p03w.machete") version "1.1.2" apply false
+    id("io.github.p03w.machete") version "1.1.4" apply false
     `bug-status-checker`
 }
 
