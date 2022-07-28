@@ -1,0 +1,14 @@
+{
+  "debugify.name": "Debugify",
+  "debugify.basic": "Temel Düzeltmeler",
+  "debugify.gameplay": "Oynanış Düzeltmeleri",
+  "debugify.gameplay.warning": "UYARI: Bu kategori, haksız bir avantaj olabilecek düzeltmeler içeriyor!",
+  "debugify.gameplay.enable_in_multiplayer": "Çok Oyunculuda Etkinleştir",
+  "debugify.error.conflict.single": "%s, %s ile çakışıyor",
+  "debugify.error.conflict.multiple": "%s şu modlarla çakışıyor: %s",
+  "debugify.misc": "Diğer",
+  "debugify.misc.default_disabled": "Varsayılan Olarak Devre Dışı",
+  "debugify.misc.default_disabled.description": "Varsayılan: Etkinleştirmek yerine devre dışı bırakılacak yeni hata düzeltmeleri.",
+  "debugify.env.client": "İstemci",
+  "debugify.env.server": "Sunucu"
+}
