@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  * Cannot use the screen's focused field either as that is primarily used
  * for widgets which breaks many guis with text fields in widgets
  */
-@BugFix(id = "MC-147605", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, enabled = false)
+@BugFix(id = "MC-147605", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
 @Mixin(TextFieldWidget.class)
 public abstract class TextFieldWidgetMixin extends ClickableWidgetMixin {
     @Shadow public abstract void setTextFieldFocused(boolean focused);
@@ -30,8 +30,13 @@ public abstract class TextFieldWidgetMixin extends ClickableWidgetMixin {
      */
     @Override
     protected void focusSelf(boolean focused, CallbackInfo ci) {
-        if (focused && MinecraftClient.getInstance().currentScreen != null) {
-            ((TextFieldHolder) MinecraftClient.getInstance().currentScreen).setFocusedTextField((TextFieldWidget) (Object) this);
+        if (MinecraftClient.getInstance().currentScreen != null) {
+            var textFieldHolder = (TextFieldHolder) MinecraftClient.getInstance().currentScreen;
+            var focus = textFieldHolder.getFocusedTextField();
+            if (focus != (TextFieldWidget) (Object) this && !focused)
+                return;
+
+            textFieldHolder.setFocusedTextField(focused ? (TextFieldWidget) (Object) this : null);
         }
     }
 
