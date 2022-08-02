@@ -12,20 +12,6 @@ body:
     validations:
       required: true
 
-  - type: dropdown
-    id: loader
-    attributes:
-      label: Mod Loader
-      description: Are there any mod loaders which already patch this in some way? 'N/A' if unknown.
-      multiple: true
-      options:
-        - N/A
-        - Forge
-        - Fabric
-        - Quilt
-    validations:
-      required: true
-
   - type: checkboxes
     id: adheres-to-guidelines
     attributes:
@@ -52,3 +38,11 @@ body:
       options:
         - label: I know that this patch isn't already in the latest version of the mod.
           required: true
+
+  - type: input
+    id: existing-implementation
+    attributes:
+      label: Existing implementation
+      description: Link here if a mod for this fix already exists.
+    validations:
+      required: false
