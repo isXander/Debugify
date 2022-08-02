@@ -79,6 +79,13 @@ java {
 }
 
 tasks.processResources {
+    val modDescription = """
+        Fixes Minecraft bugs found on the bug tracker
+
+        License stuff:
+        j-Tai's TieFix - Code used licensed under LGPLv3
+        FlashyReese's Sodium Extra - Code used licensed under LGPLv3
+        """.trimIndent()
     inputs.property("version", project.version)
     inputs.property("description", modDescription)
     filesMatching(listOf("fabric.mod.json", "quilt.mod.json")) {
