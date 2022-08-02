@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
  * https://github.com/FlashyReese/sodium-extra-fabric
  * under LGLv3 license
  *
- * Adapted to work in a multi-loader environment
+ * Adapted to be able to be toggled off at ease in a user-friendly GUI
  *
  * @author AMereBagatelle
  */

@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  * https://github.com/j-tai/TieFix
  * under LGPLv3 license
  *
- * Adapted to work in a multi-loader environment
+ * Adapted into the Debugify mod. The one-stop shop to all fixes and only fixes.
  *
  * @author j-tai
  */

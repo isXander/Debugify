@@ -15,7 +15,7 @@ public class MouseMixin {
      * Taken from <a href="https://github.com/nelson2tm/shift-scroll-fix">Shift-Scroll Fix</a>
      * under MIT license
      *
-     * Adapted to work in a multi-loader environment
+     * Adapted to be able to be toggled off at ease in a user-friendly GUI
      *
      * @author nelson2tm
      */
