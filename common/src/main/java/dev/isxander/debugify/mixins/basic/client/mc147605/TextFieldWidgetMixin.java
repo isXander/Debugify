@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  * Cannot use the screen's focused field either as that is primarily used
  * for widgets which breaks many guis with text fields in widgets
  */
-@BugFix(id = "MC-147605", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-147605", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, enabled = false)
 @Mixin(TextFieldWidget.class)
 public abstract class TextFieldWidgetMixin extends ClickableWidgetMixin {
     @Shadow public abstract void setTextFieldFocused(boolean focused);

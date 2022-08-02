@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@BugFix(id = "MC-147605", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-147605", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, enabled = false)
 @Mixin(ClickableWidget.class)
 public abstract class ClickableWidgetMixin {
     @Shadow public abstract boolean isFocused();

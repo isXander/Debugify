@@ -9,7 +9,7 @@ import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
-@BugFix(id = "MC-147605", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-147605", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, enabled = false)
 @Mixin(AbstractParentElement.class)
 public class AbstractParentElementMixin implements TextFieldHolder {
     @Unique @Nullable
