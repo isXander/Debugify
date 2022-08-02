@@ -44,23 +44,9 @@ body:
   - type: input
     id: loader-version
     attributes:
-      label: Mod Loader Version
+      label: Fabric/Quilt Loader Version
       description: What version of the mod loader are you on?
-      placeholder: 1.18.2 - 40.1.0
-    validations:
-      required: true
-
-  - type: dropdown
-    id: loader
-    attributes:
-      label: Mod Loader
-      description: What mod loader are you using?
-      multiple: true
-      options:
-        - N/A
-        - Forge
-        - Fabric
-        - Quilt
+      placeholder: 0.14.8 for 1.19.1
     validations:
       required: true
 
@@ -68,7 +54,7 @@ body:
     id: logs-extra-context
     attributes:
       label: Logs or additional context
-      description: Please copy and paste any relevant log output into a paste website such as [Pastebin](https://pastebin.com) and then link them here. You may also give any additional information here too.
+      description: Please copy and paste any relevant log output into a paste website such as [Hastebin](https://hst.sh) and then link them here. You may also give any additional information here too.
 
   - type: checkboxes
     id: has-not-been-reported
@@ -83,7 +69,7 @@ body:
     id: is-up-to-date
     attributes:
       label: Is on most update to date version.
-      description: You made sure that you are on the most recent version of the mod loader and mod.
+      description: You made sure that you are on the most recent version of the fabric/quilt loader and the mod.
       options:
-        - label: I made sure I am using the most up to date mod loader and mod version.
+        - label: I made sure I am using the most up to date fabric/quilt loader and mod version.
           required: true
