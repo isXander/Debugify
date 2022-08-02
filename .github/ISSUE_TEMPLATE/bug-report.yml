@@ -44,7 +44,7 @@ body:
   - type: input
     id: loader-version
     attributes:
-      label: Fabric Loader Version
+      label: Fabric/Quilt Loader Version
       description: What version of the mod loader are you on?
       placeholder: 0.14.8 for 1.19.1
     validations:
@@ -69,7 +69,7 @@ body:
     id: is-up-to-date
     attributes:
       label: Is on most update to date version.
-      description: You made sure that you are on the most recent version of the fabric loader and the mod.
+      description: You made sure that you are on the most recent version of the fabric/quilt loader and the mod.
       options:
-        - label: I made sure I am using the most up to date fabric loader and mod version.
+        - label: I made sure I am using the most up to date fabric/quilt loader and mod version.
           required: true
