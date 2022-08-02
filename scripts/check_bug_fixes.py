@@ -2,10 +2,16 @@ import re
 import requests
 import sys
 import os
+from packaging import version
 
 abspath = os.path.abspath(__file__)
 dname = os.path.dirname(abspath)
 os.chdir(dname)
+
+with open('../gradle.properties', 'r') as propfile:
+    gradleProperties = dict([map(lambda side: side.strip(), i.split('=', maxsplit=1)) for i in filter(lambda line: len(line.strip()) > 2 and not line.lstrip().startswith('#'), propfile.readlines())])
+minecraftVersion = version.parse(gradleProperties['minecraftVersion'])
+print(f'Minecraft Version: {minecraftVersion}')
 
 with open('../PATCHED.md', 'r') as f:
     patched_lines = f.readlines()
@@ -45,11 +51,16 @@ for bug in bugs:
             message_color = '\033[91m'
 
             fix_versions = []
-            for version in fields['fixVersions'] or []:
-                fix_versions.append(version['name'])
+            for v in fields['fixVersions'] or []:
+                fix_versions.append(v['name'].replace(' Pre-release ', '-pre').replace(' Release Candidate ', '-rc'))
 
             if len(fix_versions) > 0:
-                bug_status += f' - Fix Versions: {", ".join(fix_versions)}'
+                bug_status += f' in {", ".join(fix_versions)}'
+
+            if all(map(lambda v: version.parse(v) > minecraftVersion, fix_versions)):
+                message_color = '\033[33m'
+                resolved_count -= 1
+
 
         case 3:  # duplicate
             duplicate_count += 1

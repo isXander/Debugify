@@ -30,8 +30,13 @@ public abstract class TextFieldWidgetMixin extends ClickableWidgetMixin {
      */
     @Override
     protected void focusSelf(boolean focused, CallbackInfo ci) {
-        if (focused && MinecraftClient.getInstance().currentScreen != null) {
-            ((TextFieldHolder) MinecraftClient.getInstance().currentScreen).setFocusedTextField((TextFieldWidget) (Object) this);
+        if (MinecraftClient.getInstance().currentScreen != null) {
+            var textFieldHolder = (TextFieldHolder) MinecraftClient.getInstance().currentScreen;
+            var focus = textFieldHolder.getFocusedTextField();
+            if (focus != (TextFieldWidget) (Object) this && !focused)
+                return;
+
+            textFieldHolder.setFocusedTextField(focused ? (TextFieldWidget) (Object) this : null);
         }
     }
 
