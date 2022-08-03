@@ -1,6 +1,6 @@
 # List of Patched Bugs
-
-## Client Side
+## Unpatched in vanilla
+### Client Side
 | Type     | Bug ID                                                | Name                                                                                                                                 |
 |----------|-------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | Basic    | [MC-577](https://bugs.mojang.com/browse/MC-577)       | Mouse buttons block all inventory controls that are not default                                                                      |
@@ -43,7 +43,7 @@
 | Basic    | [MC-237493](https://bugs.mojang.com/browse/MC-237493) | Telemetry cannot be disabled                                                                                                         |
 | Basic    | [MC-249059](https://bugs.mojang.com/browse/MC-249059) | Loading terrain screen cannot close before 2 seconds have passed                                                                     |
 
-## Server Side (Both)
+### Server Side (Both)
 | Type     | Bug ID                                                | Name                                                                                               |
 |----------|-------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | Basic    | [MC-2025](https://bugs.mojang.com/browse/MC-2025)     | Mobs going out of fenced areas/suffocate in blocks when loading chunks                             |
@@ -97,6 +97,6 @@ Bugs that this mod has patched but has been superseded by a vanilla update.
 | [MC-53312](https://bugs.mojang.com/browse/MC-53312)   | Illager/(zombie) villager/witch robes don't render the last two rows of pixels          | 22w17a      |
 | [MC-72687](https://bugs.mojang.com/browse/MC-145929)  | There are no shadows on text displayed within the action bar                            | 22w24a      |
 | [MC-148149](https://bugs.mojang.com/browse/MC-148149) | Linux game crash when opening links                                                     | 1.19.1-pre6 |
-| [MC-235035](https://bugs.mojang.com/browse/MC-235035) | Sleeping in a custom dimension with "natural" set to false causes crash *(fabric only)* | 22w15a      |
+| [MC-235035](https://bugs.mojang.com/browse/MC-235035) | Sleeping in a custom dimension with "natural" set to false causes crash | 22w15a      |
 
 ### Server Side (Both)
