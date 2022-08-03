@@ -32,8 +32,8 @@ These superseded mods are not hard conflicts and can be used in conjunction with
 [GitHub](https://github.com/isXander/Debugify) • [Curseforge](https://curseforge.com/minecraft/mc-mods/debugify) • [Modrinth](https://modrinth.com/mod/debugify) • [Patched bug list](https://github.com/isXander/Debugify/blob/1.19/PATCHED.md) • [Discord](https://short.isxander.dev/discord)
 
 ## What if I want to enable some bug fixes, but not others?
-Debugify has a configuration GUI accessible by Fabric's [Mod Menu](https://modrinth.com/mod/modmenu) or Forge's Built-in mod list.
-If you don't want to use either of them, there is always the configuration file located at
+Debugify has a configuration GUI accessible by Fabric's [Mod Menu](https://modrinth.com/mod/modmenu).
+If you don't want to it, there is always the configuration file located at
 `.minecraft/config/debugify.json`
 ![configuration menu](https://i.imgur.com/0hv9cvu.png)
 
