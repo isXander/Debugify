@@ -1,0 +1,14 @@
+{
+  "debugify.name": "Debugify",
+  "debugify.basic": "Βασικές Διορθώσεις",
+  "debugify.gameplay": "Διορθώσεις Gameplay",
+  "debugify.gameplay.warning": "ΠΡΟΣΟΧΗ: Αυτή η κατηγορία περιέχει διορθώσεις οι οποίες μπορεί να σου δίνουν άδικα πλεονέκτηματα!",
+  "debugify.gameplay.enable_in_multiplayer": "Ενεργοποίηση στο Παιχνίδι Πολλαπλών Παικτών",
+  "debugify.error.conflict.single": "Το %s προκαλεί επιπλοκές με το %s",
+  "debugify.error.conflict.multiple": "Το %s προκαλέι επιπλοκές με τις τροποποιήσεις: %s",
+  "debugify.misc": "Διάφορα",
+  "debugify.misc.default_disabled": "Αυτόματη Απενεργοποίηση",
+  "debugify.misc.default_disabled.description": "Απενεργοποιεί τις νεές προσθήκες διορθώσεων.",
+  "debugify.env.client": "Πελάτη",
+  "debugify.env.server": "Διακομιστή"
+}
