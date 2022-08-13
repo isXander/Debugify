@@ -1,0 +1,14 @@
+{
+  "debugify.name": "Debugify",
+  "debugify.basic": "Основні виправлення",
+  "debugify.gameplay": "Виправлення ігроладу",
+  "debugify.gameplay.warning": "УВАГА: Ця категорія містить виправлення, які можуть бути нечесною перевагою!",
+  "debugify.gameplay.enable_in_multiplayer": "Увімкнути в грі в мережі",
+  "debugify.error.conflict.single": "%s конфліктує з %s",
+  "debugify.error.conflict.multiple": "%s конфліктує з модами: %s",
+  "debugify.misc": "Різне",
+  "debugify.misc.default_disabled": "За замовчуванням вимкнено",
+  "debugify.misc.default_disabled.description": "Нові виправлення помилок за замовчуванням мають бути вимкнені, а не ввімкнені.",
+  "debugify.env.client": "Клієнт",
+  "debugify.env.server": "Сервер"
+}
