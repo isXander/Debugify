@@ -20,6 +20,7 @@ import java.util.List;
 @Mixin(Screen.class)
 public class ScreenMixin {
     @Shadow public int height;
+
     @Unique
     private int debugify$modifiedX;
 

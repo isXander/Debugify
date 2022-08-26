@@ -11,10 +11,9 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
- * Taken from TieFix
- * https://github.com/j-tai/TieFix
+ * Taken from <a href="https://github.com/j-tai/TieFix">TieFix</a>
  * under LGPLv3 license
- *
+ * <br>
  * Adapted into the Debugify mod. The one-stop shop to all fixes and only fixes.
  *
  * @author j-tai
@@ -31,7 +30,7 @@ public abstract class TextFieldWidgetMixin {
     public abstract void setSelectionEnd(int index);
 
     /**
-     * Scrolling logic is in {@code setSelectionEnd} so we call it
+     * Scrolling logic is in {@link TextFieldWidget#setSelectionEnd} so we call it
      * and don't let the method actually modify the selectionEnd
      */
     @Inject(method = "setCursor", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/widget/TextFieldWidget;setSelectionStart(I)V", shift = At.Shift.AFTER))

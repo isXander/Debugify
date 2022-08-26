@@ -15,9 +15,6 @@ import org.spongepowered.asm.mixin.injection.At;
 public class InGameHudMixin {
     @Shadow @Final private MinecraftClient client;
 
-    /**
-     * {@see forge mixin}
-     */
     @ModifyExpressionValue(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z"))
     private boolean shouldRenderPumpkinOverlay(boolean pumpkinOnHead) {
         return pumpkinOnHead && !client.player.isSpectator();

@@ -18,13 +18,14 @@ import java.util.stream.IntStream;
 @Mixin(ArmorStandEntityRenderer.class)
 public abstract class ArmorStandEntityRendererMixin extends LivingEntityRendererMixin<ArmorStandEntity, ArmorStandArmorEntityModel> {
 
-
     /**
      * Overrides the light level passed to the renderer, with the maximum of:
-     * * The block below the armor stand
-     * * Bottom of the armor stand
-     * * Top of the armor stand
-     * * The block above the armor stand
+     * <ul>
+     *     <li>The block below the armor stand</li>
+     *     <li>Bottom of the armor stand</li>
+     *     <li>Top of the armor stand</li>
+     *     <li>The block above the armor stand</li>
+     * </ul>
      */
     @Override
     public int modifyProvidedLightLevel(int providedLightLevel, ArmorStandEntity livingEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider) {

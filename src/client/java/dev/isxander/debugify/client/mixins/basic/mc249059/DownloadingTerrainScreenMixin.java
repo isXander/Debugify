@@ -10,8 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
- * Taken from
- * https://github.com/kennytv/kennytvs-epic-force-close-loading-screen-mod-for-fabric
+ * Taken from <a href="https://github.com/kennytv/kennytvs-epic-force-close-loading-screen-mod-for-fabric">kennytvs-epic-force-close-loading-screen-mod-for-fabric</a>
  * under MIT License
  */
 @BugFix(id = "MC-249059", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, fabricConflicts = "forcecloseloadingscreen")

@@ -1,8 +1,6 @@
 package dev.isxander.debugify.client.mixins.gameplay.mc12829;
 
-import dev.isxander.debugify.Debugify;
 import dev.isxander.debugify.client.DebugifyClient;
-import dev.isxander.debugify.client.utils.ClientUtils;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.entity.player.PlayerAbilities;

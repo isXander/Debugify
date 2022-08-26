@@ -17,7 +17,7 @@ public class MathHelperMixin {
     /**
      * Without this, large radians from entity ages caused
      * integer overflows. Simply modulo it so that doesn't happen
-     *
+     * <br>
      * While this bug is reportedly the issue of the client,
      * the root cause is in both environments, hence it's located here
      */
@@ -28,7 +28,7 @@ public class MathHelperMixin {
 
     /**
      * Not necessarily needed however it's nice for parity and is affected
-     * when MC-165595 is disabled
+     * when <a href="https://bugs.mojang.com/browse/MC-165595">MC-165595</a> is disabled
      */
     @ModifyVariable(method = "sin", at = @At("HEAD"), ordinal = 0, argsOnly = true)
     private static float modifySinRadians(float value) {

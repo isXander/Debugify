@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  * Most GUIs only have one text field so this actually quite bad
  * bug doesn't show itself. The text field is focused in the mouseClick event,
  * but it doesn't ever unfocus any other text fields.
- *
+ * <br>
  * Cannot use the screen's focused field either as that is primarily used
  * for widgets which breaks many guis with text fields in widgets
  */
@@ -43,7 +43,7 @@ public abstract class TextFieldWidgetMixin extends ClickableWidgetMixin {
     /**
      * mojang uses direct setting of the field not
      * the method they made just for that purpose!
-     *
+     * <br>
      * inverting it becomes
      * focused = !(!focused) aka does nothing
      */
@@ -53,7 +53,7 @@ public abstract class TextFieldWidgetMixin extends ClickableWidgetMixin {
     }
 
     /**
-     * now do actual code mojang should have wrote
+     * now do actual code Mojang should have written
      */
     @Override
     protected void changeFocus(boolean lookForwards, CallbackInfoReturnable<Boolean> cir) {

@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 /**
  * Taken from <a href="https://github.com/TheRandomLabs/RandomPatches">RandomPatches</a>
  * under MIT license
- *
+ * <br>
  * Adapted to work in newer versions and a multi-loader environment
  *
  * @author TheRandomLabs

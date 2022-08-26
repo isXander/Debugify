@@ -16,9 +16,11 @@ import java.util.List;
 public class ChunkBuilderBuiltChunkRebuildTaskMixin {
     /**
      * Extremely annoying to make because:
-     * A. You can't append else statements to ifs
-     * B. You can't use WrapWithCondition because List.add returns boolean
-     *
+     * <ol type="A">
+     *     <li>You can't append else statements to ifs</li>
+     *     <li>You can't use WrapWithCondition because {@link List#add(Object)} returns boolean</li>
+     * </ol>
+     * <br>
      * Bytecode is also super funky because &lt;E extends BlockEntity&gt; but
      * the param wants an Object instead of E making way for weird unnecessary casting
      */

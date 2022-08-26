@@ -24,7 +24,7 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
 
     /**
      * Also fixes
-     * MC-81773, MC-206705
+     * <a href="https://bugs.mojang.com/browse/MC-81773">MC-81773</a>, <a href="https://bugs.mojang.com/browse/MC-206705">MC-206705</a>
      */
     @Inject(method = "changeGameMode", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/network/ServerPlayerEntity;stopRiding()V"))
     private void onChangeToSpectator(GameMode gameMode, CallbackInfoReturnable<Boolean> cir) {

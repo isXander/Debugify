@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
     /**
-     * With deathTime >= 20, the entity never gets removed
+     * With deathTime being > 20, the entity never gets removed
      * because the check is deathTime == 20 not deathTime >= 20.
      * This mixin basically replaces that.
      */

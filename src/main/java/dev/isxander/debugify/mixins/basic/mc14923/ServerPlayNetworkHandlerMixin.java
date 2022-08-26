@@ -20,7 +20,7 @@ public class ServerPlayNetworkHandlerMixin {
 
     /**
      * Currently, Minecraft checks if a player is OP to know to kick for spamming,
-     * but in singleplayer, with cheats off, you are not opped.
+     * but in singleplayer, with cheats off, you are not op-ed.
      * This mixin also checks if the user is the host.
      */
     @ModifyExpressionValue(method = "checkForSpam", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/PlayerManager;isOperator(Lcom/mojang/authlib/GameProfile;)Z"))

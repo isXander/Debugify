@@ -9,10 +9,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 /**
- * Taken from Sodium Extra
- * https://github.com/FlashyReese/sodium-extra-fabric
+ * Taken from <a href="https://github.com/FlashyReese/sodium-extra-fabric">Sodium Extra</a>
  * under LGLv3 license
- *
+ * <br>
  * Adapted to be able to be toggled off at ease in a user-friendly GUI
  *
  * @author AMereBagatelle

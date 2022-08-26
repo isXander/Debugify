@@ -18,7 +18,7 @@ public class SliderWidgetMixin {
     /**
      * the issue occurs because mouseRelease event
      * is fired when it was down on the previous screen.
-     *
+     * <br>
      * track the first value which will show that the
      * slider has been clicked at least once
      */
