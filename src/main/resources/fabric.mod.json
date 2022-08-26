@@ -41,7 +41,7 @@
     "fabric-resource-loader-v0": "*"
   },
   "recommends": {
-    "cloth-config2": "7.x.x",
+    "cloth-config2": "8.x.x",
     "modmenu": "*"
   },
   "conflicts": {

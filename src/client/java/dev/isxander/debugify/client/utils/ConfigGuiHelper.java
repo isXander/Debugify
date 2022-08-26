@@ -9,9 +9,13 @@ import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.impl.builders.BooleanToggleBuilder;
 import me.shedaniel.clothconfig2.impl.builders.SubCategoryBuilder;
+import net.fabricmc.fabric.api.client.screen.v1.Screens;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Util;
 
 import java.util.HashMap;
 import java.util.List;
@@ -86,6 +90,14 @@ public class ConfigGuiHelper {
                 .setDefaultValue(false)
                 .build();
         miscCategory.addEntry(defaultDisabledEntry);
+
+        builder.setAfterInitConsumer((screen) -> {
+            var text = Text.translatable("debugify.donate");
+            var width = MinecraftClient.getInstance().textRenderer.getWidth(text) + 8;
+            Screens.getButtons(screen).add(new ButtonWidget(screen.width - width - 4, 4, width, 20, text, (button) -> {
+                Util.getOperatingSystem().open("https://ko-fi.com/isxander");
+            }));
+        });
 
         return builder.build();
     }

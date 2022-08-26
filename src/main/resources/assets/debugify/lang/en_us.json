@@ -10,5 +10,6 @@
   "debugify.misc.default_disabled": "Default to Disabled",
   "debugify.misc.default_disabled.description": "Default new bug fixes to be disabled rather than enabled.",
   "debugify.env.client": "Client",
-  "debugify.env.server": "Server"
+  "debugify.env.server": "Server",
+  "debugify.donate": "Support me!"
 }
