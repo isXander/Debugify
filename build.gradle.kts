@@ -4,7 +4,7 @@ import ru.vyarus.gradle.plugin.python.task.PythonTask
 plugins {
     java
 
-    id("fabric-loom") version "0.12.+"
+    id("fabric-loom") version "1.0.+"
     id("io.github.juuxel.loom-quiltflower") version "1.7.+"
 
     id("com.modrinth.minotaur") version "2.4.+"
@@ -34,14 +34,14 @@ loom {
 repositories {
     mavenCentral()
     maven("https://jitpack.io")
-    maven("https://maven.shedaniel.me")
+    maven("https://maven.isxander.dev/releases")
     maven("https://maven.terraformersmc.com")
 }
 
 val minecraftVersion: String by rootProject
 val fabricLoaderVersion: String by rootProject
 val fabricApiVersion: String by rootProject
-val clothVersion: String by rootProject
+val yaclVersion: String by rootProject
 val mixinExtrasVersion: String by rootProject
 val modMenuVersion: String by  rootProject
 
@@ -57,16 +57,12 @@ dependencies {
         include(it)
     }
 
-    modImplementation("me.shedaniel.cloth:cloth-config-fabric:$clothVersion") {
-        exclude(module = "fabric-api")
-    }
+    modImplementation("dev.isxander:yet-another-config-lib:$yaclVersion")
 
-    modImplementation("com.terraformersmc:modmenu:$modMenuVersion") {
-        exclude(module = "fabric-api")
-    }
+    modImplementation("com.terraformersmc:modmenu:$modMenuVersion")
 
-    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion")
-    modImplementation(fabricApi.module("fabric-resource-loader-v0", "$fabricApiVersion"))
+    //modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion")
+    modImplementation(fabricApi.module("fabric-resource-loader-v0", fabricApiVersion))
 }
 
 tasks.withType<JavaCompile> {

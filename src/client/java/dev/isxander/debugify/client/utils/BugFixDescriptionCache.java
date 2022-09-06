@@ -24,7 +24,7 @@ public class BugFixDescriptionCache {
     private final Map<String, String> descriptionHolder = new HashMap<>();
     private final String url = "https://bugs.mojang.com/rest/api/2/issue/%s";
 
-    private void cacheDescriptions() {
+    public void cacheDescriptions() {
         Debugify.logger.info("Caching bug descriptions");
 
         HttpClient client = HttpClient.newHttpClient();
@@ -46,28 +46,16 @@ public class BugFixDescriptionCache {
                 JsonObject fields = json.getAsJsonObject("fields");
                 String summary = fields.get("summary").getAsString();
 
-                descriptionHolder.put(id, !FabricLoader.getInstance().isModLoaded("tooltipfix") ? wrapTextLenient(summary, 50) : summary);
+                descriptionHolder.put(id, summary);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    public void trySave() {
-        Debugify.logger.info("Saving Description Cache...");
-        if (descriptionHolder.isEmpty()) {
-            Debugify.logger.info("Cache empty. Getting descriptions and saving in a new thread.");
-            CompletableFuture.runAsync(() -> {
-                cacheDescriptions();
-                save();
-            });
-            return;
         }
 
         save();
     }
 
-    private void save() {
+    public void save() {
         try {
             Files.deleteIfExists(file);
 
@@ -96,11 +84,16 @@ public class BugFixDescriptionCache {
                     .map((entry) -> new AbstractMap.SimpleEntry<>(entry.getKey(), entry.getValue().getAsString()))
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
+            if (loadedDescriptions.values().stream().anyMatch(desc -> desc.contains("\n"))) {
+                Debugify.logger.warn("Outdated description cache format, re-caching!");
+                cacheDescriptions();
+                return true;
+            }
+
             descriptionHolder.putAll(loadedDescriptions);
         } catch (Exception e) {
-            Debugify.logger.error("Couldn't load description cache! Attempting to save.");
+            Debugify.logger.error("Couldn't load description cache!");
             e.printStackTrace();
-            trySave();
             return false;
         }
 
@@ -113,27 +106,5 @@ public class BugFixDescriptionCache {
 
     public boolean has(String id) {
         return descriptionHolder.containsKey(id);
-    }
-
-    private String wrapTextLenient(String text, int charLength) {
-        StringBuilder sb = new StringBuilder();
-        int lineLength = 0;
-        boolean needsLineBreak = false;
-        for (char c : text.toCharArray()) {
-            lineLength += 1;
-            if (c == '\n') lineLength = 0;
-            if (lineLength > charLength) {
-                needsLineBreak = true;
-            }
-            if (needsLineBreak && c == ' ') {
-                lineLength = 0;
-                sb.append('\n');
-                needsLineBreak = false;
-            } else {
-                sb.append(c);
-            }
-        }
-
-        return sb.toString();
     }
 }

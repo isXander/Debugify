@@ -1,6 +1,7 @@
 package dev.isxander.debugify.fixes;
 
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -17,6 +18,10 @@ public record BugFixData(String bugId, FixCategory category, BugFix.Env env, boo
 
     @Override
     public int compareTo(@NotNull BugFixData o) {
-        return bugId.compareTo(o.bugId);
+        if (o.bugId.length() == bugId.length()) {
+            return bugId.compareTo(o.bugId);
+        }
+
+        return Integer.compare(bugId.length(), o.bugId.length());
     }
 }

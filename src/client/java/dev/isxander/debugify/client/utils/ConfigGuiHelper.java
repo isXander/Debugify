@@ -4,101 +4,96 @@ import dev.isxander.debugify.client.DebugifyClient;
 import dev.isxander.debugify.config.DebugifyConfig;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
-import me.shedaniel.clothconfig2.api.AbstractConfigListEntry;
-import me.shedaniel.clothconfig2.api.ConfigBuilder;
-import me.shedaniel.clothconfig2.api.ConfigCategory;
-import me.shedaniel.clothconfig2.impl.builders.BooleanToggleBuilder;
-import me.shedaniel.clothconfig2.impl.builders.SubCategoryBuilder;
-import net.fabricmc.fabric.api.client.screen.v1.Screens;
-import net.minecraft.client.MinecraftClient;
+import dev.isxander.yacl.api.*;
+import dev.isxander.yacl.gui.controllers.BooleanController;
+import dev.isxander.yacl.gui.controllers.LabelController;
+import dev.isxander.yacl.gui.controllers.TickBoxController;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.Util;
+import net.minecraft.util.Pair;
 
 import java.util.HashMap;
-import java.util.List;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Optional;
+import java.util.function.Function;
 
 public class ConfigGuiHelper {
     public static Screen createConfigGui(DebugifyConfig config, Screen parent) {
-        ConfigBuilder builder = ConfigBuilder.create()
-                .setTitle(Text.translatable("debugify.name"))
-                .setSavingRunnable(config::save)
-                .setParentScreen(parent);
-
-        Map<FixCategory, ConfigCategory> fixCategories = new HashMap<>();
-        Map<ConfigCategory, Map<BugFix.Env, SubCategoryBuilder>> fixSubCategories = new HashMap<>();
+        Map<FixCategory, ConfigCategory.Builder> fixCategories = new LinkedHashMap<>();
+        Map<ConfigCategory.Builder, Map<BugFix.Env, OptionGroup.Builder>> fixGroups = new LinkedHashMap<>();
         for (FixCategory fixCategory : FixCategory.values()) {
-            var configCategory = builder.getOrCreateCategory(Text.translatable(fixCategory.getDisplayName()));
+            var categoryBuilder = ConfigCategory.createBuilder()
+                    .name(Text.translatable(fixCategory.getDisplayName()));
+
             if (fixCategory == FixCategory.GAMEPLAY) {
-                configCategory.addEntry(builder.entryBuilder()
-                        .startTextDescription(Text.translatable("debugify.gameplay.warning").formatted(Formatting.RED))
-                        .build()
-                );
-                configCategory.addEntry(builder.entryBuilder()
-                        .startBooleanToggle(Text.translatable("debugify.gameplay.enable_in_multiplayer"), config.gameplayFixesInMultiplayer)
-                        .setSaveConsumer((enabled) -> config.gameplayFixesInMultiplayer = enabled)
-                        .build()
-                );
+                categoryBuilder
+                        .option(Option.createBuilder(Text.class)
+                                .binding(Binding.immutable(Text.translatable("debugify.gameplay.warning").formatted(Formatting.RED)))
+                                .controller(LabelController::new)
+                                .build())
+                        .option(Option.createBuilder(boolean.class)
+                                .name(Text.translatable("debugify.gameplay.enable_in_multiplayer"))
+                                .binding(
+                                        false,
+                                        () -> config.gameplayFixesInMultiplayer,
+                                        value -> config.gameplayFixesInMultiplayer = value
+                                )
+                                .controller(TickBoxController::new)
+                                .build());
             }
 
-            fixCategories.put(fixCategory, configCategory);
+            fixCategories.put(fixCategory, categoryBuilder);
 
-            Map<BugFix.Env, SubCategoryBuilder> subCategories = new HashMap<>();
+            Map<BugFix.Env, OptionGroup.Builder> envGroups = new LinkedHashMap<>();
             for (BugFix.Env env : BugFix.Env.values()) {
-                var subCategoryBuilder = builder.entryBuilder().startSubCategory(Text.translatable(env.getDisplayName()));
-                subCategories.put(env, subCategoryBuilder);
+                var groupBuilder = OptionGroup.createBuilder()
+                        .name(Text.translatable(env.getDisplayName()))
+                        .collapsed(true);
+                envGroups.put(env, groupBuilder);
             }
-            fixSubCategories.put(configCategory, subCategories);
+            fixGroups.put(categoryBuilder, envGroups);
         }
 
+        Function<Boolean, Text> formatter = state -> state ? Text.translatable("debugify.fix.enabled") : Text.translatable("debugify.fix.disabled");
         config.getBugFixes().forEach((bug, enabled) -> {
-            SubCategoryBuilder subcategory = fixSubCategories.get(fixCategories.get(bug.category())).get(bug.env());
-
-            BooleanToggleBuilder entry = builder.entryBuilder()
-                    .startBooleanToggle(Text.literal(bug.bugId()), enabled)
-                    .setSaveConsumer((toggled) -> config.getBugFixes().replace(bug, toggled))
-                    .setDefaultValue(bug.enabledByDefault())
-                    .setErrorSupplier((b) -> {
-                        List<String> conflicts = bug.getActiveConflicts();
-                        if (!b || conflicts.isEmpty())
-                            return Optional.empty();
-
-                        if (conflicts.size() == 1)
-                            return Optional.of(Text.translatable("debugify.error.conflict.single", bug.bugId(), conflicts.get(0)));
-                        else
-                            return Optional.of(Text.translatable("debugify.error.conflict.multiple", bug.bugId(), String.join(", ", conflicts)));
-                    })
-                    .requireRestart();
+            var optionBuilder = Option.createBuilder(boolean.class)
+                    .name(Text.literal(bug.bugId()))
+                    .binding(
+                            bug.enabledByDefault(),
+                            () -> config.getBugFixes().get(bug),
+                            value -> config.getBugFixes().replace(bug, value)
+                    )
+                    .controller(opt -> new BooleanController(opt, formatter, true))
+                    .requiresRestart(true);
 
             if (DebugifyClient.bugFixDescriptionCache.has(bug.bugId()))
-                entry.setTooltip(Text.literal(DebugifyClient.bugFixDescriptionCache.get(bug.bugId())));
+                optionBuilder.tooltip(Text.literal(DebugifyClient.bugFixDescriptionCache.get(bug.bugId())));
 
-            subcategory.add(entry.build());
-        });
-        fixSubCategories.forEach((category, subCategories) ->
-                subCategories.forEach((env, subCategoryBuilder) -> category.addEntry(subCategoryBuilder.build())));
-
-        ConfigCategory miscCategory = builder.getOrCreateCategory(Text.translatable("debugify.misc"));
-        AbstractConfigListEntry<?> defaultDisabledEntry = builder.entryBuilder()
-                .startBooleanToggle(Text.translatable("debugify.misc.default_disabled"), config.defaultDisabled)
-                .setTooltip(Text.translatable("debugify.misc.default_disabled.description"))
-                .setSaveConsumer((toggled) -> config.defaultDisabled = toggled)
-                .setDefaultValue(false)
-                .build();
-        miscCategory.addEntry(defaultDisabledEntry);
-
-        builder.setAfterInitConsumer((screen) -> {
-            var text = Text.translatable("debugify.donate");
-            var width = MinecraftClient.getInstance().textRenderer.getWidth(text) + 8;
-            Screens.getButtons(screen).add(new ButtonWidget(screen.width - width - 4, 4, width, 20, text, (button) -> {
-                Util.getOperatingSystem().open("https://ko-fi.com/isxander");
-            }));
+            fixGroups.get(fixCategories.get(bug.category())).get(bug.env())
+                    .option(optionBuilder.build());
         });
 
-        return builder.build();
+        fixGroups.forEach((category, groups) ->
+                groups.forEach((env, groupBuilder) -> category.group(groupBuilder.build())));
+
+        return YetAnotherConfigLib.createBuilder()
+                .title(Text.translatable("debugify.name"))
+                .save(config::save)
+                .categories(fixCategories.values().stream().map(ConfigCategory.Builder::build).toList())
+                .category(ConfigCategory.createBuilder()
+                        .name(Text.translatable("debugify.misc"))
+                        .option(Option.createBuilder(boolean.class)
+                                .name(Text.translatable("debugify.misc.default_disabled"))
+                                .tooltip(Text.translatable("debugify.misc.default_disabled.description"))
+                                .binding(
+                                        false,
+                                        () -> config.defaultDisabled,
+                                        value -> config.defaultDisabled = value
+                                )
+                                .controller(BooleanController::new)
+                                .build())
+                        .build())
+                .build().generateScreen(parent);
     }
 }
