@@ -118,7 +118,7 @@ modrinth {
     loaders.set(listOf("fabric", "quilt"))
     changelog.set(changelogText)
     dependencies {
-        optional.project("modmenu")
+        required.project("yacl")
         optional.project("cloth-config")
     }
     syncBodyFrom.set(rootProject.file("README.md").readText())
@@ -140,7 +140,7 @@ if (hasProperty("curseforge.token")) {
             addGameVersion("Java 17")
 
             relations(closureOf<me.hypherionmc.cursegradle.CurseRelation> {
-                requiredDependency("cloth-config")
+                requiredDependency("yacl")
                 optionalDependency("modmenu")
             })
 
