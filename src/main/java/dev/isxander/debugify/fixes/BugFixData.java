@@ -1,19 +1,27 @@
 package dev.isxander.debugify.fixes;
 
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.util.Util;
 import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public record BugFixData(String bugId, FixCategory category, BugFix.Env env, boolean enabledByDefault, List<String> conflicts) implements Comparable<BugFixData> {
+public record BugFixData(String bugId, FixCategory category, BugFix.Env env, boolean enabledByDefault, List<String> conflicts, OS requiredOs) implements Comparable<BugFixData> {
     public List<String> getActiveConflicts() {
-        List<String> activeConflicts = new ArrayList<>();
-        for (String conflict : conflicts)
-            if (FabricLoader.getInstance().isModLoaded(conflict))
-                activeConflicts.add(conflict);
-        return activeConflicts;
+        return conflicts().stream().filter(id -> FabricLoader.getInstance().isModLoaded(id)).toList();
+    }
+
+    public boolean satisfiesOSRequirement() {
+        return requiredOs() == OS.UNKNOWN || requiredOs() == OS.getOperatingSystem();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof BugFixData bugFixData)
+            return bugFixData.bugId.equals(bugId);
+        return false;
     }
 
     @Override

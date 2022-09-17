@@ -16,7 +16,9 @@ public @interface BugFix {
 
     boolean enabled() default true;
 
-    String[] fabricConflicts() default {};
+    String[] modConflicts() default {};
+
+    OS os() default OS.UNKNOWN;
 
     enum Env {
         CLIENT("debugify.env.client"),

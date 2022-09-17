@@ -8,6 +8,7 @@ import dev.isxander.yacl.api.*;
 import dev.isxander.yacl.gui.controllers.BooleanController;
 import dev.isxander.yacl.gui.controllers.LabelController;
 import dev.isxander.yacl.gui.controllers.TickBoxController;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -57,6 +58,9 @@ public class ConfigGuiHelper {
 
         Function<Boolean, Text> formatter = state -> state ? Text.translatable("debugify.fix.enabled") : Text.translatable("debugify.fix.disabled");
         config.getBugFixes().forEach((bug, enabled) -> {
+            var conflicts = bug.getActiveConflicts().stream().map(id -> FabricLoader.getInstance().getModContainer(id).orElseThrow().getMetadata().getName()).toList();
+            var satisfiesOS = bug.satisfiesOSRequirement();
+
             var optionBuilder = Option.createBuilder(boolean.class)
                     .name(Text.literal(bug.bugId()))
                     .binding(
@@ -65,10 +69,17 @@ public class ConfigGuiHelper {
                             value -> config.getBugFixes().replace(bug, value)
                     )
                     .controller(opt -> new BooleanController(opt, formatter, true))
-                    .requiresRestart(true);
+                    .available(conflicts.isEmpty() && satisfiesOS)
+                    .flag(OptionFlag.GAME_RESTART);
 
             if (DebugifyClient.bugFixDescriptionCache.has(bug.bugId()))
                 optionBuilder.tooltip(Text.literal(DebugifyClient.bugFixDescriptionCache.get(bug.bugId())));
+
+            if (!conflicts.isEmpty())
+                optionBuilder.tooltip(Text.translatable("debugify.error.conflict", bug.bugId(), String.join(", ", conflicts)).formatted(Formatting.RED));
+
+            if (!satisfiesOS)
+                optionBuilder.tooltip(Text.translatable("debugify.error.os", bug.bugId(), Text.translatable(bug.requiredOs().getDisplayName())).formatted(Formatting.RED));
 
             fixGroups.get(fixCategories.get(bug.category())).get(bug.env())
                     .option(optionBuilder.build());

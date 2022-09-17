@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@BugFix(id = "MC-228976", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, fabricConflicts = "entitycollisionfpsfix")
+@BugFix(id = "MC-228976", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = {"entitycollisionfpsfix", "lithium"})
 @Mixin(Entity.class)
 public class EntityMixin {
     @Shadow public World world;

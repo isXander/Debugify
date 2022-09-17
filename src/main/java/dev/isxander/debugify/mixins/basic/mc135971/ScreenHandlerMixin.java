@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@BugFix(id = "MC-135971", category = FixCategory.BASIC, env = BugFix.Env.SERVER, fabricConflicts = "carpet")
+@BugFix(id = "MC-135971", category = FixCategory.BASIC, env = BugFix.Env.SERVER, modConflicts = "carpet")
 @Mixin(ScreenHandler.class)
 public abstract class ScreenHandlerMixin {
     @Shadow @Final public DefaultedList<Slot> slots;

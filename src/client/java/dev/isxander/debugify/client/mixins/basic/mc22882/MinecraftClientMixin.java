@@ -2,6 +2,7 @@ package dev.isxander.debugify.client.mixins.basic.mc22882;
 
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
+import dev.isxander.debugify.fixes.OS;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
@@ -11,7 +12,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
-@BugFix(id = "MC-22882", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, enabled = false)
+@BugFix(id = "MC-22882", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, os = OS.MAC)
 @Mixin(MinecraftClient.class)
 public class MinecraftClientMixin {
     @Shadow @Final public static boolean IS_SYSTEM_MAC;

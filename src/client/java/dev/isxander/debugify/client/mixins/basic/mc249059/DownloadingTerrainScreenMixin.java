@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  * Taken from <a href="https://github.com/kennytv/kennytvs-epic-force-close-loading-screen-mod-for-fabric">kennytvs-epic-force-close-loading-screen-mod-for-fabric</a>
  * under MIT License
  */
-@BugFix(id = "MC-249059", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, fabricConflicts = "forcecloseloadingscreen")
+@BugFix(id = "MC-249059", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "forcecloseloadingscreen")
 @Mixin(DownloadingTerrainScreen.class)
 public class DownloadingTerrainScreenMixin {
     @Shadow private boolean closeOnNextTick;

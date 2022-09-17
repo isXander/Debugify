@@ -2,13 +2,14 @@ package dev.isxander.debugify.client.mixins.basic.mc121772;
 
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
+import dev.isxander.debugify.fixes.OS;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.Mouse;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
-@BugFix(id = "MC-121772", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, fabricConflicts = { "mcmouser", "shift-scroll-fix" })
+@BugFix(id = "MC-121772", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = { "mcmouser", "shift-scroll-fix" }, os = OS.MAC)
 @Mixin(Mouse.class)
 public class MouseMixin {
     /**

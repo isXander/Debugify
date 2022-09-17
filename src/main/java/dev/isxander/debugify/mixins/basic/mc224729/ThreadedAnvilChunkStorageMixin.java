@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 import java.util.function.Predicate;
 
-@BugFix(id = "MC-224729", category = FixCategory.BASIC, env = BugFix.Env.SERVER, fabricConflicts = "chunksavingfix")
+@BugFix(id = "MC-224729", category = FixCategory.BASIC, env = BugFix.Env.SERVER, modConflicts = "chunksavingfix")
 @Mixin(ThreadedAnvilChunkStorage.class)
 public class ThreadedAnvilChunkStorageMixin {
     @ModifyArg(method = "save(Z)V", at = @At(value = "INVOKE", target = "Ljava/util/stream/Stream;filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", ordinal = 0))

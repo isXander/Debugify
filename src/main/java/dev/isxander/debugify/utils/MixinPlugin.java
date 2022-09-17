@@ -5,6 +5,7 @@ import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import dev.isxander.debugify.fixes.BugFixData;
 import com.llamalad7.mixinextras.MixinExtrasBootstrap;
+import dev.isxander.debugify.fixes.OS;
 import org.objectweb.asm.tree.AnnotationNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
@@ -13,6 +14,7 @@ import org.spongepowered.asm.service.MixinService;
 import org.spongepowered.asm.util.Annotations;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -38,12 +40,18 @@ public class MixinPlugin implements IMixinConfigPlugin {
             return true;
 
         BugFixData bugFix = bugFixOptional.get();
+        var multipleMixins = Debugify.config.getBugFixes().containsKey(bugFix);
         Debugify.config.registerBugFix(bugFix);
 
         List<String> conflicts = bugFix.getActiveConflicts();
         if (!conflicts.isEmpty()) {
+            if (Debugify.config.isBugFixEnabled(bugFix) && !multipleMixins)
+                Debugify.logger.warn("Force disabled {} because it's conflicting with: {}", bugFix.bugId(), String.join(", ", conflicts));
             Debugify.config.getBugFixes().replace(bugFix, false);
-            Debugify.logger.warn("Force disabled " + bugFix.bugId() + " because it's conflicting with: " + String.join(", ", conflicts));
+        } else if (!bugFix.satisfiesOSRequirement()) {
+            if (Debugify.config.isBugFixEnabled(bugFix) && !multipleMixins)
+                Debugify.logger.warn("Force disabled {} because it only applies to OS: {}", bugFix.bugId(), bugFix.requiredOs().name());
+            Debugify.config.getBugFixes().replace(bugFix, false);
         }
 
         return Debugify.config.isBugFixEnabled(bugFix) && bugFix.getActiveConflicts().isEmpty();
@@ -66,9 +74,10 @@ public class MixinPlugin implements IMixinConfigPlugin {
         FixCategory category = getAnnotationEnumValue(annotationNode, "category", FixCategory.class);
         BugFix.Env env = getAnnotationEnumValue(annotationNode, "env", BugFix.Env.class);
         boolean enabledByDefault = Annotations.getValue(annotationNode, "enabled", Boolean.valueOf(true));
-        List<String> conflicts = Annotations.getValue(annotationNode, "fabricConflicts", true);
+        List<String> conflicts = Annotations.getValue(annotationNode, "modConflicts", true);
+        OS requiredOS = Annotations.getValue(annotationNode, "os", OS.class, OS.UNKNOWN);
 
-        return Optional.of(new BugFixData(id, category, env, enabledByDefault, conflicts));
+        return Optional.of(new BugFixData(id, category, env, enabledByDefault, conflicts, requiredOS));
     }
 
     private static <T extends Enum<T>> T getAnnotationEnumValue(AnnotationNode annotation, String key, Class<T> enumClass) {

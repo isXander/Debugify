@@ -1,12 +1,10 @@
 package dev.isxander.debugify.client.mixins.basic.mc228976;
 
-import com.google.common.collect.Lists;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.TargetPredicate;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
@@ -18,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import java.util.List;
 import java.util.function.Predicate;
 
-@BugFix(id = "MC-228976", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, fabricConflicts = {"entitycollisionfpsfix", "lithium"})
+@BugFix(id = "MC-228976", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = {"entitycollisionfpsfix", "lithium"})
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
     public LivingEntityMixin(EntityType<?> type, World world) {
