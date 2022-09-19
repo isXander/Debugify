@@ -25,34 +25,34 @@ public class BugFixDescriptionCache {
     private final String url = "https://bugs.mojang.com/rest/api/2/issue/%s";
 
     public void cacheDescriptions() {
-        Debugify.logger.info("Caching bug descriptions");
+        Debugify.logger.info("Connecting to 'bugs.mojang.com' to cache bug descriptions!");
 
-        HttpClient client = HttpClient.newHttpClient();
+        CompletableFuture.runAsync(() -> {
+            HttpClient client = HttpClient.newHttpClient();
 
-        for (BugFixData bugData : Debugify.config.getBugFixes().keySet()) {
-            String id = bugData.bugId();
-            try {
-                HttpRequest request = HttpRequest.newBuilder(new URI(String.format(url, id)))
-                        .build();
+            for (BugFixData bugData : Debugify.config.getBugFixes().keySet()) {
+                String id = bugData.bugId();
+                try {
+                    HttpRequest request = HttpRequest.newBuilder(new URI(String.format(url, id)))
+                            .build();
 
-                HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+                    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-                if (response.statusCode() != 200) {
-                    Debugify.logger.error("Description Cache: {} - {}", response.statusCode(), response.body());
-                    continue;
+                    if (response.statusCode() != 200) {
+                        Debugify.logger.error("Description Cache: {} - {}", response.statusCode(), response.body());
+                        continue;
+                    }
+
+                    JsonObject json = gson.fromJson(response.body(), JsonObject.class);
+                    JsonObject fields = json.getAsJsonObject("fields");
+                    String summary = fields.get("summary").getAsString();
+
+                    descriptionHolder.put(id, summary);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-
-                JsonObject json = gson.fromJson(response.body(), JsonObject.class);
-                JsonObject fields = json.getAsJsonObject("fields");
-                String summary = fields.get("summary").getAsString();
-
-                descriptionHolder.put(id, summary);
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-        }
-
-        save();
+        }).thenAccept((returnVal) -> save());
     }
 
     public void save() {
