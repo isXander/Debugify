@@ -24,6 +24,7 @@
     "basic.mc147605.AbstractParentElementMixin",
     "basic.mc147605.ClickableWidgetMixin",
     "basic.mc147605.TextFieldWidgetMixin",
+    "basic.mc147605.jeicompat.GuiTextFieldFilterMixin",
     "basic.mc151412.AddServerScreenMixin",
     "basic.mc159163.ClientPlayNetworkHandlerMixin",
     "basic.mc162253.ClientPlayNetworkHandlerMixin",
