@@ -15,7 +15,6 @@ import net.minecraft.util.Formatting;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.function.Function;
 
 public class ConfigGuiHelper {
     public static Screen createConfigGui(DebugifyConfig config, Screen parent) {
@@ -60,7 +59,7 @@ public class ConfigGuiHelper {
             var unavailable = !conflicts.isEmpty() || !satisfiesOS;
 
             var optionBuilder = Option.createBuilder(boolean.class)
-                    .name(Text.literal(bug.bugId()))
+                    .name(Text.of(bug.bugId()))
                     .binding(
                             bug.enabledByDefault(),
                             () -> config.getBugFixes().get(bug),
