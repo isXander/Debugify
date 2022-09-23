@@ -3,6 +3,7 @@ package dev.isxander.debugify.mixins.basic.mc200418;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.entity.mob.ZombieVillagerEntity;
+import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.server.world.ServerWorld;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,7 +18,7 @@ public class ZombieVillagerEntityMixin {
     @Inject(method = "finishConversion", at = @At("TAIL"), locals = LocalCapture.CAPTURE_FAILSOFT)
     @SuppressWarnings("InvalidInjectorMethodSignature")
     private void dismountIfJockey(ServerWorld world, CallbackInfo ci, VillagerEntity villager) {
-        if (villager.hasVehicle()) {
+        if (villager.hasVehicle() && villager.getVehicle() instanceof ChickenEntity && villager.isBaby()) {
             villager.dismountVehicle();
         }
     }

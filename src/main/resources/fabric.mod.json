@@ -44,17 +44,6 @@
     "yet-another-config-lib": ">=1.2.0",
     "modmenu": "*"
   },
-  "conflicts": {
-    "forgetmechunk": "*",
-    "fastopenlinksandfolders": "*",
-    "shadowedactionbar": "*",
-    "shiftscrollfix": "*",
-    "chunksavingfix": "*",
-    "no-telemetry": "*",
-    "tooltipfix": "*",
-    "title-fix": "*",
-    "entitycollisionfpsfix": "*"
-  },
   "custom": {
     "modmenu": {
       "links": {

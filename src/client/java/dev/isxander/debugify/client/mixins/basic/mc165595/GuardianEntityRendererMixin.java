@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
  *
  * @author AMereBagatelle
  */
-@BugFix(id = "MC-165595", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-165595", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "sodium-extra")
 @Mixin(value = GuardianEntityRenderer.class, priority = 900)
 public class GuardianEntityRendererMixin {
     @Redirect(method = "render", at = @At(value = "INVOKE", target = "net/minecraft/world/World.getTime()J"), expect = 0)

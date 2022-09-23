@@ -10,6 +10,7 @@
 | Basic    | [MC-26757](https://bugs.mojang.com/browse/MC-26757)   | Large item tooltips can get cut off at the edges of the screen                                                                      |
 | Basic    | [MC-46766](https://bugs.mojang.com/browse/MC-46766)   | Mining a block in Survival, then changing to Spectator creates a breaking animation and sound                                       |
 | Basic    | [MC-55347](https://bugs.mojang.com/browse/MC-55347)   | Title with long duration shows in other world                                                                                       |
+| Basic    | [MC-59810](https://bugs.mojang.com/browse/MC-59810)   | Cannot break blocks while sprinting (Ctrl+Click = right click on macOS) *(macOS only)*                                              |
 | Basic    | [MC-79545](https://bugs.mojang.com/browse/MC-79545)   | The experience bar disappears when too many levels are given to the player                                                          |
 | Basic    | [MC-80859](https://bugs.mojang.com/browse/MC-80859)   | Starting to drag item stacks over other compatible stacks makes the latter invisible until appearance change (stack size increases) |
 | Basic    | [MC-90683](https://bugs.mojang.com/browse/MC-90683)   | "Received unknown passenger" - Entities with differing render distances as passengers outputs error                                 |

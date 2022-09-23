@@ -12,9 +12,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.Pair;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -56,10 +54,10 @@ public class ConfigGuiHelper {
             fixGroups.put(categoryBuilder, envGroups);
         }
 
-        Function<Boolean, Text> formatter = state -> state ? Text.translatable("debugify.fix.enabled") : Text.translatable("debugify.fix.disabled");
         config.getBugFixes().forEach((bug, enabled) -> {
             var conflicts = bug.getActiveConflicts().stream().map(id -> FabricLoader.getInstance().getModContainer(id).orElseThrow().getMetadata().getName()).toList();
             var satisfiesOS = bug.satisfiesOSRequirement();
+            var unavailable = !conflicts.isEmpty() || !satisfiesOS;
 
             var optionBuilder = Option.createBuilder(boolean.class)
                     .name(Text.literal(bug.bugId()))
@@ -68,8 +66,14 @@ public class ConfigGuiHelper {
                             () -> config.getBugFixes().get(bug),
                             value -> config.getBugFixes().replace(bug, value)
                     )
-                    .controller(opt -> new BooleanController(opt, formatter, true))
-                    .available(conflicts.isEmpty() && satisfiesOS)
+                    .controller(opt -> new BooleanController(opt, state -> {
+                        if (unavailable)
+                            return Text.translatable("debugify.fix.unavailable");
+                        return state
+                                ? Text.translatable("debugify.fix.enabled").formatted(Formatting.GREEN)
+                                : Text.translatable("debugify.fix.disabled").formatted(Formatting.RED);
+                    }, false))
+                    .available(!unavailable)
                     .flag(OptionFlag.GAME_RESTART);
 
             if (DebugifyClient.bugFixDescriptionCache.has(bug.bugId()))

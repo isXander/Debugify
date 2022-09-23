@@ -48,6 +48,7 @@
     "basic.mc46766.MinecraftClientMixin",
     "basic.mc55347.InGameHudMixin",
     "basic.mc577.HandledScreenMixin",
+    "basic.mc59810.MouseMixin",
     "basic.mc79545.InGameHudMixin",
     "basic.mc80859.HandledScreenMixin",
     "basic.mc90683.ClientPlayNetworkHandlerMixin",

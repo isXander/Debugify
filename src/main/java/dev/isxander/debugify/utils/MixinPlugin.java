@@ -47,11 +47,9 @@ public class MixinPlugin implements IMixinConfigPlugin {
         if (!conflicts.isEmpty()) {
             if (Debugify.config.isBugFixEnabled(bugFix) && !multipleMixins)
                 Debugify.logger.warn("Force disabled {} because it's conflicting with: {}", bugFix.bugId(), String.join(", ", conflicts));
-            Debugify.config.getBugFixes().replace(bugFix, false);
         } else if (!bugFix.satisfiesOSRequirement()) {
             if (Debugify.config.isBugFixEnabled(bugFix) && !multipleMixins)
                 Debugify.logger.warn("Force disabled {} because it only applies to OS: {}", bugFix.bugId(), bugFix.requiredOs().name());
-            Debugify.config.getBugFixes().replace(bugFix, false);
         }
 
         return Debugify.config.isBugFixEnabled(bugFix) && bugFix.getActiveConflicts().isEmpty();

@@ -14,19 +14,18 @@
 ## What does this mod replace?
 This mod replaces many mods and implements fixes from some others
 
-- **[FastOpenLinksAndFolders](https://www.curseforge.com/minecraft/mc-mods/fastopenlinksandfolders)**: Fixed underlying bug causing MC to lag
-- **[Shift-Scroll Fix](https://www.curseforge.com/minecraft/mc-mods/shift-scroll-fix)**: Superseded
-- **[ForgetMeChunk](https://www.curseforge.com/minecraft/mc-mods/forgetmechunk)**: Superseded
-- **[ChunkSavingFix](https://www.curseforge.com/minecraft/mc-mods/chunk-saving-fix)**: Superseded
+- **[Shift-Scroll Fix](https://www.curseforge.com/minecraft/mc-mods/shift-scroll-fix)**
+- **[ForgetMeChunk](https://www.curseforge.com/minecraft/mc-mods/forgetmechunk)**
+- **[ChunkSavingFix](https://www.curseforge.com/minecraft/mc-mods/chunk-saving-fix)**
 - **[force-close-world-loading-screen](https://modrinth.com/mod/forcecloseworldloadingscreen)**: Missing option to remove menu fully (as it isn't a bug)
-- **[No Telemetry](https://www.curseforge.com/minecraft/mc-mods/no-telemetry/)**: Superseded
+- **[No Telemetry](https://www.curseforge.com/minecraft/mc-mods/no-telemetry/)**
 - **[ToolTipFix](https://www.curseforge.com/minecraft/mc-mods/tooltipfix)**: Alternative method - tooltips still go off-screen in modded scenarios
-- **[Title Fix Mod](https://modrinth.com/mod/title-fix-mod)**: Superseded
-- **[Entity Collision FPS Fix Refabricated](https://www.curseforge.com/minecraft/mc-mods/entity-collision-fps-fix-fabric)**: Superseded
-- **[Ctrl Q](https://www.curseforge.com/minecraft/mc-mods/ctrl-q)**: Superseded
-- **[Skeleton Aiming Fix](https://www.curseforge.com/minecraft/mc-mods/skeleton-aiming-fix)**: Superseded
+- **[Title Fix Mod](https://modrinth.com/mod/title-fix-mod)**
+- **[Entity Collision FPS Fix Refabricated](https://www.curseforge.com/minecraft/mc-mods/entity-collision-fps-fix-fabric)**
+- **[Ctrl Q](https://www.curseforge.com/minecraft/mc-mods/ctrl-q)**: Missing other QOL features that aren't bugs.
+- **[Skeleton Aiming Fix](https://www.curseforge.com/minecraft/mc-mods/skeleton-aiming-fix)**
 
-These superseded mods are not hard conflicts and can be used in conjunction with Debugify for any additional advanced features.
+**These superseded mods are not hard conflicts and can be used in conjunction with Debugify for any additional advanced features.**
 
 ## Links and other info
 [GitHub](https://github.com/isXander/Debugify) • [Curseforge](https://curseforge.com/minecraft/mc-mods/debugify) • [Modrinth](https://modrinth.com/mod/debugify) • [Patched bug list](https://github.com/isXander/Debugify/blob/1.19/PATCHED.md) • [Discord](https://short.isxander.dev/discord)
@@ -42,15 +41,8 @@ Debugify includes many fixes for both the client and server (all server fixes al
 So you should definitely use it on both.
 
 ## Can I include this in my modpack?
-Yes! Of course! We even added a little feature in the mod for you! The constant updates may be exhausting to maintain,
-so we added a config option that defaults new bug fixes to off, until you get round to looking at it.
-
-```json5
-{
-  // ...
-  "default_disabled": true
-}
-```
+Yes! Of course! I even added a little feature in the mod for you! The constant updates may be exhausting to maintain,
+so I added a config option that defaults new bug fixes to off, until you get round to looking at it.
 
 ## Credits
 - [**isXander**](https://github.com/isXander) - Founder of project

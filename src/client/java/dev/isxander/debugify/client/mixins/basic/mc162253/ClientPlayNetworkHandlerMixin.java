@@ -9,7 +9,7 @@ import net.minecraft.world.chunk.light.LightingProvider;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@BugFix(id = "MC-162253", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "forgetmechunk")
+@BugFix(id = "MC-162253", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = {"forgetmechunk", "phosphor", "starlight"})
 @Mixin(ClientPlayNetworkHandler.class)
 public class ClientPlayNetworkHandlerMixin {
     /**
