@@ -34,7 +34,8 @@ This mod replaces many mods and implements fixes from some others
 Debugify has a configuration GUI accessible by Fabric's [Mod Menu](https://modrinth.com/mod/modmenu).
 If you don't want to it, there is always the configuration file located at
 `.minecraft/config/debugify.json`
-![configuration menu](https://i.imgur.com/0hv9cvu.png)
+
+![configuration menu](https://user-images.githubusercontent.com/43245524/191992486-4ba9bd8f-db37-4021-b302-7f54701d8b08.png)
 
 ## Client, or Server?
 Debugify includes many fixes for both the client and server (all server fixes also apply to client).
