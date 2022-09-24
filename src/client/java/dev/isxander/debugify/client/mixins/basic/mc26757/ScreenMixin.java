@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-@BugFix(id = "MC-26757", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-26757", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "tooltipfix")
 @Mixin(Screen.class)
 public class ScreenMixin {
     @Shadow public int width;
@@ -60,7 +60,7 @@ public class ScreenMixin {
         debugify$modifiedX = x;
         debugify$modifiedY = y;
 
-        if (x < -2) {
+        if (x < 4) {
             debugify$modifiedX = MathHelper.clamp(mouseX - width / 2, 6, this.width - width - 6);
             debugify$modifiedY = mouseY - height - 12;
 
