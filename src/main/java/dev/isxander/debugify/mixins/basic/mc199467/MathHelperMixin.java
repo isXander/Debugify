@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @BugFix(id = "MC-199467", category = FixCategory.BASIC, env = BugFix.Env.SERVER)
 @Mixin(MathHelper.class)
 public class MathHelperMixin {
+    // 2PI
     @Shadow @Final public static float TAU;
 
     /**
