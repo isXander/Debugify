@@ -50,6 +50,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: debugify-artifacts
-          path: |
-            fabric/build/libs/*.jar
-            forge/build/libs/*.jar
+          path: build/libs/*.jar
