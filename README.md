@@ -19,7 +19,7 @@ This mod replaces many mods and implements fixes from some others
 - **[ChunkSavingFix](https://www.curseforge.com/minecraft/mc-mods/chunk-saving-fix)**
 - **[force-close-world-loading-screen](https://modrinth.com/mod/forcecloseworldloadingscreen)**: Missing option to remove menu fully (as it isn't a bug)
 - **[No Telemetry](https://www.curseforge.com/minecraft/mc-mods/no-telemetry/)**
-- **[ToolTipFix](https://www.curseforge.com/minecraft/mc-mods/tooltipfix)**: Alternative method - tooltips still go off-screen in modded scenarios
+- **[ToolTipFix](https://www.curseforge.com/minecraft/mc-mods/tooltipfix)**
 - **[Title Fix Mod](https://modrinth.com/mod/title-fix-mod)**
 - **[Entity Collision FPS Fix Refabricated](https://www.curseforge.com/minecraft/mc-mods/entity-collision-fps-fix-fabric)**
 - **[Ctrl Q](https://www.curseforge.com/minecraft/mc-mods/ctrl-q)**: Missing other QOL features that aren't bugs.
