@@ -47,12 +47,14 @@ public class MixinPlugin implements IMixinConfigPlugin {
         if (!conflicts.isEmpty()) {
             if (Debugify.config.isBugFixEnabled(bugFix) && !multipleMixins)
                 Debugify.logger.warn("Force disabled {} because it's conflicting with: {}", bugFix.bugId(), String.join(", ", conflicts));
+            return false;
         } else if (!bugFix.satisfiesOSRequirement()) {
             if (Debugify.config.isBugFixEnabled(bugFix) && !multipleMixins)
                 Debugify.logger.warn("Force disabled {} because it only applies to OS: {}", bugFix.bugId(), bugFix.requiredOs().name());
+            return false;
         }
 
-        return Debugify.config.isBugFixEnabled(bugFix) && bugFix.getActiveConflicts().isEmpty();
+        return Debugify.config.isBugFixEnabled(bugFix);
     }
 
     private Optional<BugFixData> getBugFixForMixin(String mixinClassName) {

@@ -1,9 +1,12 @@
 package dev.isxander.debugify.fixes;
 
-import net.minecraft.util.Util;
-
 import java.util.Locale;
 
+/**
+ * Cannot use {@link net.minecraft.util.Util.OperatingSystem} because
+ * this code needs to be run from a Mixin plugin, where you can't access
+ * Minecraft classes.
+ */
 public enum OS {
     WINDOWS("debugify.os.windows"),
     MAC("debugify.os.macos"),
