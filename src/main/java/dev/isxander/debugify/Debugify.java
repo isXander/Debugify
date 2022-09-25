@@ -7,6 +7,9 @@ import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+import java.util.Map;
+
 public class Debugify {
     public static Logger logger = LoggerFactory.getLogger("Debugify");
     public static DebugifyConfig config = new DebugifyConfig();
@@ -27,9 +30,13 @@ public class Debugify {
             config.save();
         }
 
-        logger.info("Enabled {}/{} bugs!", config.getBugFixes().values().stream().filter((enabled) -> enabled).count(), config.getBugFixes().size());
+        List<String> enabledBugs = config.getBugFixes().entrySet()
+                .stream()
+                .filter(Map.Entry::getValue)
+                .map(entry -> entry.getKey().bugId())
+                .toList();
+        logger.info("Enabled {} bug fixes: {}", enabledBugs.size(), enabledBugs);
         logger.info("Successfully Debugify'd your game!");
-
     }
 
     public static BugFix.Env getEnv() {

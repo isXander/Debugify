@@ -27,8 +27,6 @@ loom {
             sourceSet(sourceSets["client"])
         }
     }
-
-    accessWidenerPath.set(file("src/main/resources/debugify.accesswidener"))
 }
 
 repositories {

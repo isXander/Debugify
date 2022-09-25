@@ -33,7 +33,6 @@
       "environment": "client"
     }
   ],
-  "accessWidener" : "debugify.accesswidener",
   "depends": {
     "fabricloader": ">=0.14.0",
     "minecraft": ["1.19.1", "1.19.2"],
