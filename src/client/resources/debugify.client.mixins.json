@@ -18,6 +18,7 @@
     "basic.mc122627.ChatInputSuggestorMixin",
     "basic.mc123739.ClientRecipeBookMixin",
     "basic.mc127970.HeldItemRendererMixin",
+    "basic.mc135973.HandledScreenMixin",
     "basic.mc140646.TextFieldWidgetMixin",
     "basic.mc143474.ClientPlayNetworkHandlerMixin",
     "basic.mc145748.SliderWidgetMixin",

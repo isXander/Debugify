@@ -24,6 +24,7 @@
 | Basic    | [MC-123739](https://bugs.mojang.com/browse/MC-123739) | Recipe book entries are not sorted in any meaningful manner. In fact, the order can even change randomly after a reload.            |
 | Basic    | [MC-122477](https://bugs.mojang.com/browse/MC-122477) | Linux/GNU: Opening chat sometimes writes 't                                                                                         |
 | Basic    | [MC-127970](https://bugs.mojang.com/browse/MC-127970) | Using riptide on a trident with an item in your off-hand causes visual glitch with the item in your offhand                         |
+| Basic    | [MC-135973](https://bugs.mojang.com/browse/MC-135973) | Can't hold Q to drop items rapidly from container inventories                                                                       |
 | Basic    | [MC-140646](https://bugs.mojang.com/browse/MC-140646) | Text fields don't scroll while selecting text with Shift                                                                            |
 | Basic    | [MC-143474](https://bugs.mojang.com/browse/MC-143474) | Respawning causes your hotbar to reset to the first space                                                                           |
 | Basic    | [MC-145748](https://bugs.mojang.com/browse/MC-145748) | Clicking a settings button when there's a slider under the mouse in the next screen plays the click sound twice                     |
