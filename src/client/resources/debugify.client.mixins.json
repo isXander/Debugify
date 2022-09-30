@@ -35,6 +35,7 @@
     "basic.mc197260.LivingEntityRendererMixin",
     "basic.mc215531.InGameHudMixin",
     "basic.mc217716.GameRendererMixin",
+    "basic.mc227169.PlayerEntityRendererMixin",
     "basic.mc22882.HandledScreenMixin",
     "basic.mc22882.MinecraftClientMixin",
     "basic.mc228976.EntityMixin",

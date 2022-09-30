@@ -14,7 +14,6 @@ import org.spongepowered.asm.service.MixinService;
 import org.spongepowered.asm.util.Annotations;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;

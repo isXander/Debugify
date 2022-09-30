@@ -41,7 +41,7 @@ val fabricLoaderVersion: String by rootProject
 val fabricApiVersion: String by rootProject
 val yaclVersion: String by rootProject
 val mixinExtrasVersion: String by rootProject
-val modMenuVersion: String by  rootProject
+val modMenuVersion: String by rootProject
 
 dependencies {
     minecraft("com.mojang:minecraft:$minecraftVersion")

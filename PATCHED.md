@@ -38,6 +38,7 @@
 | Basic    | [MC-197260](https://bugs.mojang.com/browse/MC-197260) | Armor Stand renders itself and armor dark if its head is in a solid block                                                           |
 | Basic    | [MC-215531](https://bugs.mojang.com/browse/MC-215531) | The carved pumpkin overlay isn't removed when switching into spectator mode                                                         |
 | Basic    | [MC-217716](https://bugs.mojang.com/browse/MC-217716) | The green nausea overlay isn't removed when switching into spectator mode                                                           |
+| Basic    | [MC-227169](https://bugs.mojang.com/browse/MC-227169) | The main hand is broken when you hold a crossbow loaded into the secondary hand                                                     |
 | Basic    | [MC-228976](https://bugs.mojang.com/browse/MC-228976) | Entity collision is run on render thread                                                                                            |
 | Basic    | [MC-231097](https://bugs.mojang.com/browse/MC-231097) | Holding the "Use" button continues to slow down the player even after the used item has been dropped                                |
 | Basic    | [MC-233042](https://bugs.mojang.com/browse/MC-233042) | Server Address field isn't focused when Direct Connection menu is opened                                                            |
