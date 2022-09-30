@@ -23,8 +23,6 @@ public class HandledScreenMixin {
      */
     @ModifyExpressionValue(method = "drawSlot", at = @At(value = "INVOKE", target = "Ljava/util/Set;contains(Ljava/lang/Object;)Z"))
     private boolean onQuickCraftCheck(boolean containsSlot) {
-        if (cursorDragSlots.size() == 1)
-            return false;
-        return containsSlot;
+        return containsSlot && cursorDragSlots.size() != 1;
     }
 }
