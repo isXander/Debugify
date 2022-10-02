@@ -17,6 +17,6 @@
   "debugify.misc.default_disabled": "默认为禁用",
   "debugify.misc.default_disabled.description": "默认禁用新的错误修复,而不是启用.",
   "debugify.env.client": "客户端",
-  "debugify.env.server": "服务端",
+  "debugify.env.server": "服务器",
   "debugify.donate": "赞助我!"
 }
