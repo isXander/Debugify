@@ -57,7 +57,7 @@ for bug in bugs:
             if len(fix_versions) > 0:
                 bug_status += f' in {", ".join(fix_versions)}'
 
-            if all(map(lambda v: version.parse(v) > minecraftVersion, fix_versions)):
+            if all(map(lambda v: version.parse(v) > minecraftVersion, fix_versions)) or any(map(lambda v: v == "Future Update", fix_versions)):
                 message_color = '\033[33m'
                 resolved_count -= 1
 
