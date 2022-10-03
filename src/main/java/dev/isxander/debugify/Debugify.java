@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Debugify {
-    public static Logger logger = LoggerFactory.getLogger("Debugify");
-    public static DebugifyConfig config = new DebugifyConfig();
+    public static final Logger LOGGER = LoggerFactory.getLogger("Debugify");
+    public static final DebugifyConfig CONFIG = new DebugifyConfig();
     public static boolean configWasDirty = false;
 
     /**
@@ -20,23 +20,23 @@ public class Debugify {
      * disabled bug fixes
      */
     public static void onPreInitialize() {
-        config.preload();
+        CONFIG.preload();
     }
 
     public static void onInitialize() {
-        configWasDirty = !config.doesJsonHaveIdenticalKeys();
+        configWasDirty = !CONFIG.doesJsonHaveIdenticalKeys();
         if (configWasDirty) {
-            logger.info("Saving config because the loaded bug fixes are different to stored json.");
-            config.save();
+            LOGGER.info("Saving config because the loaded bug fixes are different to stored json.");
+            CONFIG.save();
         }
 
-        List<String> enabledBugs = config.getBugFixes().entrySet()
+        List<String> enabledBugs = CONFIG.getBugFixes().entrySet()
                 .stream()
                 .filter(Map.Entry::getValue)
                 .map(entry -> entry.getKey().bugId())
                 .toList();
-        logger.info("Enabled {} bug fixes: {}", enabledBugs.size(), enabledBugs);
-        logger.info("Successfully Debugify'd your game!");
+        LOGGER.info("Enabled {} bug fixes: {}", enabledBugs.size(), enabledBugs);
+        LOGGER.info("Successfully Debugify'd your game!");
     }
 
     public static BugFix.Env getEnv() {

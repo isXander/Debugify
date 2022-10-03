@@ -1,4 +1,4 @@
-package dev.isxander.debugify.client.utils;
+package dev.isxander.debugify.client.gui;
 
 import dev.isxander.debugify.client.DebugifyClient;
 import dev.isxander.debugify.config.DebugifyConfig;

@@ -44,7 +44,7 @@ public class DebugifyConfig {
             return;
         }
 
-        Debugify.logger.info("Preloading Debugify");
+        Debugify.LOGGER.info("Preloading Debugify");
 
         try {
             String jsonString = Files.readString(configPath);
@@ -73,7 +73,7 @@ public class DebugifyConfig {
     }
 
     public void save() {
-        Debugify.logger.info("Saving Debugify");
+        Debugify.LOGGER.info("Saving Debugify");
         try {
             Files.deleteIfExists(configPath);
 

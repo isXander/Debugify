@@ -39,21 +39,21 @@ public class MixinPlugin implements IMixinConfigPlugin {
             return true;
 
         BugFixData bugFix = bugFixOptional.get();
-        var multipleMixins = Debugify.config.getBugFixes().containsKey(bugFix);
-        Debugify.config.registerBugFix(bugFix);
+        var multipleMixins = Debugify.CONFIG.getBugFixes().containsKey(bugFix);
+        Debugify.CONFIG.registerBugFix(bugFix);
 
         List<String> conflicts = bugFix.getActiveConflicts();
         if (!conflicts.isEmpty()) {
-            if (Debugify.config.isBugFixEnabled(bugFix) && !multipleMixins)
-                Debugify.logger.warn("Force disabled {} because it's conflicting with: {}", bugFix.bugId(), String.join(", ", conflicts));
+            if (Debugify.CONFIG.isBugFixEnabled(bugFix) && !multipleMixins)
+                Debugify.LOGGER.warn("Force disabled {} because it's conflicting with: {}", bugFix.bugId(), String.join(", ", conflicts));
             return false;
         } else if (!bugFix.satisfiesOSRequirement()) {
-            if (Debugify.config.isBugFixEnabled(bugFix) && !multipleMixins)
-                Debugify.logger.warn("Force disabled {} because it only applies to OS: {}", bugFix.bugId(), bugFix.requiredOs().name());
+            if (Debugify.CONFIG.isBugFixEnabled(bugFix) && !multipleMixins)
+                Debugify.LOGGER.warn("Force disabled {} because it only applies to OS: {}", bugFix.bugId(), bugFix.requiredOs().name());
             return false;
         }
 
-        return Debugify.config.isBugFixEnabled(bugFix);
+        return Debugify.CONFIG.isBugFixEnabled(bugFix);
     }
 
     private Optional<BugFixData> getBugFixForMixin(String mixinClassName) {

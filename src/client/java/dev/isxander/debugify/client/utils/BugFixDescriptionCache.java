@@ -25,12 +25,12 @@ public class BugFixDescriptionCache {
     private final String url = "https://bugs.mojang.com/rest/api/2/issue/%s";
 
     public void cacheDescriptions() {
-        Debugify.logger.info("Connecting to 'bugs.mojang.com' to cache bug descriptions!");
+        Debugify.LOGGER.info("Connecting to 'bugs.mojang.com' to cache bug descriptions!");
 
         CompletableFuture.runAsync(() -> {
             HttpClient client = HttpClient.newHttpClient();
 
-            for (BugFixData bugData : Debugify.config.getBugFixes().keySet()) {
+            for (BugFixData bugData : Debugify.CONFIG.getBugFixes().keySet()) {
                 String id = bugData.bugId();
                 try {
                     HttpRequest request = HttpRequest.newBuilder(new URI(String.format(url, id)))
@@ -39,7 +39,7 @@ public class BugFixDescriptionCache {
                     HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
                     if (response.statusCode() != 200) {
-                        Debugify.logger.error("Description Cache: {} - {}", response.statusCode(), response.body());
+                        Debugify.LOGGER.error("Description Cache: {} - {}", response.statusCode(), response.body());
                         continue;
                     }
 
@@ -70,7 +70,7 @@ public class BugFixDescriptionCache {
     }
 
     public boolean load() {
-        Debugify.logger.info("Loading Description Cache");
+        Debugify.LOGGER.info("Loading Description Cache");
 
         if (!Files.exists(file)) {
             return false;
@@ -85,14 +85,14 @@ public class BugFixDescriptionCache {
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
             if (loadedDescriptions.values().stream().anyMatch(desc -> desc.contains("\n"))) {
-                Debugify.logger.warn("Outdated description cache format, re-caching!");
+                Debugify.LOGGER.warn("Outdated description cache format, re-caching!");
                 cacheDescriptions();
                 return true;
             }
 
             descriptionHolder.putAll(loadedDescriptions);
         } catch (Exception e) {
-            Debugify.logger.error("Couldn't load description cache!");
+            Debugify.LOGGER.error("Couldn't load description cache!");
             e.printStackTrace();
             return false;
         }
