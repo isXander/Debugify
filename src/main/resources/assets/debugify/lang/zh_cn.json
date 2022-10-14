@@ -19,5 +19,5 @@
   "debugify.env.client": "客户端",
   "debugify.env.server": "服务器",
   "debugify.no_yacl.title": "YetAnotherConfigLib模组未安装！",
-  "debugify.no_yacl.description": "要使用GUI配置 Debugify，你必须安装 %s，这是用于实现该功能的前置。否则你可以使用JSON文件进行配置，它储存在‘%s’。"
+  "debugify.no_yacl.description": "要使用GUI配置Debugify，你必须安装 %s，这是用于实现该功能的前置。否则你可以使用JSON文件进行配置，它储存在‘%s’。"
 }
