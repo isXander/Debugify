@@ -2,16 +2,25 @@ import re
 import requests
 import sys
 import os
-from packaging import version
 
 abspath = os.path.abspath(__file__)
 dname = os.path.dirname(abspath)
 os.chdir(dname)
 
+version_list = requests.get("https://piston-meta.mojang.com/mc/game/version_manifest_v2.json").json()['versions']
+
+
+def version_idx(version):
+    return [(idx, ver) for idx, ver in enumerate(version_list) if ver['id'] == version]
+
+
 with open('../gradle.properties', 'r') as propfile:
-    gradleProperties = dict([map(lambda side: side.strip(), i.split('=', maxsplit=1)) for i in filter(lambda line: len(line.strip()) > 2 and not line.lstrip().startswith('#'), propfile.readlines())])
-minecraftVersion = version.parse(gradleProperties['minecraftVersion'])
-print(f'Minecraft Version: {minecraftVersion}')
+    gradleProperties = dict([map(lambda side: side.strip(), i.split('=', maxsplit=1)) for i in
+                             filter(lambda line: len(line.strip()) > 2 and not line.lstrip().startswith('#'),
+                                    propfile.readlines())])
+minecraft_version = gradleProperties['minecraftVersion']
+minecraft_version_idx = version_idx(minecraft_version)
+print(f'Minecraft Version: {minecraft_version}')
 
 with open('../PATCHED.md', 'r') as f:
     patched_lines = f.readlines()
@@ -57,10 +66,10 @@ for bug in bugs:
             if len(fix_versions) > 0:
                 bug_status += f' in {", ".join(fix_versions)}'
 
-            if all(map(lambda v: version.parse(v) > minecraftVersion, fix_versions)) or any(map(lambda v: v == "Future Update", fix_versions)):
+            if all(map(lambda v: version_idx(v) < minecraft_version_idx, fix_versions)) or any(
+                    map(lambda v: v == "Future Update", fix_versions)):
                 message_color = '\033[33m'
                 resolved_count -= 1
-
 
         case 3:  # duplicate
             duplicate_count += 1

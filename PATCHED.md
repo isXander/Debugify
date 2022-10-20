@@ -90,6 +90,10 @@
 ## Patched in snapshots
 To delete when next version comes out.
 ### Client Side
+| Bug ID                                                | Name                                                                                                            | Fixed in |
+|-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|----------|
+| [MC-135973](https://bugs.mojang.com/browse/MC-135973) | Can't hold Q to drop items rapidly from container inventories                                                   | 22w42a   |
+| [MC-145748](https://bugs.mojang.com/browse/MC-145748) | Clicking a settings button when there's a slider under the mouse in the next screen plays the click sound twice | 22w42a   |
 ### Server Side (Both)
 
 ## Previously patched
