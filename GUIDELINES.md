@@ -1,6 +1,4 @@
 # MC Bug Checklist
-* Those bugs that have been open for years and purposefully ignored by mojang
-  are no-gos.
 * Must be a bug in a stable release (not in a snapshot, future release, etc)
 * Must have a meaningful impact to a player or admin. (even a niche one)
 * Before trying to fix a bug, make sure you can reproduce it.
