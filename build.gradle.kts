@@ -13,7 +13,7 @@ plugins {
     id("io.github.p03w.machete") version "1.+"
     `maven-publish`
 
-    id("ru.vyarus.use-python") version "2.3.+"
+    id("ru.vyarus.use-python") version "3.0.+"
 }
 
 group = "dev.isxander"
