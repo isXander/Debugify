@@ -21,9 +21,6 @@
     ],
     "client": [
       "dev.isxander.debugify.client.DebugifyClient::onInitializeClient"
-    ],
-    "modmenu": [
-      "dev.isxander.debugify.client.integrations.ModMenuIntegration"
     ]
   },
   "mixins": [
@@ -34,8 +31,8 @@
     }
   ],
   "depends": {
-    "fabricloader": ">=0.14.0",
-    "minecraft": ["1.19.1", "1.19.2"],
+    "fabricloader": ">=0.14.10",
+    "minecraft": "1.19.3-alpha.22.43.a",
     "java": ">=17",
     "fabric-resource-loader-v0": "*"
   },

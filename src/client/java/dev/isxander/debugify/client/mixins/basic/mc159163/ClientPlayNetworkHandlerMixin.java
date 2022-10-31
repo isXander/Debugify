@@ -24,6 +24,6 @@ public abstract class ClientPlayNetworkHandlerMixin implements ClientPlayPacketL
     @Inject(method = "onEntityTrackerUpdate", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/data/DataTracker;writeUpdatedEntries(Ljava/util/List;)V"), locals = LocalCapture.CAPTURE_FAILSOFT)
     public void removeLocalEntityPose(EntityTrackerUpdateS2CPacket packet, CallbackInfo info, Entity entity) {
         if (entity.equals(client.player))
-            packet.getTrackedValues().removeIf(p -> p.getData().getType().equals(TrackedDataHandlerRegistry.ENTITY_POSE));
+            packet.trackedValues().removeIf(p -> p.serializer().equals(TrackedDataHandlerRegistry.ENTITY_POSE));
     }
 }

@@ -3,7 +3,7 @@ package dev.isxander.debugify.client.mixins.basic.mc237493;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import net.minecraft.client.util.telemetry.TelemetrySender;
+import net.minecraft.client.util.TelemetrySender;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

@@ -38,7 +38,6 @@
     "basic.mc30391.LivingEntityMixin",
     "basic.mc69216.ServerPlayerEntityMixin",
     "basic.mc72151.WolfEntityMixin",
-    "basic.mc84873.LivingEntityMixin",
     "basic.mc88371.LandingPhaseMixin",
     "basic.mc89146.ChunkMixin",
     "basic.mc90084.BoatEntityMixin",

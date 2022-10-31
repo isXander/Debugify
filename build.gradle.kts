@@ -17,7 +17,7 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "2.8.0"
+version = "3.0.0"
 
 loom {
     splitEnvironmentSourceSets()
@@ -27,6 +27,25 @@ loom {
             sourceSet(sourceSets["client"])
         }
     }
+}
+
+val gametest by sourceSets.registering {
+    compileClasspath += sourceSets.main.get().compileClasspath
+    runtimeClasspath += sourceSets.main.get().runtimeClasspath
+    compileClasspath += sourceSets["client"].compileClasspath
+    runtimeClasspath += sourceSets["client"].runtimeClasspath
+}
+
+loom {
+    runs {
+        register("gametest") {
+            client()
+            ideConfigGenerated(true)
+            name("Game Test")
+            source(gametest.get())
+        }
+    }
+    createRemapConfigurations(gametest.get())
 }
 
 repositories {
@@ -45,7 +64,7 @@ val modMenuVersion: String by rootProject
 
 dependencies {
     minecraft("com.mojang:minecraft:$minecraftVersion")
-    mappings("net.fabricmc:yarn:$minecraftVersion+build.+:v2")
+    mappings("net.fabricmc:yarn:$minecraftVersion+build.4:v2")
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
@@ -55,12 +74,22 @@ dependencies {
         include(it)
     }
 
-    modImplementation("dev.isxander:yet-another-config-lib:$yaclVersion")
-
-    modImplementation("com.terraformersmc:modmenu:$modMenuVersion")
-
-    //modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion")
     modImplementation(fabricApi.module("fabric-resource-loader-v0", fabricApiVersion))
+
+    // modClientImplementation doesn't auto upgrade to 0.14.10
+    "modClientImplementation"("dev.isxander:yet-another-config-lib:$yaclVersion") {
+        exclude(module = "fabric-loader")
+        exclude(module = "modmenu") // no modmenu support
+    }
+
+    // mod menu does not support snapshots
+//    "modClientImplementation"("com.terraformersmc:modmenu:$modMenuVersion") {
+//        exclude(module = "fabric-loader")
+//    }
+
+    "gametestImplementation"(sourceSets.main.get().output)
+    "gametestImplementation"(sourceSets["client"].output)
+    "modGametestImplementation"(fabricApi.module("fabric-gametest-api-v1", fabricApiVersion))
 }
 
 tasks.withType<JavaCompile> {

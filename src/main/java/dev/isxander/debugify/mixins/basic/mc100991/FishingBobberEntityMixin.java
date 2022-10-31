@@ -20,6 +20,7 @@ public abstract class FishingBobberEntityMixin extends ProjectileEntityMixin {
     @Inject(method = "pullHookedEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;setVelocity(Lnet/minecraft/util/math/Vec3d;)V"))
     private void onPullEntity(Entity entity, CallbackInfo ci) {
         if (entity instanceof LivingEntity livingEntity) {
+            System.out.println("hello!");
             livingEntity.getDamageTracker().onDamage(DamageSource.thrownProjectile((FishingBobberEntity)(Object)this, getOwner()), livingEntity.getHealth(), 0f);
         }
     }

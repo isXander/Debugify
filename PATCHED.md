@@ -99,11 +99,14 @@ To delete when next version comes out.
 ## Previously patched
 Bugs that this mod has patched but has been superseded by a vanilla update.
 ### Client Side
-| Bug ID                                                | Name                                                                           | Fixed in    |
-|-------------------------------------------------------|--------------------------------------------------------------------------------|-------------|
-| [MC-53312](https://bugs.mojang.com/browse/MC-53312)   | Illager/(zombie) villager/witch robes don't render the last two rows of pixels | 22w17a      |
-| [MC-72687](https://bugs.mojang.com/browse/MC-145929)  | There are no shadows on text displayed within the action bar                   | 22w24a      |
-| [MC-148149](https://bugs.mojang.com/browse/MC-148149) | Linux game crash when opening links                                            | 1.19.1-pre6 |
-| [MC-235035](https://bugs.mojang.com/browse/MC-235035) | Sleeping in a custom dimension with "natural" set to false causes crash        | 22w15a      |
+| Bug ID                                                | Name                                                                                                            | Fixed in    |
+|-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|-------------|
+| [MC-53312](https://bugs.mojang.com/browse/MC-53312)   | Illager/(zombie) villager/witch robes don't render the last two rows of pixels                                  | 22w17a      |
+| [MC-84873](https://bugs.mojang.com/browse/MC-84873)   | DeathTime values 20+ cause corrupted mobs                                                                       | 22w43a      |
+| [MC-72687](https://bugs.mojang.com/browse/MC-145929)  | There are no shadows on text displayed within the action bar                                                    | 22w24a      |
+| [MC-135973](https://bugs.mojang.com/browse/MC-135973) | Can't hold Q to drop items rapidly from container inventories                                                   | 22w42a      |
+| [MC-145748](https://bugs.mojang.com/browse/MC-145748) | Clicking a settings button when there's a slider under the mouse in the next screen plays the click sound twice | 22w42a      |
+| [MC-148149](https://bugs.mojang.com/browse/MC-148149) | Linux game crash when opening links                                                                             | 1.19.1-pre6 |
+| [MC-235035](https://bugs.mojang.com/browse/MC-235035) | Sleeping in a custom dimension with "natural" set to false causes crash                                         | 22w15a      |
 
 ### Server Side (Both)

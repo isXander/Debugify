@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "debugify-test",
+  "version": "1.0.0",
+  "name": "Debugify (Game Test)",
+  "license": "LGPLv3",
+  "environment": "*",
+  "icon": "debugify.png",
+  "entrypoints": {
+    "main": [
+      "dev.isxander.debugify.test.DebugifyGameTestMain"
+    ],
+    "fabric-gametest": [
+      "dev.isxander.debugify.test.DebugifyServerTestSuite"
+    ]
+  },
+  "depends": {
+    "debugify": "*",
+    "fabric-gametest-api-v1": "*"
+  }
+}
+

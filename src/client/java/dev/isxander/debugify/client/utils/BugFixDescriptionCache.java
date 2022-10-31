@@ -5,7 +5,10 @@ import dev.isxander.debugify.fixes.BugFixData;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.network.NetworkState;
 
+import java.net.ConnectException;
+import java.net.NetworkInterface;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -30,27 +33,49 @@ public class BugFixDescriptionCache {
         CompletableFuture.runAsync(() -> {
             HttpClient client = HttpClient.newHttpClient();
 
+            boolean givenUp = false;
             for (BugFixData bugData : Debugify.CONFIG.getBugFixes().keySet()) {
                 String id = bugData.bugId();
-                try {
-                    HttpRequest request = HttpRequest.newBuilder(new URI(String.format(url, id)))
-                            .build();
+                int attempts = 0;
+                boolean success = true;
 
-                    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+                do {
+                    try {
+                        if (attempts >= 2) {
+                            Debugify.LOGGER.error("Giving up trying to cache bug descriptions. Consecutive network failures.");
+                            givenUp = true;
+                            break;
+                        }
+                        attempts++;
 
-                    if (response.statusCode() != 200) {
-                        Debugify.LOGGER.error("Description Cache: {} - {}", response.statusCode(), response.body());
-                        continue;
+                        HttpRequest request = HttpRequest.newBuilder(new URI(String.format(url, id)))
+                                .build();
+
+                        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+                        if (response.statusCode() != 200) {
+                            Debugify.LOGGER.error("Description Cache: {} - {}", response.statusCode(), response.body());
+                            continue;
+                        }
+
+                        JsonObject json = gson.fromJson(response.body(), JsonObject.class);
+                        JsonObject fields = json.getAsJsonObject("fields");
+                        String summary = fields.get("summary").getAsString();
+
+                        descriptionHolder.put(id, summary);
+
+                        success = true;
+                    } catch (ConnectException e) {
+                        Debugify.LOGGER.error("Couldn't connect to `bugs.mojang.com`", e);
+                        success = false;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        success = false;
                     }
+                } while (!success);
 
-                    JsonObject json = gson.fromJson(response.body(), JsonObject.class);
-                    JsonObject fields = json.getAsJsonObject("fields");
-                    String summary = fields.get("summary").getAsString();
-
-                    descriptionHolder.put(id, summary);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                if (givenUp)
+                    break;
             }
         }).thenAccept((returnVal) -> save());
     }
