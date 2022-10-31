@@ -22,6 +22,9 @@
     "client": [
       "dev.isxander.debugify.client.DebugifyClient::onInitializeClient"
     ],
+    "preLaunch": [
+      "com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
+    ],
     "modmenu": [
       "dev.isxander.debugify.client.integrations.ModMenuIntegration"
     ]

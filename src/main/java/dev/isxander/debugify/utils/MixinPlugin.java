@@ -4,7 +4,6 @@ import dev.isxander.debugify.Debugify;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import dev.isxander.debugify.fixes.BugFixData;
-import com.llamalad7.mixinextras.MixinExtrasBootstrap;
 import dev.isxander.debugify.fixes.OS;
 import org.objectweb.asm.tree.AnnotationNode;
 import org.objectweb.asm.tree.ClassNode;
@@ -21,7 +20,6 @@ import java.util.Set;
 public class MixinPlugin implements IMixinConfigPlugin {
     @Override
     public void onLoad(String mixinPackage) {
-        MixinExtrasBootstrap.init();
         Debugify.onPreInitialize();
     }
 
