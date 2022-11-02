@@ -7,7 +7,6 @@
 | Basic    | [MC-4490](https://bugs.mojang.com/browse/MC-4490)     | Fishing line not attached to fishing rod in third person while crouching                                                            |
 | Basic    | [MC-22882](https://bugs.mojang.com/browse/MC-22882)   | Ctrl + Q won't work on Mac (disabled by default)                                                                                    |
 | Gameplay | [MC-12829](https://bugs.mojang.com/browse/MC-12829)   | Flying through ladders/vines/scaffolding in creative mode slows you down                                                            |
-| Basic    | [MC-26757](https://bugs.mojang.com/browse/MC-26757)   | Large item tooltips can get cut off at the edges of the screen                                                                      |
 | Basic    | [MC-46766](https://bugs.mojang.com/browse/MC-46766)   | Mining a block in Survival, then changing to Spectator creates a breaking animation and sound                                       |
 | Basic    | [MC-55347](https://bugs.mojang.com/browse/MC-55347)   | Title with long duration shows in other world                                                                                       |
 | Basic    | [MC-59810](https://bugs.mojang.com/browse/MC-59810)   | Cannot break blocks while sprinting (Ctrl+Click = right click on macOS) *(macOS only)*                                              |
@@ -24,10 +23,8 @@
 | Basic    | [MC-123739](https://bugs.mojang.com/browse/MC-123739) | Recipe book entries are not sorted in any meaningful manner. In fact, the order can even change randomly after a reload.            |
 | Basic    | [MC-122477](https://bugs.mojang.com/browse/MC-122477) | Linux/GNU: Opening chat sometimes writes 't                                                                                         |
 | Basic    | [MC-127970](https://bugs.mojang.com/browse/MC-127970) | Using riptide on a trident with an item in your off-hand causes visual glitch with the item in your offhand                         |
-| Basic    | [MC-135973](https://bugs.mojang.com/browse/MC-135973) | Can't hold Q to drop items rapidly from container inventories                                                                       |
 | Basic    | [MC-140646](https://bugs.mojang.com/browse/MC-140646) | Text fields don't scroll while selecting text with Shift                                                                            |
 | Basic    | [MC-143474](https://bugs.mojang.com/browse/MC-143474) | Respawning causes your hotbar to reset to the first space                                                                           |
-| Basic    | [MC-145748](https://bugs.mojang.com/browse/MC-145748) | Clicking a settings button when there's a slider under the mouse in the next screen plays the click sound twice                     |
 | Basic    | [MC-147605](https://bugs.mojang.com/browse/MC-147605) | Text cursors can exist in multiple fields                                                                                           |
 | Basic    | [MC-151412](https://bugs.mojang.com/browse/MC-151412) | "Edit Server Info" window does not focus "Server Name" text field automatically                                                     |
 | Basic    | [MC-159163](https://bugs.mojang.com/browse/MC-159163) | Quickly pressing the sneak key causes the sneak animation to play twice                                                             |
@@ -57,7 +54,6 @@
 | Basic    | [MC-69216](https://bugs.mojang.com/browse/MC-69216)   | Switching to spectator mode while fishing keeps rod cast                                           |
 | Basic    | [MC-72151](https://bugs.mojang.com/browse/MC-72151)   | Snow Golem's snowballs damage wolves instead of pushing them                                       |
 | Basic    | [MC-81773](https://bugs.mojang.com/browse/MC-81773)   | Bows and tridents drawn in survival/creative/adventure mode can be released in spectator mode      |
-| Basic    | [MC-84873](https://bugs.mojang.com/browse/MC-84873)   | DeathTime values 20+ cause corrupted mobs                                                          |
 | Basic    | [MC-88371](https://bugs.mojang.com/browse/MC-88371)   | Ender Dragon flies down in the void when the exit portal is destroyed                              |
 | Basic    | [MC-89146](https://bugs.mojang.com/browse/MC-89146)   | Pistons forget update when being reloaded                                                          |
 | Basic    | [MC-90084](https://bugs.mojang.com/browse/MC-90084)   | When sitting in boats and boats with chest mobs legs penetrate the hull                            |
@@ -89,24 +85,21 @@
 
 ## Patched in snapshots
 To delete when next version comes out.
-### Client Side
+
 | Bug ID                                                | Name                                                                                                            | Fixed in |
 |-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|----------|
+| [MC-26757](https://bugs.mojang.com/browse/MC-26757)   | Large item tooltips can get cut off at the edges of the screen                                                  | 22w42a   |
 | [MC-135973](https://bugs.mojang.com/browse/MC-135973) | Can't hold Q to drop items rapidly from container inventories                                                   | 22w42a   |
 | [MC-145748](https://bugs.mojang.com/browse/MC-145748) | Clicking a settings button when there's a slider under the mouse in the next screen plays the click sound twice | 22w42a   |
-### Server Side (Both)
+| [MC-84873](https://bugs.mojang.com/browse/MC-84873)   | DeathTime values 20+ cause corrupted mobs                                                                       | 22w43a   |
 
 ## Previously patched
 Bugs that this mod has patched but has been superseded by a vanilla update.
-### Client Side
+
 | Bug ID                                                | Name                                                                                                            | Fixed in    |
 |-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|-------------|
 | [MC-53312](https://bugs.mojang.com/browse/MC-53312)   | Illager/(zombie) villager/witch robes don't render the last two rows of pixels                                  | 22w17a      |
-| [MC-84873](https://bugs.mojang.com/browse/MC-84873)   | DeathTime values 20+ cause corrupted mobs                                                                       | 22w43a      |
 | [MC-72687](https://bugs.mojang.com/browse/MC-145929)  | There are no shadows on text displayed within the action bar                                                    | 22w24a      |
-| [MC-135973](https://bugs.mojang.com/browse/MC-135973) | Can't hold Q to drop items rapidly from container inventories                                                   | 22w42a      |
-| [MC-145748](https://bugs.mojang.com/browse/MC-145748) | Clicking a settings button when there's a slider under the mouse in the next screen plays the click sound twice | 22w42a      |
 | [MC-148149](https://bugs.mojang.com/browse/MC-148149) | Linux game crash when opening links                                                                             | 1.19.1-pre6 |
 | [MC-235035](https://bugs.mojang.com/browse/MC-235035) | Sleeping in a custom dimension with "natural" set to false causes crash                                         | 22w15a      |
 
-### Server Side (Both)

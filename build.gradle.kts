@@ -57,6 +57,7 @@ repositories {
 
 val minecraftVersion: String by rootProject
 val fabricLoaderVersion: String by rootProject
+val yarnBuild: String by rootProject
 val fabricApiVersion: String by rootProject
 val yaclVersion: String by rootProject
 val mixinExtrasVersion: String by rootProject
@@ -64,7 +65,7 @@ val modMenuVersion: String by rootProject
 
 dependencies {
     minecraft("com.mojang:minecraft:$minecraftVersion")
-    mappings("net.fabricmc:yarn:$minecraftVersion+build.4:v2")
+    mappings("net.fabricmc:yarn:$minecraftVersion+build.$yarnBuild:v2")
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
