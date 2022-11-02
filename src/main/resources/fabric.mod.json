@@ -21,6 +21,9 @@
     ],
     "client": [
       "dev.isxander.debugify.client.DebugifyClient::onInitializeClient"
+    ],
+    "preLaunch": [
+      "com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
     ]
   },
   "mixins": [
@@ -31,8 +34,8 @@
     }
   ],
   "depends": {
-    "fabricloader": ">=0.14.10",
-    "minecraft": "1.19.3-alpha.22.43.a",
+    "fabricloader": ">=0.14.0",
+    "minecraft": ["1.19.1", "1.19.2"],
     "java": ">=17",
     "fabric-resource-loader-v0": "*"
   },

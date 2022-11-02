@@ -3,3 +3,4 @@
 build/
 run/
 !*/.gitkeep
+/venv
