@@ -170,6 +170,8 @@ publishing {
                     password = property("xander-repo.password")?.toString()
                 }
             }
+        } else {
+            println("Xander Maven credentials not satisfied")
         }
     }
 }
