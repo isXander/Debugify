@@ -38,13 +38,13 @@ public class NoYACLScreen extends Screen {
     protected void init() {
         this.wrappedText = textRenderer.wrapLines(unwrappedText, width - 50);
         this.addDrawableChild(
-                ButtonWidget.method_46430(ScreenTexts.BACK, button -> client.setScreen(parent))
-                        .method_46433( // position
-                                /* x */ (this.width - 150) / 2,
-                                /* y */ MathHelper.clamp(90 + wrappedText.size() * 9 + 12, this.height / 6 + 96, this.height - 24)
+                ButtonWidget.createBuilder(ScreenTexts.BACK, button -> client.setScreen(parent))
+                        .setPosition(
+                                (this.width - 150) / 2,
+                                MathHelper.clamp(90 + wrappedText.size() * 9 + 12, this.height / 6 + 96, this.height - 24)
                         )
-                        .method_46437(/* width */ 150, /* height */ 20) // dimensions
-                        .method_46431() // build
+                        .setSize(150, 20)
+                        .build()
         );
     }
 
