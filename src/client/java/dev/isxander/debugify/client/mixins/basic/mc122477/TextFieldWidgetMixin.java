@@ -2,7 +2,7 @@ package dev.isxander.debugify.client.mixins.basic.mc122477;
 
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
-import dev.isxander.debugify.client.fixes.mc122477.KeyboardPollCounter;
+import dev.isxander.debugify.client.helpers.mc122477.KeyboardPollCounter;
 import dev.isxander.debugify.fixes.OS;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.widget.TextFieldWidget;

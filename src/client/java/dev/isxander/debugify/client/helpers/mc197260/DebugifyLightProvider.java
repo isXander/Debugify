@@ -1,4 +1,4 @@
-package dev.isxander.debugify.client.fixes.mc197260;
+package dev.isxander.debugify.client.helpers.mc197260;
 
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.util.math.MatrixStack;

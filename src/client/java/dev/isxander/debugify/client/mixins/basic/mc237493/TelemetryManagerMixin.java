@@ -11,8 +11,8 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-237493", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "no-telemetry")
 @Mixin(TelemetrySender.class)
 public class TelemetryManagerMixin {
-    @ModifyExpressionValue(method = "<init>", at = @At(value = "FIELD", target = "Lnet/minecraft/SharedConstants;isDevelopment:Z", opcode = Opcodes.GETFIELD))
-    private boolean shouldNotSendTelemetry(boolean isDevelopment) {
-        return true;
-    }
+//    @ModifyExpressionValue(method = "method_47707", at = @At(value = "FIELD", target = "Lnet/minecraft/SharedConstants;isDevelopment:Z", opcode = Opcodes.GETFIELD))
+//    private boolean shouldNotSendTelemetry(boolean isDevelopment) {
+//        return true;
+//    }
 }

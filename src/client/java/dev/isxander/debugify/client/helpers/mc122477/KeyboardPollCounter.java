@@ -1,4 +1,4 @@
-package dev.isxander.debugify.client.fixes.mc122477;
+package dev.isxander.debugify.client.helpers.mc122477;
 
 public class KeyboardPollCounter {
     private static int count = 0;

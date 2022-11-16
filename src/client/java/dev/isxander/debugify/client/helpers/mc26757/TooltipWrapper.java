@@ -1,9 +1,8 @@
-package dev.isxander.debugify.client.fixes.mc26757;
+package dev.isxander.debugify.client.helpers.mc26757;
 
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.OrderedText;
-import net.minecraft.text.StringVisitable;
 import net.minecraft.text.Text;
 
 import java.util.ArrayList;

@@ -2,7 +2,7 @@ package dev.isxander.debugify.client.mixins.basic.mc197260;
 
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
-import dev.isxander.debugify.client.fixes.mc197260.DebugifyLightProvider;
+import dev.isxander.debugify.client.helpers.mc197260.DebugifyLightProvider;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModel;

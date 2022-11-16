@@ -46,6 +46,8 @@ loom {
         }
     }
     createRemapConfigurations(gametest.get())
+
+    accessWidenerPath.set(file("src/main/resources/debugify.accesswidener"))
 }
 
 repositories {

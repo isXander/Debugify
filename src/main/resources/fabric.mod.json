@@ -33,20 +33,21 @@
       "environment": "client"
     }
   ],
+  "accessWidener": "debugify.accesswidener",
   "depends": {
-    "fabricloader": ">=0.14.0",
-    "minecraft": ["1.19.1", "1.19.2"],
+    "fabricloader": ">=0.14.10",
+    "minecraft": "1.19.3-alpha.22.46.a",
     "java": ">=17",
     "fabric-resource-loader-v0": "*"
   },
   "recommends": {
-    "yet-another-config-lib": ">=1.2.0",
+    "yet-another-config-lib": ">=1.7.1",
     "modmenu": "*"
   },
   "custom": {
     "modmenu": {
       "links": {
-        "Patched Bugs": "https://github.com/isXander/Debugify/blob/1.19/PATCHED.md#unpatched-in-vanilla"
+        "Patched Bugs": "https://github.com/isXander/Debugify/blob/1.19.3/PATCHED.md#unpatched-in-vanilla"
       }
     }
   }
