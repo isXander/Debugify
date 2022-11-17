@@ -1,4 +1,6 @@
 accessWidener v2 named
 
-accessible class net/minecraft/client/option/GameOptions$Visitor
-accessible method net/minecraft/client/option/GameOptions$Visitor accept (Ljava/lang/String;Lnet/minecraft/client/option/SimpleOption;)V
+accessible class net/minecraft/client/Options$FieldAccess
+accessible method net/minecraft/client/Options$FieldAccess process (Ljava/lang/String;Lnet/minecraft/client/OptionInstance;)V
+accessible class net/minecraft/client/gui/screens/telemetry/TelemetryEventWidget$ContentBuilder
+accessible class net/minecraft/client/gui/screens/telemetry/TelemetryEventWidget$Content

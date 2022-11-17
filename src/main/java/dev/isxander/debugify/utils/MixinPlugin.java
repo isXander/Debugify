@@ -5,6 +5,7 @@ import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import dev.isxander.debugify.fixes.BugFixData;
 import dev.isxander.debugify.fixes.OS;
+import net.fabricmc.loader.api.FabricLoader;
 import org.objectweb.asm.tree.AnnotationNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
@@ -31,7 +32,12 @@ public class MixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        Optional<BugFixData> bugFixOptional = getBugFixForMixin(mixinClassName);
+        ClassNode mixinClassNode = getClassNode(mixinClassName);
+        if (Annotations.getVisible(mixinClassNode, DevelOnly.class) != null && !FabricLoader.getInstance().isDevelopmentEnvironment()) {
+            return false;
+        }
+
+        Optional<BugFixData> bugFixOptional = getBugFixForMixin(mixinClassNode);
 
         if (bugFixOptional.isEmpty())
             return true;
@@ -54,15 +60,20 @@ public class MixinPlugin implements IMixinConfigPlugin {
         return Debugify.CONFIG.isBugFixEnabled(bugFix);
     }
 
-    private Optional<BugFixData> getBugFixForMixin(String mixinClassName) {
-        AnnotationNode annotationNode;
+    private ClassNode getClassNode(String className) {
+        ClassNode classNode;
 
         try {
-            ClassNode classNode = MixinService.getService().getBytecodeProvider().getClassNode(mixinClassName);
-            annotationNode = Annotations.getVisible(classNode, BugFix.class);
+            classNode = MixinService.getService().getBytecodeProvider().getClassNode(className);
         } catch (ClassNotFoundException | IOException e) {
-            annotationNode = null;
+            classNode = null;
         }
+
+        return classNode;
+    }
+
+    private Optional<BugFixData> getBugFixForMixin(ClassNode mixinClassNode) {
+        AnnotationNode annotationNode = Annotations.getVisible(mixinClassNode, BugFix.class);
 
         if (annotationNode == null)
             return Optional.empty();

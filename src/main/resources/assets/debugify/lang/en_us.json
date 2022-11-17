@@ -19,5 +19,11 @@
   "debugify.env.client": "Client",
   "debugify.env.server": "Server",
   "debugify.no_yacl.title": "YetAnotherConfigLib not installed!",
-  "debugify.no_yacl.description": "To configure Debugify using a GUI, you must install %s, this is the library used to make this functionality available. Otherwise, you can configure using the JSON file stored at '%s'."
+  "debugify.no_yacl.description": "To configure Debugify using a GUI, you must install %s, this is the library used to make this functionality available. Otherwise, you can configure using the JSON file stored at '%s'.",
+
+  "debugify.mc_237493.header": "Telemetry Disabled By Debugify",
+  "debugify.mc_237493.line": "You chose '%s' on the telemetry option, so Debugify is preventing any connection with telemetry services from Mojang. This is provided by Debugify for fix MC-237493.",
+  "debugify.mc_237493.tooltip.off": "'%s' completely disables any connection to Mojang telemetry services. (Debugify MC-237493)",
+  "debugify.mc_237493.tooltip.minimal": "'%s' includes only the information Mojang deems required.",
+  "debugify.mc_237493.tooltip.all": "'%s' includes all of minimal and option telemetry."
 }

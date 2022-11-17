@@ -1,9 +1,9 @@
 package dev.isxander.debugify.client.utils;
 
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Minecraft;
 
 public class ClientUtils {
     public static boolean isInMultiplayerWorld() {
-        return !MinecraftClient.getInstance().isInSingleplayer() && MinecraftClient.getInstance().world != null;
+        return !Minecraft.getInstance().isLocalServer() && Minecraft.getInstance().level != null;
     }
 }

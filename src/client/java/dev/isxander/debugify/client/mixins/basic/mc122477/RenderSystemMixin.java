@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @BugFix(id = "MC-122477", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, os = OS.LINUX)
-@Mixin(value = RenderSystem.class, priority = 1100) // higher priority to improve compatibility with VulkanMod
+@Mixin(value = RenderSystem.class, priority = 1100, remap = false) // higher priority to improve compatibility with VulkanMod
 public class RenderSystemMixin {
     @Inject(method = "flipFrame", at = @At(value = "INVOKE", target = "Lorg/lwjgl/glfw/GLFW;glfwPollEvents()V"))
     private static void onPollEvents(long window, CallbackInfo ci) {

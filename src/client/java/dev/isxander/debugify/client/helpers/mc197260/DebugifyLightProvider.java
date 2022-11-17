@@ -1,11 +1,11 @@
 package dev.isxander.debugify.client.helpers.mc197260;
 
-import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.LivingEntity;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.world.entity.LivingEntity;
 
 public interface DebugifyLightProvider<T extends LivingEntity> {
-    default int modifyProvidedLightLevel(int lightLevel, T livingEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider) {
+    default int modifyLightLevel(int lightLevel, T livingEntity, float f, float g, PoseStack matrixStack, MultiBufferSource vertexConsumerProvider) {
         return lightLevel;
     }
 }

@@ -1,34 +1,33 @@
 package dev.isxander.debugify.client.helpers.mc26757;
 
-import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.text.OrderedText;
-import net.minecraft.text.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
+import net.minecraft.util.FormattedCharSequence;
 
 public class TooltipWrapper {
-    public static List<OrderedText> wrapTooltipLines(Screen screen, TextRenderer textRenderer, List<Text> lines) {
+    public static List<FormattedCharSequence> wrapTooltipLines(Screen screen, Font textRenderer, List<Component> lines) {
         int width = getMaxWidth(textRenderer, lines);
         int maxWidth = screen.width - 30;
         if (width <= maxWidth)
-            return lines.stream().map(Text::asOrderedText).collect(Collectors.toList());
+            return lines.stream().map(Component::getVisualOrderText).collect(Collectors.toList());
 
-        List<OrderedText> wrapped = new ArrayList<>();
-        for (Text line : lines) {
-            wrapped.addAll(textRenderer.wrapLines(line, maxWidth));
+        List<FormattedCharSequence> wrapped = new ArrayList<>();
+        for (Component line : lines) {
+            wrapped.addAll(textRenderer.split(line, maxWidth));
         }
 
         return wrapped;
     }
 
-    private static int getMaxWidth(TextRenderer textRenderer, List<Text> lines) {
+    private static int getMaxWidth(Font textRenderer, List<Component> lines) {
         int maxWidth = 0;
 
-        for (Text line : lines) {
-            int width = textRenderer.getWidth(line);
+        for (Component line : lines) {
+            int width = textRenderer.width(line);
             if (width > maxWidth)
                 maxWidth = width;
         }

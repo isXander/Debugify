@@ -1,8 +1,6 @@
 package dev.isxander.debugify.fixes;
 
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.util.Util;
-import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;

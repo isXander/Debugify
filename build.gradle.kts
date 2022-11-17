@@ -54,12 +54,14 @@ repositories {
     mavenCentral()
     maven("https://jitpack.io")
     maven("https://maven.isxander.dev/releases")
+    maven("https://maven.isxander.dev/snapshots")
     maven("https://maven.terraformersmc.com")
+    maven("https://maven.quiltmc.org/repository/release")
 }
 
 val minecraftVersion: String by rootProject
 val fabricLoaderVersion: String by rootProject
-val yarnBuild: String by rootProject
+val qmBuild: String by rootProject
 val fabricApiVersion: String by rootProject
 val yaclVersion: String by rootProject
 val mixinExtrasVersion: String by rootProject
@@ -67,7 +69,10 @@ val modMenuVersion: String by rootProject
 
 dependencies {
     minecraft("com.mojang:minecraft:$minecraftVersion")
-    mappings("net.fabricmc:yarn:$minecraftVersion+build.$yarnBuild:v2")
+    mappings(loom.layered {
+        mappings("org.quiltmc:quilt-mappings:$minecraftVersion+build.$qmBuild:intermediary-v2")
+        officialMojangMappings()
+    })
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 

@@ -1,61 +1,60 @@
 package dev.isxander.debugify.client.gui;
 
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.ButtonWidget;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.screen.ScreenTexts;
-import net.minecraft.text.ClickEvent;
-import net.minecraft.text.OrderedText;
-import net.minecraft.text.Style;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.math.MathHelper;
-
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.ClickEvent;
+import net.minecraft.network.chat.CommonComponents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
+import net.minecraft.util.FormattedCharSequence;
+import net.minecraft.util.Mth;
+import com.mojang.blaze3d.vertex.PoseStack;
 import java.util.List;
 
 public class NoYACLScreen extends Screen {
     private final Screen parent;
 
-    private final OrderedText title;
-    private List<OrderedText> wrappedText;
-    private final Text unwrappedText;
+    private final FormattedCharSequence title;
+    private List<FormattedCharSequence> wrappedText;
+    private final Component unwrappedText;
 
     public NoYACLScreen(Screen parent) {
-        super(Text.translatable("debugify.no_yacl.title"));
+        super(Component.translatable("debugify.no_yacl.title"));
         this.parent = parent;
-        this.title = Text.translatable("debugify.no_yacl.title").formatted(Formatting.BOLD).asOrderedText();
-        this.unwrappedText = Text.translatable("debugify.no_yacl.description",
-                Text.literal("YetAnotherConfigLib").styled(style -> style
+        this.title = Component.translatable("debugify.no_yacl.title").withStyle(ChatFormatting.BOLD).getVisualOrderText();
+        this.unwrappedText = Component.translatable("debugify.no_yacl.description",
+                Component.literal("YetAnotherConfigLib").withStyle(style -> style
                         .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/yacl"))
-                        .withFormatting(Formatting.BLUE, Formatting.UNDERLINE)),
-                Text.literal(".minecraft/config/debugify.json").styled(style -> style
+                        .applyFormats(ChatFormatting.BLUE, ChatFormatting.UNDERLINE)),
+                Component.literal(".minecraft/config/debugify.json").withStyle(style -> style
                         .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, FabricLoader.getInstance().getConfigDir().toString()))
-                        .withFormatting(Formatting.BLUE, Formatting.UNDERLINE)));
+                        .applyFormats(ChatFormatting.BLUE, ChatFormatting.UNDERLINE)));
     }
 
     @Override
     protected void init() {
-        this.wrappedText = textRenderer.wrapLines(unwrappedText, width - 50);
-        this.addDrawableChild(
-                ButtonWidget.createBuilder(ScreenTexts.BACK, button -> client.setScreen(parent))
-                        .setPosition(
+        this.wrappedText = font.split(unwrappedText, width - 50);
+        this.addRenderableWidget(
+                Button.builder(CommonComponents.GUI_BACK, button -> minecraft.setScreen(parent))
+                        .pos(
                                 (this.width - 150) / 2,
-                                MathHelper.clamp(90 + wrappedText.size() * 9 + 12, this.height / 6 + 96, this.height - 24)
+                                Mth.clamp(90 + wrappedText.size() * 9 + 12, this.height / 6 + 96, this.height - 24)
                         )
-                        .setSize(150, 20)
+                        .size(150, 20)
                         .build()
         );
     }
 
     @Override
-    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+    public void render(PoseStack matrices, int mouseX, int mouseY, float delta) {
         this.renderBackground(matrices);
-        drawCenteredTextWithShadow(matrices, textRenderer, title, width / 2, 70, -1);
+        drawCenteredString(matrices, font, title, width / 2, 70, -1);
         int y = 90;
-        for (OrderedText line : wrappedText) {
-            drawCenteredTextWithShadow(matrices, textRenderer, line, width / 2, y, -1);
-            y += textRenderer.fontHeight;
+        for (FormattedCharSequence line : wrappedText) {
+            drawCenteredString(matrices, font, line, width / 2, y, -1);
+            y += font.lineHeight;
         }
         super.render(matrices, mouseX, mouseY, delta);
     }
@@ -67,19 +66,19 @@ public class NoYACLScreen extends Screen {
         }
 
         Style style = getStyle((int) mouseX, (int) mouseY);
-        return handleTextClick(style);
+        return handleComponentClicked(style);
     }
 
     protected Style getStyle(int mouseX, int mouseY) {
         int y = mouseY - 90;
-        int line = y / textRenderer.fontHeight;
+        int line = y / font.lineHeight;
 
-        if (y < 0 || y > y + wrappedText.size() * textRenderer.fontHeight) return null;
+        if (y < 0 || y > y + wrappedText.size() * font.lineHeight) return null;
         if (line < 0 || line >= wrappedText.size()) return null;
 
-        OrderedText text = wrappedText.get(line);
-        int x = mouseX - (width / 2 - textRenderer.getWidth(text) / 2);
+        FormattedCharSequence text = wrappedText.get(line);
+        int x = mouseX - (width / 2 - font.width(text) / 2);
 
-        return textRenderer.getTextHandler().getStyleAt(wrappedText.get(line), x);
+        return font.getSplitter().componentStyleAtWidth(wrappedText.get(line), x);
     }
 }

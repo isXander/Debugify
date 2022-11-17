@@ -3,7 +3,7 @@ package dev.isxander.debugify.fixes;
 import java.util.Locale;
 
 /**
- * Cannot use {@link net.minecraft.util.Util.OperatingSystem} because
+ * Cannot use {@link net.minecraft.Util.OS} because
  * this code needs to be run from a Mixin plugin, where you can't access
  * Minecraft classes.
  */

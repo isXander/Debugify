@@ -5,8 +5,6 @@ import dev.isxander.debugify.fixes.BugFixData;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.network.NetworkState;
-
 import java.net.ConnectException;
 import java.net.NetworkInterface;
 import java.net.URI;
