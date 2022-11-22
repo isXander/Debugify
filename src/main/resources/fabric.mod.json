@@ -36,12 +36,12 @@
   "accessWidener": "debugify.accesswidener",
   "depends": {
     "fabricloader": ">=0.14.10",
-    "minecraft": "1.19.3-alpha.22.46.a",
+    "minecraft": "~1.19.3-beta.1",
     "java": ">=17",
     "fabric-resource-loader-v0": "*"
   },
   "recommends": {
-    "yet-another-config-lib": ">=1.7.1",
+    "yet-another-config-lib": ">=2.0.0",
     "modmenu": "*"
   },
   "custom": {
