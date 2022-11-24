@@ -49,7 +49,6 @@
     "basic.mc80859.AbstractContainerScreenMixin",
     "basic.mc90683.ClientPacketListenerMixin",
     "basic.mc93384.LivingEntityMixin",
-    "devel.TitleScreenMixin",
     "gameplay.mc12829.LivingEntityMixin",
     "gameplay.mc12829.PlayerMixin"
   ]

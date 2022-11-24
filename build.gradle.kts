@@ -10,8 +10,10 @@ plugins {
     id("com.modrinth.minotaur") version "2.4.+"
     id("me.hypherionmc.cursegradle") version "2.+"
     id("com.github.breadmoirai.github-release") version "2.+"
-    id("io.github.p03w.machete") version "1.+"
     `maven-publish`
+
+    id("io.github.p03w.machete") version "1.+"
+    id("org.ajoberstar.grgit") version "5.0.0"
 
     id("ru.vyarus.use-python") version "3.0.0"
 }
@@ -84,16 +86,8 @@ dependencies {
 
     modImplementation(fabricApi.module("fabric-resource-loader-v0", fabricApiVersion))
 
-    // modClientImplementation doesn't auto upgrade to 0.14.10
-    "modClientImplementation"("dev.isxander:yet-another-config-lib:$yaclVersion") {
-        exclude(module = "fabric-loader")
-        exclude(module = "modmenu") // no modmenu support
-    }
-
-    // mod menu does not support snapshots
-//    "modClientImplementation"("com.terraformersmc:modmenu:$modMenuVersion") {
-//        exclude(module = "fabric-loader")
-//    }
+    "modClientImplementation"("dev.isxander:yet-another-config-lib:$yaclVersion")
+    "modClientImplementation"("com.terraformersmc:modmenu:$modMenuVersion")
 
     "gametestImplementation"(sourceSets.main.get().output)
     "gametestImplementation"(sourceSets["client"].output)
@@ -219,7 +213,7 @@ githubRelease {
     owner("isXander")
     repo("Debugify")
     tagName("${project.version}")
-    targetCommitish("1.19")
+    targetCommitish(grgit.branch.current().name)
     body(changelogText)
     releaseAssets(tasks["remapJar"].outputs.files)
 }

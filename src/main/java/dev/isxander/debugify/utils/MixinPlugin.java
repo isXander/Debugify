@@ -33,10 +33,6 @@ public class MixinPlugin implements IMixinConfigPlugin {
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         ClassNode mixinClassNode = getClassNode(mixinClassName);
-        if (Annotations.getVisible(mixinClassNode, DevelOnly.class) != null && !FabricLoader.getInstance().isDevelopmentEnvironment()) {
-            return false;
-        }
-
         Optional<BugFixData> bugFixOptional = getBugFixForMixin(mixinClassNode);
 
         if (bugFixOptional.isEmpty())
