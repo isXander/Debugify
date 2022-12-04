@@ -17,7 +17,9 @@
   "debugify.misc.default_disabled": "Default to Disabled",
   "debugify.misc.default_disabled.description": "Default new bug fixes to be disabled rather than enabled.",
   "debugify.env.client": "Client",
-  "debugify.env.server": "Server",
+  "debugify.env.client.desc": "Fixes that only apply on the client.",
+  "debugify.env.server": "Main",
+  "debugify.env.server.desc": "Fixes that apply to both the client and the server, and common code between them.",
   "debugify.no_yacl.title": "YetAnotherConfigLib not installed!",
   "debugify.no_yacl.description": "To configure Debugify using a GUI, you must install %s, this is the library used to make this functionality available. Otherwise, you can configure using the JSON file stored at '%s'.",
 

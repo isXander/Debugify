@@ -19,7 +19,7 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "3.0.0"
+version = "1.19.3+1.0"
 
 loom {
     splitEnvironmentSourceSets()
@@ -61,13 +61,13 @@ repositories {
     maven("https://maven.quiltmc.org/repository/release")
 }
 
-val minecraftVersion: String by rootProject
-val fabricLoaderVersion: String by rootProject
-val qmBuild: String by rootProject
-val fabricApiVersion: String by rootProject
-val yaclVersion: String by rootProject
-val mixinExtrasVersion: String by rootProject
-val modMenuVersion: String by rootProject
+val minecraftVersion: String by project
+val fabricLoaderVersion: String by project
+val qmBuild: String by project
+val fabricApiVersion: String by project
+val yaclVersion: String by project
+val mixinExtrasVersion: String by project
+val modMenuVersion: String by project
 
 dependencies {
     minecraft("com.mojang:minecraft:$minecraftVersion")
@@ -86,8 +86,8 @@ dependencies {
 
     modImplementation(fabricApi.module("fabric-resource-loader-v0", fabricApiVersion))
 
-    "modClientImplementation"("dev.isxander:yet-another-config-lib:$yaclVersion")
-    "modClientImplementation"("com.terraformersmc:modmenu:$modMenuVersion")
+    "modClientImplementation"("dev.isxander:yet-another-config-lib:$yaclVersion") { exclude(module = "fabric-loader") }
+    "modClientImplementation"("com.terraformersmc:modmenu:$modMenuVersion") { exclude(module = "fabric-loader") }
 
     "gametestImplementation"(sourceSets.main.get().output)
     "gametestImplementation"(sourceSets["client"].output)
@@ -131,10 +131,11 @@ python {
 tasks.register<PythonTask>("checkBugStatuses") {
     group = "debugify"
 
-    command = rootProject.file("scripts/check_bug_fixes.py").toString()
+    command = project.file("scripts/check_bug_fixes.py").toString()
 }
 
-val changelogText = rootProject.file("changelogs/${project.version}.md").takeIf { it.exists() }?.readText() ?: "No changelog is provided"
+var changelogText = file("changelogs/$minecraftVersion/${project.version}.md").takeIf { it.exists() }?.readText() ?: "No changelog is provided"
+file("changelogs/header.md").takeIf { it.exists() }?.readText()?.let { changelogText = it + "\n\n" + changelogText }
 
 modrinth {
     token.set(findProperty("modrinth.token")?.toString())
@@ -150,7 +151,7 @@ modrinth {
         required.project("yacl")
         optional.project("cloth-config")
     }
-    syncBodyFrom.set(rootProject.file("README.md").readText())
+    syncBodyFrom.set(project.file("README.md").readText())
 }
 
 if (hasProperty("curseforge.token")) {

@@ -33,8 +33,6 @@
     "basic.mc227169.PlayerRendererMixin",
     "basic.mc22882.AbstractContainerScreenMixin",
     "basic.mc22882.MinecraftMixin",
-    "basic.mc228976.EntityMixin",
-    "basic.mc228976.LivingEntityMixin",
     "basic.mc231097.LocalPlayerMixin",
     "basic.mc237493.OptionsMixin",
     "basic.mc237493.TelemetryEventInstanceMixin",

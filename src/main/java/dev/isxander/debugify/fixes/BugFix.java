@@ -33,5 +33,9 @@ public @interface BugFix {
         public String getDisplayName() {
             return displayName;
         }
+
+        public String getDescriptionKey() {
+            return getDisplayName() + ".desc";
+        }
     }
 }
