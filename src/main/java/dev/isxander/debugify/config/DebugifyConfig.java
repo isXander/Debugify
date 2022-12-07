@@ -13,7 +13,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class DebugifyConfig {
-    private final Path configPath = FabricLoader.getInstance().getConfigDir().resolve("debugify.json");
+    private final Path configPath = Path.of("config", "debugify.json");
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     private final Map<String, Boolean> jsonBugFixes = new HashMap<>();
