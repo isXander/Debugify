@@ -1,7 +1,5 @@
 package dev.isxander.debugify.test;
 
-import com.mojang.authlib.GameProfile;
-import dev.isxander.debugify.Debugify;
 import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
 import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.GameTest;
@@ -13,7 +11,6 @@ import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Snowball;
 import net.minecraft.world.item.Items;
-import java.util.UUID;
 
 public class DebugifyServerTestSuite implements FabricGameTest {
     @GameTest(template = EMPTY_STRUCTURE)

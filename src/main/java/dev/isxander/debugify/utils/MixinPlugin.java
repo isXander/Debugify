@@ -1,6 +1,7 @@
 package dev.isxander.debugify.utils;
 
 import dev.isxander.debugify.Debugify;
+import dev.isxander.debugify.api.DebugifyApi;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import dev.isxander.debugify.fixes.BugFixData;
@@ -22,6 +23,21 @@ public class MixinPlugin implements IMixinConfigPlugin {
     @Override
     public void onLoad(String mixinPackage) {
         Debugify.onPreInitialize();
+
+        var entrypoints = FabricLoader.getInstance().getEntrypointContainers("debugify", DebugifyApi.class);
+        entrypoints.forEach(container -> {
+            DebugifyApi api = container.getEntrypoint();
+            String containerModId = container.getProvider().getMetadata().getId();
+            for (String bugId : api.getDisabledFixes()) {
+                BugFixData.registerApiConflict(containerModId, bugId);
+            }
+
+            api.getProvidedDisabledFixes().forEach((modId, bugs) -> {
+                if (FabricLoader.getInstance().isModLoaded(modId)) {
+                    bugs.forEach(bugId -> BugFixData.registerApiConflict(modId, bugId));
+                }
+            });
+        });
     }
 
     @Override
@@ -42,7 +58,7 @@ public class MixinPlugin implements IMixinConfigPlugin {
         var multipleMixins = Debugify.CONFIG.getBugFixes().containsKey(bugFix);
         Debugify.CONFIG.registerBugFix(bugFix);
 
-        List<String> conflicts = bugFix.getActiveConflicts();
+        Set<String> conflicts = bugFix.getActiveConflicts();
         if (!conflicts.isEmpty()) {
             if (Debugify.CONFIG.isBugFixEnabled(bugFix) && !multipleMixins)
                 Debugify.LOGGER.warn("Force disabled {} because it's conflicting with: {}", bugFix.bugId(), String.join(", ", conflicts));
