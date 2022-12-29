@@ -12,6 +12,9 @@
     ],
     "fabric-gametest": [
       "dev.isxander.debugify.test.DebugifyServerTestSuite"
+    ],
+    "debugify": [
+      "dev.isxander.debugify.test.DebugifyApiTest"
     ]
   },
   "depends": {

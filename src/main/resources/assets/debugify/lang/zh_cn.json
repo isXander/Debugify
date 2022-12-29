@@ -7,7 +7,6 @@
   "debugify.fix.enabled": "已修复",
   "debugify.fix.disabled": "未修复",
   "debugify.fix.unavailable": "不可用",
-  "debugify.error.conflict": "%s已经被模组‘%s’修复",
   "debugify.error.os": "%s仅适用于%s",
   "debugify.os.windows": "Windows",
   "debugify.os.macos": "macOS",
