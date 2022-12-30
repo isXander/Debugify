@@ -12,7 +12,7 @@ plugins {
     id("com.github.breadmoirai.github-release") version "2.+"
     `maven-publish`
 
-    id("io.github.p03w.machete") version "1.+"
+    id("io.github.p03w.machete") version "2.+"
     id("org.ajoberstar.grgit") version "5.0.0"
 
     id("ru.vyarus.use-python") version "3.0.0"
