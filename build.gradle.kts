@@ -7,7 +7,7 @@ plugins {
     id("fabric-loom") version "1.0.+"
     id("io.github.juuxel.loom-quiltflower") version "1.8.+"
 
-    id("com.modrinth.minotaur") version "2.5.+"
+    id("com.modrinth.minotaur") version "2.6.+"
     id("me.hypherionmc.cursegradle") version "2.+"
     id("com.github.breadmoirai.github-release") version "2.+"
     `maven-publish`
