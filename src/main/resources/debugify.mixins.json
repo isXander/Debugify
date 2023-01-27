@@ -29,7 +29,6 @@
     "basic.mc2025.EntityMixin",
     "basic.mc206922.EntityMixin",
     "basic.mc206922.ItemEntityMixin",
-    "basic.mc214147.SkeletonMixin",
     "basic.mc215530.ServerPlayerMixin",
     "basic.mc223153.BlocksMixin",
     "basic.mc224729.ChunkMapMixin",
