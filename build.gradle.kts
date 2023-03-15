@@ -19,7 +19,7 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.19.3+1.1"
+version = "1.19.4+1.0"
 
 loom {
     splitEnvironmentSourceSets()
@@ -134,7 +134,8 @@ tasks.register<PythonTask>("checkBugStatuses") {
     command = project.file("scripts/check_bug_fixes.py").toString()
 }
 
-var changelogText = file("changelogs/$minecraftVersion/${project.version}.md").takeIf { it.exists() }?.readText() ?: "No changelog is provided"
+var changelogText = file("changelogs/$minecraftVersion/${project.version}.md").takeIf { it.exists() }?.readText()
+    ?: "No changelog is provided"
 file("changelogs/header.md").takeIf { it.exists() }?.readText()?.let { changelogText = it + "\n\n" + changelogText }
 
 modrinth {
