@@ -23,7 +23,6 @@
     "basic.mc159163.ClientPacketListenerMixin",
     "basic.mc162253.ClientPacketListenerMixin",
     "basic.mc165381.LocalPlayerMixin",
-    "basic.mc165595.GuardianRendererMixin",
     "basic.mc176559.MultiPlayerGameModeMixin",
     "basic.mc183776.KeyboardHandlerMixin",
     "basic.mc197260.ArmorStandRendererMixin",
