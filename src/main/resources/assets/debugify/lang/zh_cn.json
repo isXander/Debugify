@@ -20,12 +20,12 @@
   "debugify.env.client.desc": "只适用于客户端的修复。",
   "debugify.env.server": "主要",
   "debugify.env.server.desc": "适用于客户端和服务器的修复，以及它们之间的共同代码。",
-  "debugify.no_yacl.title": "未安装 YetAnotherConfigLib！",
-  "debugify.no_yacl.description": "要使用 GUI 配置 Debugify，你必须安装%s，这是用来实现这一功能的前置库。否则，你可以使用存储在「%s」的JSON文件进行配置。",
+  "debugify.no_yacl.title": "未安装YetAnotherConfigLib！",
+  "debugify.no_yacl.description": "要使用GUI配置Debugify，你必须安装%s，这是用来实现这一功能的前置库。否则，你可以使用存储在“%s”的JSON文件进行配置。",
 
-  "debugify.mc_237493.header": "遥测已由 Debugify 关闭",
-  "debugify.mc_237493.line": "你在遥测选项上选择了「%s」，所以 Debugify 正在阻止与 Mojang 的遥测服务的任何连接。这是由 Debugify 提供的MC-237493修复。",
-  "debugify.mc_237493.tooltip.off": "「%s」完全禁用了与 Mojang 遥测服务的任何连接。（Debugify MC-237493）",
-  "debugify.mc_237493.tooltip.minimal": "「%s」只包括 Mojang 认为需要的信息。",
-  "debugify.mc_237493.tooltip.all": "「%s」包括所有的最少和可选遥测。"
+  "debugify.mc_237493.header": "遥测已由Debugify关闭",
+  "debugify.mc_237493.line": "你在遥测选项上选择了“%s”，所以Debugify正在阻止与Mojang的遥测服务的任何连接。这是由Debugify提供的MC-237493修复。",
+  "debugify.mc_237493.tooltip.off": "“%s”完全禁用了与Mojang遥测服务的任何连接。（Debugify MC-237493）",
+  "debugify.mc_237493.tooltip.minimal": "“%s”只包括Mojang认为需要的信息。",
+  "debugify.mc_237493.tooltip.all": "“%s”包括所有的最少和可选遥测。"
 }
