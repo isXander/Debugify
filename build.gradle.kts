@@ -52,6 +52,10 @@ loom {
     accessWidenerPath.set(file("src/main/resources/debugify.accesswidener"))
 }
 
+machete {
+    json.enabled.set(false)
+}
+
 repositories {
     mavenCentral()
     maven("https://jitpack.io")
@@ -81,6 +85,7 @@ dependencies {
     "com.github.llamalad7.mixinextras:mixinextras-fabric:$mixinExtrasVersion".let {
         implementation(it)
         annotationProcessor(it)
+        "clientAnnotationProcessor"(it)
         include(it)
     }
 
@@ -192,6 +197,7 @@ publishing {
             artifactId = "debugify"
 
             from(components["java"])
+            artifact(tasks["remapSourcesJar"])
         }
     }
 

@@ -10,7 +10,7 @@
 ![Lines of Code](https://img.shields.io/tokei/lines/github/isXander/Debugify?color=%23ff4747&label=Lines%20of%20code&style=for-the-badge)
 
 [![](https://www.bisecthosting.com/partners/custom-banners/08bbd3ff-5c0d-4480-8738-de0f070a04dd.png)](https://bisecthosting.com/xander)
-  
+
 </div>
 
 ## What does this mod replace?
@@ -59,3 +59,4 @@ so I added a config option that defaults new bug fixes to off, until you get rou
 - [**GodGun968**](https://github.com/GodGun968) - Chinese
 - [**Agentew04**](https://github.com/Agentew04) - Portuguese
 - [**localfossa**](https://github.com/localfossa) - Turkish
+- [**xMikux**](https://github.com/xMikux) - Traditional Chinese
