@@ -46,7 +46,7 @@ public abstract class EditBoxMixin {
      * Prevent the substring end index being less than 0,
      * causing a crash.
      */
-    @ModifyArg(method = "renderButton", at = @At(value = "INVOKE", target = "Ljava/lang/String;substring(II)Ljava/lang/String;", ordinal = 1), index = 1)
+    @ModifyArg(method = "renderWidget", at = @At(value = "INVOKE", target = "Ljava/lang/String;substring(II)Ljava/lang/String;", ordinal = 1), index = 1)
     private int boundSelectionEnd(int relativeSelectionEnd) {
         return Math.max(0, relativeSelectionEnd);
     }

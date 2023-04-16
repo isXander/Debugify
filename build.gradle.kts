@@ -4,22 +4,22 @@ import ru.vyarus.gradle.plugin.python.task.PythonTask
 plugins {
     java
 
-    id("fabric-loom") version "1.0.+"
-    id("io.github.juuxel.loom-quiltflower") version "1.7.+"
+    id("fabric-loom") version "1.1.+"
+    id("io.github.juuxel.loom-quiltflower") version "1.8.+"
 
-    id("com.modrinth.minotaur") version "2.4.+"
+    id("com.modrinth.minotaur") version "2.7.+"
     id("me.hypherionmc.cursegradle") version "2.+"
     id("com.github.breadmoirai.github-release") version "2.+"
     `maven-publish`
 
-    id("io.github.p03w.machete") version "1.+"
+    id("io.github.p03w.machete") version "2.+"
     id("org.ajoberstar.grgit") version "5.0.0"
 
     id("ru.vyarus.use-python") version "3.0.0"
 }
 
 group = "dev.isxander"
-version = "1.19.4+1.0"
+version = "1.19.4+1.1"
 
 loom {
     splitEnvironmentSourceSets()
@@ -78,7 +78,7 @@ dependencies {
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
-    "com.github.llamalad7:mixinextras:$mixinExtrasVersion".let {
+    "com.github.llamalad7.mixinextras:mixinextras-fabric:$mixinExtrasVersion".let {
         implementation(it)
         annotationProcessor(it)
         include(it)
