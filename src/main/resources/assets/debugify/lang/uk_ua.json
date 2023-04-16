@@ -7,7 +7,6 @@
   "debugify.fix.enabled": "Виправлено",
   "debugify.fix.disabled": "Не виправлено",
   "debugify.fix.unavailable": "Недоступно",
-  "debugify.error.conflict": "%s уже виправлено модом '%s'",
   "debugify.error.os": "%s стосується лише %s",
   "debugify.os.windows": "Windows",
   "debugify.os.macos": "macOS",

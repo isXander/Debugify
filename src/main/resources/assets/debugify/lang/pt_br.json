@@ -7,7 +7,6 @@
   "debugify.fix.enabled": "consertado",
   "debugify.fix.disabled": "Não consertado",
   "debugify.fix.unavailable": "Indisponível",
-  "debugify.error.conflict": "%s ja esta corrigido pelo mod '%s'",
   "debugify.error.os": "%s aplica-se apenas a %s",
   "debugify.os.windows": "Windows",
   "debugify.os.macos": "macOS",

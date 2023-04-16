@@ -70,8 +70,9 @@ public class ConfigGuiHelper {
                         if (DebugifyClient.bugFixDescriptionCache.has(bug.bugId()))
                             optionBuilder.tooltip(Component.literal(DebugifyClient.bugFixDescriptionCache.get(bug.bugId())));
 
-                        if (!conflicts.isEmpty())
-                            optionBuilder.tooltip(Component.translatable("debugify.error.conflict", bug.bugId(), String.join(", ", conflicts)).withStyle(ChatFormatting.RED));
+                        for (String conflictMod : conflicts) {
+                            optionBuilder.tooltip(Component.translatable("debugify.error.conflict", bug.bugId(), conflictMod).withStyle(ChatFormatting.RED));
+                        }
 
                         if (!satisfiesOS)
                             optionBuilder.tooltip(Component.translatable("debugify.error.os", bug.bugId(), Component.translatable(bug.requiredOs().getDisplayName())).withStyle(ChatFormatting.RED));
