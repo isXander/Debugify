@@ -1,5 +1,6 @@
 package dev.isxander.debugify.client.gui;
 
+import dev.isxander.debugify.Debugify;
 import dev.isxander.debugify.client.DebugifyClient;
 import dev.isxander.debugify.config.DebugifyConfig;
 import dev.isxander.debugify.fixes.BugFix;
@@ -11,6 +12,7 @@ import dev.isxander.yacl.gui.controllers.TickBoxController;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -69,6 +71,14 @@ public class ConfigGuiHelper {
 
                         if (DebugifyClient.bugFixDescriptionCache.has(bug.bugId()))
                             optionBuilder.tooltip(Component.literal(DebugifyClient.bugFixDescriptionCache.get(bug.bugId())));
+
+                        String fixExplanationTooltipKey = "debugify.fix_explanation." + bug.bugId().toLowerCase();
+                        if (Language.getInstance().has(fixExplanationTooltipKey))
+                            optionBuilder.tooltip(Component.translatable(fixExplanationTooltipKey).withStyle(ChatFormatting.GRAY));
+
+                        String fixEffectTooltipKey = "debugify.fix_effect." + bug.bugId().toLowerCase();
+                        if (Language.getInstance().has(fixEffectTooltipKey))
+                            optionBuilder.tooltip(Component.translatable(fixEffectTooltipKey).withStyle(ChatFormatting.GOLD));
 
                         for (String conflictMod : conflicts) {
                             optionBuilder.tooltip(Component.translatable("debugify.error.conflict", bug.bugId(), conflictMod).withStyle(ChatFormatting.RED));

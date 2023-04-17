@@ -16,7 +16,7 @@ public class ClientPacketListenerMixin {
      * Mojank decided to do some random light update for no reason
      * tell them no.
      */
-    @WrapWithCondition(method = "m_ozctwjwc", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/lighting/LevelLightEngine;updateSectionStatus(Lnet/minecraft/core/SectionPos;Z)V"))
+    @WrapWithCondition(method = "method_38546", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/lighting/LevelLightEngine;updateSectionStatus(Lnet/minecraft/core/SectionPos;Z)V"))
     private boolean shouldDoUselessLightUpdate(LevelLightEngine instance, SectionPos pos, boolean notReady) {
         return false;
     }

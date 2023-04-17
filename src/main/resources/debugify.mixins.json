@@ -22,7 +22,7 @@
     "basic.mc155509.PufferfishMixin",
     "basic.mc160095.CactusBlockMixin",
     "basic.mc179072.SwellMixin",
-    "basic.mc183990.SilverfishMergeWithStoneGoalMixin",
+    "basic.mc183990.MobMixin",
     "basic.mc193343.PlayerMixin",
     "basic.mc199467.MthMixin",
     "basic.mc200418.ZombieVillagerMixin",
@@ -37,11 +37,11 @@
     "basic.mc30391.LivingEntityMixin",
     "basic.mc69216.ServerPlayerMixin",
     "basic.mc72151.WolfMixin",
+    "basic.mc7569.RconConsoleSourceMixin",
     "basic.mc88371.DragonLandingPhaseMixin",
     "basic.mc89146.ChunkAccessMixin",
     "basic.mc90084.BoatMixin",
     "basic.mc93018.AnimalMixin",
-    "basic.mc7569.RconConsoleSourceMixin",
     "gameplay.mc31819.PlayerMixin"
   ]
 }
