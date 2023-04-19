@@ -1,6 +1,7 @@
 package dev.isxander.debugify.fixes;
 
 import dev.isxander.debugify.api.DebugifyApi;
+import dev.isxander.debugify.mixinplugin.DebugifyDebugFlags;
 import net.fabricmc.loader.api.FabricLoader;
 import org.jetbrains.annotations.NotNull;
 
@@ -23,7 +24,10 @@ public record BugFixData(String bugId, FixCategory category, BugFix.Env env, boo
     }
 
     public boolean satisfiesOSRequirement() {
-        return requiredOs() == OS.UNKNOWN || requiredOs() == OS.getOperatingSystem();
+        return requiredOs() == OS.UNKNOWN || requiredOs() == OS.getOperatingSystem()
+                || (requiredOs() == OS.LINUX && DebugifyDebugFlags.FORCE_LINUX_FIXES)
+                || (requiredOs() == OS.WINDOWS && DebugifyDebugFlags.FORCE_WINDOWS_FIXES)
+                || (requiredOs() == OS.MAC && DebugifyDebugFlags.FORCE_MACOS_FIXES);
     }
 
     @Override

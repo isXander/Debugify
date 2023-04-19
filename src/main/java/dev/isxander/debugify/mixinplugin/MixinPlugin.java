@@ -1,4 +1,4 @@
-package dev.isxander.debugify.utils;
+package dev.isxander.debugify.mixinplugin;
 
 import dev.isxander.debugify.Debugify;
 import dev.isxander.debugify.api.DebugifyApi;
