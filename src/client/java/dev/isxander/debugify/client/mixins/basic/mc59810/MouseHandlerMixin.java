@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-59810", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, enabled = false, modConflicts = "mcmouser", os = OS.MAC)
 @Mixin(MouseHandler.class)
 public class MouseHandlerMixin {
-    @ModifyExpressionValue(method = "onPress", at = @At(value = "FIELD", target = "Lnet/minecraft/client/Minecraft;ON_OSX:Z", opcode = Opcodes.GETFIELD))
+    @ModifyExpressionValue(method = "onPress", at = @At(value = "FIELD", target = "Lnet/minecraft/client/Minecraft;ON_OSX:Z", opcode = Opcodes.GETSTATIC))
     private boolean doRightClickEmulation(boolean isMac) {
         return false;
     }
