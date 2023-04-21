@@ -46,6 +46,14 @@ loom {
             name("Game Test")
             source(gametest.get())
         }
+
+        listOf(named("client"), named("server")).forEach {
+            it {
+                vmArg("-Ddebugify.forceMacFixes=true")
+                vmArg("-Ddebugify.forceLinuxFixes=true")
+                vmArg("-Ddebugify.forceWindowsFixes=true")
+            }
+        }
     }
     createRemapConfigurations(gametest.get())
 
