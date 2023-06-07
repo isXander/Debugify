@@ -235,6 +235,7 @@ githubRelease {
 }
 
 tasks["githubRelease"].dependsOn("optimizeOutputsOfRemapJar")
+tasks["modrinth"].dependsOn("optimizeOutputsOfRemapJar")
 
 tasks.register("publishDebugify") {
     group = "debugify"
