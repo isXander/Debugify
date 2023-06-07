@@ -2,6 +2,7 @@ package dev.isxander.debugify.client.gui;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.ClickEvent;
@@ -48,15 +49,15 @@ public class NoYACLScreen extends Screen {
     }
 
     @Override
-    public void render(PoseStack matrices, int mouseX, int mouseY, float delta) {
-        this.renderBackground(matrices);
-        drawCenteredString(matrices, font, title, width / 2, 70, -1);
+    public void render(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
+        this.renderBackground(graphics);
+        graphics.drawCenteredString(font, title, width / 2, 70, -1);
         int y = 90;
         for (FormattedCharSequence line : wrappedText) {
-            drawCenteredString(matrices, font, line, width / 2, y, -1);
+            graphics.drawCenteredString(font, line, width / 2, y, -1);
             y += font.lineHeight;
         }
-        super.render(matrices, mouseX, mouseY, delta);
+        super.render(graphics, mouseX, mouseY, delta);
     }
 
     @Override

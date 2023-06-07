@@ -27,9 +27,8 @@ public abstract class FishingHookMixin extends ProjectileMixin {
     private void onPullEntity(Entity entity, CallbackInfo ci) {
         if (entity instanceof LivingEntity livingEntity) {
             livingEntity.getCombatTracker().recordDamage(
-                    level.damageSources().thrown((FishingHook)(Object)this, getOwner()),
-                    livingEntity.getHealth(),
-                    0f
+                    level().damageSources().thrown((FishingHook)(Object)this, getOwner()),
+                    livingEntity.getHealth()
             );
         }
     }

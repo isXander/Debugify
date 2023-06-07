@@ -21,6 +21,6 @@ public abstract class StriderMixin extends Animal {
     @ModifyExpressionValue(method = "finalizeSpawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/RandomSource;nextInt(I)I", ordinal = 0))
     private int preventPeacefulJockey(int random) {
         // non-zero doesn't spawn jockey
-        return level.getDifficulty() == Difficulty.PEACEFUL ? 1 : random;
+        return level().getDifficulty() == Difficulty.PEACEFUL ? 1 : random;
     }
 }

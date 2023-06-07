@@ -39,18 +39,18 @@
   "accessWidener": "debugify.accesswidener",
   "depends": {
     "fabricloader": ">=0.14.10",
-    "minecraft": "~1.19.4-rc.2",
+    "minecraft": "1.20",
     "java": ">=17",
     "fabric-resource-loader-v0": "*"
   },
   "recommends": {
-    "yet-another-config-lib": "2.x.x",
+    "yet-another-config-lib": "3.x.x",
     "modmenu": "*"
   },
   "custom": {
     "modmenu": {
       "links": {
-        "Patched Bugs": "https://github.com/isXander/Debugify/blob/1.19.3/PATCHED.md#unpatched-in-vanilla"
+        "Patched Bugs": "https://github.com/isXander/Debugify/blob/1.20/PATCHED.md#unpatched-in-vanilla"
       }
     }
   }

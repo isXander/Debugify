@@ -20,6 +20,6 @@ public abstract class PlayerMixin extends LivingEntity {
 
     @ModifyExpressionValue(method = "causeFoodExhaustion", at = @At(value = "FIELD", target = "Lnet/minecraft/world/level/Level;isClientSide:Z"))
     private boolean shouldNotAddExhaustion(boolean isClient) {
-        return isClient || level.getDifficulty() == Difficulty.PEACEFUL;
+        return isClient || level().getDifficulty() == Difficulty.PEACEFUL;
     }
 }

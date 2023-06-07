@@ -32,7 +32,7 @@ public abstract class ArmorStandRendererMixin extends LivingEntityRendererMixin<
         return Math.max(providedLightLevel, IntStream.of(-1, 2, 3)
                 .map(operand -> {
                     BlockPos pos = livingEntity.blockPosition().offset(0, operand, 0);
-                    return LightTexture.pack(livingEntity.level.getBrightness(LightLayer.BLOCK, pos), livingEntity.level.getBrightness(LightLayer.SKY, pos));
+                    return LightTexture.pack(livingEntity.level().getBrightness(LightLayer.BLOCK, pos), livingEntity.level().getBrightness(LightLayer.SKY, pos));
                 })
                 .max().orElse(providedLightLevel)
         );

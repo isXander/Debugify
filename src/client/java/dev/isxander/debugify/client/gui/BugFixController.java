@@ -1,10 +1,10 @@
 package dev.isxander.debugify.client.gui;
 
-import dev.isxander.yacl.api.Option;
-import dev.isxander.yacl.api.utils.Dimension;
-import dev.isxander.yacl.gui.AbstractWidget;
-import dev.isxander.yacl.gui.YACLScreen;
-import dev.isxander.yacl.gui.controllers.BooleanController;
+import dev.isxander.yacl3.api.Option;
+import dev.isxander.yacl3.api.utils.Dimension;
+import dev.isxander.yacl3.gui.AbstractWidget;
+import dev.isxander.yacl3.gui.YACLScreen;
+import dev.isxander.yacl3.gui.controllers.BooleanController;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 
@@ -39,7 +39,7 @@ public class BugFixController extends BooleanController {
         }
 
         private void recalculateTooltipString() {
-            this.tooltipString = control.option().tooltip().getString().toLowerCase();
+            this.tooltipString = control.option().description().text().getString().toLowerCase();
         }
     }
 }

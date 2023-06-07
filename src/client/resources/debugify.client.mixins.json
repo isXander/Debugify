@@ -21,7 +21,6 @@
     "basic.mc140646.EditBoxMixin",
     "basic.mc143474.ClientPacketListenerMixin",
     "basic.mc159163.ClientPacketListenerMixin",
-    "basic.mc162253.ClientPacketListenerMixin",
     "basic.mc165381.LocalPlayerMixin",
     "basic.mc176559.MultiPlayerGameModeMixin",
     "basic.mc183776.KeyboardHandlerMixin",

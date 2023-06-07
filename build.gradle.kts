@@ -4,7 +4,7 @@ import ru.vyarus.gradle.plugin.python.task.PythonTask
 plugins {
     java
 
-    id("fabric-loom") version "1.1.+"
+    id("fabric-loom") version "1.2.+"
     id("io.github.juuxel.loom-quiltflower") version "1.8.+"
 
     id("com.modrinth.minotaur") version "2.7.+"
@@ -19,7 +19,7 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.19.4+2.2"
+version = "1.20+1.0"
 
 loom {
     splitEnvironmentSourceSets()
@@ -99,7 +99,7 @@ dependencies {
 
     modImplementation(fabricApi.module("fabric-resource-loader-v0", fabricApiVersion))
 
-    "modClientImplementation"("dev.isxander:yet-another-config-lib:$yaclVersion") { exclude(module = "fabric-loader") }
+    "modClientImplementation"("dev.isxander.yacl:yet-another-config-lib-fabric:$yaclVersion") { exclude(module = "fabric-loader") }
     "modClientImplementation"("com.terraformersmc:modmenu:$modMenuVersion") { exclude(module = "fabric-loader") }
 
     "gametestImplementation"(sourceSets.main.get().output)

@@ -11,7 +11,7 @@ public class ModMenuIntegration implements ModMenuApi {
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
         return (parent) -> {
-            if (!FabricLoader.getInstance().isModLoaded("yet-another-config-lib"))
+            if (!FabricLoader.getInstance().isModLoaded("yet_another_config_lib_v3"))
                 return new NoYACLScreen(parent);
             return ConfigGuiHelper.createConfigGui(Debugify.CONFIG, parent);
         };

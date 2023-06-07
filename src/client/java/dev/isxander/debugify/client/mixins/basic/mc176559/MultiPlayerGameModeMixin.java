@@ -1,5 +1,6 @@
 package dev.isxander.debugify.client.mixins.basic.mc176559;
 
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import org.spongepowered.asm.mixin.Final;
@@ -24,8 +25,7 @@ public class MultiPlayerGameModeMixin {
 
     @Shadow @Final private Minecraft minecraft;
 
-    @ModifyVariable(method = "sameDestroyTarget", at = @At("STORE"), slice = @Slice(from = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z")))
-    @SuppressWarnings("InvalidInjectorMethodSignature")
+    @ModifyReturnValue(method = "sameDestroyTarget", at = @At("RETURN"))
     private boolean setFlag(boolean value) {
         return !canCauseBlockBreakReset(destroyingItem, minecraft.player.getMainHandItem());
     }
@@ -39,27 +39,33 @@ public class MultiPlayerGameModeMixin {
      * @author BlueAgent
      */
     private boolean canCauseBlockBreakReset(ItemStack oldStack, ItemStack newStack) {
-        if (!newStack.is(oldStack.getItem()))
+        try {
+            if (!newStack.is(oldStack.getItem()))
+                return true;
+
+            if (!newStack.isDamageableItem() || !oldStack.isDamageableItem())
+                return !ItemStack.matches(newStack, oldStack);
+
+            CompoundTag newTag = newStack.getTag();
+            CompoundTag oldTag = oldStack.getTag();
+
+            if (newTag == null || oldTag == null)
+                return !(newTag == null && oldTag == null);
+
+            Set<String> newKeys = new HashSet<>(newTag.getAllKeys());
+            Set<String> oldKeys = new HashSet<>(oldTag.getAllKeys());
+
+            newKeys.remove(ItemStack.TAG_DAMAGE);
+            oldKeys.remove(ItemStack.TAG_DAMAGE);
+
+            if (!newKeys.equals(oldKeys))
+                return true;
+
+            return !newKeys.stream().allMatch(key -> Objects.equals(newTag.get(key), oldTag.get(key)));
+        } catch (Throwable t) {
+            t.printStackTrace();
             return true;
+        }
 
-        if (!newStack.isDamageableItem() || !oldStack.isDamageableItem())
-            return !ItemStack.tagMatches(newStack, oldStack);
-
-        CompoundTag newTag = newStack.getTag();
-        CompoundTag oldTag = oldStack.getTag();
-
-        if (newTag == null || oldTag == null)
-            return !(newTag == null && oldTag == null);
-
-        Set<String> newKeys = new HashSet<>(newTag.getAllKeys());
-        Set<String> oldKeys = new HashSet<>(oldTag.getAllKeys());
-
-        newKeys.remove(ItemStack.TAG_DAMAGE);
-        oldKeys.remove(ItemStack.TAG_DAMAGE);
-
-        if (!newKeys.equals(oldKeys))
-            return true;
-
-        return !newKeys.stream().allMatch(key -> Objects.equals(newTag.get(key), oldTag.get(key)));
     }
 }
