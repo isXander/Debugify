@@ -234,6 +234,8 @@ githubRelease {
     releaseAssets(tasks["remapJar"].outputs.files)
 }
 
+tasks["githubRelease"].dependsOn("optimizeOutputsOfRemapJar")
+
 tasks.register("publishDebugify") {
     group = "debugify"
 
