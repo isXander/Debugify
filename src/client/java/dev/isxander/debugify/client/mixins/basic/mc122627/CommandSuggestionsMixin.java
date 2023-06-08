@@ -14,7 +14,7 @@ public class CommandSuggestionsMixin {
      * Minecraft renders the text at +1 on the x-axis
      * but does not compensate and add 1 to the width of the box
      */
-    @ModifyArg(method = "renderUsage", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiComponent;fill(Lcom/mojang/blaze3d/vertex/PoseStack;IIIII)V"), index = 3)
+    @ModifyArg(method = "renderUsage", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;fill(IIIII)V"), index = 3)
     private int getX2(int x) {
         return x + 1;
     }
