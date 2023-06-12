@@ -2,10 +2,12 @@ package dev.isxander.debugify;
 
 import dev.isxander.debugify.config.DebugifyConfig;
 import dev.isxander.debugify.fixes.BugFix;
+import dev.isxander.debugify.mixinplugin.DebugifyErrorHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.spongepowered.asm.mixin.Mixins;
 
 import java.util.List;
 import java.util.Map;
@@ -21,6 +23,7 @@ public class Debugify {
      */
     public static void onPreInitialize() {
         CONFIG.preload();
+        Mixins.registerErrorHandlerClass(DebugifyErrorHandler.class.getName());
     }
 
     public static void onInitialize() {

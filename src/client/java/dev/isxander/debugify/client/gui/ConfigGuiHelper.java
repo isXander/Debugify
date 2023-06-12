@@ -1,23 +1,18 @@
 package dev.isxander.debugify.client.gui;
 
-import dev.isxander.debugify.Debugify;
 import dev.isxander.debugify.client.DebugifyClient;
 import dev.isxander.debugify.config.DebugifyConfig;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
+import dev.isxander.debugify.mixinplugin.DebugifyErrorHandler;
 import dev.isxander.yacl3.api.*;
 import dev.isxander.yacl3.api.controller.BooleanControllerBuilder;
 import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder;
-import dev.isxander.yacl3.gui.controllers.BooleanController;
-import dev.isxander.yacl3.gui.controllers.LabelController;
-import dev.isxander.yacl3.gui.controllers.TickBoxController;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class ConfigGuiHelper {
     public static Screen createConfigGui(DebugifyConfig config, Screen parent) {
@@ -55,7 +50,8 @@ public class ConfigGuiHelper {
                     if (bug.env() == env && bug.category() == fixCategory) {
                         var conflicts = bug.getActiveConflicts().stream().map(id -> FabricLoader.getInstance().getModContainer(id).orElseThrow().getMetadata().getName()).toList();
                         var satisfiesOS = bug.satisfiesOSRequirement();
-                        var unavailable = !conflicts.isEmpty() || !satisfiesOS;
+                        var errored = DebugifyErrorHandler.hasErrored(bug);
+                        var unavailable = !conflicts.isEmpty() || !satisfiesOS || errored;
 
                         var optionBuilder = Option.<Boolean>createBuilder()
                                 .name(Component.literal(bug.bugId()))
@@ -64,11 +60,22 @@ public class ConfigGuiHelper {
                                         () -> config.getBugFixes().get(bug),
                                         value -> config.getBugFixes().replace(bug, value)
                                 )
-                                .customController(BugFixController::new)
+                                .customController(opt -> new BugFixController(opt, errored))
                                 .available(!unavailable)
                                 .flag(OptionFlag.GAME_RESTART);
 
                         OptionDescription.Builder descriptionBuilder = OptionDescription.createBuilder();
+
+                        if (errored) {
+                            descriptionBuilder.text(Component.translatable("debugify.error.mixin_error", bug.bugId()).withStyle(ChatFormatting.RED, ChatFormatting.BOLD));
+                        }
+
+                        for (String conflictMod : conflicts) {
+                            descriptionBuilder.text(Component.translatable("debugify.error.conflict", bug.bugId(), conflictMod).withStyle(ChatFormatting.RED));
+                        }
+
+                        if (!satisfiesOS)
+                            descriptionBuilder.text(Component.translatable("debugify.error.os", bug.bugId(), Component.translatable(bug.requiredOs().getDisplayName())).withStyle(ChatFormatting.RED));
 
                         if (DebugifyClient.bugFixDescriptionCache.has(bug.bugId()))
                             descriptionBuilder.text(Component.literal(DebugifyClient.bugFixDescriptionCache.get(bug.bugId())));
@@ -80,13 +87,6 @@ public class ConfigGuiHelper {
                         String fixEffectTooltipKey = "debugify.fix_effect." + bug.bugId().toLowerCase();
                         if (Language.getInstance().has(fixEffectTooltipKey))
                             descriptionBuilder.text(Component.translatable(fixEffectTooltipKey).withStyle(ChatFormatting.GOLD));
-
-                        for (String conflictMod : conflicts) {
-                            descriptionBuilder.text(Component.translatable("debugify.error.conflict", bug.bugId(), conflictMod).withStyle(ChatFormatting.RED));
-                        }
-
-                        if (!satisfiesOS)
-                            descriptionBuilder.text(Component.translatable("debugify.error.os", bug.bugId(), Component.translatable(bug.requiredOs().getDisplayName())).withStyle(ChatFormatting.RED));
 
                         optionBuilder.description(descriptionBuilder.build());
 

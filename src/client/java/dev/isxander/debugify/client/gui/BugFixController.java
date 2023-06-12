@@ -9,8 +9,10 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 
 public class BugFixController extends BooleanController {
-    public BugFixController(Option<Boolean> option) {
+    public BugFixController(Option<Boolean> option, boolean errored) {
         super(option, state -> {
+            if (errored)
+                return Component.translatable("debugify.error.mixin_error.text").withStyle(ChatFormatting.RED);
             if (!option.available())
                 return Component.translatable("debugify.fix.unavailable");
             return state

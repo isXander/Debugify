@@ -38,7 +38,8 @@ public class DebugifyConfig {
         preloaded = true;
 
         if (!Files.exists(configPath)) {
-            if (FabricLoader.getInstance().isModLoaded("yosbr") && Files.exists(configPath.getParent().resolve("yosbr/" + configPath.getFileName().toString()))) {
+            if (FabricLoader.getInstance().isModLoaded("yosbr")
+                    && Files.exists(configPath.getParent().resolve("yosbr/" + configPath.getFileName().toString()))) {
                 throw new YosbrError();
             }
             return;

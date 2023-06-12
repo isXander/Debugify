@@ -9,6 +9,8 @@
   "debugify.fix.unavailable": "Unavailable",
   "debugify.error.conflict": "%s fix is incompatible with the mod '%s'",
   "debugify.error.os": "%s only applies to %s",
+  "debugify.error.mixin_error": "Failed to load %s, check the log for more information.",
+  "debugify.error.mixin_error.text": "Errored",
   "debugify.os.windows": "Windows",
   "debugify.os.macos": "macOS",
   "debugify.os.linux": "Linux",

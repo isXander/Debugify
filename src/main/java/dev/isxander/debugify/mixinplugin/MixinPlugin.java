@@ -58,6 +58,11 @@ public class MixinPlugin implements IMixinConfigPlugin {
         var multipleMixins = Debugify.CONFIG.getBugFixes().containsKey(bugFix);
         Debugify.CONFIG.registerBugFix(bugFix);
 
+        if (DebugifyErrorHandler.hasErrored(bugFix)) {
+            Debugify.LOGGER.warn("Preventing loading of {} mixin, {} because another mixin for the same bug fix failed to apply.", bugFix.bugId(), mixinClassNode.name);
+            return false;
+        }
+
         Set<String> conflicts = bugFix.getActiveConflicts();
         if (!conflicts.isEmpty()) {
             if (Debugify.CONFIG.isBugFixEnabled(bugFix) && !multipleMixins)
@@ -72,7 +77,7 @@ public class MixinPlugin implements IMixinConfigPlugin {
         return Debugify.CONFIG.isBugFixEnabled(bugFix);
     }
 
-    private ClassNode getClassNode(String className) {
+    static ClassNode getClassNode(String className) {
         ClassNode classNode;
 
         try {
@@ -84,7 +89,7 @@ public class MixinPlugin implements IMixinConfigPlugin {
         return classNode;
     }
 
-    private Optional<BugFixData> getBugFixForMixin(ClassNode mixinClassNode) {
+    static Optional<BugFixData> getBugFixForMixin(ClassNode mixinClassNode) {
         AnnotationNode annotationNode = Annotations.getVisible(mixinClassNode, BugFix.class);
 
         if (annotationNode == null)
