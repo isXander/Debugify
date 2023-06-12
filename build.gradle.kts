@@ -19,7 +19,7 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.20+1.1"
+version = "1.20.1+1.0"
 
 loom {
     splitEnvironmentSourceSets()
@@ -164,7 +164,7 @@ modrinth {
     changelog.set(changelogText)
     dependencies {
         required.project("yacl")
-        optional.project("cloth-config")
+        optional.project("modmenu")
     }
     syncBodyFrom.set(project.file("README.md").readText())
 }
