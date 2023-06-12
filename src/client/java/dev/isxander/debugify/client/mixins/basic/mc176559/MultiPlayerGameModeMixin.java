@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.Slice;
 
 import java.util.HashSet;
@@ -25,8 +26,8 @@ public class MultiPlayerGameModeMixin {
 
     @Shadow @Final private Minecraft minecraft;
 
-    @ModifyReturnValue(method = "sameDestroyTarget", at = @At("RETURN"))
-    private boolean setFlag(boolean value) {
+    @Redirect(method = "sameDestroyTarget", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;isSameItemSameTags(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z"))
+    private boolean isSameItem(ItemStack itemStack, ItemStack itemStack2) {
         return !canCauseBlockBreakReset(destroyingItem, minecraft.player.getMainHandItem());
     }
 
@@ -44,7 +45,7 @@ public class MultiPlayerGameModeMixin {
                 return true;
 
             if (!newStack.isDamageableItem() || !oldStack.isDamageableItem())
-                return !ItemStack.matches(newStack, oldStack);
+                return !ItemStack.isSameItemSameTags(newStack, oldStack);
 
             CompoundTag newTag = newStack.getTag();
             CompoundTag oldTag = oldStack.getTag();
@@ -64,7 +65,7 @@ public class MultiPlayerGameModeMixin {
             return !newKeys.stream().allMatch(key -> Objects.equals(newTag.get(key), oldTag.get(key)));
         } catch (Throwable t) {
             t.printStackTrace();
-            return true;
+            return false;
         }
 
     }
