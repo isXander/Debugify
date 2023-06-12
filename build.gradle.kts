@@ -84,7 +84,8 @@ val modMenuVersion: String by project
 dependencies {
     minecraft("com.mojang:minecraft:$minecraftVersion")
     mappings(loom.layered {
-        mappings("org.quiltmc:quilt-mappings:$minecraftVersion+build.$qmBuild:intermediary-v2")
+        if (qmBuild != "0")
+            mappings("org.quiltmc:quilt-mappings:$minecraftVersion+build.$qmBuild:intermediary-v2")
         officialMojangMappings()
     })
 
@@ -236,6 +237,7 @@ githubRelease {
 
 tasks["githubRelease"].dependsOn("optimizeOutputsOfRemapJar")
 tasks["modrinth"].dependsOn("optimizeOutputsOfRemapJar")
+tasks["generateMetadataFileForDebugifyPublication"].dependsOn("optimizeOutputsOfRemapJar")
 
 tasks.register("publishDebugify") {
     group = "debugify"
