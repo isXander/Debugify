@@ -26,6 +26,6 @@
   "debugify.mc_237493.header": "Télémétrie désactivée par Debugify",
   "debugify.mc_237493.line": "Vous avez choisi '%s' pour l'option de télémétrie, Debugify empêche donc toute connexion avec les services de télémétrie de Mojang. Cette option est fournie par Debugify pour la correction MC-237493.",
   "debugify.mc_237493.tooltip.off": "'%s' désactive complètement toute connexion aux services de télémétrie de Mojang. (Debugify MC-237493)",
-  "debugify.mc_237493.tooltip.minimal": "Le fichier "%s" ne contient que les informations que Mojang juge nécessaires.",
+  "debugify.mc_237493.tooltip.minimal": "Le fichier \"%s\" ne contient que les informations que Mojang juge nécessaires.",
   "debugify.mc_237493.tooltip.all": "'%s' inclut toute la télémétrie minimale et optionnelle."
 }

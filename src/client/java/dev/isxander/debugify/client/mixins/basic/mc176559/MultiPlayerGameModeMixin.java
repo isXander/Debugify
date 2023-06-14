@@ -19,7 +19,7 @@ import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 
-@BugFix(id = "MC-176559", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-176559", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "fabric-api")
 @Mixin(MultiPlayerGameMode.class)
 public class MultiPlayerGameModeMixin {
     @Shadow private ItemStack destroyingItem;

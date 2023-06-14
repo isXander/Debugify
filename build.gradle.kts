@@ -19,7 +19,7 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.20.1+1.0"
+version = "1.20.1+1.1"
 
 loom {
     splitEnvironmentSourceSets()
@@ -99,6 +99,7 @@ dependencies {
     }
 
     modImplementation(fabricApi.module("fabric-resource-loader-v0", fabricApiVersion))
+    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion")
 
     "modClientImplementation"("dev.isxander.yacl:yet-another-config-lib-fabric:$yaclVersion") { exclude(module = "fabric-loader") }
     "modClientImplementation"("com.terraformersmc:modmenu:$modMenuVersion") { exclude(module = "fabric-loader") }
