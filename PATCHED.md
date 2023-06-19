@@ -37,44 +37,45 @@
 | Basic    | [MC-237493](https://bugs.mojang.com/browse/MC-237493) | Telemetry cannot be disabled                                                                                                        |
 
 ### Server Side (Both)
-| Type     | Bug ID                                                | Name                                                                                               |
-|----------|-------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| Basic    | [MC-2025](https://bugs.mojang.com/browse/MC-2025)     | Mobs going out of fenced areas/suffocate in blocks when loading chunks                             |
-| Basic    | [MC-7569](https://bugs.mojang.com/browse/MC-7569)     | RCON output has newlines removed                                                                   |
-| Basic    | [MC-14923](https://bugs.mojang.com/browse/MC-14923)   | Players can be kicked for spamming in a singleplayer world with cheats disabled                    |
-| Basic    | [MC-30391](https://bugs.mojang.com/browse/MC-30391)   | Chickens, blazes and the wither emit particles when landing from a height, despite falling slowly  |
-| Gameplay | [MC-31819](https://bugs.mojang.com/browse/MC-31819)   | Hunger saturation depletes on Peaceful                                                             |
-| Basic    | [MC-69216](https://bugs.mojang.com/browse/MC-69216)   | Switching to spectator mode while fishing keeps rod cast                                           |
-| Basic    | [MC-72151](https://bugs.mojang.com/browse/MC-72151)   | Snow Golem's snowballs damage wolves instead of pushing them                                       |
-| Basic    | [MC-81773](https://bugs.mojang.com/browse/MC-81773)   | Bows and tridents drawn in survival/creative/adventure mode can be released in spectator mode      |
-| Basic    | [MC-88371](https://bugs.mojang.com/browse/MC-88371)   | Ender Dragon flies down in the void when the exit portal is destroyed                              |
-| Basic    | [MC-89146](https://bugs.mojang.com/browse/MC-89146)   | Pistons forget update when being reloaded                                                          |
-| Basic    | [MC-90084](https://bugs.mojang.com/browse/MC-90084)   | When sitting in boats and boats with chest mobs legs penetrate the hull                            |
-| Basic    | [MC-93018](https://bugs.mojang.com/browse/MC-93018)   | Wild wolves show breeding hearts but do not breed                                                  |
-| Basic    | [MC-100991](https://bugs.mojang.com/browse/MC-100991) | Killing entities with a fishing rod doesn't count as a kill                                        |
-| Basic    | [MC-119417](https://bugs.mojang.com/browse/MC-119417) | A spectator can occupy a bed if they enter it and then are switched to spectator mode              |
-| Basic    | [MC-119754](https://bugs.mojang.com/browse/MC-119754) | Firework boosting on elytra continues in spectator mode                                            |
-| Basic    | [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Skeletons and illusioners aren't looking up / down at their target while strafing                  |
-| Basic    | [MC-121903](https://bugs.mojang.com/browse/MC-121903) | Command block minecarts do not save execution cooldown to NBT                                      |
-| Basic    | [MC-124177](https://bugs.mojang.com/browse/MC-124177) | Teleporting to another dimension loses some client states                                          |
-| Basic    | [MC-129909](https://bugs.mojang.com/browse/MC-129909) | Players in spectator mode continue to consume foods and liquids shortly after switching game modes |
-| Basic    | [MC-132878](https://bugs.mojang.com/browse/MC-132878) | Armor stands destroyed by explosions/lava/fire don't produce particles                             |
-| Basic    | [MC-135971](https://bugs.mojang.com/browse/MC-135971) | Can't use CTRL+Q in crafting table                                                                 |
-| Basic    | [MC-155509](https://bugs.mojang.com/browse/MC-155509) | Puffed pufferfish can hurt the player while dying                                                  |
-| Basic    | [MC-160095](https://bugs.mojang.com/browse/MC-160095) | End Rods only break Cactus when moved by pistons                                                   |
-| Basic    | [MC-179072](https://bugs.mojang.com/browse/MC-179072) | Creepers do not defuse when switching from Survival to Creative/Spectator                          |
-| Basic    | [MC-183990](https://bugs.mojang.com/browse/MC-183990) | Group AI of some mobs breaks when their target dies                                                |
-| Basic    | [MC-193343](https://bugs.mojang.com/browse/MC-193343) | Soul Speed effect remains after switching to spectator mode                                        |
-| Basic    | [MC-199467](https://bugs.mojang.com/browse/MC-199467) | Certain entity animations stop after they've existed in world for too long                         |
-| Basic    | [MC-200418](https://bugs.mojang.com/browse/MC-200418) | Cured baby zombie villagers stay as jockey variant                                                 |
-| Basic    | [MC-214147](https://bugs.mojang.com/browse/MC-214147) | Skeletons wearing leather armor still convert to strays in powder snow                             |
-| Basic    | [MC-206705](https://bugs.mojang.com/browse/MC-206705) | Spyglasses stay in use in spectator mode                                                           |
-| Basic    | [MC-206922](https://bugs.mojang.com/browse/MC-206922) | Items dropped by entities that are killed by lightning instantly disappear                         |
-| Basic    | [MC-215530](https://bugs.mojang.com/browse/MC-215530) | The freezing effect isn't immediately removed when switching into spectator mode                   |
-| Basic    | [MC-223153](https://bugs.mojang.com/browse/MC-223153) | Block of Raw Copper uses stone sounds instead of copper sounds                                     |
-| Basic    | [MC-224729](https://bugs.mojang.com/browse/MC-224729) | Partially generated chunks are not saved in some situations                                        |
-| Basic    | [MC-231743](https://bugs.mojang.com/browse/MC-231743) | minecraft.used:minecraft.POTTABLE_PLANT doesn't increase when placing plants into flower pots      |
-| Basic    | [MC-232869](https://bugs.mojang.com/browse/MC-232869) | Adult striders can spawn with saddles in peaceful mode                                             |
+| Type     | Bug ID                                                | Name                                                                                                                                           |
+|----------|-------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| Basic    | [MC-2025](https://bugs.mojang.com/browse/MC-2025)     | Mobs going out of fenced areas/suffocate in blocks when loading chunks                                                                         |
+| Basic    | [MC-7569](https://bugs.mojang.com/browse/MC-7569)     | RCON output has newlines removed                                                                                                               |
+| Gameplay | [MC-8187](https://bugs.mojang.com/browse/MC-8187)     | Two-by-two arrangements of jungle or spruce saplings cannot grow when there are adjacent blocks located north or west of the sapling formation |
+| Basic    | [MC-14923](https://bugs.mojang.com/browse/MC-14923)   | Players can be kicked for spamming in a singleplayer world with cheats disabled                                                                |
+| Basic    | [MC-30391](https://bugs.mojang.com/browse/MC-30391)   | Chickens, blazes and the wither emit particles when landing from a height, despite falling slowly                                              |
+| Gameplay | [MC-31819](https://bugs.mojang.com/browse/MC-31819)   | Hunger saturation depletes on Peaceful                                                                                                         |
+| Basic    | [MC-69216](https://bugs.mojang.com/browse/MC-69216)   | Switching to spectator mode while fishing keeps rod cast                                                                                       |
+| Basic    | [MC-72151](https://bugs.mojang.com/browse/MC-72151)   | Snow Golem's snowballs damage wolves instead of pushing them                                                                                   |
+| Basic    | [MC-81773](https://bugs.mojang.com/browse/MC-81773)   | Bows and tridents drawn in survival/creative/adventure mode can be released in spectator mode                                                  |
+| Basic    | [MC-88371](https://bugs.mojang.com/browse/MC-88371)   | Ender Dragon flies down in the void when the exit portal is destroyed                                                                          |
+| Basic    | [MC-89146](https://bugs.mojang.com/browse/MC-89146)   | Pistons forget update when being reloaded                                                                                                      |
+| Basic    | [MC-90084](https://bugs.mojang.com/browse/MC-90084)   | When sitting in boats and boats with chest mobs legs penetrate the hull                                                                        |
+| Basic    | [MC-93018](https://bugs.mojang.com/browse/MC-93018)   | Wild wolves show breeding hearts but do not breed                                                                                              |
+| Basic    | [MC-100991](https://bugs.mojang.com/browse/MC-100991) | Killing entities with a fishing rod doesn't count as a kill                                                                                    |
+| Basic    | [MC-119417](https://bugs.mojang.com/browse/MC-119417) | A spectator can occupy a bed if they enter it and then are switched to spectator mode                                                          |
+| Basic    | [MC-119754](https://bugs.mojang.com/browse/MC-119754) | Firework boosting on elytra continues in spectator mode                                                                                        |
+| Basic    | [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Skeletons and illusioners aren't looking up / down at their target while strafing                                                              |
+| Basic    | [MC-121903](https://bugs.mojang.com/browse/MC-121903) | Command block minecarts do not save execution cooldown to NBT                                                                                  |
+| Basic    | [MC-124177](https://bugs.mojang.com/browse/MC-124177) | Teleporting to another dimension loses some client states                                                                                      |
+| Basic    | [MC-129909](https://bugs.mojang.com/browse/MC-129909) | Players in spectator mode continue to consume foods and liquids shortly after switching game modes                                             |
+| Basic    | [MC-132878](https://bugs.mojang.com/browse/MC-132878) | Armor stands destroyed by explosions/lava/fire don't produce particles                                                                         |
+| Basic    | [MC-135971](https://bugs.mojang.com/browse/MC-135971) | Can't use CTRL+Q in crafting table                                                                                                             |
+| Basic    | [MC-155509](https://bugs.mojang.com/browse/MC-155509) | Puffed pufferfish can hurt the player while dying                                                                                              |
+| Basic    | [MC-160095](https://bugs.mojang.com/browse/MC-160095) | End Rods only break Cactus when moved by pistons                                                                                               |
+| Basic    | [MC-179072](https://bugs.mojang.com/browse/MC-179072) | Creepers do not defuse when switching from Survival to Creative/Spectator                                                                      |
+| Basic    | [MC-183990](https://bugs.mojang.com/browse/MC-183990) | Group AI of some mobs breaks when their target dies                                                                                            |
+| Basic    | [MC-193343](https://bugs.mojang.com/browse/MC-193343) | Soul Speed effect remains after switching to spectator mode                                                                                    |
+| Basic    | [MC-199467](https://bugs.mojang.com/browse/MC-199467) | Certain entity animations stop after they've existed in world for too long                                                                     |
+| Basic    | [MC-200418](https://bugs.mojang.com/browse/MC-200418) | Cured baby zombie villagers stay as jockey variant                                                                                             |
+| Basic    | [MC-214147](https://bugs.mojang.com/browse/MC-214147) | Skeletons wearing leather armor still convert to strays in powder snow                                                                         |
+| Basic    | [MC-206705](https://bugs.mojang.com/browse/MC-206705) | Spyglasses stay in use in spectator mode                                                                                                       |
+| Basic    | [MC-206922](https://bugs.mojang.com/browse/MC-206922) | Items dropped by entities that are killed by lightning instantly disappear                                                                     |
+| Basic    | [MC-215530](https://bugs.mojang.com/browse/MC-215530) | The freezing effect isn't immediately removed when switching into spectator mode                                                               |
+| Basic    | [MC-223153](https://bugs.mojang.com/browse/MC-223153) | Block of Raw Copper uses stone sounds instead of copper sounds                                                                                 |
+| Basic    | [MC-224729](https://bugs.mojang.com/browse/MC-224729) | Partially generated chunks are not saved in some situations                                                                                    |
+| Basic    | [MC-231743](https://bugs.mojang.com/browse/MC-231743) | minecraft.used:minecraft.POTTABLE_PLANT doesn't increase when placing plants into flower pots                                                  |
+| Basic    | [MC-232869](https://bugs.mojang.com/browse/MC-232869) | Adult striders can spawn with saddles in peaceful mode                                                                                         |
 
 ## Previously patched
 Bugs that this mod has patched but has been superseded by a vanilla update.
