@@ -20,6 +20,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.Slice;
 
 /**
  * Fixes the offsets for 2x2 saplings at starting height
@@ -43,20 +44,32 @@ public class MixinTreeFeature {
 	 * I should note there: This isn't <em>an optimal bugfix</em> as it is possible for poorly implemented 3x3 trees to erroneously check only a 2x2.
 	 */
 	@SuppressWarnings("MethodMayBeStatic") // Not applicable
-	@ModifyVariable(method = "getMaxFreeTreeHeight", at = @At(value = "STORE", ordinal = 0), allow = 1, index = 8)
-	private int flwr8187$fixOffset(int startValue, LevelSimulatedReader world, int i, BlockPos pos, TreeConfiguration config) {
+	@ModifyVariable(method = "getMaxFreeTreeHeight",
+			at = @At(value = "STORE", ordinal = 0),
+			slice = @Slice(from = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/level/levelgen/feature/featuresize/FeatureSize;getSizeAtHeight(II)I")),
+			allow = 1, ordinal = 3)
+	private int fixOffset(int startValue, LevelSimulatedReader world, int i, BlockPos pos, TreeConfiguration config) {
+		return fixOffsetImpl(startValue, i, config);
+	}
+
+	/**
+	 * Redirects to {@link #fixOffsetImpl(int, int, TreeConfiguration)}
+	 */
+	@SuppressWarnings("MethodMayBeStatic") // Not applicable
+	@ModifyVariable(method = "getMaxFreeTreeHeight",
+			at = @At(value = "STORE", ordinal = 0),
+			slice = @Slice(from = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/level/levelgen/feature/featuresize/FeatureSize;getSizeAtHeight(II)I")),
+			allow = 1, ordinal = 4)
+	private int fixOffset2(int startValue, LevelSimulatedReader world, int i, BlockPos pos, TreeConfiguration config) {
+		return fixOffsetImpl(startValue, i, config);
+	}
+
+
+	private static int fixOffsetImpl(int startValue, int i, TreeConfiguration config) {
 		//  Roughly height == 0 && trunk == 1
 		if (startValue == -1 && config.minimumSize.getSizeAtHeight(i, 0) == 1) {
 			return 0;
 		}
 		return startValue;
-	}
-
-	/**
-	 * Redirects to {@link #flwr8187$fixOffset(int, LevelSimulatedReader, int, BlockPos, TreeConfiguration)}
-	 */
-	@ModifyVariable(method = "getMaxFreeTreeHeight", at = @At(value = "STORE", ordinal = 0), allow = 1, index = 9)
-	private int flwr8187$fixOffset2(int v, LevelSimulatedReader world, int i, BlockPos pos, TreeConfiguration config) {
-		return flwr8187$fixOffset(v, world, i, pos, config);
 	}
 }

@@ -19,7 +19,7 @@ import java.util.function.Predicate;
  * @see DebugifyMc8187TestSuite
  * @since 1.20.1+1.2
  **/
-public final class DebugifyTestUtilites {
+public final class DebugifyTestUtils {
     public static final int TIME_OF_DAY_NOON = 6000;
 
     /**

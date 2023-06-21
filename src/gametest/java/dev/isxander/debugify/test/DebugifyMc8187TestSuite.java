@@ -57,7 +57,7 @@ public class DebugifyMc8187TestSuite implements FabricGameTest {
         // Setup
         final BlockState saplingState = sapling.defaultBlockState().setValue(SaplingBlock.STAGE, 1);
 
-        DebugifyTestUtilites.bonemealIndefinitely(ctx, growCorner);
+        DebugifyTestUtils.bonemealIndefinitely(ctx, growCorner);
 
         testTreeCommon(ctx, saplingState, log, growCorner, small);
     }
@@ -70,7 +70,7 @@ public class DebugifyMc8187TestSuite implements FabricGameTest {
         ctx.assertTrue(sapling instanceof AzaleaBlock, sapling + " is not a sapling");
         testTreeParamCommon(ctx, sapling, log, growCorner, false);
 
-        DebugifyTestUtilites.bonemealIndefinitely(ctx, growCorner);
+        DebugifyTestUtils.bonemealIndefinitely(ctx, growCorner);
 
         testTreeCommon(ctx, sapling.defaultBlockState(), log, growCorner, true);
     }
@@ -93,12 +93,12 @@ public class DebugifyMc8187TestSuite implements FabricGameTest {
      * Continuously checks whether the tree has grown.
      */
     private static void testTreeCommon(GameTestHelper ctx, BlockState sapling, Block log, BlockPos growCorner, boolean small) {
-        DebugifyTestUtilites.fill(ctx, START_CORNER, END_CORNER, sapling);
+        DebugifyTestUtils.fill(ctx, START_CORNER, END_CORNER, sapling);
 
         if (small) {
             ctx.succeedWhen(() -> ctx.assertBlock(growCorner, block -> block == log, "Incorrect log, expected " + log));
         } else {
-            ctx.succeedWhen(() -> DebugifyTestUtilites.assertBlockFill(ctx, START_CORNER, END_CORNER, block -> block == log,
+            ctx.succeedWhen(() -> DebugifyTestUtils.assertBlockFill(ctx, START_CORNER, END_CORNER, block -> block == log,
                     "Incorrect log, expected " + log));
         }
     }
@@ -191,13 +191,13 @@ public class DebugifyMc8187TestSuite implements FabricGameTest {
     private static void assertSuitable(GameTestHelper ctx, boolean requiresDay) {
         // Force it to be day for random-tick-based tests.
         if (requiresDay) {
-            ctx.setDayTime(DebugifyTestUtilites.TIME_OF_DAY_NOON);
+            ctx.setDayTime(DebugifyTestUtils.TIME_OF_DAY_NOON);
         }
 
         // For some reason, + 1 is required.
         final var pos = CORNER;
-        DebugifyTestUtilites.assertBlockStateFill(ctx, pos, pos.offset(1, 0, 1), b -> b.is(BlockTags.DIRT), "Invalid template; not dirt");
-        DebugifyTestUtilites.assertBlockFill(ctx, pos.above(), pos.offset(1, 1, 1), b -> b == Blocks.AIR, "Invalid template; not air");
+        DebugifyTestUtils.assertBlockStateFill(ctx, pos, pos.offset(1, 0, 1), b -> b.is(BlockTags.DIRT), "Invalid template; not dirt");
+        DebugifyTestUtils.assertBlockFill(ctx, pos.above(), pos.offset(1, 1, 1), b -> b == Blocks.AIR, "Invalid template; not air");
         ctx.assertBlockState(pos.offset(-1, 1, -1), b -> !b.canBeReplaced(), () -> "Invalid template; NW block not solid");
     }
 }
