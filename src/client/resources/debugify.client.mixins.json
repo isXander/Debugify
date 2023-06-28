@@ -36,6 +36,7 @@
     "basic.mc237493.TelemetryEventInstanceMixin",
     "basic.mc237493.TelemetryEventWidgetMixin",
     "basic.mc237493.TelemetryInfoScreenMixin",
+    "basic.mc263865.KeyboardHandlerMixin",
     "basic.mc4490.FishingHookRendererMixin",
     "basic.mc46766.MinecraftMixin",
     "basic.mc55347.GuiMixin",
