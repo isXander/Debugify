@@ -125,6 +125,7 @@ tasks.processResources {
         License stuff:
         j-Tai's TieFix - Code used licensed under LGPLv3
         FlashyReese's Sodium Extra - Code used licensed under LGPLv3
+        Ampflower's 2x2 Surrounded Saplings Fix - Code used licensed under Zlib
         """.trimIndent()
     inputs.property("version", project.version)
     inputs.property("description", modDescription)

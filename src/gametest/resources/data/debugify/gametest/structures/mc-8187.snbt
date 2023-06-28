@@ -1,0 +1,27 @@
+{
+    DataVersion: 3463,
+    size: [18, 2, 18],
+    data: [
+        {pos: [8, 0, 8], state: "minecraft:grass_block{snowy:false}"},
+        {pos: [8, 0, 9], state: "minecraft:grass_block{snowy:false}"},
+        {pos: [9, 0, 8], state: "minecraft:grass_block{snowy:false}"},
+        {pos: [9, 0, 9], state: "minecraft:grass_block{snowy:false}"},
+        {pos: [7, 1, 7], state: "minecraft:stone"},
+        {pos: [7, 1, 8], state: "minecraft:stone"},
+        {pos: [7, 1, 9], state: "minecraft:stone"},
+        {pos: [7, 1, 10], state: "minecraft:stone"},
+        {pos: [8, 1, 7], state: "minecraft:stone"},
+        {pos: [8, 1, 10], state: "minecraft:stone"},
+        {pos: [9, 1, 7], state: "minecraft:stone"},
+        {pos: [9, 1, 10], state: "minecraft:stone"},
+        {pos: [10, 1, 7], state: "minecraft:stone"},
+        {pos: [10, 1, 8], state: "minecraft:stone"},
+        {pos: [10, 1, 9], state: "minecraft:stone"},
+        {pos: [10, 1, 10], state: "minecraft:stone"}
+    ],
+    entities: [],
+    palette: [
+        "minecraft:grass_block{snowy:false}",
+        "minecraft:stone"
+    ]
+}

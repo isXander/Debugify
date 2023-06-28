@@ -26,6 +26,7 @@ This mod replaces many mods and implements fixes from some others
 - **[Entity Collision FPS Fix Refabricated](https://www.curseforge.com/minecraft/mc-mods/entity-collision-fps-fix-fabric)**
 - **[Ctrl Q](https://www.curseforge.com/minecraft/mc-mods/ctrl-q)**: Missing other QOL features that aren't bugs.
 - **[Skeleton Aiming Fix](https://www.curseforge.com/minecraft/mc-mods/skeleton-aiming-fix)**
+- **[2x2 Surrounded Saplings Fix](https://modrinth.com/mod/8187)**
 
 **These superseded mods are not hard conflicts and can be used in conjunction with Debugify for any additional advanced features.**
 

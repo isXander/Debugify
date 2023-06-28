@@ -11,7 +11,9 @@
       "dev.isxander.debugify.test.DebugifyGameTestMain"
     ],
     "fabric-gametest": [
-      "dev.isxander.debugify.test.DebugifyServerTestSuite"
+      "dev.isxander.debugify.test.DebugifyMc72151TestSuite",
+      "dev.isxander.debugify.test.DebugifyMc8187TestSuite",
+      "dev.isxander.debugify.test.DebugifyMc93018TestSuite"
     ],
     "debugify": [
       "dev.isxander.debugify.test.DebugifyApiTest"

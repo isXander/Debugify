@@ -42,6 +42,7 @@
     "basic.mc89146.ChunkAccessMixin",
     "basic.mc90084.BoatMixin",
     "basic.mc93018.AnimalMixin",
-    "gameplay.mc31819.PlayerMixin"
+    "gameplay.mc31819.PlayerMixin",
+    "gameplay.mc8187.MixinTreeFeature"
   ]
 }
