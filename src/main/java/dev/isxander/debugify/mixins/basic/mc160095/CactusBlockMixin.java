@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@BugFix(id = "MC-160095", category = FixCategory.BASIC, env = BugFix.Env.SERVER)
+@BugFix(id = "MC-160095", category = FixCategory.BASIC, env = BugFix.Env.SERVER, modConflicts = "carpet-fixes")
 @Mixin(CactusBlock.class)
 public class CactusBlockMixin {
     @Redirect(method = "canSurvive", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/LevelReader;getBlockState(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;", ordinal = 0))
