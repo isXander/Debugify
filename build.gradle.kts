@@ -5,7 +5,7 @@ plugins {
     java
 
     id("fabric-loom") version "1.2.+"
-    id("io.github.juuxel.loom-quiltflower") version "1.10.+"
+    id("io.github.juuxel.loom-quiltflower") version "1.11.+"
 
     id("com.modrinth.minotaur") version "2.7.+"
     id("me.hypherionmc.cursegradle") version "2.+"
