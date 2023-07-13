@@ -44,7 +44,7 @@
     "fabric-resource-loader-v0": "*"
   },
   "recommends": {
-    "yet-another-config-lib": "3.x.x",
+    "yet_another_config_lib_v3": "*",
     "modmenu": "*"
   },
   "custom": {
