@@ -8,6 +8,8 @@
   },
   "plugin": "dev.isxander.debugify.mixinplugin.MixinPlugin",
   "client": [
+    "basic.mc105068.LivingEntityMixin",
+    "basic.mc105068.PlayerMixin",
     "basic.mc108948.BoatMixin",
     "basic.mc111516.PlayerRendererMixin",
     "basic.mc112730.ChunkRenderDispatcherRenderChunkRebuildTaskMixin",
