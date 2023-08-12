@@ -13,6 +13,6 @@ public class DebugifyApiTest implements DebugifyApi {
 
     @Override
     public Map<String, Set<String>> getProvidedDisabledFixes() {
-        return Map.of("yet-another-config-lib", Set.of("MC-577"));
+        return Map.of("yet_another_config_lib_v3", Set.of("MC-577"));
     }
 }
