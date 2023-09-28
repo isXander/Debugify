@@ -16,6 +16,7 @@
 ## What does this mod replace?
 This mod replaces many mods and implements fixes from some others
 
+- **[SmoothMenu Refabricated](https://modrinth.com/mod/smoothmenu-refabricated)**
 - **[Shift-Scroll Fix](https://www.curseforge.com/minecraft/mc-mods/shift-scroll-fix)**
 - **[ForgetMeChunk](https://www.curseforge.com/minecraft/mc-mods/forgetmechunk)**
 - **[ChunkSavingFix](https://www.curseforge.com/minecraft/mc-mods/chunk-saving-fix)**

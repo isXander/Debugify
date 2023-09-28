@@ -20,6 +20,7 @@
     "basic.mc159163.ClientPacketListenerMixin",
     "basic.mc165381.LocalPlayerMixin",
     "basic.mc176559.MultiPlayerGameModeMixin",
+    "basic.mc176567.MinecraftMixin",
     "basic.mc183776.KeyboardHandlerMixin",
     "basic.mc197260.ArmorStandRendererMixin",
     "basic.mc197260.LivingEntityRendererMixin",
