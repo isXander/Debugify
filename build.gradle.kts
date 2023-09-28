@@ -4,8 +4,8 @@ import ru.vyarus.gradle.plugin.python.task.PythonTask
 plugins {
     java
 
-    id("fabric-loom") version "1.2.+"
-    id("io.github.juuxel.loom-quiltflower") version "1.10.+"
+    id("fabric-loom") version "1.3.+"
+    id("io.github.juuxel.loom-vineflower") version "1.11.+"
 
     id("com.modrinth.minotaur") version "2.7.+"
     id("me.hypherionmc.cursegradle") version "2.+"
@@ -19,7 +19,7 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.20.1+2.0"
+version = "1.20.2+1.0"
 
 loom {
     splitEnvironmentSourceSets()
@@ -71,6 +71,7 @@ repositories {
     maven("https://maven.isxander.dev/snapshots")
     maven("https://maven.terraformersmc.com")
     maven("https://maven.quiltmc.org/repository/release")
+    maven("https://oss.sonatype.org/content/repositories/snapshots")
 }
 
 val minecraftVersion: String by project

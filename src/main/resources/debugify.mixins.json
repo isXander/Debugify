@@ -40,7 +40,6 @@
     "basic.mc7569.RconConsoleSourceMixin",
     "basic.mc88371.DragonLandingPhaseMixin",
     "basic.mc89146.ChunkAccessMixin",
-    "basic.mc90084.BoatMixin",
     "basic.mc93018.AnimalMixin",
     "gameplay.mc31819.PlayerMixin",
     "gameplay.mc8187.MixinTreeFeature"

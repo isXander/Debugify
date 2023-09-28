@@ -50,14 +50,14 @@ public class NoYACLScreen extends Screen {
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
-        this.renderBackground(graphics);
+        super.render(graphics, mouseX, mouseY, delta);
+
         graphics.drawCenteredString(font, title, width / 2, 70, -1);
         int y = 90;
         for (FormattedCharSequence line : wrappedText) {
             graphics.drawCenteredString(font, line, width / 2, y, -1);
             y += font.lineHeight;
         }
-        super.render(graphics, mouseX, mouseY, delta);
     }
 
     @Override

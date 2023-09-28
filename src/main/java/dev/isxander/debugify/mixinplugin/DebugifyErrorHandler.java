@@ -2,10 +2,13 @@ package dev.isxander.debugify.mixinplugin;
 
 import dev.isxander.debugify.Debugify;
 import dev.isxander.debugify.fixes.BugFixData;
+import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfig;
 import org.spongepowered.asm.mixin.extensibility.IMixinErrorHandler;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
+import org.spongepowered.asm.service.MixinService;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -24,7 +27,14 @@ public class DebugifyErrorHandler implements IMixinErrorHandler {
     }
 
     private ErrorAction handleError(ErrorAction usualAction, IMixinInfo mixin) {
-        Optional<BugFixData> bugFix = MixinPlugin.getBugFixForMixin(mixin.getClassNode(0));
+        ClassNode classNode;
+        try {
+            classNode = MixinService.getService().getBytecodeProvider().getClassNode(mixin.getClassName(), false);
+        } catch (ClassNotFoundException | IOException e) {
+            return usualAction;
+        }
+
+        Optional<BugFixData> bugFix = MixinPlugin.getBugFixForMixin(classNode);
         if (bugFix.isEmpty())
             return usualAction;
 

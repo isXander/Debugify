@@ -11,7 +11,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
 @BugFix(id = "MC-112730", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
-@Mixin(targets = "net.minecraft.client.renderer.chunk.ChunkRenderDispatcher$RenderChunk$RebuildTask")
+@Mixin(targets = "net.minecraft.client.renderer.chunk.SectionRenderDispatcher$RenderSection$RebuildTask")
 public class ChunkRenderDispatcherRenderChunkRebuildTaskMixin {
     /**
      * Extremely annoying to make because:
