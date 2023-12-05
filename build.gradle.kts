@@ -4,8 +4,7 @@ import ru.vyarus.gradle.plugin.python.task.PythonTask
 plugins {
     java
 
-    id("fabric-loom") version "1.3.+"
-    id("io.github.juuxel.loom-vineflower") version "1.11.+"
+    id("fabric-loom") version "1.4.+"
 
     id("com.modrinth.minotaur") version "2.7.+"
     id("me.hypherionmc.cursegradle") version "2.+"
@@ -19,7 +18,7 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.20.2+1.0"
+version = "1.20.3+1.0"
 
 loom {
     splitEnvironmentSourceSets()
@@ -230,11 +229,11 @@ publishing {
 githubRelease {
     token(findProperty("github.token")?.toString())
 
-    owner("isXander")
-    repo("Debugify")
-    tagName("${project.version}")
-    targetCommitish(grgit.branch.current().name)
-    body(changelogText)
+    owner.set("isXander")
+    repo.set("Debugify")
+    tagName.set("${project.version}")
+    targetCommitish.set(grgit.branch.current().name)
+    body.set(changelogText)
     releaseAssets(tasks["remapJar"].outputs.files)
 }
 
