@@ -26,7 +26,7 @@ public class TelemetryInfoScreenMixin {
      * @reason
      */
     @Overwrite
-    private AbstractWidget createTelemetryButton() {
-        return ((DebugifyTelemetryAccessor) options).getTelemetryOption().createButton(options, 0, 0, 150, state -> telemetryEventWidget.onOptInChanged(state == DebugifyTelemetry.ALL));
+    private AbstractWidget createTelemetryCheckbox() {
+        return ((DebugifyTelemetryAccessor) options).getTelemetryOption().createButton(options, 0, 0, 308, state -> telemetryEventWidget.onOptInChanged(state == DebugifyTelemetry.ALL));
     }
 }
