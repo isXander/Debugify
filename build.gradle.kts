@@ -18,7 +18,7 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.20.3+1.1"
+version = "1.20.4+1.0"
 
 loom {
     splitEnvironmentSourceSets()
@@ -90,13 +90,6 @@ dependencies {
     })
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
-
-    "com.github.llamalad7.mixinextras:mixinextras-fabric:$mixinExtrasVersion".let {
-        implementation(it)
-        annotationProcessor(it)
-        "clientAnnotationProcessor"(it)
-        include(it)
-    }
 
     modImplementation(fabricApi.module("fabric-resource-loader-v0", fabricApiVersion))
     modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion")
@@ -213,11 +206,11 @@ publishing {
     }
 
     repositories {
-        if (hasProperty("xander-repo.username") && hasProperty("xander-repo.password")) {
+        if (hasProperty("XANDER_MAVEN_USER") && hasProperty("XANDER_MAVEN_PASS")) {
             maven(url = "https://maven.isxander.dev/releases") {
                 credentials {
-                    username = property("xander-repo.username")?.toString()
-                    password = property("xander-repo.password")?.toString()
+                    username = property("XANDER_MAVEN_USER")?.toString()
+                    password = property("XANDER_MAVEN_PASS")?.toString()
                 }
             }
         } else {
