@@ -4,9 +4,9 @@ import ru.vyarus.gradle.plugin.python.task.PythonTask
 plugins {
     java
 
-    id("fabric-loom") version "1.9.+"
+    id("fabric-loom") version "1.10.+"
 
-    id("me.modmuss50.mod-publish-plugin") version "0.8.+"
+    id("me.modmuss50.mod-publish-plugin") version "0.8.4"
     `maven-publish`
 
     id("org.ajoberstar.grgit") version "5.0.0"

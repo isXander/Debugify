@@ -18,6 +18,7 @@ import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.Slice;
@@ -64,8 +65,8 @@ public class MixinTreeFeature {
 		return fixOffsetImpl(startValue, i, config);
 	}
 
-
-	private static int fixOffsetImpl(int startValue, int i, TreeConfiguration config) {
+	@Unique
+    private static int fixOffsetImpl(int startValue, int i, TreeConfiguration config) {
 		//  Roughly height == 0 && trunk == 1
 		if (startValue == -1 && config.minimumSize.getSizeAtHeight(i, 0) == 1) {
 			return 0;

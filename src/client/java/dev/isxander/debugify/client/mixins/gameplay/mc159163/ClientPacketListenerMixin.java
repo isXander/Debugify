@@ -1,4 +1,4 @@
-package dev.isxander.debugify.client.mixins.basic.mc159163;
+package dev.isxander.debugify.client.mixins.gameplay.mc159163;
 
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;

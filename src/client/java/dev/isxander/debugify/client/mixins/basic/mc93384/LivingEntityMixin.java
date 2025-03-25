@@ -1,5 +1,6 @@
 package dev.isxander.debugify.client.mixins.basic.mc93384;
 
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.world.entity.Entity;
@@ -17,8 +18,8 @@ public abstract class LivingEntityMixin extends Entity {
         super(type, world);
     }
 
-    @ModifyArg(method = "baseTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;addParticle(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V"), index = 2)
-    private double modifyY(double y) {
-        return y + getEyeHeight();
+    @ModifyExpressionValue(method = "makeDrownParticles", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getY()D"))
+    private double addEyeHeightToBubblePos(double footY) {
+        return footY + getEyeHeight();
     }
 }

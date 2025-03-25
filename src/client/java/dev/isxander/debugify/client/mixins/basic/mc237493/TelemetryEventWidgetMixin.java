@@ -1,6 +1,7 @@
 package dev.isxander.debugify.client.mixins.basic.mc237493;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.llamalad7.mixinextras.sugar.Local;
 import dev.isxander.debugify.client.helpers.mc237493.DebugifyTelemetry;
 import dev.isxander.debugify.client.helpers.mc237493.DebugifyTelemetryAccessor;
 import dev.isxander.debugify.fixes.BugFix;
@@ -33,8 +34,8 @@ public class TelemetryEventWidgetMixin {
         return inUse;
     }
 
-    @Inject(method = "buildContent", at = @At(value = "INVOKE", target = "Ljava/util/List;sort(Ljava/util/Comparator;)V"), locals = LocalCapture.CAPTURE_FAILHARD)
-    private void addDebugifyContent(boolean bl, CallbackInfoReturnable<TelemetryEventWidget.Content> cir, TelemetryEventWidget.ContentBuilder contentBuilder) {
+    @Inject(method = "buildContent", at = @At(value = "INVOKE", target = "Ljava/util/List;sort(Ljava/util/Comparator;)V"))
+    private void addDebugifyContent(boolean bl, CallbackInfoReturnable<TelemetryEventWidget.Content> cir, @Local TelemetryEventWidget.ContentBuilder contentBuilder) {
         if (((DebugifyTelemetryAccessor) Minecraft.getInstance().options).getTelemetryOption().get() == DebugifyTelemetry.OFF) {
             contentBuilder.addHeader(this.font, Component.translatable("debugify.mc_237493.header"));
             contentBuilder.addLine(this.font, Component.translatable("debugify.mc_237493.line", Component.translatable("options.telemetry.state.none")).withStyle(ChatFormatting.GRAY));

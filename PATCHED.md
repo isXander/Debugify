@@ -13,7 +13,6 @@
 | Basic    | [MC-90683](https://bugs.mojang.com/browse/MC-90683)   | "Received unknown passenger" - Entities with differing render distances as passengers outputs error                                 |
 | Basic    | [MC-93384](https://bugs.mojang.com/browse/MC-93384)   | Bubbles appear at the feet of drowning mobs                                                                                         |
 | Basic    | [MC-105068](https://bugs.mojang.com/browse/MC-105068) | Hitting another player blocking with a shield plays normal hurt sound                                                               |
-| Basic    | [MC-108948](https://bugs.mojang.com/browse/MC-108948) | Boat on top of slime blocks hover over block                                                                                        |
 | Basic    | [MC-112730](https://bugs.mojang.com/browse/MC-112730) | Beacon beam and structure block render twice per frame                                                                              |
 | Basic    | [MC-116379](https://bugs.mojang.com/browse/MC-116379) | Punching with a cast fishing rod in the off-hand detaches fishing line from rod                                                     |
 | Basic    | [MC-122627](https://bugs.mojang.com/browse/MC-122627) | Tab suggestion box has missing padding on right side                                                                                |

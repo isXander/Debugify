@@ -23,7 +23,7 @@ public abstract class ClientPacketListenerMixin extends ClientCommonPacketListen
 
     @ModifyExpressionValue(method = "handleRespawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/MultiPlayerGameMode;createPlayer(Lnet/minecraft/client/multiplayer/ClientLevel;Lnet/minecraft/stats/StatsCounter;Lnet/minecraft/client/ClientRecipeBook;ZZ)Lnet/minecraft/client/player/LocalPlayer;"))
     private LocalPlayer persistInventorySlot(LocalPlayer newPlayer) {
-        newPlayer.getInventory().selected = minecraft.player.getInventory().selected;
+        newPlayer.getInventory().setSelectedSlot(minecraft.player.getInventory().getSelectedSlot());
         return newPlayer;
     }
 }

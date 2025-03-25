@@ -18,7 +18,7 @@ public class MinecraftCommandBlockMixin {
     @Inject(method = "readAdditionalSaveData", at = @At("RETURN"))
     private void readNbt(CompoundTag nbt, CallbackInfo ci) {
         if (nbt.contains("LastExecuted"))
-            lastActivated = nbt.getInt("LastExecuted");
+            lastActivated = nbt.getInt("LastExecuted").orElse(0);
     }
 
     @Inject(method = "addAdditionalSaveData", at = @At("RETURN"))

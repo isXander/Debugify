@@ -9,7 +9,6 @@
   "plugin": "dev.isxander.debugify.mixinplugin.MixinPlugin",
   "client": [
     "basic.mc105068.LivingEntityMixin",
-    "basic.mc108948.BoatMixin",
     "basic.mc112730.SectionCompilerMixin",
     "basic.mc116379.FishingHookRendererMixin",
     "basic.mc122477.EditBoxMixin",
@@ -17,7 +16,7 @@
     "basic.mc122627.CommandSuggestionsMixin",
     "basic.mc127970.ItemInHandRendererMixin",
     "basic.mc143474.ClientPacketListenerMixin",
-    "basic.mc159163.ClientPacketListenerMixin",
+    "gameplay.mc159163.ClientPacketListenerMixin",
     "basic.mc165381.LocalPlayerMixin",
     "basic.mc176559.MultiPlayerGameModeMixin",
     "basic.mc183776.KeyboardHandlerMixin",

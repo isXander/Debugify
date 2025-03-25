@@ -1,10 +1,13 @@
 package dev.isxander.debugify.mixins.basic.mc206922;
 
+import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.entity.item.ItemEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,6 +19,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class EntityMixin {
     @Shadow public int tickCount;
 
-    @Inject(method = "thunderHit", at = @At("HEAD"), cancellable = true)
-    protected void struckByLightningHead(ServerLevel world, LightningBolt lightning, CallbackInfo ci) {}
+    @WrapMethod(method = "thunderHit")
+    protected void bypassStruckByLightning(ServerLevel world, LightningBolt lightning, Operation<Void> operation) {
+        operation.call(world, lightning);
+    }
 }
