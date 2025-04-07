@@ -1,6 +1,3 @@
-import ru.vyarus.gradle.plugin.python.PythonExtension
-import ru.vyarus.gradle.plugin.python.task.PythonTask
-
 plugins {
     java
 
@@ -10,12 +7,10 @@ plugins {
     `maven-publish`
 
     id("org.ajoberstar.grgit") version "5.0.0"
-
-    id("ru.vyarus.use-python") version "3.0.0"
 }
 
 group = "dev.isxander"
-version = "1.21.4+1.1"
+version = "1.21.5+1.0"
 
 loom {
     splitEnvironmentSourceSets()
@@ -123,19 +118,6 @@ tasks.processResources {
     }
 }
 
-python {
-    pip("requests:2.28.1")
-    pip("packaging:21.3")
-
-    scope = PythonExtension.Scope.USER
-}
-
-tasks.register<PythonTask>("checkBugStatuses") {
-    group = "debugify"
-
-    command = project.file("scripts/check_bug_fixes.py").toString()
-}
-
 publishMods {
     displayName.set("Debugify ${project.version}")
 
@@ -214,8 +196,6 @@ publishing {
 
 tasks.register("publishDebugify") {
     group = "debugify"
-
-    //dependsOn("checkBugStatuses")
 
     dependsOn("clean")
 
