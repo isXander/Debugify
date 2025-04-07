@@ -11,7 +11,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.util.Mth;
-import com.mojang.blaze3d.vertex.PoseStack;
+
+import java.net.URI;
 import java.util.List;
 
 public class NoYACLScreen extends Screen {
@@ -27,10 +28,10 @@ public class NoYACLScreen extends Screen {
         this.title = Component.translatable("debugify.no_yacl.title").withStyle(ChatFormatting.BOLD).getVisualOrderText();
         this.unwrappedText = Component.translatable("debugify.no_yacl.description",
                 Component.literal("YetAnotherConfigLib").withStyle(style -> style
-                        .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://curseforge.com/minecraft/mc-mods/yacl"))
+                        .withClickEvent(new ClickEvent.OpenUrl(URI.create("https://curseforge.com/minecraft/mc-mods/yacl")))
                         .applyFormats(ChatFormatting.BLUE, ChatFormatting.UNDERLINE)),
                 Component.literal(".minecraft/config/debugify.json").withStyle(style -> style
-                        .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, FabricLoader.getInstance().getConfigDir().toString()))
+                        .withClickEvent(new ClickEvent.OpenFile(FabricLoader.getInstance().getConfigDir()))
                         .applyFormats(ChatFormatting.BLUE, ChatFormatting.UNDERLINE)));
     }
 
