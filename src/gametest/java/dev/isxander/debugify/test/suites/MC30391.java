@@ -1,26 +1,24 @@
 package dev.isxander.debugify.test.suites;
 
-import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
-import net.minecraft.client.Minecraft;
+import net.fabricmc.fabric.api.gametest.v1.GameTest;
 import net.minecraft.core.BlockPos;
-import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 
-public class MC30391 implements FabricGameTest {
+public class MC30391 {
 
-    @GameTest(template = EMPTY_STRUCTURE)
+    @GameTest
     public void blaze(GameTestHelper ctx) {
         testWithEntity(ctx, EntityType.BLAZE);
     }
 
-    @GameTest(template = EMPTY_STRUCTURE)
+    @GameTest
     public void chicken(GameTestHelper ctx) {
         testWithEntity(ctx, EntityType.CHICKEN);
     }
 
-    @GameTest(template = EMPTY_STRUCTURE)
+    @GameTest
     public void wither(GameTestHelper ctx) {
         testWithEntity(ctx, EntityType.WITHER);
     }

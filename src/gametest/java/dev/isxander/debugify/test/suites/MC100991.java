@@ -1,8 +1,7 @@
 package dev.isxander.debugify.test.suites;
 
-import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
+import net.fabricmc.fabric.api.gametest.v1.GameTest;
 import net.minecraft.core.BlockPos;
-import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityType;
@@ -13,8 +12,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameType;
 
-public class MC100991 implements FabricGameTest {
-    @GameTest(template = EMPTY_STRUCTURE)
+public class MC100991 {
+    @GameTest
     public void statTrackRodKill(GameTestHelper ctx) {
         Mob targetMob = ctx.spawnWithNoFreeWill(EntityType.CREEPER, new BlockPos(4, 0, 4));
 

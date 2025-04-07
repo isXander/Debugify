@@ -3,6 +3,7 @@ package dev.isxander.debugify.test;
 import dev.isxander.debugify.test.suites.MC8187;
 import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.GameTestHelper;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -39,14 +40,14 @@ public final class DebugifyTestUtils {
      * Asserts that blocks in a given area are as expected.
      */
     public static void assertBlockFill(GameTestHelper ctx, BlockPos start, BlockPos end, Predicate<Block> test, String message) {
-        area(start, end, pos -> ctx.assertBlock(pos, test, message));
+        area(start, end, pos -> ctx.assertBlock(pos, test, block -> Component.literal(message)));
     }
 
     /**
      * Asserts that blockstates in a given area are as expected.
      */
     public static void assertBlockStateFill(GameTestHelper ctx, BlockPos start, BlockPos end, Predicate<BlockState> test, String message) {
-        area(start, end, pos -> ctx.assertBlockState(pos, test, () -> message));
+        area(start, end, pos -> ctx.assertBlockState(pos, test, block -> Component.literal(message)));
     }
 
     /**

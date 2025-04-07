@@ -1,16 +1,16 @@
 package dev.isxander.debugify.test.suites;
 
-import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
+import net.fabricmc.fabric.api.gametest.v1.GameTest;
 import net.minecraft.core.BlockPos;
-import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.entity.animal.wolf.Wolf;
 import net.minecraft.world.entity.projectile.Snowball;
 
-public class MC72151 implements FabricGameTest {
-    @GameTest(template = EMPTY_STRUCTURE)
+public class MC72151 {
+    @GameTest
     public void mc72151(GameTestHelper ctx) {
         BlockPos wolfPos = new BlockPos(4, 0, 4);
         Wolf wolf = ctx.spawnWithNoFreeWill(EntityType.WOLF, wolfPos);
@@ -23,6 +23,6 @@ public class MC72151 implements FabricGameTest {
         double h = Math.sqrt(e * e + g * g) * 0.2F;
         snowball.shoot(e, f + h, g, 1.6F, 0f);
 
-        ctx.succeedIf(() -> ctx.assertTrue(wolf.getHealth() == wolf.getMaxHealth(), "Wolf shouldn't be damaged."));
+        ctx.succeedIf(() -> ctx.assertTrue(wolf.getHealth() == wolf.getMaxHealth(), Component.literal("Wolf shouldn't be damaged.")));
     }
 }

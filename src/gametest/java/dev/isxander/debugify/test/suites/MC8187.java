@@ -1,10 +1,10 @@
 package dev.isxander.debugify.test.suites;
 
 import dev.isxander.debugify.test.DebugifyTestUtils;
-import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
+import net.fabricmc.fabric.api.gametest.v1.GameTest;
 import net.minecraft.core.BlockPos;
-import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
+import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * @author Ampflower
  * @since 1.20.1+1.2
  **/
-public class MC8187 implements FabricGameTest {
+public class MC8187 {
     private static final String TEMPLATE = "debugify:mc-8187";
 
     // Adjust this if you move the center, as the tests assume this is accurate.
@@ -36,7 +36,7 @@ public class MC8187 implements FabricGameTest {
      */
     private static void testTreeRandomTick(GameTestHelper ctx, Block sapling, Block log, BlockPos growCorner, boolean small) {
         // Ensure that parameters are correct.
-        ctx.assertTrue(sapling instanceof SaplingBlock, sapling + " is not a sapling");
+        ctx.assertTrue(sapling instanceof SaplingBlock, Component.literal(sapling + " is not a sapling"));
         testTreeParamCommon(ctx, sapling, log, growCorner, true);
 
         // Setup
@@ -52,7 +52,7 @@ public class MC8187 implements FabricGameTest {
      */
     private static void testTreeBonemeal(GameTestHelper ctx, Block sapling, Block log, BlockPos growCorner, boolean small) {
         // Ensure that parameters are correct.
-        ctx.assertTrue(sapling instanceof SaplingBlock, sapling + " is not a sapling");
+        ctx.assertTrue(sapling instanceof SaplingBlock, Component.literal(sapling + " is not a sapling"));
         testTreeParamCommon(ctx, sapling, log, growCorner, false);
 
         // Setup
@@ -68,7 +68,7 @@ public class MC8187 implements FabricGameTest {
      */
     private static void testAzalea(GameTestHelper ctx, Block sapling, Block log, BlockPos growCorner) {
         // Ensure that parameters are correct.
-        ctx.assertTrue(sapling instanceof AzaleaBlock, sapling + " is not a sapling");
+        ctx.assertTrue(sapling instanceof AzaleaBlock, Component.literal(sapling + " is not a sapling"));
         testTreeParamCommon(ctx, sapling, log, growCorner, false);
 
         DebugifyTestUtils.bonemealIndefinitely(ctx, growCorner);
@@ -82,9 +82,9 @@ public class MC8187 implements FabricGameTest {
      * This is to catch errors quickly as the input is sensitive to off by 1 errors.
      */
     private static void testTreeParamCommon(GameTestHelper ctx, Block sapling, Block log, BlockPos growCorner, boolean requiresDay) {
-        ctx.assertTrue(log instanceof RotatedPillarBlock, log + " does not appear like a log");
+        ctx.assertTrue(log instanceof RotatedPillarBlock, Component.literal(log + " does not appear like a log"));
         ctx.assertTrue(growCorner.getY() == START_CORNER.getY(),
-                "Incorrect Y, got " + growCorner.getY() + ", expected " + START_CORNER.getY());
+                Component.literal("Incorrect Y, got " + growCorner.getY() + ", expected " + START_CORNER.getY()));
 
         // Ensure that the structure is correctly set up.
         assertSuitable(ctx, requiresDay);
@@ -97,86 +97,86 @@ public class MC8187 implements FabricGameTest {
         DebugifyTestUtils.fill(ctx, START_CORNER, END_CORNER, sapling);
 
         if (small) {
-            ctx.succeedWhen(() -> ctx.assertBlock(growCorner, block -> block == log, "Incorrect log, expected " + log));
+            ctx.succeedWhen(() -> ctx.assertBlock(growCorner, block -> block == log, block -> Component.literal("Incorrect log, expected " + log)));
         } else {
             ctx.succeedWhen(() -> DebugifyTestUtils.assertBlockFill(ctx, START_CORNER, END_CORNER, block -> block == log,
                     "Incorrect log, expected " + log));
         }
     }
 
-    @GameTest(template = TEMPLATE, batch = "daylight")
+    @GameTest(structure = TEMPLATE, skyAccess = true)
     public void oak_randomTick_NW(GameTestHelper ctx) {
         testTreeRandomTick(ctx, Blocks.OAK_SAPLING, Blocks.OAK_LOG, START_CORNER, true);
     }
 
-    @GameTest(template = TEMPLATE, batch = "daylight")
+    @GameTest(structure = TEMPLATE, skyAccess = true)
     public void birch_randomTick_NW(GameTestHelper ctx) {
         testTreeRandomTick(ctx, Blocks.BIRCH_SAPLING, Blocks.BIRCH_LOG, START_CORNER, true);
     }
 
-    @GameTest(template = TEMPLATE, batch = "daylight")
+    @GameTest(structure = TEMPLATE, skyAccess = true)
     public void spruce_randomTick_NW(GameTestHelper ctx) {
         testTreeRandomTick(ctx, Blocks.SPRUCE_SAPLING, Blocks.SPRUCE_LOG, START_CORNER, false);
     }
 
-    @GameTest(template = TEMPLATE, batch = "daylight")
+    @GameTest(structure = TEMPLATE, skyAccess = true)
     public void jungle_randomTick_NW(GameTestHelper ctx) {
         testTreeRandomTick(ctx, Blocks.JUNGLE_SAPLING, Blocks.JUNGLE_LOG, START_CORNER, false);
     }
 
-    @GameTest(template = TEMPLATE, batch = "daylight")
+    @GameTest(structure = TEMPLATE, skyAccess = true)
     public void acacia_randomTick_NW(GameTestHelper ctx) {
         testTreeRandomTick(ctx, Blocks.ACACIA_SAPLING, Blocks.ACACIA_LOG, START_CORNER, true);
     }
 
-    @GameTest(template = TEMPLATE, batch = "daylight")
+    @GameTest(structure = TEMPLATE, skyAccess = true)
     public void darkOak_randomTick_NW(GameTestHelper ctx) {
         testTreeRandomTick(ctx, Blocks.DARK_OAK_SAPLING, Blocks.DARK_OAK_LOG, START_CORNER, false);
     }
 
-    @GameTest(template = TEMPLATE, batch = "daylight")
+    @GameTest(structure = TEMPLATE, skyAccess = true)
     public void cherry_randomTick_NW(GameTestHelper ctx) {
         testTreeRandomTick(ctx, Blocks.CHERRY_SAPLING, Blocks.CHERRY_LOG, START_CORNER, true);
     }
 
 
-    @GameTest(template = TEMPLATE)
+    @GameTest(structure = TEMPLATE)
     public void oak_bonemeal_NW(GameTestHelper ctx) {
         testTreeBonemeal(ctx, Blocks.OAK_SAPLING, Blocks.OAK_LOG, START_CORNER, true);
     }
 
-    @GameTest(template = TEMPLATE)
+    @GameTest(structure = TEMPLATE)
     public void birch_bonemeal_NW(GameTestHelper ctx) {
         testTreeBonemeal(ctx, Blocks.BIRCH_SAPLING, Blocks.BIRCH_LOG, START_CORNER, true);
     }
 
-    @GameTest(template = TEMPLATE)
+    @GameTest(structure = TEMPLATE)
     public void spruce_bonemeal_NW(GameTestHelper ctx) {
         testTreeBonemeal(ctx, Blocks.SPRUCE_SAPLING, Blocks.SPRUCE_LOG, START_CORNER, false);
     }
 
-    @GameTest(template = TEMPLATE)
+    @GameTest(structure = TEMPLATE)
     public void jungle_bonemeal_NW(GameTestHelper ctx) {
         testTreeBonemeal(ctx, Blocks.JUNGLE_SAPLING, Blocks.JUNGLE_LOG, START_CORNER, false);
     }
 
-    @GameTest(template = TEMPLATE)
+    @GameTest(structure = TEMPLATE)
     public void acacia_bonemeal_NW(GameTestHelper ctx) {
         testTreeBonemeal(ctx, Blocks.ACACIA_SAPLING, Blocks.ACACIA_LOG, START_CORNER, true);
     }
 
-    @GameTest(template = TEMPLATE)
+    @GameTest(structure = TEMPLATE)
     public void darkOak_bonemeal_NW(GameTestHelper ctx) {
         testTreeBonemeal(ctx, Blocks.DARK_OAK_SAPLING, Blocks.DARK_OAK_LOG, START_CORNER, false);
     }
 
-    @GameTest(template = TEMPLATE)
+    @GameTest(structure = TEMPLATE)
     public void cherry_bonemeal_NW(GameTestHelper ctx) {
         testTreeBonemeal(ctx, Blocks.CHERRY_SAPLING, Blocks.CHERRY_LOG, START_CORNER, true);
     }
 
     // The following two needs to be special-cased.
-    @GameTest(template = TEMPLATE)
+    @GameTest(structure = TEMPLATE)
     public void azaleaNW(GameTestHelper ctx) {
         testAzalea(ctx, Blocks.AZALEA, Blocks.OAK_LOG, START_CORNER);
     }
@@ -199,6 +199,6 @@ public class MC8187 implements FabricGameTest {
         final var pos = CORNER;
         DebugifyTestUtils.assertBlockStateFill(ctx, pos, pos.offset(1, 0, 1), b -> b.is(BlockTags.DIRT), "Invalid template; not dirt");
         DebugifyTestUtils.assertBlockFill(ctx, pos.above(), pos.offset(1, 1, 1), b -> b == Blocks.AIR, "Invalid template; not air");
-        ctx.assertBlockState(pos.offset(-1, 1, -1), b -> !b.canBeReplaced(), () -> "Invalid template; NW block not solid");
+        ctx.assertBlockState(pos.offset(-1, 1, -1), b -> !b.canBeReplaced(), block -> Component.literal("Invalid template; NW block not solid"));
     }
 }

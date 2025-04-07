@@ -7,9 +7,6 @@
   "environment": "*",
   "icon": "debugify.png",
   "entrypoints": {
-    "main": [
-      "dev.isxander.debugify.test.DebugifyGameTestMain"
-    ],
     "fabric-gametest": [
       "dev.isxander.debugify.test.suites.MC72151",
       "dev.isxander.debugify.test.suites.MC8187",
