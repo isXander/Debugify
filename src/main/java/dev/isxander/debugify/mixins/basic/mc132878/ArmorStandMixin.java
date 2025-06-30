@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@BugFix(id = "MC-132878", category = FixCategory.BASIC, env = BugFix.Env.SERVER)
+@BugFix(id = "MC-132878", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Armor stands destroyed by explosions/lava/fire don't produce particles")
 @Mixin(ArmorStand.class)
 public abstract class ArmorStandMixin {
     @Shadow protected abstract void showBreakingParticles();

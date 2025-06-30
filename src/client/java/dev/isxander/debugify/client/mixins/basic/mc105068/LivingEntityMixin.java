@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@BugFix(id = "MC-105068", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-105068", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Attacking a shield-blocking player always plays the player hurts sound")
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
     public LivingEntityMixin(EntityType<?> variant, Level world) {

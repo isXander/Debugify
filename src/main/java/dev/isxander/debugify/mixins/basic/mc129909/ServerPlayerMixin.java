@@ -13,11 +13,11 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@BugFix(id = "MC-129909", category = FixCategory.BASIC, env = BugFix.Env.SERVER)
+@BugFix(id = "MC-129909", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Players in spectator mode continue to consume foods and liquids shortly after switching game modes")
 @Mixin(ServerPlayer.class)
 public abstract class ServerPlayerMixin extends Player {
-    public ServerPlayerMixin(Level world, BlockPos pos, float yaw, GameProfile gameProfile) {
-        super(world, pos, yaw, gameProfile);
+    public ServerPlayerMixin(Level world, GameProfile gameProfile) {
+        super(world, gameProfile);
     }
 
     /**

@@ -18,7 +18,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.level.LightLayer;
 
-@BugFix(id = "MC-197260", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-197260", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Armor Stand renders itself and armor dark if its head is in a solid block")
 @Mixin(ArmorStandRenderer.class)
 public abstract class ArmorStandRendererMixin extends LivingEntityRendererMixin<ArmorStand, ArmorStandRenderState, ArmorStandArmorModel> {
     protected ArmorStandRendererMixin(EntityRendererProvider.Context context) {

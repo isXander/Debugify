@@ -9,7 +9,6 @@
   "plugin": "dev.isxander.debugify.mixinplugin.MixinPlugin",
   "client": [
     "basic.mc105068.LivingEntityMixin",
-    "basic.mc112730.SectionCompilerMixin",
     "basic.mc116379.FishingHookRendererMixin",
     "basic.mc122477.EditBoxMixin",
     "basic.mc122477.RenderSystemMixin",
@@ -36,7 +35,7 @@
     "basic.mc46766.MinecraftMixin",
     "basic.mc577.AbstractContainerScreenMixin",
     "basic.mc59810.MouseHandlerMixin",
-    "basic.mc79545.GuiMixin",
+    "basic.mc79545.ExperienceBarRendererMixin",
     "basic.mc80859.AbstractContainerScreenMixin",
     "basic.mc90683.ClientPacketListenerMixin",
     "basic.mc93384.LivingEntityMixin"

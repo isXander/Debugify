@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@BugFix(id = "MC-100991", category = FixCategory.BASIC, env = BugFix.Env.SERVER)
+@BugFix(id = "MC-100991", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Killing entities with a fishing rod doesn't count as a kill")
 @Mixin(FishingHook.class)
 public abstract class FishingHookMixin extends ProjectileMixin {
     public FishingHookMixin(EntityType<?> variant, Level world) {

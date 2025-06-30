@@ -40,4 +40,8 @@ public class Debugify {
     public static BugFix.Env getEnv() {
         return FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT ? BugFix.Env.CLIENT : BugFix.Env.SERVER;
     }
+
+    public static boolean isGameplayFixesEnabled() {
+        return Debugify.CONFIG.gameplayFixesInMultiplayer;
+    }
 }

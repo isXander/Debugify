@@ -9,7 +9,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@BugFix(id = "MC-206922", category = FixCategory.BASIC, env = BugFix.Env.SERVER)
+@BugFix(id = "MC-206922", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Items dropped by entities that are killed by lightning instantly disappear")
 @Mixin(ItemEntity.class)
 public abstract class ItemEntityMixin extends EntityMixin {
 

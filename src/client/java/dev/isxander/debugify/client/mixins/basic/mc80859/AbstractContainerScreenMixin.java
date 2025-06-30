@@ -10,7 +10,7 @@ import java.util.Set;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.world.inventory.Slot;
 
-@BugFix(id = "MC-80859", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-80859", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Starting to drag item stacks over other compatible stacks makes the latter invisible until appearance change (stack size increases)")
 @Mixin(AbstractContainerScreen.class)
 public class AbstractContainerScreenMixin {
     /**

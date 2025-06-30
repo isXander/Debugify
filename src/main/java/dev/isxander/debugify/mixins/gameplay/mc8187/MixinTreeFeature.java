@@ -11,6 +11,7 @@
 
 package dev.isxander.debugify.mixins.gameplay.mc8187;
 
+import dev.isxander.debugify.Debugify;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.core.BlockPos;
@@ -35,7 +36,7 @@ import org.spongepowered.asm.mixin.injection.Slice;
  * @author Ampflower
  * @since 1.20.1+1.2
  **/
-@BugFix(id = "MC-8187", category = FixCategory.GAMEPLAY, env = BugFix.Env.SERVER, modConflicts = "flwr-8187")
+@BugFix(id = "MC-8187", category = FixCategory.GAMEPLAY, env = BugFix.Env.SERVER, modConflicts = "flwr-8187", description = "Two-by-two arrangements of jungle or spruce saplings cannot grow when there are adjacent blocks located north or west of the sapling formation")
 @Mixin(TreeFeature.class)
 public class MixinTreeFeature {
 	/**
@@ -68,7 +69,7 @@ public class MixinTreeFeature {
 	@Unique
     private static int fixOffsetImpl(int startValue, int i, TreeConfiguration config) {
 		//  Roughly height == 0 && trunk == 1
-		if (startValue == -1 && config.minimumSize.getSizeAtHeight(i, 0) == 1) {
+		if (Debugify.isGameplayFixesEnabled() && startValue == -1 && config.minimumSize.getSizeAtHeight(i, 0) == 1) {
 			return 0;
 		}
 		return startValue;

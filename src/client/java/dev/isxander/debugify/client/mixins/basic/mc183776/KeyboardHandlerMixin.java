@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@BugFix(id = "MC-183776", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-183776", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "After switching game modes using F3+F4, you need to press F3 twice to toggle the debug screen")
 @Mixin(KeyboardHandler.class)
 public class KeyboardHandlerMixin {
     @Inject(method = "handleDebugKeys", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;setScreen(Lnet/minecraft/client/gui/screens/Screen;)V", shift = At.Shift.AFTER), cancellable = true)

@@ -10,10 +10,11 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 
-@BugFix(id = "MC-217716", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-217716", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "The green nausea overlay isn't removed when switching into spectator mode")
 @Mixin(GameRenderer.class)
 public class GameRendererMixin {
-    @Shadow @Final Minecraft minecraft;
+    @Shadow @Final
+    private Minecraft minecraft;
 
     @ModifyExpressionValue(method = "renderLevel", at = @At(value = "INVOKE", target = "Ljava/lang/Double;floatValue()F"))
     private float shouldShowNauseaOverlay(float original) {

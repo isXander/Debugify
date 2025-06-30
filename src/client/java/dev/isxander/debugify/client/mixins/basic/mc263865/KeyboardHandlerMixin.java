@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Slice;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@BugFix(id = "MC-263865", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-263865", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Fullscreen state isn't saved")
 @Mixin(KeyboardHandler.class)
 public class KeyboardHandlerMixin {
     @Shadow @Final private Minecraft minecraft;

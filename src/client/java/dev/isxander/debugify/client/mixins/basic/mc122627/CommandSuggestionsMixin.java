@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
-@BugFix(id = "MC-122627", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-122627", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Tab suggestion box has missing padding on right side")
 @Mixin(CommandSuggestions.class)
 public class CommandSuggestionsMixin {
     /**

@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 
-@BugFix(id = "MC-215531", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-215531", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "The carved pumpkin overlay is rendered in spectator mode")
 @Mixin(Gui.class)
 public class GuiMixin {
     @Shadow @Final private Minecraft minecraft;

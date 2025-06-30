@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.21.5+1.0"
+version = "1.21.7+1.0"
 
 loom {
     splitEnvironmentSourceSets()
@@ -63,7 +63,6 @@ repositories {
 
 val minecraftVersion: String by project
 val fabricLoaderVersion: String by project
-val qmBuild: String by project
 val fabricApiVersion: String by project
 val yaclVersion: String by project
 val mixinExtrasVersion: String by project
@@ -71,11 +70,7 @@ val modMenuVersion: String by project
 
 dependencies {
     minecraft("com.mojang:minecraft:$minecraftVersion")
-    mappings(loom.layered {
-        if (qmBuild != "0")
-            mappings("org.quiltmc:quilt-mappings:$minecraftVersion+build.$qmBuild:intermediary-v2")
-        officialMojangMappings()
-    })
+    mappings(loom.officialMojangMappings())
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 

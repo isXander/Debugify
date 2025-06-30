@@ -20,6 +20,8 @@ public @interface BugFix {
 
     OS os() default OS.UNKNOWN;
 
+    String description() default "";
+
     enum Env {
         CLIENT("debugify.env.client"),
         SERVER("debugify.env.server");

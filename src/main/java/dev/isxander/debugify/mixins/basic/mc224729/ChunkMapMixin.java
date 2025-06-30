@@ -13,7 +13,7 @@ import net.minecraft.server.level.ChunkMap;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ProtoChunk;
 
-@BugFix(id = "MC-224729", category = FixCategory.BASIC, env = BugFix.Env.SERVER, modConflicts = "chunksavingfix")
+@BugFix(id = "MC-224729", category = FixCategory.BASIC, env = BugFix.Env.SERVER, modConflicts = "chunksavingfix", description = "Partially generated chunks are not saved in some situations")
 @Mixin(ChunkMap.class)
 public class ChunkMapMixin {
     @ModifyArg(method = "saveAllChunks", at = @At(value = "INVOKE", target = "Ljava/util/stream/Stream;filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", ordinal = 0))

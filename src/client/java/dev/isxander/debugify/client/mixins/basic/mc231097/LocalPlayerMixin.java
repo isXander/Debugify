@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@BugFix(id = "MC-231097", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-231097", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Holding the \"Use\" button continues to slow down the player even after the used item has been dropped")
 @Mixin(LocalPlayer.class)
 public abstract class LocalPlayerMixin {
     @Shadow @Final protected Minecraft minecraft;

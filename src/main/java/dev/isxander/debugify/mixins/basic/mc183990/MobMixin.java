@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@BugFix(id = "MC-183990", category = FixCategory.BASIC, env = BugFix.Env.SERVER)
+@BugFix(id = "MC-183990", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Group AI of some mobs breaks when their target dies")
 @Mixin(Mob.class)
 public abstract class MobMixin {
     @Shadow private @Nullable LivingEntity target;

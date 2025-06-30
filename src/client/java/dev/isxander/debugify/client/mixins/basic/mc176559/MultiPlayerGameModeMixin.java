@@ -13,7 +13,7 @@ import java.util.Objects;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.world.item.ItemStack;
 
-@BugFix(id = "MC-176559", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-176559", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Breaking process resets when a pickaxe enchanted with Mending mends by XP / Mending slows down breaking blocks again")
 @Mixin(value = MultiPlayerGameMode.class, priority = 1010)
 public class MultiPlayerGameModeMixin {
     // Fabric API also redirects here. WrapOperation is compatible

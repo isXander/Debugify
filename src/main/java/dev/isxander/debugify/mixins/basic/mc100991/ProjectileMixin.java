@@ -10,7 +10,7 @@ import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-@BugFix(id = "MC-100991", category = FixCategory.BASIC, env = BugFix.Env.SERVER)
+@BugFix(id = "MC-100991", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Killing entities with a fishing rod doesn't count as a kill")
 @Mixin(Projectile.class)
 public abstract class ProjectileMixin extends Entity {
     public ProjectileMixin(EntityType<?> variant, Level world) {

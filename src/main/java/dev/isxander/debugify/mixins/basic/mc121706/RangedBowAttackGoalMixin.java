@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@BugFix(id = "MC-121706", env = BugFix.Env.SERVER, category = FixCategory.BASIC)
+@BugFix(id = "MC-121706", env = BugFix.Env.SERVER, category = FixCategory.BASIC, description = "Skeletons and illusioners aren't looking up / down at their target while strafing")
 @Mixin(RangedBowAttackGoal.class)
 public abstract class RangedBowAttackGoalMixin<T extends Monster> {
     @Shadow @Final private T mob;

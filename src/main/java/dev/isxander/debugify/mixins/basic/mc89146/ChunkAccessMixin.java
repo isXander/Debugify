@@ -17,7 +17,7 @@ import net.minecraft.world.level.chunk.ChunkAccess;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@BugFix(id = "MC-89146", category = FixCategory.BASIC, env = BugFix.Env.SERVER)
+@BugFix(id = "MC-89146", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Pistons forget update when being reloaded")
 @Mixin(ChunkAccess.class)
 public class ChunkAccessMixin {
     @Shadow @Final @Mutable

@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@BugFix(id = "MC-46766", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-46766", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Breaking particles, sounds, and block cracks can be created in spectator mode")
 @Mixin(Minecraft.class)
 public class MinecraftMixin {
     @Shadow @Nullable

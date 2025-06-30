@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
-@BugFix(id = "MC-199467", category = FixCategory.BASIC, env = BugFix.Env.SERVER)
+@BugFix(id = "MC-199467", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Certain entity animations stop after they've existed in world for too long")
 @Mixin(Mth.class)
 public class MthMixin {
     @Shadow @Final public static float TWO_PI;

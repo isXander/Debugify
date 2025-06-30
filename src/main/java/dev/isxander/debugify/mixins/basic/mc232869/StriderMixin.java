@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@BugFix(id = "MC-232869", category = FixCategory.BASIC, env = BugFix.Env.SERVER)
+@BugFix(id = "MC-232869", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Adult striders can spawn with saddles in peaceful mode")
 @Mixin(Strider.class)
 public abstract class StriderMixin extends Animal {
     protected StriderMixin(EntityType<? extends Animal> entityType, Level world) {

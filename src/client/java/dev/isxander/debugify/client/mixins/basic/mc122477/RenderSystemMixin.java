@@ -11,8 +11,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@BugFix(id = "MC-122477", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, os = OS.LINUX)
-@Mixin(value = RenderSystem.class, priority = 1100, remap = false) // higher priority to improve compatibility with VulkanMod
+@BugFix(id = "MC-122477", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, os = OS.LINUX, description = "Linux/GNU: Opening chat sometimes writes 't'")
+@Mixin(value = RenderSystem.class, priority = 1100) // higher priority to improve compatibility with VulkanMod
 public class RenderSystemMixin {
     @Inject(method = "flipFrame", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderSystem;pollEvents()V"))
     private static void onPollEvents(long l, TracyFrameCapture tracyFrameCapture, CallbackInfo ci) {

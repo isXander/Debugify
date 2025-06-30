@@ -49,8 +49,12 @@ public class BugFixDataCache {
         boolean enabledByDefault = Annotations.getValue(annotationNode, "enabled", Boolean.valueOf(true));
         List<String> conflicts = Annotations.getValue(annotationNode, "modConflicts", true);
         OS requiredOS = Annotations.getValue(annotationNode, "os", OS.class, OS.UNKNOWN);
+        String description = Annotations.getValue(annotationNode, "description");
+        if ("".equals(description)) {
+            description = null;
+        }
 
-        return new ResolvedBugFixData(new BugFixData(id, category, env, enabledByDefault, conflicts, requiredOS));
+        return new ResolvedBugFixData(new BugFixData(id, category, env, enabledByDefault, conflicts, requiredOS, description));
     }
 
     private static ClassNode getClassNode(String className) {

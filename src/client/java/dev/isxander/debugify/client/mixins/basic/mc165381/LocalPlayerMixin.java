@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@BugFix(id = "MC-165381", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-165381", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Block breaking can be delayed by dropping/throwing the tool while breaking a block")
 @Mixin(LocalPlayer.class)
 public class LocalPlayerMixin {
     @Shadow

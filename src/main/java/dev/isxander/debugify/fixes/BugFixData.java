@@ -3,11 +3,12 @@ package dev.isxander.debugify.fixes;
 import dev.isxander.debugify.mixinplugin.DebugifyDebugFlags;
 import net.fabricmc.loader.api.FabricLoader;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-public record BugFixData(String bugId, FixCategory category, BugFix.Env env, boolean enabledByDefault, List<String> conflicts, OS requiredOs) implements Comparable<BugFixData> {
+public record BugFixData(String bugId, FixCategory category, BugFix.Env env, boolean enabledByDefault, List<String> conflicts, OS requiredOs, @Nullable String description) implements Comparable<BugFixData> {
     private static final Map<String, Set<String>> externalModConflicts = new HashMap<>();
 
     public static void registerApiConflict(String modId, String bugId) {

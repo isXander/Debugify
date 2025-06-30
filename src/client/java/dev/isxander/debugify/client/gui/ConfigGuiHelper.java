@@ -77,8 +77,8 @@ public class ConfigGuiHelper {
                         if (!satisfiesOS)
                             descriptionBuilder.text(Component.translatable("debugify.error.os", bug.bugId(), Component.translatable(bug.requiredOs().getDisplayName())).withStyle(ChatFormatting.RED));
 
-                        if (DebugifyClient.bugFixDescriptionCache.has(bug.bugId()))
-                            descriptionBuilder.text(Component.literal(DebugifyClient.bugFixDescriptionCache.get(bug.bugId())));
+                        if (bug.description() != null)
+                            descriptionBuilder.text(Component.literal(bug.description()));
 
                         String fixExplanationTooltipKey = "debugify.fix_explanation." + bug.bugId().toLowerCase();
                         if (Language.getInstance().has(fixExplanationTooltipKey))

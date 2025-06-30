@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@BugFix(id = "MC-231743", category = FixCategory.BASIC, env = BugFix.Env.SERVER)
+@BugFix(id = "MC-231743", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "\"minecraft.used:minecraft.<POTTABLE_PLANT>\" doesn't increase when placing plants into flower pots")
 @Mixin(FlowerPotBlock.class)
 public class FlowerPotBlockMixin {
     @Inject(method = "useItemOn", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;awardStat(Lnet/minecraft/resources/ResourceLocation;)V"))

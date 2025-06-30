@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@BugFix(id = "MC-206922", category = FixCategory.BASIC, env = BugFix.Env.SERVER)
+@BugFix(id = "MC-206922", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Items dropped by entities that are killed by lightning instantly disappear")
 @Mixin(Entity.class)
 public class EntityMixin {
     @Shadow public int tickCount;

@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-@BugFix(id = "MC-577", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-577", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Mouse buttons block all inventory controls that are not default")
 @Mixin(AbstractContainerScreen.class)
 public abstract class AbstractContainerScreenMixin extends Screen {
     @Shadow

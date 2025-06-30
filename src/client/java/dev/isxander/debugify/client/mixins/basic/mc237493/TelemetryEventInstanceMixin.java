@@ -11,7 +11,7 @@ import net.minecraft.client.telemetry.TelemetryEventInstance;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@BugFix(id = "MC-237493", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "no-telemetry")
+@BugFix(id = "MC-237493", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "no-telemetry", description = "Telemetry cannot be disabled")
 @Mixin(TelemetryEventInstance.class)
 public class TelemetryEventInstanceMixin {
     @ModifyReturnValue(method = "export", at = @At("RETURN"))

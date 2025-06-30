@@ -13,7 +13,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@BugFix(id = "MC-127970", category = FixCategory.BASIC, env = BugFix.Env.CLIENT)
+@BugFix(id = "MC-127970", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Using Riptide on a trident with an item in your off-hand causes visual glitch with said item")
 @Mixin(ItemInHandRenderer.class)
 public class ItemInHandRendererMixin {
     @ModifyExpressionValue(method = "renderArmWithItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/AbstractClientPlayer;isAutoSpinAttack()Z"))

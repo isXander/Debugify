@@ -10,7 +10,7 @@ import net.minecraft.world.entity.monster.Blaze;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@BugFix(id = "MC-30391", category = FixCategory.BASIC, env = BugFix.Env.SERVER)
+@BugFix(id = "MC-30391", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Chickens, blazes and the wither emit particles when landing from a height, despite falling slowly")
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
     @ModifyExpressionValue(method = "checkFallDamage", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;isAir()Z"))
