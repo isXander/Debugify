@@ -42,6 +42,7 @@
   ],
   "mixins": [
     "basic.mc170462.MobEffectsMixin",
-    "basic.mc176559.ItemStackAccessor"
+    "basic.mc176559.ItemStackAccessor",
+    "basic.mc84661.MobEffectsMixin"
   ]
 }
