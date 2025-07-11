@@ -15,7 +15,6 @@
     "basic.mc122627.CommandSuggestionsMixin",
     "basic.mc127970.ItemInHandRendererMixin",
     "basic.mc143474.ClientPacketListenerMixin",
-    "gameplay.mc159163.ClientPacketListenerMixin",
     "basic.mc165381.LocalPlayerMixin",
     "basic.mc176559.MultiPlayerGameModeMixin",
     "basic.mc183776.KeyboardHandlerMixin",
@@ -38,9 +37,11 @@
     "basic.mc79545.ExperienceBarRendererMixin",
     "basic.mc80859.AbstractContainerScreenMixin",
     "basic.mc90683.ClientPacketListenerMixin",
-    "basic.mc93384.LivingEntityMixin"
+    "basic.mc93384.LivingEntityMixin",
+    "gameplay.mc159163.ClientPacketListenerMixin"
   ],
   "mixins": [
+    "basic.mc170462.MobEffectsMixin",
     "basic.mc176559.ItemStackAccessor"
   ]
 }
