@@ -18,6 +18,7 @@
     "basic.mc132878.ArmorStandMixin",
     "basic.mc155509.PufferfishMixin",
     "basic.mc160095.CactusBlockMixin",
+    "basic.mc17738.LocateCommandMixin",
     "basic.mc179072.SwellGoalMixin",
     "basic.mc183990.MobMixin",
     "basic.mc199467.MthMixin",
