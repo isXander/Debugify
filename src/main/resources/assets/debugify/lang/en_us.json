@@ -31,6 +31,7 @@
   "debugify.mc_237493.tooltip.minimal": "'%s' includes only the information Mojang deems required.",
   "debugify.mc_237493.tooltip.all": "'%s' includes all of minimal and option telemetry.",
 
+  "debugify.fix_explanation.mc-46503": "Clears shader effects on respawn.",
   "debugify.fix_explanation.mc-55347": "Clears titles on disconnect.",
   "debugify.fix_explanation.mc-79545": "Clamps the experience level to the integer limit only when rendering.",
   "debugify.fix_explanation.mc-93384": "Adds the eye height to the particle spawn location.",
