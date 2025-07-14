@@ -32,6 +32,7 @@
     "basic.mc263865.KeyboardHandlerMixin",
     "basic.mc4490.FishingHookRendererMixin",
     "basic.mc46503.ClientPacketListenerMixin",
+    "basic.mc46737.GameRendererMixin",
     "basic.mc46766.MinecraftMixin",
     "basic.mc577.AbstractContainerScreenMixin",
     "basic.mc59810.MouseHandlerMixin",
