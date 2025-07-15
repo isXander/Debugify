@@ -22,6 +22,7 @@
     "basic.mc183990.MobMixin",
     "basic.mc199467.MthMixin",
     "basic.mc200418.ZombieVillagerMixin",
+    "basic.mc201374.CampfireBlockMixin",
     "basic.mc2025.EntityMixin",
     "basic.mc206922.EntityMixin",
     "basic.mc206922.ItemEntityMixin",
