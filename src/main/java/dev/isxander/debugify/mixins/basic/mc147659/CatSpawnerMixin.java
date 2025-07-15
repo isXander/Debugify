@@ -23,6 +23,6 @@ public class CatSpawnerMixin {
 
     @Inject(method = "spawnCat", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/Cat;finalizeSpawn(Lnet/minecraft/world/level/ServerLevelAccessor;Lnet/minecraft/world/DifficultyInstance;Lnet/minecraft/world/entity/EntitySpawnReason;Lnet/minecraft/world/entity/SpawnGroupData;)Lnet/minecraft/world/entity/SpawnGroupData;"))
     private void addNewCatSnap(BlockPos blockPos, ServerLevel serverLevel, boolean bl, CallbackInfo ci, @Local Cat cat) {
-        cat.snapTo(blockPos, 0, 0);
+        cat.snapTo(blockPos, 0F, 0F);
     }
 }
