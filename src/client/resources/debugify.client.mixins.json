@@ -29,6 +29,8 @@
     "basic.mc237493.TelemetryEventInstanceMixin",
     "basic.mc237493.TelemetryEventWidgetMixin",
     "basic.mc237493.TelemetryInfoScreenMixin",
+    "basic.mc242809.DirectJoinServerScreenMixin",
+    "basic.mc242809.EditServerScreenMixin",
     "basic.mc263865.KeyboardHandlerMixin",
     "basic.mc4490.FishingHookRendererMixin",
     "basic.mc46503.ClientPacketListenerMixin",
