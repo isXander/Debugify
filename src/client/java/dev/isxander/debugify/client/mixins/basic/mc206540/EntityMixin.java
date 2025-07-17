@@ -21,11 +21,13 @@ public abstract class EntityMixin {
      */
     @Inject(method = "onPassengerTurned", at = @At("HEAD"))
     private void fixCameraMovement(Entity entity, CallbackInfo ci) {
-        entity.setYBodyRot(this.getYRot());
-        float f = Mth.wrapDegrees(entity.getYRot() - this.getYRot());
-        float g = Mth.clamp(f, -180.0F, 180.0F);
-        entity.yRotO += g - f;
-        entity.setYRot(entity.getYRot() + g - f);
-        entity.setYHeadRot(entity.getYRot());
+        if (entity.isAlwaysTicking()) {
+            entity.setYBodyRot(this.getYRot());
+            float f = Mth.wrapDegrees(entity.getYRot() - this.getYRot());
+            float g = Mth.clamp(f, -180.0F, 180.0F);
+            entity.yRotO += g - f;
+            entity.setYRot(entity.getYRot() + g - f);
+            entity.setYHeadRot(entity.getYRot());
+        }
     }
 }

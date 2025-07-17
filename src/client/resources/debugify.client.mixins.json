@@ -43,6 +43,7 @@
   ],
   "mixins": [
     "basic.mc176559.ItemStackAccessor",
-    "basic.mc206540.EntityMixin"
+    "basic.mc206540.EntityMixin",
+    "basic.mc206540.LivingEntityMixin"
   ]
 }
