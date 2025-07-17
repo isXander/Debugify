@@ -42,6 +42,7 @@
     "gameplay.mc159163.ClientPacketListenerMixin"
   ],
   "mixins": [
-    "basic.mc176559.ItemStackAccessor"
+    "basic.mc176559.ItemStackAccessor",
+    "basic.mc206540.EntityMixin"
   ]
 }
