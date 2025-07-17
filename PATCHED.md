@@ -58,6 +58,7 @@
 | Basic    | [MC-206705](https://bugs.mojang.com/browse/MC-206705) | Spyglasses stay in use in spectator mode                                                                                                       |
 | Basic    | [MC-206922](https://bugs.mojang.com/browse/MC-206922) | Items dropped by entities that are killed by lightning instantly disappear                                                                     |
 | Basic    | [MC-215530](https://bugs.mojang.com/browse/MC-215530) | The freezing effect isn't immediately removed when switching into spectator mode                                                               |
+| Basic    | [MC-221257](https://bugs.mojang.com/browse/MC-221257) | Shulker bullets don't produce bubble particles when moving through water                                                                       |
 | Basic    | [MC-223153](https://bugs.mojang.com/browse/MC-223153) | Block of Raw Copper uses stone sounds instead of copper sounds                                                                                 |
 | Basic    | [MC-224729](https://bugs.mojang.com/browse/MC-224729) | Partially generated chunks are not saved in some situations                                                                                    |
 | Basic    | [MC-231743](https://bugs.mojang.com/browse/MC-231743) | minecraft.used:minecraft.POTTABLE_PLANT doesn't increase when placing plants into flower pots                                                  |
