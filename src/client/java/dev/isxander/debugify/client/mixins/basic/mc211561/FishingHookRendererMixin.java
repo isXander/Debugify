@@ -6,7 +6,7 @@ import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.renderer.entity.FishingHookRenderer;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.FishingRodItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
@@ -15,6 +15,6 @@ import org.spongepowered.asm.mixin.injection.At;
 public class FishingHookRendererMixin {
     @ModifyReturnValue(method = "getHoldingArm", at = @At("RETURN"))
     private static HumanoidArm fixHoldingArm(HumanoidArm original, Player player) {
-        return player.getOffhandItem().is(Items.FISHING_ROD) ? original : player.getMainArm();
+        return player.getOffhandItem().getItem() instanceof FishingRodItem ? original : player.getMainArm();
     }
 }
