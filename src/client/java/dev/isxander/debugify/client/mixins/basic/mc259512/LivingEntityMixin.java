@@ -1,4 +1,4 @@
-package dev.isxander.debugify.client.mixins.basic.mc206540;
+package dev.isxander.debugify.client.mixins.basic.mc259512;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import dev.isxander.debugify.fixes.BugFix;
@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@BugFix(id = "MC-206540", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = {"ridingmousefix", "eg_fix_horizontal_camera_lag"}, description = "Increased input delay when riding an entity")
+@BugFix(id = "MC-259512", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "eg_fix_horizontal_camera_lag", description = "Increased input delay when riding an entity")
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
     public LivingEntityMixin(EntityType<?> entityType, Level level) {

@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@BugFix(id = "MC-206540", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = {"ridingmousefix", "eg_fix_horizontal_camera_lag"}, description = "Increased input delay when riding an entity")
+@BugFix(id = "MC-206540", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "ridingmousefix", description = "Increased input delay when riding an entity")
 @Mixin(Entity.class)
 public abstract class EntityMixin {
     @Shadow
