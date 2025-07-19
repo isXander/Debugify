@@ -33,6 +33,7 @@
     "basic.mc4490.FishingHookRendererMixin",
     "basic.mc46503.ClientPacketListenerMixin",
     "basic.mc46766.MinecraftMixin",
+    "basic.mc57057.GuardianAttackSoundInstanceMixin",
     "basic.mc577.AbstractContainerScreenMixin",
     "basic.mc59810.MouseHandlerMixin",
     "basic.mc79545.ExperienceBarRendererMixin",
