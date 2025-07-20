@@ -8,6 +8,7 @@
 | Basic    | [MC-22882](https://bugs.mojang.com/browse/MC-22882)   | Ctrl + Q won't work on Mac (disabled by default)                                                                                    |
 | Basic    | [MC-46503](https://bugs.mojang.com/browse/MC-46503)   | You can retain a mob's shader in spectator mode by running /kill                                                                    |
 | Basic    | [MC-46766](https://bugs.mojang.com/browse/MC-46766)   | Mining a block in Survival, then changing to Spectator creates a breaking animation and sound                                       |
+| Basic    | [MC-57057](https://bugs.mojang.com/browse/MC-57057)   | Guardian laser attack sound ignores distance                                                                                        |
 | Basic    | [MC-59810](https://bugs.mojang.com/browse/MC-59810)   | Cannot break blocks while sprinting (Ctrl+Click = right click on macOS) *(macOS only)*                                              |
 | Basic    | [MC-79545](https://bugs.mojang.com/browse/MC-79545)   | The experience bar disappears when too many levels are given to the player                                                          |
 | Basic    | [MC-80859](https://bugs.mojang.com/browse/MC-80859)   | Starting to drag item stacks over other compatible stacks makes the latter invisible until appearance change (stack size increases) |
@@ -24,11 +25,14 @@
 | Basic    | [MC-176559](https://bugs.mojang.com/browse/MC-176559) | Breaking process resets when a pickaxe enchanted with Mending mends by XP / Mending slows down breaking blocks again                |
 | Basic    | [MC-183776](https://bugs.mojang.com/browse/MC-183776) | After switching gamemodes using F3+F4, you need to press F3 twice to toggle the debug screen                                        |
 | Basic    | [MC-197260](https://bugs.mojang.com/browse/MC-197260) | Armor Stand renders itself and armor dark if its head is in a solid block                                                           |
+| Basic    | [MC-206540](https://bugs.mojang.com/browse/MC-206540) | Increased input delay when riding an entity                                                                                         |
+| Basic    | [MC-211561](https://bugs.mojang.com/browse/MC-211561) | Fishing line appears in opposite hand when switching slots                                                                          |
 | Basic    | [MC-215531](https://bugs.mojang.com/browse/MC-215531) | The carved pumpkin overlay isn't removed when switching into spectator mode                                                         |
 | Basic    | [MC-217716](https://bugs.mojang.com/browse/MC-217716) | The green nausea overlay isn't removed when switching into spectator mode                                                           |
 | Basic    | [MC-231097](https://bugs.mojang.com/browse/MC-231097) | Holding the "Use" button continues to slow down the player even after the used item has been dropped                                |
 | Basic    | [MC-237493](https://bugs.mojang.com/browse/MC-237493) | Telemetry cannot be disabled                                                                                                        |
 | Basic    | [MC-268420](https://bugs.mojang.com/browse/MC-268420) | Cooldown indicator flashes when switching items with high attack speed attribute                                                    |
+| Basic    | [MC-259512](https://bugs.mojang.com/browse/MC-259512) | Horizontal camera rotation lags when riding                                                                                         |
 
 ### Server Side (Both)
 | Type     | Bug ID                                                | Name                                                                                                                                           |
@@ -39,6 +43,7 @@
 | Basic    | [MC-30391](https://bugs.mojang.com/browse/MC-30391)   | Chickens, blazes and the wither emit particles when landing from a height, despite falling slowly                                              |
 | Basic    | [MC-69216](https://bugs.mojang.com/browse/MC-69216)   | Switching to spectator mode while fishing keeps rod cast                                                                                       |
 | Basic    | [MC-81773](https://bugs.mojang.com/browse/MC-81773)   | Bows and tridents drawn in survival/creative/adventure mode can be released in spectator mode                                                  |
+| Basic    | [MC-84661](https://bugs.mojang.com/browse/MC-84661)   | Glowing is considered a positive effect in potion item tooltips                                                                                |
 | Basic    | [MC-88371](https://bugs.mojang.com/browse/MC-88371)   | Ender Dragon flies down in the void when the exit portal is destroyed                                                                          |
 | Basic    | [MC-89146](https://bugs.mojang.com/browse/MC-89146)   | Pistons forget update when being reloaded                                                                                                      |
 | Basic    | [MC-93018](https://bugs.mojang.com/browse/MC-93018)   | Wild wolves show breeding hearts but do not breed                                                                                              |
@@ -51,6 +56,7 @@
 | Basic    | [MC-132878](https://bugs.mojang.com/browse/MC-132878) | Armor stands destroyed by explosions/lava/fire don't produce particles                                                                         |
 | Basic    | [MC-155509](https://bugs.mojang.com/browse/MC-155509) | Puffed pufferfish can hurt the player while dying                                                                                              |
 | Basic    | [MC-160095](https://bugs.mojang.com/browse/MC-160095) | End Rods only break Cactus when moved by pistons                                                                                               |
+| Basic    | [MC-170462](https://bugs.mojang.com/browse/MC-170462) | Bad Omen is considered a positive effect in potion item tooltips                                                                               |
 | Basic    | [MC-179072](https://bugs.mojang.com/browse/MC-179072) | Creepers do not defuse when switching from Survival to Creative/Spectator                                                                      |
 | Basic    | [MC-183990](https://bugs.mojang.com/browse/MC-183990) | Group AI of some mobs breaks when their target dies                                                                                            |
 | Basic    | [MC-199467](https://bugs.mojang.com/browse/MC-199467) | Certain entity animations stop after they've existed in world for too long                                                                     |

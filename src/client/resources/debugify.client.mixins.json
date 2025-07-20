@@ -20,6 +20,7 @@
     "basic.mc183776.KeyboardHandlerMixin",
     "basic.mc197260.ArmorStandRendererMixin",
     "basic.mc197260.LivingEntityRendererMixin",
+    "basic.mc211561.FishingHookRendererMixin",
     "basic.mc215531.GuiMixin",
     "basic.mc217716.GameRendererMixin",
     "basic.mc22882.AbstractContainerScreenMixin",
@@ -34,6 +35,7 @@
     "basic.mc4490.FishingHookRendererMixin",
     "basic.mc46503.ClientPacketListenerMixin",
     "basic.mc46766.MinecraftMixin",
+    "basic.mc57057.GuardianAttackSoundInstanceMixin",
     "basic.mc577.AbstractContainerScreenMixin",
     "basic.mc59810.MouseHandlerMixin",
     "basic.mc79545.ExperienceBarRendererMixin",
@@ -43,6 +45,8 @@
     "gameplay.mc159163.ClientPacketListenerMixin"
   ],
   "mixins": [
-    "basic.mc176559.ItemStackAccessor"
+    "basic.mc176559.ItemStackAccessor",
+    "basic.mc206540.EntityMixin",
+    "basic.mc259512.LivingEntityMixin"
   ]
 }
