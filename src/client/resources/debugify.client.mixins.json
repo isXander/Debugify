@@ -9,6 +9,7 @@
   "plugin": "dev.isxander.debugify.mixinplugin.MixinPlugin",
   "client": [
     "basic.mc105068.LivingEntityMixin",
+    "basic.mc115092.SquidRendererMixin",
     "basic.mc116379.FishingHookRendererMixin",
     "basic.mc122477.EditBoxMixin",
     "basic.mc122477.RenderSystemMixin",
