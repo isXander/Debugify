@@ -18,7 +18,6 @@
     "basic.mc165381.LocalPlayerMixin",
     "basic.mc176559.MultiPlayerGameModeMixin",
     "basic.mc183776.KeyboardHandlerMixin",
-    "basic.mc187100.EnderDragonRendererMixin",
     "basic.mc197260.ArmorStandRendererMixin",
     "basic.mc197260.LivingEntityRendererMixin",
     "basic.mc215531.GuiMixin",
