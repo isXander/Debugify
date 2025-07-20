@@ -4,4 +4,3 @@ accessible class net/minecraft/client/Options$FieldAccess
 #accessible method net/minecraft/client/Options$FieldAccess process (Ljava/lang/String;Lnet/minecraft/client/OptionInstance;)V
 accessible class net/minecraft/client/gui/screens/telemetry/TelemetryEventWidget$ContentBuilder
 accessible class net/minecraft/client/gui/screens/telemetry/TelemetryEventWidget$Content
-accessible field net/minecraft/client/gui/screens/inventory/BookViewScreen IMAGE_HEIGHT I

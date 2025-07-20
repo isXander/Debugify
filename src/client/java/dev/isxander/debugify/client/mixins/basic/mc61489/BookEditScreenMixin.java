@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
-// Compared to the original patch, we use / 3 here since it seems to line up better. In a windowed screen the Done button appears at the very bottom / slightly off-screen
+// Compared to the original patch, we use / 3 here since it seems to line up better. Else, in a windowed screen the Done button appears at the very bottom / slightly off-screen.
 @BugFix(id = "MC-61489", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "fixbookgui", description = "Book GUI is not vertically centered")
 @Mixin(BookEditScreen.class)
 public class BookEditScreenMixin extends Screen {
