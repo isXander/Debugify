@@ -35,6 +35,7 @@
     "basic.mc224729.ChunkMapMixin",
     "basic.mc231743.FlowerPotBlockMixin",
     "basic.mc232869.StriderMixin",
+    "basic.mc268617.FileUtilMixin",
     "basic.mc30391.LivingEntityMixin",
     "basic.mc69216.ServerPlayerMixin",
     "basic.mc7569.RconConsoleSourceMixin",

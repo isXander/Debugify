@@ -78,6 +78,7 @@
 | Basic    | [MC-224729](https://bugs.mojang.com/browse/MC-224729) | Partially generated chunks are not saved in some situations                                                                                    |
 | Basic    | [MC-231743](https://bugs.mojang.com/browse/MC-231743) | minecraft.used:minecraft.POTTABLE_PLANT doesn't increase when placing plants into flower pots                                                  |
 | Basic    | [MC-232869](https://bugs.mojang.com/browse/MC-232869) | Adult striders can spawn with saddles in peaceful mode                                                                                         |
+| Basic    | [MC-268617](https://bugs.mojang.com/browse/MC-268617) | Structures can't be saved if the game directory is named in a certain way                                                                      |
 
 ## Previously patched
 Bugs that this mod has patched but has been superseded by a vanilla update.
