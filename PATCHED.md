@@ -24,6 +24,7 @@
 | Basic    | [MC-165381](https://bugs.mojang.com/browse/MC-165381) | Block breaking can be delayed by dropping/throwing the tool while breaking a block                                                  |                                                             |
 | Basic    | [MC-176559](https://bugs.mojang.com/browse/MC-176559) | Breaking process resets when a pickaxe enchanted with Mending mends by XP / Mending slows down breaking blocks again                |
 | Basic    | [MC-183776](https://bugs.mojang.com/browse/MC-183776) | After switching gamemodes using F3+F4, you need to press F3 twice to toggle the debug screen                                        |
+| Basic    | [MC-187100](https://bugs.mojang.com/browse/MC-187100) | End crystals try to heal dying Ender dragons                                                                                        |
 | Basic    | [MC-197260](https://bugs.mojang.com/browse/MC-197260) | Armor Stand renders itself and armor dark if its head is in a solid block                                                           |
 | Basic    | [MC-201723](https://bugs.mojang.com/browse/MC-201723) | Statistics sprites don't look pressed when clicked                                                                                  |
 | Basic    | [MC-206540](https://bugs.mojang.com/browse/MC-206540) | Increased input delay when riding an entity                                                                                         |

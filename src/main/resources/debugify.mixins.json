@@ -23,6 +23,7 @@
     "basic.mc170462.MobEffectsMixin",
     "basic.mc179072.SwellGoalMixin",
     "basic.mc183990.MobMixin",
+    "basic.mc187100.EnderDragonMixin",
     "basic.mc199467.MthMixin",
     "basic.mc200418.ZombieVillagerMixin",
     "basic.mc2025.EntityMixin",
