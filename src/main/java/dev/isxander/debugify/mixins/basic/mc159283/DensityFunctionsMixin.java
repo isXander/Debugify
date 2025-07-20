@@ -20,8 +20,11 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-159283", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "The End terrain does not generate in multiple rings centered around the world center")
 @Mixin(DensityFunctions.EndIslandDensityFunction.class)
 public class DensityFunctionsMixin {
+    /**
+     * Explicitly cast `x` and `z` to long (from int) to prevent integer overflow when squaring
+     */
     @WrapOperation(method = "getHeightValue", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/Mth;sqrt(F)F", ordinal = 0))
-    private static float castToLongs(float f, Operation<Float> original, SimplexNoise simplexNoise, int i, int j) {
-        return Mth.sqrt((long) i * (long) i + (long) j * (long) j);
+    private static float castToLongs(float f, Operation<Float> original, SimplexNoise simplexNoise, int x, int z) {
+        return Mth.sqrt((long) x * (long) x + (long) z * (long) z);
     }
 }
