@@ -26,6 +26,7 @@
 | Basic    | [MC-183776](https://bugs.mojang.com/browse/MC-183776) | After switching gamemodes using F3+F4, you need to press F3 twice to toggle the debug screen                                        |
 | Basic    | [MC-187100](https://bugs.mojang.com/browse/MC-187100) | End crystals try to heal dying Ender dragons                                                                                        |
 | Basic    | [MC-197260](https://bugs.mojang.com/browse/MC-197260) | Armor Stand renders itself and armor dark if its head is in a solid block                                                           |
+| Basic    | [MC-210318](https://bugs.mojang.com/browse/MC-210318) | Maximum length of book title changed from 16 to 15 characters                                                                       |
 | Basic    | [MC-201723](https://bugs.mojang.com/browse/MC-201723) | Statistics sprites don't look pressed when clicked                                                                                  |
 | Basic    | [MC-206540](https://bugs.mojang.com/browse/MC-206540) | Increased input delay when riding an entity                                                                                         |
 | Basic    | [MC-211561](https://bugs.mojang.com/browse/MC-211561) | Fishing line appears in opposite hand when switching slots                                                                          |
