@@ -24,8 +24,9 @@ public class StructureTemplateMixin {
     @Final
     private Map<Block, List<StructureTemplate.StructureBlockInfo>> cache;
 
+    // Use a thread-safe Concurrent Map instead
     @Inject(method = "<init>", at = @At(value = "TAIL"))
-    private void newHashMap(List list, CallbackInfo ci) {
+    private void useConcurrentMap(List list, CallbackInfo ci) {
         this.cache = Maps.newConcurrentMap();
     }
 }
