@@ -31,6 +31,7 @@
     "basic.mc237493.TelemetryEventWidgetMixin",
     "basic.mc237493.TelemetryInfoScreenMixin",
     "basic.mc263865.KeyboardHandlerMixin",
+    "basic.mc298558.AtmosphericFogEnvironmentMixin",
     "basic.mc268420.GuiMixin",
     "basic.mc4490.FishingHookRendererMixin",
     "basic.mc46503.ClientPacketListenerMixin",
