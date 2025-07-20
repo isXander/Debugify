@@ -109,6 +109,7 @@ tasks.processResources {
         j-Tai's TieFix - Code used licensed under LGPLv3
         FlashyReese's Sodium Extra - Code used licensed under LGPLv3
         Ampflower's 2x2 Surrounded Saplings Fix - Code used licensed under Zlib
+        NoahvdAa's Thorium - Code used licensed under LGPLv3
         """.trimIndent()
     inputs.property("version", project.version)
     inputs.property("description", modDescription)

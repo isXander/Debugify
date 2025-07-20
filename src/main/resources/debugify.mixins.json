@@ -17,6 +17,7 @@
     "basic.mc129909.ServerPlayerMixin",
     "basic.mc132878.ArmorStandMixin",
     "basic.mc155509.PufferfishMixin",
+    "basic.mc159283.DensityFunctionsMixin",
     "basic.mc160095.CactusBlockMixin",
     "basic.mc170462.MobEffectsMixin",
     "basic.mc179072.SwellGoalMixin",
