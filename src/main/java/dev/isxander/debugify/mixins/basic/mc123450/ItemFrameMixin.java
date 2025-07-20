@@ -13,7 +13,10 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(ItemFrame.class)
 public class ItemFrameMixin {
     @WrapWithCondition(method = "setItem(Lnet/minecraft/world/item/ItemStack;Z)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/decoration/ItemFrame;playSound(Lnet/minecraft/sounds/SoundEvent;FF)V"))
-    private boolean playSound(ItemFrame instance, SoundEvent soundEvent, float volume, float pitch, @Local(argsOnly = true) boolean bl) {
-        return bl;
+    private boolean playSound(ItemFrame instance, SoundEvent soundEvent, float volume, float pitch, @Local(argsOnly = true) boolean updateNeighbours) {
+        // the targeted method is only given `updateNeighbours = false` when reading from NBT.
+        // technically, this means mods who want neighbourless updates will no longer play a sound. 
+        // ideally, this would be an additional boolean in the method, but we don't have that privilige.
+        return updateNeighbours;
     }
 }
