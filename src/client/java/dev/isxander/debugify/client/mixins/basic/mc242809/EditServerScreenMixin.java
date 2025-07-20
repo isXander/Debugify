@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public class EditServerScreenMixin {
     @Definition(id = "ipEdit", field = "Lnet/minecraft/client/gui/screens/EditServerScreen;ipEdit:Lnet/minecraft/client/gui/components/EditBox;")
     @Definition(id = "getValue", method = "Lnet/minecraft/client/gui/components/EditBox;getValue()Ljava/lang/String;")
-    @Expression("?.ipEdit.getValue()")
+    @Expression("?.? = @(?.ipEdit.getValue())")
     @ModifyExpressionValue(method = "onAdd", at = @At("MIXINEXTRAS:EXPRESSION"))
     private String trimIp(String ip) {
         return ip.trim();
