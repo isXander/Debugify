@@ -27,7 +27,7 @@ public class SquidRendererMixin<T extends Squid> {
     @Inject(method = "setupRotations(Lnet/minecraft/client/renderer/entity/state/SquidRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;FF)V", at = @At("TAIL"))
     private void applyRotation(SquidRenderState squidRenderState, PoseStack poseStack, float f, float g, CallbackInfo ci) {
         String name = squidEntity.getName().getString();
-        if (name.equals("Dinnerbone") || name.equals("Grumm")) {
+        if ("Dinnerbone".equals(name) || "Grumm".equals(name)) {
             poseStack.translate(0.0F, squidEntity.getBbHeight() + 0.1F, 0.0F);
             poseStack.mulPose(Axis.XP.rotationDegrees(180.0F));
         }
