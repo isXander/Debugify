@@ -43,6 +43,7 @@
   ],
   "mixins": [
     "basic.mc176559.ItemStackAccessor",
-    "basic.mc188359.CakeBlockMixin"
+    "basic.mc188359.CakeBlockMixin",
+    "basic.mc188359.ConsumableMixin"
   ]
 }
