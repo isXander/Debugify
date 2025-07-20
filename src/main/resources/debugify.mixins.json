@@ -27,6 +27,7 @@
     "basic.mc206922.EntityMixin",
     "basic.mc206922.ItemEntityMixin",
     "basic.mc215530.ServerPlayerMixin",
+    "basic.mc221257.ShulkerBulletMixin",
     "basic.mc223153.BlocksMixin",
     "basic.mc224729.ChunkMapMixin",
     "basic.mc231743.FlowerPotBlockMixin",
