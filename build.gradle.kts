@@ -49,6 +49,7 @@ loom {
     createRemapConfigurations(gametest.get())
 
     accessWidenerPath.set(file("src/main/resources/debugify.accesswidener"))
+    mixin.useLegacyMixinAp = false
 }
 
 repositories {
@@ -77,6 +78,12 @@ dependencies {
     modImplementation(fabricApi.module("fabric-resource-loader-v0", fabricApiVersion))
     modImplementation("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion")
 
+    "io.github.llamalad7:mixinextras-fabric:$mixinExtrasVersion".let {
+        include(it)
+        implementation(it)
+        /*annotationProcessor(it)*/// only needed if `useLegacyMixinAp = true`
+    }
+
     "modClientImplementation"("dev.isxander:yet-another-config-lib:$yaclVersion") { exclude(module = "fabric-loader") }
     "modClientImplementation"("com.terraformersmc:modmenu:$modMenuVersion") { exclude(module = "fabric-loader") }
 
@@ -102,6 +109,7 @@ tasks.processResources {
         j-Tai's TieFix - Code used licensed under LGPLv3
         FlashyReese's Sodium Extra - Code used licensed under LGPLv3
         Ampflower's 2x2 Surrounded Saplings Fix - Code used licensed under Zlib
+        NoahvdAa's Thorium - Code used licensed under LGPLv3
         """.trimIndent()
     inputs.property("version", project.version)
     inputs.property("description", modDescription)
