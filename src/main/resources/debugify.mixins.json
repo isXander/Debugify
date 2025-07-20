@@ -48,6 +48,7 @@
     "basic.mc88371.DragonLandingPhaseMixin",
     "basic.mc89146.ChunkAccessMixin",
     "basic.mc93018.AnimalMixin",
+    "basic.mc94054.WallClimberNavigationMixin",
     "gameplay.mc8187.MixinTreeFeature"
   ]
 }
