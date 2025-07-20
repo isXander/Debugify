@@ -66,7 +66,6 @@
 | Basic    | [MC-231743](https://bugs.mojang.com/browse/MC-231743) | minecraft.used:minecraft.POTTABLE_PLANT doesn't increase when placing plants into flower pots                                                  |
 | Basic    | [MC-232869](https://bugs.mojang.com/browse/MC-232869) | Adult striders can spawn with saddles in peaceful mode                                                                                         |
 | Basic    | [MC-245394](https://bugs.mojang.com/browse/MC-245394) | The sounds of raid horns blaring aren't controlled by the correct sound slider                                                                 |
-| Basic    | [MC-248223](https://bugs.mojang.com/browse/MC-248223) | Sounds of large/medium amethyst buds are switched                                                                                              |
 
 ## Previously patched
 Bugs that this mod has patched but has been superseded by a vanilla update.
