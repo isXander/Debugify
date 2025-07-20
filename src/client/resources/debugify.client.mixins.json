@@ -20,6 +20,7 @@
     "basic.mc183776.KeyboardHandlerMixin",
     "basic.mc197260.ArmorStandRendererMixin",
     "basic.mc197260.LivingEntityRendererMixin",
+    "basic.mc211561.FishingHookRendererMixin",
     "basic.mc215531.GuiMixin",
     "basic.mc217716.GameRendererMixin",
     "basic.mc22882.AbstractContainerScreenMixin",
