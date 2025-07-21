@@ -44,6 +44,7 @@
   "debugify.fix_explanation.mc-122477": "Prevents first two keyboard polls after an edit box is initialized, e.g. the chat box.",
   "debugify.fix_explanation.mc-123739": "Sorts recipe book entries by their identifier.",
   "debugify.fix_explanation.mc-143474": "Copies over the selected item slot when generating the new local player after respawn.",
+  "debugify.fix_effect.mc-143474": "This also fixes MC-12062: Hotbar selection resets to the far left when exiting the end",
   "debugify.fix_explanation.mc-159163": "Removes pose data from entity data packet handling.",
   "debugify.fix_effect.mc-159163": "This will prevent the client from syncing pose data with the server, and purely uses the client to decide the pose.",
   "debugify.fix_explanation.mc-162253": "Stops a client light update when entering a chunk.",
