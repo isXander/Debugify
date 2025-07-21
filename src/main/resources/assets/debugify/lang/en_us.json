@@ -68,6 +68,7 @@
   "debugify.fix_explanation.mc-121903": "Adds NBT tag 'LastExecuted' to command blocks to save and load their last executed property.",
   "debugify.fix_explanation.mc-124117": "Sends players packets to update all their effects, their experience and their abilities after cross dimensional teleport.",
   "debugify.fix_explanation.mc-132878": "Spawns breaking particles when armour stands are hurt.",
+  "debugify.fix_explanation.mc-134110": "Correctly rotates double chests when a structure that is mirrored is placed.",
   "debugify.fix_explanation.mc-135971": "Overrides CTRL+Q behaviour in crafting slot to repeatedly CTRL+Q until there are no items left in the crafting slot.",
   "debugify.fix_explanation.mc-155509": "Checks if the pufferfish is alive before attempting to sting the player.",
   "debugify.fix_explanation.mc-159283": "Casts 32-bit integers to 64-bit equivalents to prevent integer overflow at high X and Z values.",

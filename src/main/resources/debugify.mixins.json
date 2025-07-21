@@ -18,6 +18,7 @@
     "basic.mc123450.ItemFrameMixin",
     "basic.mc129909.ServerPlayerMixin",
     "basic.mc132878.ArmorStandMixin",
+    "basic.mc134110.ChestBlockMixin",
     "basic.mc147659.CatSpawnerMixin",
     "basic.mc139041.FishingRodItemMixin",
     "basic.mc155509.PufferfishMixin",
