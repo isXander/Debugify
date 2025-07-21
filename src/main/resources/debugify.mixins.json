@@ -14,6 +14,7 @@
     "basic.mc119754.FireworkRocketEntityMixin",
     "basic.mc121706.RangedBowAttackGoalMixin",
     "basic.mc121903.MinecraftCommandBlockMixin",
+    "basic.mc123605.MinecraftServerMixin",
     "basic.mc123450.ItemFrameMixin",
     "basic.mc129909.ServerPlayerMixin",
     "basic.mc132878.ArmorStandMixin",
