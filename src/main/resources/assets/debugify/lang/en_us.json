@@ -79,5 +79,6 @@
   "debugify.fix_explanation.mc-206922": "Items with an age less than 9 ticks are not removed from lightning strikes.",
   "debugify.fix_explanation.mc-215530": "Resets frozen time when the player changes to spectator.",
   "debugify.fix_explanation.mc-224729": "Always saves ProtoChunks even if the chunk save predicate returns false.",
+  "debugify.fix_explanation.mc-298225": "Fixes skybox getting cut off (i.e. holes/gaps) at low render distances by increasing far plane distance.",
   "debugify.fix_explanation.mc-268617": "Updates the RegEx filter to include all valid path locations. This allows using structure blocks in certain launchers such as Modrinth or any Linux Flatpak launcher."
 }
