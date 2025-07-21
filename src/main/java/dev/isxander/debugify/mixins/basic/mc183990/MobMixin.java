@@ -18,7 +18,7 @@ public abstract class MobMixin {
 
     @Shadow public abstract void setTarget(@Nullable LivingEntity target);
 
-    @Inject(method = "baseTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/profiling/ProfilerFiller;pop()V", shift = At.Shift.BEFORE))
+    @Inject(method = "baseTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/profiling/ProfilerFiller;pop()V"))
     private void clearTargetIfDead(CallbackInfo ci) {
         if (target != null && target.isDeadOrDying()) {
             setTarget(null);
