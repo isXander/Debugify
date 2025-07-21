@@ -110,6 +110,7 @@ tasks.processResources {
         FlashyReese's Sodium Extra - Code used licensed under LGPLv3
         Ampflower's 2x2 Surrounded Saplings Fix - Code used licensed under Zlib
         NoahvdAa's Thorium - Code used licensed under LGPLv3
+        Moulberry's MoulberryTweaks - Code used licensed under MIT
         """.trimIndent()
     inputs.property("version", project.version)
     inputs.property("description", modDescription)

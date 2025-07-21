@@ -38,6 +38,8 @@
   "debugify.fix_explanation.mc-105068": "Make shield break sound a local sound.",
   "debugify.fix_explanation.mc-108948": "The issue is that the client does not run the same calculations as the server. When no one is controlling the boat, the client does not run physics on the boat, causing a client de-sync. This fix simply tells the client to run some physics calculations on the boat.",
   "debugify.fix_explanation.mc-111516": "Modifies a math acos calculation to make sure the result is not more than 1.0.",
+  "debugify.fix_explanation.mc-118740": "Displays the crosshair attack cooldown when performing a right click action.",
+  "debugify.fix_effect.mc-118740": "This also fixes MC-116510: Attack indicator doesn't indicate (most of the time) that breaking instantly-mineable blocks resets your attack",
   "debugify.fix_explanation.mc-112730": "Prevents beacons and other block entities from being added to the local block entity renderer list if they are already added to the global list.",
   "debugify.fix_explanation.mc-122477": "Prevents first two keyboard polls after an edit box is initialized, e.g. the chat box.",
   "debugify.fix_explanation.mc-123739": "Sorts recipe book entries by their identifier.",
