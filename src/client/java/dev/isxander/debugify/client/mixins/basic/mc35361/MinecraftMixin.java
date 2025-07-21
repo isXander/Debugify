@@ -20,6 +20,6 @@ public class MinecraftMixin {
 
     @WrapWithCondition(method = "handleKeybinds", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/tutorial/Tutorial;onOpenInventory()V"))
     private boolean addNetherPortalCheck(Tutorial instance) {
-        return !this.player.portalProcess.isInsidePortalThisTick();
+        return this.player.portalProcess == null || !this.player.portalProcess.isInsidePortalThisTick();
     }
 }
