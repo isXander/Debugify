@@ -86,6 +86,7 @@
 | Basic    | [MC-227337](https://bugs.mojang.com/browse/MC-227337) | When a shulker bullet hits an entity, the explodes sound is not played and particles are not produced                                          |
 | Basic    | [MC-231743](https://bugs.mojang.com/browse/MC-231743) | minecraft.used:minecraft.POTTABLE_PLANT doesn't increase when placing plants into flower pots                                                  |
 | Basic    | [MC-232869](https://bugs.mojang.com/browse/MC-232869) | Adult striders can spawn with saddles in peaceful mode                                                                                         |
+| Basic    | [MC-271899](https://bugs.mojang.com/browse/MC-271899) | StructureTemplate Palette's caches are not thread safe                                                                                         |
 | Basic    | [MC-245394](https://bugs.mojang.com/browse/MC-245394) | The sounds of raid horns blaring aren't controlled by the correct sound slider                                                                 |
 | Basic    | [MC-268617](https://bugs.mojang.com/browse/MC-268617) | Structures can't be saved if the game directory is named in a certain way                                                                      |
 

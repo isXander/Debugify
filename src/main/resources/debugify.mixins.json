@@ -39,6 +39,7 @@
     "basic.mc227337.ShulkerBulletMixin",
     "basic.mc231743.FlowerPotBlockMixin",
     "basic.mc232869.StriderMixin",
+    "basic.mc271899.StructureTemplateMixin",
     "basic.mc245394.RaidMixin",
     "basic.mc268617.FileUtilMixin",
     "basic.mc30391.LivingEntityMixin",
