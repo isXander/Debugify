@@ -1,4 +1,4 @@
-package dev.isxander.debugify.client.mixins.basic.mc168573;
+package dev.isxander.debugify.mixins.basic.mc168573;
 
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@BugFix(id = "MC-168573", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "After breaking a shield, the player's off-hand can't finish using some items")
+@BugFix(id = "MC-168573", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "After breaking a shield, the player's off-hand can't finish using some items")
 @Mixin(BlocksAttacks.class)
 public class BlocksAttacksMixin {
     @Inject(method = "hurtBlockingItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;hurtAndBreak(ILnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/EquipmentSlot;)V"))

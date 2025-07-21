@@ -42,7 +42,6 @@
     "gameplay.mc159163.ClientPacketListenerMixin"
   ],
   "mixins": [
-    "basic.mc168573.BlocksAttacksMixin",
     "basic.mc176559.ItemStackAccessor"
   ]
 }
