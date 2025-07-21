@@ -8,6 +8,7 @@
 | Basic    | [MC-22882](https://bugs.mojang.com/browse/MC-22882)   | Ctrl + Q won't work on Mac (disabled by default)                                                                                    |
 | Basic    | [MC-35361](https://bugs.mojang.com/browse/MC-35361)   | Inventory opening is detected while in Nether Portal                                                                                |
 | Basic    | [MC-46503](https://bugs.mojang.com/browse/MC-46503)   | You can retain a mob's shader in spectator mode by running /kill                                                                    |
+| Basic    | [MC-46737](https://bugs.mojang.com/browse/MC-46737)   | Entities' shaders are applied when beginning to spectate them in third person                                                       |
 | Basic    | [MC-46766](https://bugs.mojang.com/browse/MC-46766)   | Mining a block in Survival, then changing to Spectator creates a breaking animation and sound                                       |
 | Basic    | [MC-57057](https://bugs.mojang.com/browse/MC-57057)   | Guardian laser attack sound ignores distance                                                                                        |
 | Basic    | [MC-59810](https://bugs.mojang.com/browse/MC-59810)   | Cannot break blocks while sprinting (Ctrl+Click = right click on macOS) *(macOS only)*                                              |
