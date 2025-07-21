@@ -23,6 +23,7 @@
     "basic.mc155509.PufferfishMixin",
     "basic.mc159283.DensityFunctionsMixin",
     "basic.mc160095.CactusBlockMixin",
+    "basic.mc168573.BlocksAttacksMixin",
     "basic.mc176806.RespawnAnchorBlockMixin",
     "basic.mc170462.MobEffectsMixin",
     "basic.mc179072.SwellGoalMixin",
