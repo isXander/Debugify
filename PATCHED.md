@@ -19,12 +19,15 @@
 | Basic    | [MC-105068](https://bugs.mojang.com/browse/MC-105068) | Hitting another player blocking with a shield plays normal hurt sound                                                               |
 | Basic    | [MC-115092](https://bugs.mojang.com/browse/MC-115092) | Squid/glow squid named "Dinnerbone" or "Grumm" is not upside-down                                                                   |
 | Basic    | [MC-116379](https://bugs.mojang.com/browse/MC-116379) | Punching with a cast fishing rod in the off-hand detaches fishing line from rod                                                     |
+| Basic    | [MC-116510](https://bugs.mojang.com/browse/MC-116510) | Attack indicator doesn't indicate (most of the time) that breaking instantly-mineable blocks resets your attack                     |
+| Basic    | [MC-118740](https://bugs.mojang.com/browse/MC-118740) | Performing any right-click action silently resets the attack cooldown                                                               |
 | Basic    | [MC-122627](https://bugs.mojang.com/browse/MC-122627) | Tab suggestion box has missing padding on right side                                                                                |
 | Basic    | [MC-122477](https://bugs.mojang.com/browse/MC-122477) | Linux/GNU: Opening chat sometimes writes 't                                                                                         |
 | Basic    | [MC-127970](https://bugs.mojang.com/browse/MC-127970) | Using riptide on a trident with an item in your off-hand causes visual glitch with the item in your offhand                         |
 | Basic    | [MC-143474](https://bugs.mojang.com/browse/MC-143474) | Respawning causes your hotbar to reset to the first space                                                                           |
 | Gameplay | [MC-159163](https://bugs.mojang.com/browse/MC-159163) | Quickly pressing the sneak key causes the sneak animation to play twice                                                             |
 | Basic    | [MC-165381](https://bugs.mojang.com/browse/MC-165381) | Block breaking can be delayed by dropping/throwing the tool while breaking a block                                                  |                                                             |
+| Basic    | [MC-168573](https://bugs.mojang.com/browse/MC-168573) | After breaking a shield, the player's off-hand can't finish using some items                                                        |
 | Basic    | [MC-176559](https://bugs.mojang.com/browse/MC-176559) | Breaking process resets when a pickaxe enchanted with Mending mends by XP / Mending slows down breaking blocks again                |
 | Basic    | [MC-183776](https://bugs.mojang.com/browse/MC-183776) | After switching gamemodes using F3+F4, you need to press F3 twice to toggle the debug screen                                        |
 | Basic    | [MC-188359](https://bugs.mojang.com/browse/MC-188359) | Burp sound does not play after drinking or after eating cake                                                                        |
@@ -63,6 +66,7 @@
 | Basic    | [MC-119754](https://bugs.mojang.com/browse/MC-119754) | Firework boosting on elytra continues in spectator mode                                                                                        |
 | Basic    | [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Skeletons and illusioners aren't looking up / down at their target while strafing                                                              |
 | Basic    | [MC-121903](https://bugs.mojang.com/browse/MC-121903) | Command block minecarts do not save execution cooldown to NBT                                                                                  |
+| Basic    | [MC-123605](https://bugs.mojang.com/browse/MC-123605) | Debug world still sets clear weather time instead of deactivating gamerule doWeatherCycle                                                      |
 | Basic    | [MC-123450](https://bugs.mojang.com/browse/MC-123450) | Item frames play sounds when the item within them is read from NBT                                                                             |
 | Basic    | [MC-129909](https://bugs.mojang.com/browse/MC-129909) | Players in spectator mode continue to consume foods and liquids shortly after switching game modes                                             |
 | Basic    | [MC-132878](https://bugs.mojang.com/browse/MC-132878) | Armor stands destroyed by explosions/lava/fire don't produce particles                                                                         |
