@@ -12,7 +12,7 @@
   "debugify.error.mixin_error": "Falha ao carregar %s, verifique o log para mais detalhes.",
   "debugify.error.mixin_error.text": "Erro",
   "debugify.os.windows": "Windows",
-  "debugify.os.macos": "MacOS",
+  "debugify.os.macos": "macOS",
   "debugify.os.linux": "Linux",
   "debugify.os.solaris": "Solaris",
   "debugify.misc": "Diversos",
