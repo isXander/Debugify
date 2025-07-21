@@ -19,6 +19,8 @@
 | Basic    | [MC-105068](https://bugs.mojang.com/browse/MC-105068) | Hitting another player blocking with a shield plays normal hurt sound                                                               |
 | Basic    | [MC-115092](https://bugs.mojang.com/browse/MC-115092) | Squid/glow squid named "Dinnerbone" or "Grumm" is not upside-down                                                                   |
 | Basic    | [MC-116379](https://bugs.mojang.com/browse/MC-116379) | Punching with a cast fishing rod in the off-hand detaches fishing line from rod                                                     |
+| Basic    | [MC-116510](https://bugs.mojang.com/browse/MC-116510) | Attack indicator doesn't indicate (most of the time) that breaking instantly-mineable blocks resets your attack                     |
+| Basic    | [MC-118740](https://bugs.mojang.com/browse/MC-118740) | Performing any right-click action silently resets the attack cooldown                                                               |
 | Basic    | [MC-122627](https://bugs.mojang.com/browse/MC-122627) | Tab suggestion box has missing padding on right side                                                                                |
 | Basic    | [MC-122477](https://bugs.mojang.com/browse/MC-122477) | Linux/GNU: Opening chat sometimes writes 't                                                                                         |
 | Basic    | [MC-127970](https://bugs.mojang.com/browse/MC-127970) | Using riptide on a trident with an item in your off-hand causes visual glitch with the item in your offhand                         |

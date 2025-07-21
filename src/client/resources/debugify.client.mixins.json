@@ -21,8 +21,8 @@
     "basic.mc183776.KeyboardHandlerMixin",
     "basic.mc197260.ArmorStandRendererMixin",
     "basic.mc197260.LivingEntityRendererMixin",
-    "basic.mc210318.BookSignScreenMixin",
     "basic.mc201723.StatsScreenMixin",
+    "basic.mc210318.BookSignScreenMixin",
     "basic.mc211561.FishingHookRendererMixin",
     "basic.mc215531.GuiMixin",
     "basic.mc217716.GameRendererMixin",
@@ -35,10 +35,12 @@
     "basic.mc237493.TelemetryInfoScreenMixin",
     "basic.mc242809.DirectJoinServerScreenMixin",
     "basic.mc242809.EditServerScreenMixin",
+    "basic.mc118740.GuiMixin",
+    "basic.mc118740.LocalPlayerMixin",
     "basic.mc263865.KeyboardHandlerMixin",
-    "basic.mc35361.MinecraftMixin",
-    "basic.mc298558.AtmosphericFogEnvironmentMixin",
     "basic.mc268420.GuiMixin",
+    "basic.mc298558.AtmosphericFogEnvironmentMixin",
+    "basic.mc35361.MinecraftMixin",
     "basic.mc4490.FishingHookRendererMixin",
     "basic.mc46503.ClientPacketListenerMixin",
     "basic.mc46766.MinecraftMixin",
@@ -59,6 +61,7 @@
     "basic.mc188359.CakeBlockMixin",
     "basic.mc188359.ConsumableMixin",
     "basic.mc206540.EntityMixin",
+    "basic.mc118740.PlayerMixin",
     "basic.mc259512.LivingEntityMixin"
   ]
 }
