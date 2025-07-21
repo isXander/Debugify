@@ -37,6 +37,7 @@
 | Basic    | [MC-217716](https://bugs.mojang.com/browse/MC-217716) | The green nausea overlay isn't removed when switching into spectator mode                                                           |
 | Basic    | [MC-231097](https://bugs.mojang.com/browse/MC-231097) | Holding the "Use" button continues to slow down the player even after the used item has been dropped                                |
 | Basic    | [MC-237493](https://bugs.mojang.com/browse/MC-237493) | Telemetry cannot be disabled                                                                                                        |
+| Basic    | [MC-267376](https://bugs.mojang.com/browse/MC-267376) | You can view through blocks on small scales (near plane clipping)                                                                   |
 | Basic    | [MC-298225](https://bugs.mojang.com/browse/MC-298225) | Shapes appear in the end sky with certain distance settings                                                                         |
 | Basic    | [MC-242809](https://bugs.mojang.com/browse/MC-242809) | IP field in the multiplayer menu will not detect the IP if a space is put at the beginning/end of it                                |
 | Basic    | [MC-298558](https://bugs.mojang.com/browse/MC-298558) | Rain fog calculation can overshoot while game is unresponsive                                                                       |

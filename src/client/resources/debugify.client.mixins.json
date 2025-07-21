@@ -37,6 +37,7 @@
     "basic.mc242809.DirectJoinServerScreenMixin",
     "basic.mc242809.EditServerScreenMixin",
     "basic.mc263865.KeyboardHandlerMixin",
+    "basic.mc267376.GameRendererMixin",
     "basic.mc298225.GameRendererMixin",
     "basic.mc35361.MinecraftMixin",
     "basic.mc298558.AtmosphericFogEnvironmentMixin",
