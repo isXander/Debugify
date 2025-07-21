@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "debugify",
-  "version": "${version}",
-  "name": "Debugify",
-  "description": "${description}",
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}\n\nCredits:\n${mod_credits}",
   "authors": [
     "isXander"
   ],
@@ -29,17 +29,9 @@
       "dev.isxander.debugify.client.integrations.ModMenuIntegration"
     ]
   },
-  "mixins": [
-    "debugify.mixins.json",
-    {
-      "config": "debugify.client.mixins.json",
-      "environment": "client"
-    }
-  ],
-  "accessWidener": "debugify.accesswidener",
   "depends": {
     "fabricloader": ">=0.14.0",
-    "minecraft": "~1.21.4",
+    "minecraft": "~1.21.6",
     "java": ">=21",
     "fabric-resource-loader-v0": "*"
   },
@@ -50,7 +42,7 @@
   "custom": {
     "modmenu": {
       "links": {
-        "Patched Bugs": "https://github.com/isXander/Debugify/blob/1.21.4/PATCHED.md#unpatched-in-vanilla"
+        "Patched Bugs": "https://github.com/isXander/Debugify/blob/1.21.7/PATCHED.md#unpatched-in-vanilla"
       }
     }
   }

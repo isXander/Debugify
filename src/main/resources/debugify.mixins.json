@@ -7,6 +7,9 @@
     "maxShiftBy": 2
   },
   "plugin": "dev.isxander.debugify.mixinplugin.MixinPlugin",
+  "mixinextras": {
+    "minVersion": "0.5.0-rc.4"
+  },
   "mixins": [
     "basic.mc100991.FishingHookMixin",
     "basic.mc100991.ProjectileMixin",

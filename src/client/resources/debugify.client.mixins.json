@@ -7,6 +7,9 @@
     "maxShiftBy": 2
   },
   "plugin": "dev.isxander.debugify.mixinplugin.MixinPlugin",
+  "mixinextras": {
+    "minVersion": "0.5.0-rc.4"
+  },
   "client": [
     "basic.mc105068.LivingEntityMixin",
     "basic.mc115092.SquidRendererMixin",
