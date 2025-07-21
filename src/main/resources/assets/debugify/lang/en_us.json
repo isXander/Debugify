@@ -50,7 +50,7 @@
   "debugify.fix_explanation.mc-197260": "Overrides the light level passed to the armour stand renderer with a maximum of: the block below the armor stand, bottom of the armor stand, top of the armor stand and the block above of the armor stand.",
   "debugify.fix_explanation.mc-237493": "Adds an option in the telemetry menu to completely disable telemetry. Telemetry is disabled by overriding all outgoing telemetry events to be an empty telemetry event, which is not sent.",
 
-  "debugify.fix_explanation.mc-2025": "Due to floating point inaccuracies, sometimes the hitbox of entities end up being slightly smaller than desired. Then, if this happens before the entities are pushed against eachother, they will intersect with the wall. Then, when the AABB is recalculated on chunk load, they will be determined as inside the wall, where they are then pushed. This fix simply writes an 'AABB' tag to entity NBT data with double-precision hitbox sizes which then get loaded back in.",
+  "debugify.fix_explanation.mc-2025": "Due to floating point inaccuracies, sometimes the hitbox of entities end up being slightly smaller than desired. Then, if this happens before the entities are pushed against each-other, they will intersect with the wall. Then, when the AABB is recalculated on chunk load, they will be determined as inside the wall, where they are then pushed. This fix simply writes an 'AABB' tag to entity NBT data with double-precision hitbox sizes which then get loaded back in.",
   "debugify.fix_effect.mc-2025": "This fix means loading Debugify for the first time will not fix the issue until the chunks are saved and loaded with Debugify.",
   "debugify.fix_explanation.mc-7569": "Appends a new line to the end of every system message.",
   "debugify.fix_explanation.mc-30391": "Adds edge-case checks for chicken, blaze and the wither to fall damage spawn particles to not spawn them.",
@@ -68,6 +68,8 @@
   "debugify.fix_explanation.mc-132878": "Spawns breaking particles when armour stands are hurt.",
   "debugify.fix_explanation.mc-135971": "Overrides CTRL+Q behaviour in crafting slot to repeatedly CTRL+Q until there are no items left in the crafting slot.",
   "debugify.fix_explanation.mc-155509": "Checks if the pufferfish is alive before attempting to sting the player.",
+  "debugify.fix_explanation.mc-159283": "Casts 32-bit integers to 64-bit equivalents to prevent integer overflow at high X and Z values.",
+  "debugify.fix_effect.mc-159283": "Affects world generation.",
   "debugify.fix_explanation.mc-160095": "If cacti encounter a piston head, the block that is being moved by the piston is considered instead of the piston.",
   "debugify.fix_explanation.mc-179072": "Checks if the entity the creeper sees is an enemy before igniting.",
   "debugify.fix_explanation.mc-183990": "When a mob is ticked, it checks to see if its target is dead, and removes it if so. This fix also applies to a long list of entities that have group attacks, not just silverfish.",
@@ -76,5 +78,7 @@
   "debugify.fix_explanation.mc-200418": "Dismounts baby villagers from chickens upon conversion.",
   "debugify.fix_explanation.mc-206922": "Items with an age less than 9 ticks are not removed from lightning strikes.",
   "debugify.fix_explanation.mc-215530": "Resets frozen time when the player changes to spectator.",
-  "debugify.fix_explanation.mc-224729": "Always saves ProtoChunks even if the chunk save predicate returns false."
+  "debugify.fix_explanation.mc-224729": "Always saves ProtoChunks even if the chunk save predicate returns false.",
+  "debugify.fix_explanation.mc-298225": "Fixes skybox getting cut off (i.e. holes/gaps) at low render distances by increasing far plane distance.",
+  "debugify.fix_explanation.mc-268617": "Updates the RegEx filter to include all valid path locations. This allows using structure blocks in certain launchers such as Modrinth or any Linux Flatpak launcher."
 }
