@@ -28,7 +28,6 @@
 | Basic    | [MC-176559](https://bugs.mojang.com/browse/MC-176559) | Breaking process resets when a pickaxe enchanted with Mending mends by XP / Mending slows down breaking blocks again                |
 | Basic    | [MC-183776](https://bugs.mojang.com/browse/MC-183776) | After switching gamemodes using F3+F4, you need to press F3 twice to toggle the debug screen                                        |
 | Basic    | [MC-188359](https://bugs.mojang.com/browse/MC-188359) | Burp sound does not play after drinking or after eating cake                                                                        |
-| Basic    | [MC-187100](https://bugs.mojang.com/browse/MC-187100) | End crystals try to heal dying Ender dragons                                                                                        |
 | Basic    | [MC-197260](https://bugs.mojang.com/browse/MC-197260) | Armor Stand renders itself and armor dark if its head is in a solid block                                                           |
 | Basic    | [MC-210318](https://bugs.mojang.com/browse/MC-210318) | Maximum length of book title changed from 16 to 15 characters                                                                       |
 | Basic    | [MC-201723](https://bugs.mojang.com/browse/MC-201723) | Statistics sprites don't look pressed when clicked                                                                                  |
@@ -73,6 +72,7 @@
 | Basic    | [MC-170462](https://bugs.mojang.com/browse/MC-170462) | Bad Omen is considered a positive effect in potion item tooltips                                                                               |
 | Basic    | [MC-179072](https://bugs.mojang.com/browse/MC-179072) | Creepers do not defuse when switching from Survival to Creative/Spectator                                                                      |
 | Basic    | [MC-183990](https://bugs.mojang.com/browse/MC-183990) | Group AI of some mobs breaks when their target dies                                                                                            |
+| Basic    | [MC-187100](https://bugs.mojang.com/browse/MC-187100) | End crystals try to heal dying Ender dragons                                                                                                   |
 | Basic    | [MC-199467](https://bugs.mojang.com/browse/MC-199467) | Certain entity animations stop after they've existed in world for too long                                                                     |
 | Basic    | [MC-200418](https://bugs.mojang.com/browse/MC-200418) | Cured baby zombie villagers stay as jockey variant                                                                                             |
 | Basic    | [MC-202637](https://bugs.mojang.com/browse/MC-202637) | Last sound clip of eating will still play when Players volume is set to 0%                                                                     |
