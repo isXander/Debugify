@@ -102,6 +102,7 @@
 | Basic    | [MC-251068](https://bugs.mojang.com/browse/MC-251068) | If you delete your only world, then you are no longer automatically thrown into the menu of creating a new world                               |
 | Basic    | [MC-268617](https://bugs.mojang.com/browse/MC-268617) | Structures can't be saved if the game directory is named in a certain way                                                                      |
 | Basic    | [MC-271899](https://bugs.mojang.com/browse/MC-271899) | StructureTemplate Palette's caches are not thread safe                                                                                         |
+| Basic    | [MC-272431](https://bugs.mojang.com/browse/MC-272431) | Ender Dragon incorrect vertical velocity causes erratic behavior                                                                               |
 
 ## Previously patched
 Bugs that this mod has patched but has been superseded by a vanilla update.
