@@ -114,6 +114,8 @@
 | Basic    | [MC-271899](https://bugs.mojang.com/browse/MC-271899) | StructureTemplate Palette's caches are not thread safe                                                                                         |
 | Basic    | [MC-272431](https://bugs.mojang.com/browse/MC-272431) | Ender Dragon incorrect vertical velocity causes erratic behavior                                                                               |
 | Basic    | [MC-298066](https://bugs.mojang.com/browse/MC-298066) | Directly entering a bed from a mount places the player in the wrong place                                                                      |
+| Basic    | [MC-299115](https://bugs.mojang.com/browse/MC-299115) | Arrow losing owner tag when deflected whilst owner being offline                                                                               |
+|
 
 ## Previously patched
 Bugs that this mod has patched but has been superseded by a vanilla update.
