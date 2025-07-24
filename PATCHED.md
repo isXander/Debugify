@@ -95,6 +95,8 @@
 | Basic    | [MC-221257](https://bugs.mojang.com/browse/MC-221257) | Shulker bullets don't produce bubble particles when moving through water                                                                       |
 | Basic    | [MC-223153](https://bugs.mojang.com/browse/MC-223153) | Block of Raw Copper uses stone sounds instead of copper sounds                                                                                 |
 | Basic    | [MC-224729](https://bugs.mojang.com/browse/MC-224729) | Partially generated chunks are not saved in some situations                                                                                    |
+| Basic    | [MC-227008](https://bugs.mojang.com/browse/MC-227008) | Enderman constantly tries to teleport when in a boat or a minecart under daylight                                                              |
+| Basic    | [MC-226961](https://bugs.mojang.com/browse/MC-226961) | Experience Orbs treat flowing lava as a full block                                                                                             |
 | Basic    | [MC-227337](https://bugs.mojang.com/browse/MC-227337) | When a shulker bullet hits an entity, the explodes sound is not played and particles are not produced                                          |
 | Basic    | [MC-231743](https://bugs.mojang.com/browse/MC-231743) | minecraft.used:minecraft.POTTABLE_PLANT doesn't increase when placing plants into flower pots                                                  |
 | Basic    | [MC-232869](https://bugs.mojang.com/browse/MC-232869) | Adult striders can spawn with saddles in peaceful mode                                                                                         |
