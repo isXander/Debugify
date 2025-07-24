@@ -1,5 +1,6 @@
 package dev.isxander.debugify.mixins.basic.mc136249;
 
+import com.llamalad7.mixinextras.expression.Definition;
 import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import dev.isxander.debugify.fixes.BugFix;
@@ -15,9 +16,11 @@ public abstract class LivingEntityMixin{
     @Shadow
     public abstract boolean isAutoSpinAttack();
 
-    @Expression("? = ? + @((0.54600006 - ?) * ?)")
+    @Definition(id = "getAttributeValue", method = "Lnet/minecraft/world/entity/LivingEntity;getAttributeValue(Lnet/minecraft/core/Holder;)D")
+    @Definition(id = "WATER_MOVEMENT_EFFICIENCY", field = "Lnet/minecraft/world/entity/ai/attributes/Attributes;WATER_MOVEMENT_EFFICIENCY:Lnet/minecraft/core/Holder;")
+    @Expression("this.getAttributeValue(WATER_MOVEMENT_EFFICIENCY)")
     @ModifyExpressionValue(method = "travelInFluid", at = @At("MIXINEXTRAS:EXPRESSION"))
-    private float checkRiptide(float original) {
+    private double checkRiptide(double original) {
         return this.isAutoSpinAttack() ? 0 : original;
     }
 }
