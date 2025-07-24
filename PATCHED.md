@@ -106,6 +106,7 @@
 | Basic    | [MC-267125](https://bugs.mojang.com/browse/MC-267125) | Command suggestions for reloadable content are not affected by /reload                                                                         |
 | Basic    | [MC-268617](https://bugs.mojang.com/browse/MC-268617) | Structures can't be saved if the game directory is named in a certain way                                                                      |
 | Basic    | [MC-271899](https://bugs.mojang.com/browse/MC-271899) | StructureTemplate Palette's caches are not thread safe                                                                                         |
+| Basic    | [MC-298066](https://bugs.mojang.com/browse/MC-298066) | Directly entering a bed from a mount places the player in the wrong place                                                                      |
 
 ## Previously patched
 Bugs that this mod has patched but has been superseded by a vanilla update.

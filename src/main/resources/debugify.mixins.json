@@ -54,6 +54,7 @@
     "basic.mc267125.MinecraftServerMixin",
     "basic.mc268617.FileUtilMixin",
     "basic.mc271899.StructureTemplateMixin",
+    "basic.mc298066.LivingEntityMixin",
     "basic.mc30391.LivingEntityMixin",
     "basic.mc69216.ServerPlayerMixin",
     "basic.mc7569.RconConsoleSourceMixin",
