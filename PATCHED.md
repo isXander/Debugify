@@ -45,6 +45,7 @@
 | Basic    | [MC-242809](https://bugs.mojang.com/browse/MC-242809) | IP field in the multiplayer menu will not detect the IP if a space is put at the beginning/end of it                                |
 | Basic    | [MC-259512](https://bugs.mojang.com/browse/MC-259512) | Horizontal camera rotation lags when riding                                                                                         |
 | Basic    | [MC-267376](https://bugs.mojang.com/browse/MC-267376) | You can view through blocks on small scales (near plane clipping)                                                                   |
+| Basic    | [MC-267469](https://bugs.mojang.com/browse/MC-267469) | GUI List Entry highlight border not always aligned properly                                                                         |
 | Basic    | [MC-268420](https://bugs.mojang.com/browse/MC-268420) | Cooldown indicator flashes when switching items with high attack speed attribute                                                    |
 | Basic    | [MC-298225](https://bugs.mojang.com/browse/MC-298225) | Shapes appear in the end sky with certain distance settings                                                                         |
 | Basic    | [MC-298558](https://bugs.mojang.com/browse/MC-298558) | Rain fog calculation can overshoot while game is unresponsive                                                                       |
