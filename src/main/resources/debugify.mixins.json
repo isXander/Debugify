@@ -46,6 +46,7 @@
     "basic.mc223153.BlocksMixin",
     "basic.mc224729.ChunkMapMixin",
     "basic.mc227008.EnderManMixin",
+    "basic.mc226961.ExperienceOrbMixin",
     "basic.mc227337.ShulkerBulletMixin",
     "basic.mc231743.FlowerPotBlockMixin",
     "basic.mc232869.StriderMixin",
