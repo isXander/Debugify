@@ -58,6 +58,7 @@
     "basic.mc268617.FileUtilMixin",
     "basic.mc271899.StructureTemplateMixin",
     "basic.mc272431.EnderDragonMixin",
+    "basic.mc297837.WaypointTransmitterMixin",
     "basic.mc298066.LivingEntityMixin",
     "basic.mc299115.ProjectileMixin",
     "basic.mc30391.LivingEntityMixin",
