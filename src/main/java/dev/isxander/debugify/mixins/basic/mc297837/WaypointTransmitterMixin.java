@@ -11,9 +11,9 @@ import net.minecraft.world.waypoints.WaypointTransmitter;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@BugFix(id = "MC-297837", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Locator bar shows players above you as being below you when they are high enough")
+@BugFix(id = "MC-297837", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Locator bar shows players above you as being below you when they are high enough")
 @Mixin(WaypointTransmitter.class)
-public class WaypointTransmitterMixin {
+public interface WaypointTransmitterMixin {
     /**
      * {@link WaypointTransmitter#isReallyFar(LivingEntity, ServerPlayer)} was being used to determine whether
      * waypoints should use azimuth distance (far away) or chunk/block distance (close/closer by).
