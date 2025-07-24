@@ -5,3 +5,4 @@ accessible class net/minecraft/client/gui/screens/telemetry/TelemetryEventWidget
 accessible class net/minecraft/client/gui/screens/telemetry/TelemetryEventWidget$Content
 accessible class net/minecraft/client/gui/screens/achievement/StatsScreen$ItemStatisticsList
 accessible class net/minecraft/world/level/levelgen/DensityFunctions$EndIslandDensityFunction
+accessible class net/minecraft/server/MinecraftServer$ReloadableResources
