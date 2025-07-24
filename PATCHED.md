@@ -48,6 +48,7 @@
 | Basic    | [MC-267376](https://bugs.mojang.com/browse/MC-267376) | You can view through blocks on small scales (near plane clipping)                                                                   |
 | Basic    | [MC-267469](https://bugs.mojang.com/browse/MC-267469) | GUI List Entry highlight border not always aligned properly                                                                         |
 | Basic    | [MC-268420](https://bugs.mojang.com/browse/MC-268420) | Cooldown indicator flashes when switching items with high attack speed attribute                                                    |
+| Basic    | [MC-280220](https://bugs.mojang.com/browse/MC-280220) | When a Dolphin holds an item, it is rendered upside-down                                                                            |
 | Basic    | [MC-298225](https://bugs.mojang.com/browse/MC-298225) | Shapes appear in the end sky with certain distance settings                                                                         |
 | Basic    | [MC-298558](https://bugs.mojang.com/browse/MC-298558) | Rain fog calculation can overshoot while game is unresponsive                                                                       |
 
