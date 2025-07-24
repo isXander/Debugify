@@ -21,6 +21,7 @@
     "basic.mc122627.CommandSuggestionsMixin",
     "basic.mc127970.ItemInHandRendererMixin",
     "basic.mc143474.ClientPacketListenerMixin",
+    "basic.mc165305.RenderPipelinesMixin",
     "basic.mc165381.LocalPlayerMixin",
     "basic.mc176559.MultiPlayerGameModeMixin",
     "basic.mc183776.KeyboardHandlerMixin",
