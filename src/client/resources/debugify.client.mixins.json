@@ -14,6 +14,8 @@
     "basic.mc105068.LivingEntityMixin",
     "basic.mc115092.SquidRendererMixin",
     "basic.mc116379.FishingHookRendererMixin",
+    "basic.mc118740.GuiMixin",
+    "basic.mc118740.LocalPlayerMixin",
     "basic.mc122477.EditBoxMixin",
     "basic.mc122477.RenderSystemMixin",
     "basic.mc122627.CommandSuggestionsMixin",
@@ -36,17 +38,14 @@
     "basic.mc237493.TelemetryEventInstanceMixin",
     "basic.mc237493.TelemetryEventWidgetMixin",
     "basic.mc237493.TelemetryInfoScreenMixin",
-    "basic.mc251068.WorldSelectionListMixin",
     "basic.mc242809.DirectJoinServerScreenMixin",
     "basic.mc242809.EditServerScreenMixin",
-    "basic.mc118740.GuiMixin",
-    "basic.mc118740.LocalPlayerMixin",
+    "basic.mc251068.WorldSelectionListMixin",
     "basic.mc263865.KeyboardHandlerMixin",
     "basic.mc267376.GameRendererMixin",
-    "basic.mc298225.GameRendererMixin",
-    "basic.mc35361.MinecraftMixin",
-    "basic.mc298558.AtmosphericFogEnvironmentMixin",
+    "basic.mc267469.AbstractSelectionListMixin",
     "basic.mc268420.GuiMixin",
+    "basic.mc298225.GameRendererMixin",
     "basic.mc298558.AtmosphericFogEnvironmentMixin",
     "basic.mc35361.MinecraftMixin",
     "basic.mc4490.FishingHookRendererMixin",
@@ -66,11 +65,11 @@
     "gameplay.mc159163.ClientPacketListenerMixin"
   ],
   "mixins": [
+    "basic.mc118740.PlayerMixin",
     "basic.mc176559.ItemStackAccessor",
     "basic.mc188359.CakeBlockMixin",
     "basic.mc188359.ConsumableMixin",
     "basic.mc206540.EntityMixin",
-    "basic.mc118740.PlayerMixin",
     "basic.mc259512.LivingEntityMixin"
   ]
 }
