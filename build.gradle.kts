@@ -1,116 +1,119 @@
 plugins {
-    java
-
-    id("fabric-loom") version "1.10.+"
-
+    id("dev.isxander.modstitch.base") version "0.6.2-unstable"
     id("me.modmuss50.mod-publish-plugin") version "0.8.4"
     `maven-publish`
-
     id("org.ajoberstar.grgit") version "5.0.0"
 }
 
-group = "dev.isxander"
-version = "1.21.7+1.0"
+modstitch {
+    minecraftVersion = "1.21.8"
+    modLoaderVersion = "0.16.14"
 
-loom {
-    splitEnvironmentSourceSets()
-    mods {
-        register("debugify") {
-            sourceSet(sourceSets["main"])
-            sourceSet(sourceSets["client"])
-        }
+    parchment {
+        mappingsVersion = "2025.06.29"
+        minecraftVersion = "1.21.6"
     }
-}
 
-val gametest by sourceSets.registering {
-    compileClasspath += sourceSets.main.get().compileClasspath
-    runtimeClasspath += sourceSets.main.get().runtimeClasspath
-    compileClasspath += sourceSets["client"].compileClasspath
-    runtimeClasspath += sourceSets["client"].runtimeClasspath
-}
+    metadata {
+        modVersion = minecraftVersion.map { "$it+1.0" }
+        modId = "debugify"
+        modName = "Debugify"
+        modDescription = "Fixes Minecraft bugs found on the bug tracker"
+        modCredits = """
+            j-Tai's TieFix - Code used licensed under LGPLv3
+            FlashyReese's Sodium Extra - Code used licensed under LGPLv3
+            Ampflower's 2x2 Surrounded Saplings Fix - Code used licensed under Zlib
+            NoahvdAa's Thorium - Code used licensed under LGPLv3
+            Moulberry's MoulberryTweaks - Code used licensed under MIT
+        """.trimIndent()
+    }
 
-loom {
-    runs {
-        register("gametest") {
-            client()
-            ideConfigGenerated(true)
-            name("Game Test")
-            source(gametest.get())
-        }
+    mixin {
+        addMixinsToModManifest = true
+        configs.register("debugify")
+        configs.register("debugify.client") { side = CLIENT }
+    }
 
-        listOf(named("client"), named("server")).forEach {
-            it {
-                vmArg("-Ddebugify.forceMacFixes=true")
-                vmArg("-Ddebugify.forceLinuxFixes=true")
-                vmArg("-Ddebugify.forceWindowsFixes=true")
+    loom {
+        configureLoom {
+            mixin.useLegacyMixinAp = false
+
+            splitEnvironmentSourceSets()
+
+            val gametest by sourceSets.registering {
+                compileClasspath += sourceSets.main.get().compileClasspath
+                runtimeClasspath += sourceSets.main.get().runtimeClasspath
+                compileClasspath += sourceSets["client"].compileClasspath
+                runtimeClasspath += sourceSets["client"].runtimeClasspath
+            }
+
+            //createProxyConfigurations(sourceSets["client"])
+            createProxyConfigurations(gametest.get())
+
+            mods.register("debugify") {
+                sourceSet(sourceSets["main"])
+                sourceSet(sourceSets["client"])
+            }
+
+            runs {
+                register("gametest") {
+                    client()
+                    ideConfigGenerated(true)
+                    name("Game Test")
+                    source(gametest.get())
+                }
+
+                listOf(named("client"), named("server")).forEach {
+                    it {
+                        vmArg("-Ddebugify.forceMacFixes=true")
+                        vmArg("-Ddebugify.forceLinuxFixes=true")
+                        vmArg("-Ddebugify.forceWindowsFixes=true")
+                    }
+                }
             }
         }
     }
-    createRemapConfigurations(gametest.get())
-
-    accessWidenerPath.set(file("src/main/resources/debugify.accesswidener"))
 }
 
 repositories {
-    mavenCentral()
-    maven("https://jitpack.io")
-    maven("https://maven.isxander.dev/releases")
-    maven("https://maven.isxander.dev/snapshots")
-    maven("https://maven.terraformersmc.com")
-    maven("https://maven.quiltmc.org/repository/release")
-    maven("https://oss.sonatype.org/content/repositories/snapshots")
+    exclusiveContent {
+        forRepository { maven("https://maven.terraformersmc.com/releases") }
+        filter { includeGroup("com.terraformersmc") }
+    }
+    exclusiveContent {
+        forRepository { maven("https://maven.isxander.dev/releases") }
+        filter {
+            includeGroup("dev.isxander")
+            includeGroup("org.quiltmc.parsers")
+        }
+    }
 }
 
-val minecraftVersion: String by project
-val fabricLoaderVersion: String by project
 val fabricApiVersion: String by project
 val yaclVersion: String by project
 val mixinExtrasVersion: String by project
 val modMenuVersion: String by project
 
 dependencies {
-    minecraft("com.mojang:minecraft:$minecraftVersion")
-    mappings(loom.officialMojangMappings())
-
-    modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
-
     modImplementation(fabricApi.module("fabric-resource-loader-v0", fabricApiVersion))
     modImplementation("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion")
 
-    "modClientImplementation"("dev.isxander:yet-another-config-lib:$yaclVersion") { exclude(module = "fabric-loader") }
-    "modClientImplementation"("com.terraformersmc:modmenu:$modMenuVersion") { exclude(module = "fabric-loader") }
+    "io.github.llamalad7:mixinextras-fabric:$mixinExtrasVersion".let {
+        include(it)
+        implementation(it)
+        /*annotationProcessor(it)*/// only needed if `useLegacyMixinAp = true`
+    }
+
+    "modClientImplementation"("dev.isxander:yet-another-config-lib:$yaclVersion")
+    "modClientImplementation"("com.terraformersmc:modmenu:$modMenuVersion")
 
     "gametestImplementation"(sourceSets.main.get().output)
     "gametestImplementation"(sourceSets["client"].output)
     "modGametestImplementation"(fabricApi.module("fabric-gametest-api-v1", fabricApiVersion))
 }
 
-tasks.withType<JavaCompile> {
-    options.encoding = "UTF-8"
-    options.release.set(21)
-}
-
 java {
     withSourcesJar()
-}
-
-tasks.processResources {
-    val modDescription = """
-        Fixes Minecraft bugs found on the bug tracker
-
-        License stuff:
-        j-Tai's TieFix - Code used licensed under LGPLv3
-        FlashyReese's Sodium Extra - Code used licensed under LGPLv3
-        Ampflower's 2x2 Surrounded Saplings Fix - Code used licensed under Zlib
-        """.trimIndent()
-    inputs.property("version", project.version)
-    inputs.property("description", modDescription)
-    filesMatching(listOf("fabric.mod.json", "quilt.mod.json")) {
-        expand(
-            "version" to project.version,
-            "description" to modDescription,
-        )
-    }
 }
 
 publishMods {
@@ -118,14 +121,17 @@ publishMods {
 
     file.set(tasks.remapJar.get().archiveFile)
 
-    changelog.set(
-        run {
-            var changelogText = file("changelogs/$minecraftVersion/${project.version}.md").takeIf { it.exists() }?.readText()
-                ?: "No changelog is provided"
-            file("changelogs/header.md").takeIf { it.exists() }?.readText()?.let { changelogText = it + "\n\n" + changelogText }
-            changelogText
-        }
-    )
+    changelog.set(modstitch.minecraftVersion.zip(modstitch.metadata.modVersion) { mcVersion, modVersion ->
+        val header = file("changelogs/header.md")
+            .takeIf { it.exists() }
+            ?.readText()
+
+        file("changelogs/$mcVersion/$modVersion.md")
+            .takeIf { it.exists() }
+            ?.readText()
+            ?.let { if (header != null) "$header\n\n$it" else it }
+    })
+
     type.set(STABLE)
     modLoaders.add("fabric")
 
@@ -134,7 +140,7 @@ publishMods {
         modrinth {
             projectId.set(modrinthId)
             accessToken.set(findProperty("modrinth.token")?.toString())
-            minecraftVersions.addAll(minecraftVersion)
+            minecraftVersions.add(modstitch.minecraftVersion)
 
             requires { slug.set("yacl") }
             requires { slug.set("fabric-api") }
@@ -147,7 +153,7 @@ publishMods {
         curseforge {
             projectId.set(curseforgeId)
             accessToken.set(findProperty("curseforge.token")?.toString())
-            minecraftVersions.addAll(minecraftVersion)
+            minecraftVersions.add(modstitch.minecraftVersion)
 
             requires { slug.set("yacl") }
             requires { slug.set("fabric-api") }
@@ -188,14 +194,3 @@ publishing {
         }
     }
 }
-
-tasks.register("publishDebugify") {
-    group = "debugify"
-
-    dependsOn("clean")
-
-    dependsOn("publishMods")
-
-    dependsOn("publish")
-}
-
