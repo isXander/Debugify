@@ -45,6 +45,7 @@
 | Basic    | [MC-242809](https://bugs.mojang.com/browse/MC-242809) | IP field in the multiplayer menu will not detect the IP if a space is put at the beginning/end of it                                |
 | Basic    | [MC-259512](https://bugs.mojang.com/browse/MC-259512) | Horizontal camera rotation lags when riding                                                                                         |
 | Basic    | [MC-267376](https://bugs.mojang.com/browse/MC-267376) | You can view through blocks on small scales (near plane clipping)                                                                   |
+| Basic    | [MC-267469](https://bugs.mojang.com/browse/MC-267469) | GUI List Entry highlight border not always aligned properly                                                                         |
 | Basic    | [MC-268420](https://bugs.mojang.com/browse/MC-268420) | Cooldown indicator flashes when switching items with high attack speed attribute                                                    |
 | Basic    | [MC-298225](https://bugs.mojang.com/browse/MC-298225) | Shapes appear in the end sky with certain distance settings                                                                         |
 | Basic    | [MC-298558](https://bugs.mojang.com/browse/MC-298558) | Rain fog calculation can overshoot while game is unresponsive                                                                       |
@@ -95,11 +96,14 @@
 | Basic    | [MC-221257](https://bugs.mojang.com/browse/MC-221257) | Shulker bullets don't produce bubble particles when moving through water                                                                       |
 | Basic    | [MC-223153](https://bugs.mojang.com/browse/MC-223153) | Block of Raw Copper uses stone sounds instead of copper sounds                                                                                 |
 | Basic    | [MC-224729](https://bugs.mojang.com/browse/MC-224729) | Partially generated chunks are not saved in some situations                                                                                    |
+| Basic    | [MC-227008](https://bugs.mojang.com/browse/MC-227008) | Enderman constantly tries to teleport when in a boat or a minecart under daylight                                                              |
+| Basic    | [MC-226961](https://bugs.mojang.com/browse/MC-226961) | Experience Orbs treat flowing lava as a full block                                                                                             |
 | Basic    | [MC-227337](https://bugs.mojang.com/browse/MC-227337) | When a shulker bullet hits an entity, the explodes sound is not played and particles are not produced                                          |
 | Basic    | [MC-231743](https://bugs.mojang.com/browse/MC-231743) | minecraft.used:minecraft.POTTABLE_PLANT doesn't increase when placing plants into flower pots                                                  |
 | Basic    | [MC-232869](https://bugs.mojang.com/browse/MC-232869) | Adult striders can spawn with saddles in peaceful mode                                                                                         |
 | Basic    | [MC-245394](https://bugs.mojang.com/browse/MC-245394) | The sounds of raid horns blaring aren't controlled by the correct sound slider                                                                 |
 | Basic    | [MC-251068](https://bugs.mojang.com/browse/MC-251068) | If you delete your only world, then you are no longer automatically thrown into the menu of creating a new world                               |
+| Basic    | [MC-267125](https://bugs.mojang.com/browse/MC-267125) | Command suggestions for reloadable content are not affected by /reload                                                                         |
 | Basic    | [MC-268617](https://bugs.mojang.com/browse/MC-268617) | Structures can't be saved if the game directory is named in a certain way                                                                      |
 | Basic    | [MC-271899](https://bugs.mojang.com/browse/MC-271899) | StructureTemplate Palette's caches are not thread safe                                                                                         |
 | Basic    | [MC-298066](https://bugs.mojang.com/browse/MC-298066) | Directly entering a bed from a mount places the player in the wrong place                                                                      |
