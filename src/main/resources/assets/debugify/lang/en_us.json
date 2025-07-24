@@ -82,6 +82,7 @@
   "debugify.fix_explanation.mc-200418": "Dismounts baby villagers from chickens upon conversion.",
   "debugify.fix_explanation.mc-206922": "Items with an age less than 9 ticks are not removed from lightning strikes.",
   "debugify.fix_explanation.mc-215530": "Resets frozen time when the player changes to spectator.",
+  "debugify.fix_explanation.mc-219981": "Sets the zombie's health to its new max health minus whatever damage it has taken.",
   "debugify.fix_explanation.mc-224729": "Always saves ProtoChunks even if the chunk save predicate returns false.",
   "debugify.fix_explanation.mc-226961": "Uses XP Orbs' eye height to determine if it is inside lava.",
   "debugify.fix_effect.mc-226961": "XP Orbs are killed shortly upon touching lava instead of bouncing.",
