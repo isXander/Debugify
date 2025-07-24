@@ -60,6 +60,7 @@
     "basic.mc30391.LivingEntityMixin",
     "basic.mc69216.ServerPlayerMixin",
     "basic.mc7569.RconConsoleSourceMixin",
+    "basic.mc82263.EnderDragonMixin",
     "basic.mc84661.MobEffectsMixin",
     "basic.mc88371.DragonLandingPhaseMixin",
     "basic.mc89146.ChunkAccessMixin",
