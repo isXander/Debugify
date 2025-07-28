@@ -26,6 +26,7 @@
 | Basic    | [MC-122627](https://bugs.mojang.com/browse/MC-122627) | Tab suggestion box has missing padding on right side                                                                                |
 | Basic    | [MC-122477](https://bugs.mojang.com/browse/MC-122477) | Linux/GNU: Opening chat sometimes writes 't                                                                                         |
 | Basic    | [MC-127970](https://bugs.mojang.com/browse/MC-127970) | Using riptide on a trident with an item in your off-hand causes visual glitch with the item in your offhand                         |
+| Basic    | [MC-129556](https://bugs.mojang.com/browse/MC-129556) | GUI logic is included in "root.tick.textures"                                                                                       |
 | Basic    | [MC-143474](https://bugs.mojang.com/browse/MC-143474) | Respawning causes your hotbar to reset to the first space                                                                           |
 | Gameplay | [MC-159163](https://bugs.mojang.com/browse/MC-159163) | Quickly pressing the sneak key causes the sneak animation to play twice                                                             |
 | Basic    | [MC-165306](https://bugs.mojang.com/browse/MC-165306) | Beacon beams are transparent from the inside                                                                                        |
