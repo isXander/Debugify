@@ -15,6 +15,10 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-168573", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "After breaking a shield, the player's off-hand can't finish using some items")
 @Mixin(BlocksAttacks.class)
 public class BlocksAttacksMixin {
+    /**
+     * We need to check if the shield is going to break and only stop using the item after it is broken.
+     * We can't use isBroken here, so instead we check if the next damage will break the blockable, then do the damage call after.
+     */
     @WrapOperation(method = "hurtBlockingItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;hurtAndBreak(ILnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/EquipmentSlot;)V"))
     private void fixShieldBreakItemUse(ItemStack instance, int amount, LivingEntity entity, EquipmentSlot slot, Operation<Void> original, @Local(argsOnly = true) ItemStack stack) {
         boolean isBroken = stack.nextDamageWillBreak();
