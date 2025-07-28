@@ -76,6 +76,7 @@
 | Basic    | [MC-123605](https://bugs.mojang.com/browse/MC-123605) | Debug world still sets clear weather time instead of deactivating gamerule doWeatherCycle                                                      |
 | Basic    | [MC-129909](https://bugs.mojang.com/browse/MC-129909) | Players in spectator mode continue to consume foods and liquids shortly after switching game modes                                             |
 | Basic    | [MC-132878](https://bugs.mojang.com/browse/MC-132878) | Armor stands destroyed by explosions/lava/fire don't produce particles                                                                         |
+| Basic    | [MC-133218](https://bugs.mojang.com/browse/MC-133218) | Usable items continue to be used on the death screen after dying when the "keepInventory" gamerule is set to "true"                            |
 | Basic    | [MC-134110](https://bugs.mojang.com/browse/MC-134110) | Structure mirroring breaking apart double chests                                                                                               |
 | Basic    | [MC-136249](https://bugs.mojang.com/browse/MC-136249) | Wearing boots enchanted with depth strider decreases the strength of the riptide enchantment                                                   |
 | Basic    | [MC-139041](https://bugs.mojang.com/browse/MC-139041) | The sounds of fishing bobbers aren't controlled by the "Players" sound slider                                                                  |
