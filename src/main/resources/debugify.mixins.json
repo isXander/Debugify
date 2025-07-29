@@ -53,6 +53,7 @@
     "basic.mc227337.ShulkerBulletMixin",
     "basic.mc231743.FlowerPotBlockMixin",
     "basic.mc232869.StriderMixin",
+    "basic.mc232968.ContainerOpenersCounterMixin",
     "basic.mc245394.RaidMixin",
     "basic.mc267125.MinecraftServerMixin",
     "basic.mc268617.FileUtilMixin",

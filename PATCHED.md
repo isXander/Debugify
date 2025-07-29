@@ -107,6 +107,7 @@
 | Basic    | [MC-227337](https://bugs.mojang.com/browse/MC-227337) | When a shulker bullet hits an entity, the explodes sound is not played and particles are not produced                                          |
 | Basic    | [MC-231743](https://bugs.mojang.com/browse/MC-231743) | minecraft.used:minecraft.POTTABLE_PLANT doesn't increase when placing plants into flower pots                                                  |
 | Basic    | [MC-232869](https://bugs.mojang.com/browse/MC-232869) | Adult striders can spawn with saddles in peaceful mode                                                                                         |
+| Basic    | [MC-232968](https://bugs.mojang.com/browse/MC-232968) | Spectators can prevent the closing animation of a chest/barrel when viewing it at the same time as a non-spectator                             |
 | Basic    | [MC-245394](https://bugs.mojang.com/browse/MC-245394) | The sounds of raid horns blaring aren't controlled by the correct sound slider                                                                 |
 | Basic    | [MC-251068](https://bugs.mojang.com/browse/MC-251068) | If you delete your only world, then you are no longer automatically thrown into the menu of creating a new world                               |
 | Basic    | [MC-267125](https://bugs.mojang.com/browse/MC-267125) | Command suggestions for reloadable content are not affected by /reload                                                                         |
