@@ -26,6 +26,7 @@
     "basic.mc139041.FishingRodItemMixin",
     "basic.mc147659.CatSpawnerMixin",
     "basic.mc147784.FletchingTableBlockMixin",
+    "basic.mc153010.FoxMixin",
     "basic.mc155509.PufferfishMixin",
     "basic.mc159283.DensityFunctionsMixin",
     "basic.mc160095.CactusBlockMixin",
