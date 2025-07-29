@@ -9,7 +9,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.entity.ContainerOpenersCounter;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.function.Predicate;
@@ -20,15 +19,10 @@ public abstract class ContainerOpenersCounterMixin {
     @Shadow
     protected abstract boolean isOwnContainer(Player player);
 
-    @Unique
-    private boolean debuify$isOpenableContainer(Player player) {
-        return isOwnContainer(player) && !player.isSpectator();
-    }
-
     @Definition(id = "isOwnContainer", method = "Lnet/minecraft/world/level/block/entity/ContainerOpenersCounter;isOwnContainer(Lnet/minecraft/world/entity/player/Player;)Z")
     @Expression("?::isOwnContainer")
     @ModifyExpressionValue(method = "getPlayersWithContainerOpen", at = @At("MIXINEXTRAS:EXPRESSION"))
-    private Predicate<Player> asdas(Predicate<Player> original) {
-        return this::debuify$isOpenableContainer;
+    private Predicate<Player> fixSpectatorContainerOpen(Predicate<Player> original) {
+        return player -> isOwnContainer(player) && !player.isSpectator();
     }
 }
