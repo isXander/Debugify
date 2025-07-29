@@ -110,6 +110,7 @@
 | Basic    | [MC-245394](https://bugs.mojang.com/browse/MC-245394) | The sounds of raid horns blaring aren't controlled by the correct sound slider                                                                 |
 | Basic    | [MC-251068](https://bugs.mojang.com/browse/MC-251068) | If you delete your only world, then you are no longer automatically thrown into the menu of creating a new world                               |
 | Basic    | [MC-267125](https://bugs.mojang.com/browse/MC-267125) | Command suggestions for reloadable content are not affected by /reload                                                                         |
+| Basic    | [MC-263999](https://bugs.mojang.com/browse/MC-263999) | Zombies breaking doors do not show break particles                                                                                             |
 | Basic    | [MC-268617](https://bugs.mojang.com/browse/MC-268617) | Structures can't be saved if the game directory is named in a certain way                                                                      |
 | Basic    | [MC-271899](https://bugs.mojang.com/browse/MC-271899) | StructureTemplate Palette's caches are not thread safe                                                                                         |
 | Basic    | [MC-272431](https://bugs.mojang.com/browse/MC-272431) | Ender Dragon incorrect vertical velocity causes erratic behavior                                                                               |
