@@ -59,6 +59,7 @@
 | Basic    | [MC-7569](https://bugs.mojang.com/browse/MC-7569)     | RCON output has newlines removed                                                                                                               |
 | Gameplay | [MC-8187](https://bugs.mojang.com/browse/MC-8187)     | Two-by-two arrangements of jungle or spruce saplings cannot grow when there are adjacent blocks located north or west of the sapling formation |
 | Basic    | [MC-30391](https://bugs.mojang.com/browse/MC-30391)   | Chickens, blazes and the wither emit particles when landing from a height, despite falling slowly                                              |
+| Basic    | [MC-44654](https://bugs.mojang.com/browse/MC-44654)   | Some entities don't update position to the client when teleported                                                                              |
 | Basic    | [MC-69216](https://bugs.mojang.com/browse/MC-69216)   | Switching to spectator mode while fishing keeps rod cast                                                                                       |
 | Basic    | [MC-81773](https://bugs.mojang.com/browse/MC-81773)   | Bows and tridents drawn in survival/creative/adventure mode can be released in spectator mode                                                  |
 | Basic    | [MC-82263](https://bugs.mojang.com/browse/MC-82263)   | Ender dragon produces regular hurt sound on final hit                                                                                          |

@@ -62,6 +62,7 @@
     "basic.mc298066.LivingEntityMixin",
     "basic.mc299115.ProjectileMixin",
     "basic.mc30391.LivingEntityMixin",
+    "basic.mc44654.EntityMixin",
     "basic.mc69216.ServerPlayerMixin",
     "basic.mc7569.RconConsoleSourceMixin",
     "basic.mc82263.EnderDragonMixin",
