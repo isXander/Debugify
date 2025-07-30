@@ -27,6 +27,7 @@
     "basic.mc147659.CatSpawnerMixin",
     "basic.mc147784.FletchingTableBlockMixin",
     "basic.mc155509.PufferfishMixin",
+    "basic.mc158900.PlayerListMixin",
     "basic.mc159283.DensityFunctionsMixin",
     "basic.mc160095.CactusBlockMixin",
     "basic.mc168573.BlocksAttacksMixin",

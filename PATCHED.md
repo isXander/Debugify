@@ -82,6 +82,7 @@
 | Basic    | [MC-147659](https://bugs.mojang.com/browse/MC-147659) | Some witch huts spawn the incorrect cat                                                                                                        |
 | Basic    | [MC-147784](https://bugs.mojang.com/browse/MC-147784) | Fletching table flashes crafting table's GUI for about a second upon right-clicking it in spectator mode                                       |
 | Basic    | [MC-155509](https://bugs.mojang.com/browse/MC-155509) | Puffed pufferfish can hurt the player while dying                                                                                              |
+| Basic    | [MC-158900](https://bugs.mojang.com/browse/MC-158900) | "bad packet id 26" upon connecting after tempban expire                                                                                        |
 | Basic    | [MC-159283](https://bugs.mojang.com/browse/MC-159283) | The End terrain does not generate in multiple rings centered around the world center                                                           |
 | Basic    | [MC-160095](https://bugs.mojang.com/browse/MC-160095) | End Rods only break Cactus when moved by pistons                                                                                               |
 | Basic    | [MC-170462](https://bugs.mojang.com/browse/MC-170462) | Bad Omen is considered a positive effect in potion item tooltips                                                                               |
