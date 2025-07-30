@@ -75,6 +75,7 @@
 | Basic    | [MC-123450](https://bugs.mojang.com/browse/MC-123450) | Item frames play sounds when the item within them is read from NBT                                                                             |
 | Basic    | [MC-123605](https://bugs.mojang.com/browse/MC-123605) | Debug world still sets clear weather time instead of deactivating gamerule doWeatherCycle                                                      |
 | Basic    | [MC-129909](https://bugs.mojang.com/browse/MC-129909) | Players in spectator mode continue to consume foods and liquids shortly after switching game modes                                             |
+| Basic    | [MC-131562](https://bugs.mojang.com/browse/MC-131562) | Pressing the "Done" button in empty command block minecarts prints the message "Command set:" in chat                                          |
 | Basic    | [MC-132878](https://bugs.mojang.com/browse/MC-132878) | Armor stands destroyed by explosions/lava/fire don't produce particles                                                                         |
 | Basic    | [MC-134110](https://bugs.mojang.com/browse/MC-134110) | Structure mirroring breaking apart double chests                                                                                               |
 | Basic    | [MC-136249](https://bugs.mojang.com/browse/MC-136249) | Wearing boots enchanted with depth strider decreases the strength of the riptide enchantment                                                   |

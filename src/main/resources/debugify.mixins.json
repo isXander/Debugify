@@ -20,6 +20,7 @@
     "basic.mc123450.ItemFrameMixin",
     "basic.mc123605.MinecraftServerMixin",
     "basic.mc129909.ServerPlayerMixin",
+    "basic.mc131562.ServerGamePacketListenerImplMixin",
     "basic.mc132878.ArmorStandMixin",
     "basic.mc134110.ChestBlockMixin",
     "basic.mc136249.LivingEntityMixin",
