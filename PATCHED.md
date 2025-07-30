@@ -74,6 +74,7 @@
 | Basic    | [MC-121903](https://bugs.mojang.com/browse/MC-121903) | Command block minecarts do not save execution cooldown to NBT                                                                                  |
 | Basic    | [MC-123450](https://bugs.mojang.com/browse/MC-123450) | Item frames play sounds when the item within them is read from NBT                                                                             |
 | Basic    | [MC-123605](https://bugs.mojang.com/browse/MC-123605) | Debug world still sets clear weather time instead of deactivating gamerule doWeatherCycle                                                      |
+| Basic    | [MC-123848](https://bugs.mojang.com/browse/MC-123848) | Item frames (and items within) when removed from a ceiling, drop atop, not under, the block                                                    |
 | Basic    | [MC-129909](https://bugs.mojang.com/browse/MC-129909) | Players in spectator mode continue to consume foods and liquids shortly after switching game modes                                             |
 | Basic    | [MC-132878](https://bugs.mojang.com/browse/MC-132878) | Armor stands destroyed by explosions/lava/fire don't produce particles                                                                         |
 | Basic    | [MC-134110](https://bugs.mojang.com/browse/MC-134110) | Structure mirroring breaking apart double chests                                                                                               |
@@ -96,6 +97,7 @@
 | Basic    | [MC-202637](https://bugs.mojang.com/browse/MC-202637) | Last sound clip of eating will still play when Players volume is set to 0%                                                                     |
 | Basic    | [MC-206705](https://bugs.mojang.com/browse/MC-206705) | Spyglasses stay in use in spectator mode                                                                                                       |
 | Basic    | [MC-206922](https://bugs.mojang.com/browse/MC-206922) | Items dropped by entities that are killed by lightning instantly disappear                                                                     |
+| Basic    | [MC-210802](https://bugs.mojang.com/browse/MC-210802) | Inactive sheep eat grass                                                                                                                       |
 | Basic    | [MC-214147](https://bugs.mojang.com/browse/MC-214147) | Skeletons wearing leather armor still convert to strays in powder snow                                                                         |
 | Basic    | [MC-215530](https://bugs.mojang.com/browse/MC-215530) | The freezing effect isn't immediately removed when switching into spectator mode                                                               |
 | Basic    | [MC-219981](https://bugs.mojang.com/browse/MC-219981) | If zombies spawned with max health over 20 (leader zombie bonus), they will have 20 health instead of their max health                         |
