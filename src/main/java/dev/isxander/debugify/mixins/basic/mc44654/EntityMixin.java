@@ -19,6 +19,10 @@ public abstract class EntityMixin {
     @Shadow
     public boolean hasImpulse;
 
+    /**
+     * Since the update interval is at the integer limit, the position will never get updated.
+     * To fix, we mark velocity as dirty via hasImpulse to force an update.
+     */
     @Inject(method = "setPosRaw", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;isRemoved()Z", shift = At.Shift.AFTER))
     private void fixUpdateInterval(double x, double y, double z, CallbackInfo ci) {
         if (this.getType().updateInterval() == Integer.MAX_VALUE) {
