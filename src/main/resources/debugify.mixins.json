@@ -54,6 +54,7 @@
     "basic.mc231743.FlowerPotBlockMixin",
     "basic.mc232869.StriderMixin",
     "basic.mc245394.RaidMixin",
+    "basic.mc264285.CreeperMixin",
     "basic.mc267125.MinecraftServerMixin",
     "basic.mc268617.FileUtilMixin",
     "basic.mc271899.StructureTemplateMixin",
