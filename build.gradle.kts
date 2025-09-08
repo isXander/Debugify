@@ -1,6 +1,6 @@
 plugins {
     id("dev.isxander.modstitch.base") version "0.6.2-unstable"
-    id("me.modmuss50.mod-publish-plugin") version "0.8.4"
+    id("me.modmuss50.mod-publish-plugin") version "1.0.0"
     `maven-publish`
     id("org.ajoberstar.grgit") version "5.3.2"
 }
