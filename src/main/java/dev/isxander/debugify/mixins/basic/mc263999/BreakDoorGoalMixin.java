@@ -31,7 +31,7 @@ public class BreakDoorGoalMixin extends DoorInteractGoal {
     }
 
     @ModifyExpressionValue(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getBlockState(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;"))
-    private BlockState asd(BlockState original, @Share("doorBlockState") LocalRef<BlockState> blockStateRef) {
+    private BlockState setBlockState(BlockState original, @Share("doorBlockState") LocalRef<BlockState> blockStateRef) {
         return blockStateRef.get();
     }
 }
