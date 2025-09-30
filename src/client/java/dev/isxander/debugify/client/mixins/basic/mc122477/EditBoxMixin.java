@@ -7,6 +7,7 @@ import dev.isxander.debugify.fixes.OS;
 import net.minecraft.Util;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.client.input.CharacterEvent;
 import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,7 +24,7 @@ public class EditBoxMixin {
     }
 
     @Inject(method = "charTyped", at = @At("HEAD"), cancellable = true)
-    private void onCharTyped(char chr, int modifiers, CallbackInfoReturnable<Boolean> cir) {
+    private void onCharTyped(CharacterEvent e, CallbackInfoReturnable<Boolean> cir) {
         if (Util.getPlatform() == Util.OS.LINUX) {
             if (KeyboardPollCounter.getCount() == 1)
                 cir.setReturnValue(true);

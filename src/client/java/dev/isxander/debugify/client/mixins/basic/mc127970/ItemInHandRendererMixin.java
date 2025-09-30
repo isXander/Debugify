@@ -1,5 +1,6 @@
 package dev.isxander.debugify.client.mixins.basic.mc127970;
 
+import com.llamalad7.mixinextras.sugar.Local;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.player.AbstractClientPlayer;
@@ -17,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(ItemInHandRenderer.class)
 public class ItemInHandRendererMixin {
     @ModifyExpressionValue(method = "renderArmWithItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/AbstractClientPlayer;isAutoSpinAttack()Z"))
-    private boolean isUsingRiptideHand(boolean original, AbstractClientPlayer player, float tickDelta, float pitch, InteractionHand hand, float swingProgress, ItemStack item, float equipProgress, PoseStack matrices, MultiBufferSource vertexConsumers, int light) {
+    private boolean isUsingRiptideHand(boolean original, @Local(argsOnly = true) ItemStack item) {
         return original && item.is(Items.TRIDENT);
     }
 }

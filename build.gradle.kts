@@ -6,12 +6,12 @@ plugins {
 }
 
 modstitch {
-    minecraftVersion = "1.21.8"
-    modLoaderVersion = "0.16.14"
+    minecraftVersion = "1.21.9"
+    modLoaderVersion = "0.17.2"
 
     parchment {
-        mappingsVersion = "2025.06.29"
-        minecraftVersion = "1.21.6"
+        mappingsVersion = "2025.09.14"
+        minecraftVersion = "1.21.8"
     }
 
     metadata {
@@ -97,12 +97,6 @@ val modMenuVersion: String by project
 dependencies {
     modImplementation(fabricApi.module("fabric-resource-loader-v0", fabricApiVersion))
     modImplementation("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion")
-
-    "io.github.llamalad7:mixinextras-fabric:$mixinExtrasVersion".let {
-        include(it)
-        implementation(it)
-        /*annotationProcessor(it)*/// only needed if `useLegacyMixinAp = true`
-    }
 
     "modClientImplementation"("dev.isxander:yet-another-config-lib:$yaclVersion")
     "modClientImplementation"("com.terraformersmc:modmenu:$modMenuVersion")
