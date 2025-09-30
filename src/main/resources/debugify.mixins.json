@@ -32,7 +32,7 @@
     "basic.mc168573.BlocksAttacksMixin",
     "basic.mc170462.MobEffectsMixin",
     "basic.mc176806.RespawnAnchorBlockMixin",
-    "basic.mc17738.LocateCommandMixin",
+    "basic.mc177381.LocateCommandMixin",
     "basic.mc179072.SwellGoalMixin",
     "basic.mc183990.MobMixin",
     "basic.mc187100.EnderDragonMixin",
