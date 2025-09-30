@@ -24,7 +24,8 @@ modstitch {
             FlashyReese's Sodium Extra - Code used licensed under LGPLv3
             Ampflower's 2x2 Surrounded Saplings Fix - Code used licensed under Zlib
             NoahvdAa's Thorium - Code used licensed under LGPLv3
-            Moulberry's MoulberryTweaks - Code used licensed under MIT
+            Moulberry's MoulberrysTweaks - Code used licensed under MIT
+            PaperMC's Paper - Code used under MIT
         """.trimIndent()
     }
 
