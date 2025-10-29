@@ -1,13 +1,16 @@
 package dev.isxander.debugify.client.mixins.basic.mc577;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.llamalad7.mixinextras.sugar.Local;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.Slot;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -22,27 +25,33 @@ public abstract class AbstractContainerScreenMixin extends Screen {
     @Shadow
     protected abstract void slotClicked(Slot slot, int slotId, int button, ClickType actionType);
 
+    @Shadow
+    @Nullable
+    protected abstract Slot getHoveredSlot(double mouseX, double mouseY);
+
     protected AbstractContainerScreenMixin(Component title) {
         super(title);
     }
 
-    @ModifyExpressionValue(method = "mouseClicked", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/Screen;mouseClicked(DDI)Z"))
-    private boolean shouldReturn(boolean parentMouseClicked, double mouseX, double mouseY, int button) {
-        return parentMouseClicked || mouseInventoryClose(button);
+    @ModifyExpressionValue(method = "mouseClicked", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/Screen;mouseClicked(Lnet/minecraft/client/input/MouseButtonEvent;Z)Z"))
+    private boolean shouldReturn(boolean parentMouseClicked, MouseButtonEvent event) {
+        return parentMouseClicked || debugify$mouseInventoryClose(event);
     }
 
-    @Inject(method = "mouseClicked", at = @At(value = "INVOKE", target = "Lnet/minecraft/Util;getMillis()J"), locals = LocalCapture.CAPTURE_FAILSOFT, cancellable = true)
-    private void dropWithMouse(double mouseX, double mouseY, int button, CallbackInfoReturnable<Boolean> cir, boolean isPickItem, Slot hoveredSlot) {
-        if (minecraft.options.keyDrop.matchesMouse(button)) {
-            if (hoveredSlot == null) return;
-            slotClicked(hoveredSlot, hoveredSlot.index, hasControlDown() ? 1 : 0, ClickType.THROW);
+    @Inject(method = "mouseClicked", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen;getHoveredSlot(DD)Lnet/minecraft/world/inventory/Slot;", shift = At.Shift.AFTER), cancellable = true)
+    private void dropWithMouse(MouseButtonEvent event, boolean isDoubleClick, CallbackInfoReturnable<Boolean> cir, @Local(ordinal = 1) boolean isPickedItem) {
+        // I am unable to capture this with @Local, so doing this instead
+        Slot slot = this.getHoveredSlot(event.x(), event.y());
+        if (minecraft.options.keyDrop.matchesMouse(event)) {
+            if (slot == null) return;
+            slotClicked(slot, slot.index, event.hasControlDown() ? 1 : 0, ClickType.THROW);
             cir.setReturnValue(true);
         }
     }
 
     @Unique
-    private boolean mouseInventoryClose(int button) {
-        if (minecraft.options.keyInventory.matchesMouse(button)) {
+    private boolean debugify$mouseInventoryClose(MouseButtonEvent event) {
+        if (minecraft.options.keyInventory.matchesMouse(event)) {
             onClose();
             return true;
         }

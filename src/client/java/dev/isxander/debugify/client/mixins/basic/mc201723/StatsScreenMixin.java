@@ -19,27 +19,27 @@ import org.spongepowered.asm.mixin.injection.At;
  *
  * @author NoahvdAa
  */
-@BugFix(id = "MC-201723", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Statistics sprites don't look pressed when clicked")
-@Mixin(StatsScreen.ItemStatisticsList.class)
-public class StatsScreenMixin extends ObjectSelectionList {
-    @Shadow
-    protected int headerPressed;
-
-    public StatsScreenMixin(Minecraft minecraft, int i, int j, int k, int l) {
-        super(minecraft, i, j, k, l);
-    }
-
-    @WrapOperation(method = "renderHeader", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/MouseHandler;isLeftPressed()Z"))
-    private boolean forceLeftClick(MouseHandler instance, Operation<Boolean> original) {
-        return true;
-    }
-
-    @Override
-    public boolean mouseReleased(double mouseX, double mouseY, int button) {
-        if (button == 0) {
-            this.headerPressed = -1;
-        }
-
-        return super.mouseReleased(mouseX, mouseY, button);
-    }
-}
+//@BugFix(id = "MC-201723", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Statistics sprites don't look pressed when clicked")
+//@Mixin(StatsScreen.ItemStatisticsList.class)
+//public class StatsScreenMixin extends ObjectSelectionList {
+//    @Shadow
+//    protected int headerPressed;
+//
+//    public StatsScreenMixin(Minecraft minecraft, int i, int j, int k, int l) {
+//        super(minecraft, i, j, k, l);
+//    }
+//
+//    @WrapOperation(method = "renderHeader", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/MouseHandler;isLeftPressed()Z"))
+//    private boolean forceLeftClick(MouseHandler instance, Operation<Boolean> original) {
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+//        if (button == 0) {
+//            this.headerPressed = -1;
+//        }
+//
+//        return super.mouseReleased(mouseX, mouseY, button);
+//    }
+//}

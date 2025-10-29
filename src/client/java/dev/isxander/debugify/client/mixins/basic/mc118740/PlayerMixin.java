@@ -26,7 +26,7 @@ public class PlayerMixin {
         }
     }
 
-    @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;moveCloak()V"))
+    @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/Mth;clamp(DDD)D", ordinal = 0))
     public void tick(CallbackInfo ci) {
         if (this instanceof LocalPlayerDuck localPlayerExt) {
             localPlayerExt.debugify$incrementVisualAttackStrengthScale();

@@ -4,6 +4,7 @@ import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.KeyboardHandler;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.input.KeyEvent;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -22,7 +23,7 @@ public class KeyboardHandlerMixin {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/OptionInstance;set(Ljava/lang/Object;)V", ordinal = 0, shift = At.Shift.AFTER),
             slice = @Slice(from = @At(value = "INVOKE", target = "Lnet/minecraft/client/Options;fullscreen()Lnet/minecraft/client/OptionInstance;"))
     )
-    private void saveOptionsOnFullscreen(long window, int key, int scancode, int action, int modifiers, CallbackInfo ci) {
+    private void saveOptionsOnFullscreen(long window, int action, KeyEvent event, CallbackInfo ci) {
         this.minecraft.options.save();
     }
 }

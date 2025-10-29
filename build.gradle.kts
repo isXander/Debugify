@@ -6,12 +6,12 @@ plugins {
 }
 
 modstitch {
-    minecraftVersion = "1.21.9"
-    modLoaderVersion = "0.17.2"
+    minecraftVersion = "1.21.10"
+    modLoaderVersion = "0.17.3"
 
     parchment {
-        mappingsVersion = "2025.09.14"
-        minecraftVersion = "1.21.8"
+        mappingsVersion = "2025.10.12"
+        minecraftVersion = "1.21.10"
     }
 
     metadata {

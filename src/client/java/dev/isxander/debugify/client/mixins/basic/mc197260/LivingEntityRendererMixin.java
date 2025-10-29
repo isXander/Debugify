@@ -1,10 +1,10 @@
 package dev.isxander.debugify.client.mixins.basic.mc197260;
 
-import com.mojang.blaze3d.vertex.PoseStack;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
@@ -14,7 +14,6 @@ import net.minecraft.world.entity.LivingEntity;
 import dev.isxander.debugify.client.helpers.mc197260.DebugifyLightProvider;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @BugFix(id = "MC-197260", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Armor Stand renders itself and armor dark if its head is in a solid block")
 @Mixin(LivingEntityRenderer.class)
@@ -23,8 +22,9 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, S extend
         super(context);
     }
 
-    @ModifyVariable(method = "render(Lnet/minecraft/client/renderer/entity/state/LivingEntityRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V", at = @At("HEAD"), index = 4, argsOnly = true)
-    private int modifyProvidedLightLevel(int lightLevel, S livingEntityRenderState, PoseStack matrixStack, MultiBufferSource vertexConsumerProvider) {
-        return modifyLightLevel(lightLevel, livingEntityRenderState, matrixStack, vertexConsumerProvider);
+    // TODO: doesnt work
+    @WrapOperation(method = "submit(Lnet/minecraft/client/renderer/entity/state/LivingEntityRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/CameraRenderState;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/LivingEntityRenderer;getOverlayCoords(Lnet/minecraft/client/renderer/entity/state/LivingEntityRenderState;F)I"))
+    private int modifyProvidedLightLevel(S renderState, float overlay, Operation<Integer> original) {
+        return modifyLightLevel(original.call(renderState, overlay), renderState);
     }
 }

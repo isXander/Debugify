@@ -1,6 +1,7 @@
 package dev.isxander.debugify.client.mixins.basic.mc22882;
 
 import com.mojang.blaze3d.platform.InputConstants;
+import com.mojang.blaze3d.platform.Window;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import dev.isxander.debugify.fixes.OS;
@@ -15,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 public class MinecraftMixin {
     @ModifyArg(method = "handleKeybinds", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;drop(Z)Z"))
     private boolean shouldDropEntireStack(boolean ctrlPressed) {
-        long window = Minecraft.getInstance().getWindow().getWindow();
+        Window window = Minecraft.getInstance().getWindow();
         return InputConstants.isKeyDown(window, GLFW.GLFW_KEY_LEFT_CONTROL)
                 || InputConstants.isKeyDown(window, GLFW.GLFW_KEY_RIGHT_CONTROL);
     }

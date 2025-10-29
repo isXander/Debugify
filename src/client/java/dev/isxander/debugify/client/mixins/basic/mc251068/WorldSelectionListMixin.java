@@ -20,7 +20,7 @@ public class WorldSelectionListMixin {
     @Final
     private Minecraft minecraft;
 
-    @WrapWithCondition(method = "method_20170", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;setScreen(Lnet/minecraft/client/gui/screens/Screen;)V", ordinal = 1))
+    @WrapWithCondition(method = "method_20170", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;setScreen(Lnet/minecraft/client/gui/screens/Screen;)V"))
     private boolean dontShowEmptyWorldList(Minecraft instance, Screen screen) {
         return (this.minecraft.screen instanceof ProgressScreen || this.minecraft.screen instanceof ConfirmScreen);
     }

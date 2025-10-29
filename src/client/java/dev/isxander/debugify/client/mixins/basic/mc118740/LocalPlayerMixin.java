@@ -26,7 +26,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(LocalPlayer.class)
 public abstract class LocalPlayerMixin extends Player implements LocalPlayerDuck {
     @Unique
-    private int visualAttackStrengthTicker = 0;
+    private int debugify$visualAttackStrengthTicker = 0;
 
     public LocalPlayerMixin(Level level, GameProfile gameProfile) {
         super(level, gameProfile);
@@ -34,21 +34,21 @@ public abstract class LocalPlayerMixin extends Player implements LocalPlayerDuck
 
     @Inject(method = "swing", at = @At("HEAD"))
     public void swing(InteractionHand interactionHand, CallbackInfo ci) {
-        this.visualAttackStrengthTicker = 0;
+        this.debugify$visualAttackStrengthTicker = 0;
     }
 
     @Override
     public float debugify$getVisualAttackStrengthScale(float partialTick) {
-        return Mth.clamp(((float)this.visualAttackStrengthTicker + partialTick) / this.getCurrentItemAttackStrengthDelay(), 0.0F, 1.0F);
+        return Mth.clamp(((float)this.debugify$visualAttackStrengthTicker + partialTick) / this.getCurrentItemAttackStrengthDelay(), 0.0F, 1.0F);
     }
 
     @Override
     public void debugify$resetVisualAttackStrengthScale() {
-        this.visualAttackStrengthTicker = 0;
+        this.debugify$visualAttackStrengthTicker = 0;
     }
 
     @Override
     public void debugify$incrementVisualAttackStrengthScale() {
-        this.visualAttackStrengthTicker += 1;
+        this.debugify$visualAttackStrengthTicker += 1;
     }
 }

@@ -61,15 +61,15 @@ public class NoYACLScreen extends Screen {
         }
     }
 
-    @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if (super.mouseClicked(mouseX, mouseY, button)) {
-            return true;
-        }
-
-        Style style = getStyle((int) mouseX, (int) mouseY);
-        return handleComponentClicked(style);
-    }
+//    @Override
+//    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+//        if (super.mouseClicked(mouseX, mouseY, button)) {
+//            return true;
+//        }
+//
+//        Style style = getStyle((int) mouseX, (int) mouseY);
+//        return handleComponentClicked(style);
+//    }
 
     protected Style getStyle(int mouseX, int mouseY) {
         int y = mouseY - 90;

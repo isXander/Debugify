@@ -1,6 +1,5 @@
 package dev.isxander.debugify.client.mixins.basic.mc197260;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.Minecraft;
@@ -12,7 +11,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import java.util.stream.IntStream;
 import net.minecraft.client.model.ArmorStandArmorModel;
 import net.minecraft.client.renderer.LightTexture;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.ArmorStandRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.decoration.ArmorStand;
@@ -35,7 +33,7 @@ public abstract class ArmorStandRendererMixin extends LivingEntityRendererMixin<
      * </ul>
      */
     @Override
-    public int modifyLightLevel(int providedLightLevel, ArmorStandRenderState livingEntity, PoseStack matrixStack, MultiBufferSource vertexConsumerProvider) {
+    public int modifyLightLevel(int providedLightLevel, ArmorStandRenderState livingEntity) {
         BlockPos mainPos = BlockPos.containing(livingEntity.x, livingEntity.y, livingEntity.z);
         ClientLevel level = Minecraft.getInstance().level;
 
