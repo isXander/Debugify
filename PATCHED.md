@@ -8,7 +8,6 @@
 | Basic    | [MC-12062](https://bugs.mojang.com/browse/MC-12062)   | Hotbar selection resets to the far left when exiting the end                                                                        |
 | Basic    | [MC-22882](https://bugs.mojang.com/browse/MC-22882)   | Ctrl + Q won't work on Mac (disabled by default)                                                                                    |
 | Basic    | [MC-35361](https://bugs.mojang.com/browse/MC-35361)   | Inventory opening is detected while in Nether Portal                                                                                |
-| Basic    | [MC-46503](https://bugs.mojang.com/browse/MC-46503)   | You can retain a mob's shader in spectator mode by running /kill                                                                    |
 | Basic    | [MC-46737](https://bugs.mojang.com/browse/MC-46737)   | Entities' shaders are applied when beginning to spectate them in third person                                                       |
 | Basic    | [MC-46766](https://bugs.mojang.com/browse/MC-46766)   | Mining a block in Survival, then changing to Spectator creates a breaking animation and sound                                       |
 | Basic    | [MC-57057](https://bugs.mojang.com/browse/MC-57057)   | Guardian laser attack sound ignores distance                                                                                        |
@@ -32,7 +31,6 @@
 | Basic    | [MC-165381](https://bugs.mojang.com/browse/MC-165381) | Block breaking can be delayed by dropping/throwing the tool while breaking a block                                                  |                                                             |
 | Basic    | [MC-168573](https://bugs.mojang.com/browse/MC-168573) | After breaking a shield, the player's off-hand can't finish using some items                                                        |
 | Basic    | [MC-176559](https://bugs.mojang.com/browse/MC-176559) | Breaking process resets when a pickaxe enchanted with Mending mends by XP / Mending slows down breaking blocks again                |
-| Basic    | [MC-183776](https://bugs.mojang.com/browse/MC-183776) | After switching gamemodes using F3+F4, you need to press F3 twice to toggle the debug screen                                        |
 | Basic    | [MC-188359](https://bugs.mojang.com/browse/MC-188359) | Burp sound does not play after drinking or after eating cake                                                                        |
 | Basic    | [MC-197260](https://bugs.mojang.com/browse/MC-197260) | Armor Stand renders itself and armor dark if its head is in a solid block                                                           |
 | Basic    | [MC-201723](https://bugs.mojang.com/browse/MC-201723) | Statistics sprites don't look pressed when clicked                                                                                  |
@@ -46,7 +44,6 @@
 | Basic    | [MC-242809](https://bugs.mojang.com/browse/MC-242809) | IP field in the multiplayer menu will not detect the IP if a space is put at the beginning/end of it                                |
 | Basic    | [MC-259512](https://bugs.mojang.com/browse/MC-259512) | Horizontal camera rotation lags when riding                                                                                         |
 | Basic    | [MC-267376](https://bugs.mojang.com/browse/MC-267376) | You can view through blocks on small scales (near plane clipping)                                                                   |
-| Basic    | [MC-267469](https://bugs.mojang.com/browse/MC-267469) | GUI List Entry highlight border not always aligned properly                                                                         |
 | Basic    | [MC-268420](https://bugs.mojang.com/browse/MC-268420) | Cooldown indicator flashes when switching items with high attack speed attribute                                                    |
 | Basic    | [MC-280220](https://bugs.mojang.com/browse/MC-280220) | When a Dolphin holds an item, it is rendered upside-down                                                                            |
 | Basic    | [MC-298225](https://bugs.mojang.com/browse/MC-298225) | Shapes appear in the end sky with certain distance settings                                                                         |
@@ -59,7 +56,6 @@
 | Basic    | [MC-7569](https://bugs.mojang.com/browse/MC-7569)     | RCON output has newlines removed                                                                                                               |
 | Gameplay | [MC-8187](https://bugs.mojang.com/browse/MC-8187)     | Two-by-two arrangements of jungle or spruce saplings cannot grow when there are adjacent blocks located north or west of the sapling formation |
 | Basic    | [MC-30391](https://bugs.mojang.com/browse/MC-30391)   | Chickens, blazes and the wither emit particles when landing from a height, despite falling slowly                                              |
-| Basic    | [MC-69216](https://bugs.mojang.com/browse/MC-69216)   | Switching to spectator mode while fishing keeps rod cast                                                                                       |
 | Basic    | [MC-81773](https://bugs.mojang.com/browse/MC-81773)   | Bows and tridents drawn in survival/creative/adventure mode can be released in spectator mode                                                  |
 | Basic    | [MC-82263](https://bugs.mojang.com/browse/MC-82263)   | Ender dragon produces regular hurt sound on final hit                                                                                          |
 | Basic    | [MC-84661](https://bugs.mojang.com/browse/MC-84661)   | Glowing is considered a positive effect in potion item tooltips                                                                                |
@@ -68,7 +64,6 @@
 | Basic    | [MC-93018](https://bugs.mojang.com/browse/MC-93018)   | Wild wolves show breeding hearts but do not breed                                                                                              |
 | Basic    | [MC-94054](https://bugs.mojang.com/browse/MC-94054)   | Cave spiders spin around when walking                                                                                                          |
 | Basic    | [MC-100991](https://bugs.mojang.com/browse/MC-100991) | Killing entities with a fishing rod doesn't count as a kill                                                                                    |
-| Basic    | [MC-119417](https://bugs.mojang.com/browse/MC-119417) | A spectator can occupy a bed if they enter it and then are switched to spectator mode                                                          |
 | Basic    | [MC-119754](https://bugs.mojang.com/browse/MC-119754) | Firework boosting on elytra continues in spectator mode                                                                                        |
 | Basic    | [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Skeletons and illusioners aren't looking up / down at their target while strafing                                                              |
 | Basic    | [MC-121903](https://bugs.mojang.com/browse/MC-121903) | Command block minecarts do not save execution cooldown to NBT                                                                                  |
@@ -80,7 +75,6 @@
 | Basic    | [MC-136249](https://bugs.mojang.com/browse/MC-136249) | Wearing boots enchanted with depth strider decreases the strength of the riptide enchantment                                                   |
 | Basic    | [MC-139041](https://bugs.mojang.com/browse/MC-139041) | The sounds of fishing bobbers aren't controlled by the "Players" sound slider                                                                  |
 | Basic    | [MC-147659](https://bugs.mojang.com/browse/MC-147659) | Some witch huts spawn the incorrect cat                                                                                                        |
-| Basic    | [MC-147784](https://bugs.mojang.com/browse/MC-147784) | Fletching table flashes crafting table's GUI for about a second upon right-clicking it in spectator mode                                       |
 | Basic    | [MC-155509](https://bugs.mojang.com/browse/MC-155509) | Puffed pufferfish can hurt the player while dying                                                                                              |
 | Basic    | [MC-159283](https://bugs.mojang.com/browse/MC-159283) | The End terrain does not generate in multiple rings centered around the world center                                                           |
 | Basic    | [MC-160095](https://bugs.mojang.com/browse/MC-160095) | End Rods only break Cactus when moved by pistons                                                                                               |
@@ -114,14 +108,13 @@
 | Basic    | [MC-271899](https://bugs.mojang.com/browse/MC-271899) | StructureTemplate Palette's caches are not thread safe                                                                                         |
 | Basic    | [MC-272431](https://bugs.mojang.com/browse/MC-272431) | Ender Dragon incorrect vertical velocity causes erratic behavior                                                                               |
 | Basic    | [MC-298066](https://bugs.mojang.com/browse/MC-298066) | Directly entering a bed from a mount places the player in the wrong place                                                                      |
-| Basic    | [MC-299115](https://bugs.mojang.com/browse/MC-299115) | Arrow losing owner tag when deflected whilst owner being offline                                                                               |
-|
 
 ## Previously patched
 Bugs that this mod has patched but has been superseded by a vanilla update.
 
 | Bug ID                                                | Name                                                                                                            | Fixed in    |
 |-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|-------------|
+| [MC-2025](https://bugs.mojang.com/browse/MC-2025)     | Mobs going out of fenced areas/suffocate in blocks when loading chunks                                          | 17w47a      |
 | [MC-53312](https://bugs.mojang.com/browse/MC-53312)   | Illager/(zombie) villager/witch robes don't render the last two rows of pixels                                  | 22w17a      |
 | [MC-72687](https://bugs.mojang.com/browse/MC-145929)  | There are no shadows on text displayed within the action bar                                                    | 22w24a      |
 | [MC-148149](https://bugs.mojang.com/browse/MC-148149) | Linux game crash when opening links                                                                             | 1.19.1-pre6 |
@@ -151,5 +144,10 @@ Bugs that this mod has patched but has been superseded by a vanilla update.
 | [MC-55347](https://bugs.mojang.com/browse/MC-55347)   | Title with long duration shows in other world                                                                   | 24w44a      |
 | [MC-111516](https://bugs.mojang.com/browse/MC-111516) | Player flickers/turns invisible when flying at high speeds                                                      | 24w44a      |
 | [MC-112730](https://bugs.mojang.com/browse/MC-112730) | Beacon beam and structure block render twice per frame                                                          | 25w21a      |
-
-
+| [MC-183776](https://bugs.mojang.com/browse/MC-183776) | After switching gamemodes using F3+F4, you need to press F3 twice to toggle the debug screen                    | 25w31a      |
+| [MC-46503](https://bugs.mojang.com/browse/MC-46503)   | You can retain a mob's shader in spectator mode by running /kill                                                | 25w33a      |
+| [MC-69216](https://bugs.mojang.com/browse/MC-69216)   | Switching to spectator mode while fishing keeps rod cast                                                        | 25w33a      |
+| [MC-119417](https://bugs.mojang.com/browse/MC-119417) | A spectator can occupy a bed if they enter it and then are switched to spectator mode                           | 25w33a      |
+| [MC-147784](https://bugs.mojang.com/browse/MC-147784) | Fletching table flashes crafting table's GUI for about a second upon right-clicking it in spectator mode        | 25w34a      |
+| [MC-299115](https://bugs.mojang.com/browse/MC-299115) | Arrow losing owner tag when deflected whilst owner being offline                                                | 25w34a      |
+| [MC-267469](https://bugs.mojang.com/browse/MC-267469) | GUI List Entry highlight border not always aligned properly                                                     | 1.21.9      |

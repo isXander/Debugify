@@ -5,6 +5,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
@@ -61,13 +62,14 @@ public class NoYACLScreen extends Screen {
         }
     }
 
+
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if (super.mouseClicked(mouseX, mouseY, button)) {
+    public boolean mouseClicked(MouseButtonEvent mouseButtonEvent, boolean bl) {
+        if (super.mouseClicked(mouseButtonEvent, bl)) {
             return true;
         }
 
-        Style style = getStyle((int) mouseX, (int) mouseY);
+        Style style = getStyle((int) mouseButtonEvent.x(), (int) mouseButtonEvent.y());
         return handleComponentClicked(style);
     }
 

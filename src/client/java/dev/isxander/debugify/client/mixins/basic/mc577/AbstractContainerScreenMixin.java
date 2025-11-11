@@ -1,10 +1,14 @@
 package dev.isxander.debugify.client.mixins.basic.mc577;
 
+import com.llamalad7.mixinextras.expression.Definition;
+import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.llamalad7.mixinextras.sugar.Local;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.Slot;
@@ -26,22 +30,24 @@ public abstract class AbstractContainerScreenMixin extends Screen {
         super(title);
     }
 
-    @ModifyExpressionValue(method = "mouseClicked", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/Screen;mouseClicked(DDI)Z"))
-    private boolean shouldReturn(boolean parentMouseClicked, double mouseX, double mouseY, int button) {
-        return parentMouseClicked || mouseInventoryClose(button);
+    @ModifyExpressionValue(method = "mouseClicked", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/Screen;mouseClicked(Lnet/minecraft/client/input/MouseButtonEvent;Z)Z"))
+    private boolean shouldReturn(boolean original, MouseButtonEvent mouseButtonEvent) {
+        return original || mouseInventoryClose(mouseButtonEvent);
     }
 
-    @Inject(method = "mouseClicked", at = @At(value = "INVOKE", target = "Lnet/minecraft/Util;getMillis()J"), locals = LocalCapture.CAPTURE_FAILSOFT, cancellable = true)
-    private void dropWithMouse(double mouseX, double mouseY, int button, CallbackInfoReturnable<Boolean> cir, boolean isPickItem, Slot hoveredSlot) {
-        if (minecraft.options.keyDrop.matchesMouse(button)) {
+    @Definition(id = "getHoveredSlot", method = "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen;getHoveredSlot(DD)Lnet/minecraft/world/inventory/Slot;")
+    @Expression("? = this.getHoveredSlot(?, ?)")
+    @Inject(method = "mouseClicked", at = @At(value = "MIXINEXTRAS:EXPRESSION", shift = At.Shift.AFTER), cancellable = true)
+    private void dropWithMouse(MouseButtonEvent event, boolean bl, CallbackInfoReturnable<Boolean> cir, @Local(ordinal = 0) Slot hoveredSlot) {
+        if (minecraft.options.keyDrop.matchesMouse(event)) {
             if (hoveredSlot == null) return;
-            slotClicked(hoveredSlot, hoveredSlot.index, hasControlDown() ? 1 : 0, ClickType.THROW);
+            slotClicked(hoveredSlot, hoveredSlot.index, event.hasControlDown() ? 1 : 0, ClickType.THROW);
             cir.setReturnValue(true);
         }
     }
 
     @Unique
-    private boolean mouseInventoryClose(int button) {
+    private boolean mouseInventoryClose(MouseButtonEvent button) {
         if (minecraft.options.keyInventory.matchesMouse(button)) {
             onClose();
             return true;

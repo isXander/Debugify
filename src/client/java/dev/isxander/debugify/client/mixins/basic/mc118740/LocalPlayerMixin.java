@@ -16,8 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
- * Taken from MoulberrysTweaks
- * https://github.com/Moulberry/MoulberrysTweaks
+ * Taken from <a href="https://github.com/Moulberry/MoulberrysTweaks">MoulberrysTweaks</a>
  * under MIT license
  *
  * @author Moulberry
