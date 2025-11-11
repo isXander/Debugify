@@ -29,6 +29,7 @@
     "basic.mc160095.CactusBlockMixin",
     "basic.mc168573.BlocksAttacksMixin",
     "basic.mc170462.MobEffectsMixin",
+    "basic.mc171420.MinecraftServerMixin",
     "basic.mc176806.RespawnAnchorBlockMixin",
     "basic.mc177381.LocateCommandMixin",
     "basic.mc179072.SwellGoalMixin",
