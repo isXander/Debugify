@@ -5,6 +5,8 @@ plugins {
     id("org.ajoberstar.grgit") version "5.3.2"
 }
 
+val debugifyVersion = "1.0"
+
 modstitch {
     minecraftVersion = "1.21.10"
     modLoaderVersion = "0.18.0"
@@ -14,7 +16,7 @@ modstitch {
     }
 
     metadata {
-        modVersion = minecraftVersion.map { "$it+1.0" }
+        modVersion = minecraftVersion.map { "$it+$debugifyVersion" }
         modId = "debugify"
         modName = "Debugify"
         modDescription = "Fixes Minecraft bugs found on the bug tracker"
