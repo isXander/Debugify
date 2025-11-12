@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.components.ObjectSelectionList;
 import net.minecraft.client.gui.screens.ConfirmScreen;
 import net.minecraft.client.gui.screens.ProgressScreen;
 import net.minecraft.client.gui.screens.Screen;
@@ -14,13 +15,14 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 
 @BugFix(id = "MC-251068", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "If you delete your only world, then you are no longer automatically thrown into the menu of creating a new world")
-@Mixin(WorldSelectionList.WorldListEntry.class)
-public class WorldSelectionListMixin {
-    @Shadow
-    @Final
-    private Minecraft minecraft;
+@Mixin(WorldSelectionList.class)
+public abstract class WorldSelectionListMixin extends ObjectSelectionList<WorldSelectionList.Entry> {
 
-    @WrapWithCondition(method = "method_20170", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;setScreen(Lnet/minecraft/client/gui/screens/Screen;)V", ordinal = 1))
+    public WorldSelectionListMixin(Minecraft minecraft, int i, int j, int k, int l) {
+        super(minecraft, i, j, k, l);
+    }
+
+    @WrapWithCondition(method = "returnToScreen", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;setScreen(Lnet/minecraft/client/gui/screens/Screen;)V"))
     private boolean dontShowEmptyWorldList(Minecraft instance, Screen screen) {
         return (this.minecraft.screen instanceof ProgressScreen || this.minecraft.screen instanceof ConfirmScreen);
     }

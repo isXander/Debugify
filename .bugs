@@ -1,0 +1,147 @@
+# This file is used to generate PATCHED.md
+# Please run `./gradlew generatePatchedTable` to update PATCHED.md based on this file
+# Try not to re-order this file (it sorts itself!), put additions at the end of each section - this helps with git conflicts
+
+patched 577 client basic
+patched 4490 client basic
+patched 12062 client basic
+patched 22882 client basic
+patched 35361 client basic
+patched 46737 client basic
+patched 46766 client basic
+patched 57057 client basic
+patched 59810 client basic
+patched 61489 client basic
+patched 79545 client basic
+patched 80859 client basic
+patched 90683 client basic
+patched 93384 client basic
+patched 105068 client basic
+patched 115092 client basic
+patched 116379 client basic
+patched 116510 client basic
+patched 118740 client basic
+patched 122627 client basic
+patched 122477 client basic
+patched 127970 client basic
+patched 143474 client basic
+patched 159163 client gameplay
+patched 165306 client basic
+patched 165381 client basic
+patched 168573 client basic
+patched 176559 client basic
+patched 188359 client basic
+patched 197260 client basic
+patched 201723 client basic
+patched 206540 client basic
+patched 210318 client basic
+patched 211561 client basic
+patched 215531 client basic
+patched 217716 client basic
+patched 231097 client basic
+patched 237493 client basic
+patched 242809 client basic
+patched 259512 client basic
+patched 267376 client basic
+patched 268420 client basic
+patched 280220 client basic
+patched 298225 client basic
+patched 298558 client basic
+
+patched 2025 server basic
+patched 7569 server basic
+patched 8187 server gameplay
+patched 30391 server basic
+patched 81773 server basic
+patched 82263 server basic
+patched 84661 server basic
+patched 88371 server basic
+patched 89146 server basic
+patched 93018 server basic
+patched 94054 server basic
+patched 100991 server basic
+patched 119754 server basic
+patched 121706 server basic
+patched 121903 server basic
+patched 123450 server basic
+patched 123605 server basic
+patched 129909 server basic
+patched 132878 server basic
+patched 134110 server basic
+patched 136249 server basic
+patched 139041 server basic
+patched 147659 server basic
+patched 155509 server basic
+patched 159283 server basic
+patched 160095 server basic
+patched 170462 server basic
+patched 176806 server basic
+patched 177381 server basic
+patched 179072 server basic
+patched 183990 server basic
+patched 187100 server basic
+patched 199467 server basic
+patched 200418 server basic
+patched 201374 server basic
+patched 202637 server basic
+patched 206705 server basic
+patched 206922 server basic
+patched 214147 server basic
+patched 215530 server basic
+patched 219981 server basic
+patched 221257 server basic
+patched 223153 server basic
+patched 224729 server basic
+patched 226961 server basic
+patched 227008 server basic
+patched 227337 server basic
+patched 231743 server basic
+patched 232869 server basic
+patched 245394 server basic
+patched 251068 server basic
+patched 267125 server basic
+patched 268617 server basic
+patched 271899 server basic
+patched 272431 server basic
+patched 298066 server basic
+patched 263999 server basic
+patched 153010 server basic
+
+previous 2025 17w47a
+previous 53312 22w17a
+previous 72687 22w24a
+previous 148149 1.19.1-pre6
+previous 235035 22w15a
+previous 26757 22w42a
+previous 135973 22w42a
+previous 145748 22w42a
+previous 84873 22w43a
+previous 147605 22w46a
+previous 151412 22w46a
+previous 233042 22w46a
+previous 249059 22w46a
+previous 228976 1.19.3-pre3
+previous 165595 23w03a
+previous 162253 23w16a
+previous 121772 23w31a
+previous 140646 23w31a
+previous 90084 23w31a
+previous 72151 24w06a
+previous 193343 24w18a
+previous 14923 24w19a
+previous 124177 24w20a
+previous 31819 24w21a
+previous 227169 24w33a
+previous 135971 24w33a
+previous 12829 24w44a
+previous 55347 24w44a
+previous 111516 24w44a
+previous 112730 25w21a
+previous 183776 25w31a
+previous 46503 25w33a
+previous 69216 25w33a
+previous 119417 25w33a
+previous 147784 25w34a
+previous 299115 25w34a
+previous 267469 1.21.9
+

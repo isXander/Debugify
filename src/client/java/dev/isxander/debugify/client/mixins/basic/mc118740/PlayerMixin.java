@@ -10,8 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
- * Taken from MoulberrysTweaks
- * https://github.com/Moulberry/MoulberrysTweaks
+ * Taken from <a href="https://github.com/Moulberry/MoulberrysTweaks">MoulberrysTweaks</a>
  * under MIT license
  *
  * @author Moulberry
@@ -26,7 +25,15 @@ public class PlayerMixin {
         }
     }
 
-    @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;moveCloak()V"))
+    @Inject(
+            method = "tick",
+            at = @At(
+                    value = "INVOKE",
+                    // no specific reason to inject here, just an easy injection point before doing anything with attack indicator
+                    target = "Lnet/minecraft/world/entity/player/Player;getMainHandItem()Lnet/minecraft/world/item/ItemStack;",
+                    ordinal = 0
+            )
+    )
     public void tick(CallbackInfo ci) {
         if (this instanceof LocalPlayerDuck localPlayerExt) {
             localPlayerExt.debugify$incrementVisualAttackStrengthScale();

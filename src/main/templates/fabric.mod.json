@@ -22,16 +22,13 @@
     "client": [
       "dev.isxander.debugify.client.DebugifyClient::onInitializeClient"
     ],
-    "preLaunch": [
-      "com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
-    ],
     "modmenu": [
       "dev.isxander.debugify.client.integrations.ModMenuIntegration"
     ]
   },
   "depends": {
     "fabricloader": ">=0.14.0",
-    "minecraft": "~1.21.6",
+    "minecraft": "~1.21.10",
     "java": ">=21",
     "fabric-resource-loader-v0": "*"
   },
