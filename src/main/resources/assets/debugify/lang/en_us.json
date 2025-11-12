@@ -33,6 +33,7 @@
 
   "debugify.fix_explanation.mc-46503": "Clears shader effects on respawn.",
   "debugify.fix_explanation.mc-55347": "Clears titles on disconnect.",
+  "debugify.fix_explanation.mc-61489": "Disabled by default because some players or mods might prefer the original book GUI position.",
   "debugify.fix_explanation.mc-79545": "Clamps the experience level to the integer limit only when rendering.",
   "debugify.fix_explanation.mc-93384": "Adds the eye height to the particle spawn location.",
   "debugify.fix_explanation.mc-105068": "Make shield break sound a local sound.",
