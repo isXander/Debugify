@@ -255,10 +255,15 @@ data class MojiraBug(
     val fix_versions: List<String>
 ) {
     companion object {
-        fun fetch(bugId: String): MojiraBug {
-            val url = "https://mojira.dev/api/v1/issues/$bugId"
-            val response = `java.net`.URI(url).toURL().readText()
-            return com.google.gson.Gson().fromJson(response, MojiraBug::class.java)
+        fun fetch(bugId: String): MojiraBug? {
+            try {
+                val url = "https://mojira.dev/api/v1/issues/$bugId"
+                val response = `java.net`.URI(url).toURL().readText()
+                return com.google.gson.Gson().fromJson(response, MojiraBug::class.java)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return null
+            }
         }
     }
 }
@@ -326,6 +331,6 @@ fun parsePatchedFile(contents: String): List<PatchedFileEntry> {
 }
 fun getBugDescription(bugId: String): String {
     val mojiraBug = MojiraBug.fetch(bugId)
-    return mojiraBug.summary
+    return mojiraBug?.summary ?: ""
 }
 
