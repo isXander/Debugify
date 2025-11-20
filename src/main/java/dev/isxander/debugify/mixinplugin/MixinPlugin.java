@@ -2,20 +2,13 @@ package dev.isxander.debugify.mixinplugin;
 
 import dev.isxander.debugify.Debugify;
 import dev.isxander.debugify.api.DebugifyApi;
-import dev.isxander.debugify.fixes.BugFix;
-import dev.isxander.debugify.fixes.FixCategory;
+import dev.isxander.debugify.error.DebugifyErrorHandler;
 import dev.isxander.debugify.fixes.BugFixData;
-import dev.isxander.debugify.fixes.OS;
 import net.fabricmc.loader.api.FabricLoader;
-import org.jetbrains.annotations.Nullable;
-import org.objectweb.asm.tree.AnnotationNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
-import org.spongepowered.asm.service.MixinService;
-import org.spongepowered.asm.util.Annotations;
 
-import java.io.IOException;
 import java.util.*;
 
 public class MixinPlugin implements IMixinConfigPlugin {

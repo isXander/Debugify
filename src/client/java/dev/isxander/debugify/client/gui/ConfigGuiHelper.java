@@ -1,10 +1,9 @@
 package dev.isxander.debugify.client.gui;
 
-import dev.isxander.debugify.client.DebugifyClient;
 import dev.isxander.debugify.config.DebugifyConfig;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
-import dev.isxander.debugify.mixinplugin.DebugifyErrorHandler;
+import dev.isxander.debugify.error.DebugifyErrorHandler;
 import dev.isxander.yacl3.api.*;
 import dev.isxander.yacl3.api.controller.BooleanControllerBuilder;
 import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder;

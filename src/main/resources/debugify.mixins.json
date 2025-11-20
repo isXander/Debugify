@@ -73,6 +73,7 @@
     "basic.mc89146.ChunkAccessMixin",
     "basic.mc93018.AnimalMixin",
     "basic.mc94054.WallClimberNavigationMixin",
+    "errorhandler.CrashReportMixin",
     "gameplay.mc8187.MixinTreeFeature"
   ]
 }

@@ -19,14 +19,14 @@ import java.util.Optional;
 public class BugFixDataCache {
     private static final Map<String, ResolvedBugFixData> bugFixDataByMixinClass = new HashMap<>();
 
-    static Optional<BugFixData> getOrResolve(String mixinClassName) {
+    public static Optional<BugFixData> getOrResolve(String mixinClassName) {
         return Optional.ofNullable(
                 bugFixDataByMixinClass.computeIfAbsent(mixinClassName, BugFixDataCache::resolve)
                         .data()
         );
     }
 
-    static Optional<BugFixData> getIfResolved(String mixinClassName) {
+    public static Optional<BugFixData> getIfResolved(String mixinClassName) {
         return Optional.ofNullable(bugFixDataByMixinClass.get(mixinClassName))
                 .flatMap(resolved -> Optional.ofNullable(resolved.data()));
     }

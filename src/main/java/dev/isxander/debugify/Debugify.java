@@ -2,7 +2,7 @@ package dev.isxander.debugify;
 
 import dev.isxander.debugify.config.DebugifyConfig;
 import dev.isxander.debugify.fixes.BugFix;
-import dev.isxander.debugify.mixinplugin.DebugifyErrorHandler;
+import dev.isxander.debugify.error.DebugifyErrorHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.Version;
