@@ -112,11 +112,13 @@ java {
 }
 
 publishMods {
-    displayName.set("Debugify ${project.version}")
+    displayName = modstitch.metadata.modVersion.map { "Debugify $it" }
+    version = modstitch.metadata.modVersion
+    file = tasks.remapJar.get().archiveFile
+    type = STABLE
+    modLoaders.add("fabric")
 
-    file.set(tasks.remapJar.get().archiveFile)
-
-    changelog.set(modstitch.minecraftVersion.zip(modstitch.metadata.modVersion) { mcVersion, modVersion ->
+    changelog = modstitch.minecraftVersion.zip(modstitch.metadata.modVersion) { mcVersion, modVersion ->
         val header = file("changelogs/header.md")
             .takeIf { it.exists() }
             ?.readText()
@@ -125,10 +127,7 @@ publishMods {
             .takeIf { it.exists() }
             ?.readText()
             ?.let { if (header != null) "$header\n\n$it" else it }
-    })
-
-    type.set(STABLE)
-    modLoaders.add("fabric")
+    }
 
     val modrinthId: String by project
     if (modrinthId.isNotBlank() && hasProperty("modrinth.token")) {
