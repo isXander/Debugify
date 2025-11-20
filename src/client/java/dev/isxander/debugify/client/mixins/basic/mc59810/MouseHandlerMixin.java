@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-59810", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, enabled = false, modConflicts = "mcmouser", os = OS.MAC, description = "Cannot break blocks while sprinting (Ctrl+Click = right click on macOS)")
 @Mixin(MouseHandler.class)
 public class MouseHandlerMixin {
-    @ModifyExpressionValue(method = "onPress", at = @At(value = "FIELD", target = "Lnet/minecraft/client/Minecraft;ON_OSX:Z", opcode = Opcodes.GETSTATIC))
+    @ModifyExpressionValue(method = "simulateRightClick", at = @At(value = "FIELD", target = "Lnet/minecraft/client/input/InputQuirks;SIMULATE_RIGHT_CLICK_WITH_LONG_LEFT_CLICK:Z", opcode = Opcodes.GETSTATIC))
     private boolean doRightClickEmulation(boolean isMac) {
         return false;
     }
