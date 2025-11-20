@@ -5,7 +5,7 @@ plugins {
     id("org.ajoberstar.grgit") version "5.3.2"
 }
 
-val debugifyVersion = "1.0"
+val debugifyVersion = "1.1"
 
 modstitch {
     minecraftVersion = "1.21.10"
