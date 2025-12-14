@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@BugFix(id = "MC-121903", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Skeletons and illusioners aren't looking up / down at their target while strafing")
+@BugFix(id = "MC-121903", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = " Command block minecarts do not save execution cooldown to NBT")
 @Mixin(MinecartCommandBlock.class)
 public class MinecraftCommandBlockMixin {
     @Shadow private int lastActivated;
