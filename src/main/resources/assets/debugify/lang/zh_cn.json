@@ -29,7 +29,7 @@
   "debugify.mc_237493.line": "你在遥测选项上选择了「%s」，所以 Debugify 正在阻止与 Mojang 的遥测服务的任何连接。这是由 Debugify 提供的 MC-237493 修复。",
   "debugify.mc_237493.tooltip.off": "「%s」完全禁用了与 Mojang 遥测服务的任何连接。（Debugify MC-237493）",
   "debugify.mc_237493.tooltip.minimal": "「%s」只包括 Mojang 认为需要的信息。",
-  "debugify.mc_237493.tooltip.all": "「%s」包括所有的最少和可选遥测。"
+  "debugify.mc_237493.tooltip.all": "「%s」包括所有的最少和可选遥测。",
 
   "debugify.fix_explanation.mc-46503": "在重生时清除视觉效果。",
   "debugify.fix_explanation.mc-55347": "断开连接时清除标题。",
