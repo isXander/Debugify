@@ -22,7 +22,7 @@ public class ServerGamePacketListenerImplMixin {
      * This is parity with the command block behaviour.
      */
     @Definition(id = "sendSystemMessage", method = "Lnet/minecraft/server/level/ServerPlayer;sendSystemMessage(Lnet/minecraft/network/chat/Component;)V")
-    @Expression("?.?.sendSystemMessage(?('advMode.setCommand.success', ?))")
+    @Expression("?.?.sendSystemMessage(?(?, ?))")
     @WrapWithCondition(method = "handleSetCommandMinecart", at = @At("MIXINEXTRAS:EXPRESSION"))
     private boolean checkEmptyCommandBeforeMessage(ServerPlayer instance, Component message, @Local(argsOnly = true) ServerboundSetCommandMinecartPacket packet) {
         return !StringUtil.isNullOrEmpty(packet.getCommand());

@@ -10,7 +10,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -22,10 +22,10 @@ public class ZombieMixin extends Monster {
         super(entityType, level);
     }
 
-    @Definition(id = "getAttribute", method = "Lnet/minecraft/world/entity/monster/Zombie;getAttribute(Lnet/minecraft/core/Holder;)Lnet/minecraft/world/entity/ai/attributes/AttributeInstance;")
+    @Definition(id = "getAttribute", method = "Lnet/minecraft/world/entity/monster/zombie/Zombie;getAttribute(Lnet/minecraft/core/Holder;)Lnet/minecraft/world/entity/ai/attributes/AttributeInstance;")
     @Definition(id = "MAX_HEALTH", field = "Lnet/minecraft/world/entity/ai/attributes/Attributes;MAX_HEALTH:Lnet/minecraft/core/Holder;")
     @Definition(id = "addOrReplacePermanentModifier", method = "Lnet/minecraft/world/entity/ai/attributes/AttributeInstance;addOrReplacePermanentModifier(Lnet/minecraft/world/entity/ai/attributes/AttributeModifier;)V")
-    @Definition(id = "LEADER_ZOMBIE_BONUS_ID", field = "Lnet/minecraft/world/entity/monster/Zombie;LEADER_ZOMBIE_BONUS_ID:Lnet/minecraft/resources/ResourceLocation;")
+    @Definition(id = "LEADER_ZOMBIE_BONUS_ID", field = "Lnet/minecraft/world/entity/monster/zombie/Zombie;LEADER_ZOMBIE_BONUS_ID:Lnet/minecraft/resources/Identifier;")
     @Definition(id = "AttributeModifier", type = AttributeModifier.class)
     @Expression("this.getAttribute(MAX_HEALTH).addOrReplacePermanentModifier(new AttributeModifier(LEADER_ZOMBIE_BONUS_ID, ?, ?))")
     @WrapOperation(method = "handleAttributes", at = @At("MIXINEXTRAS:EXPRESSION"))

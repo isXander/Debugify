@@ -19,10 +19,10 @@ public class AtmosphericFogEnvironmentMixin {
      */
     @Definition(id = "rainFogMultiplier", field = "Lnet/minecraft/client/renderer/fog/environment/AtmosphericFogEnvironment;rainFogMultiplier:F")
     @Definition(id = "rainLevel", local = @Local(type = float.class, ordinal = 3))
-    @Definition(id = "gtDeltaTicks", local = @Local(type = float.class, ordinal = 1))
+    @Definition(id = "gtDeltaTicks", local = @Local(type = float.class, ordinal = 0))
     // `?.` instead of `this.` since the `this` is DUPed making it impossible to target
     @Expression("?.rainFogMultiplier = ?.rainFogMultiplier + (rainLevel - ?.rainFogMultiplier) * @(gtDeltaTicks) * 0.2")
-    @ModifyExpressionValue(method = "setupFog", at = @At("MIXINEXTRAS:EXPRESSION"))
+    @ModifyExpressionValue(method = "updateRainFogState", at = @At("MIXINEXTRAS:EXPRESSION"))
     private float clampFog(float original) {
         // it's impossible to target `gtDeltaTicks * 0.2` since in bytecode
         // it's `...) * gtDeltaTicks) * 0.2`. so instead just modify `gtDeltaTicks` with min 5, since 5 * 0.2 is 1

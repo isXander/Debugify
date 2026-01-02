@@ -2,6 +2,7 @@ package dev.isxander.debugify.client.gui;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.ActiveTextCollector;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
@@ -15,6 +16,7 @@ import net.minecraft.util.Mth;
 
 import java.net.URI;
 import java.util.List;
+import org.jspecify.annotations.Nullable;
 
 public class NoYACLScreen extends Screen {
     private final Screen parent;
@@ -38,12 +40,12 @@ public class NoYACLScreen extends Screen {
 
     @Override
     protected void init() {
-        this.wrappedText = font.split(unwrappedText, width - 50);
+        this.wrappedText = this.font.split(unwrappedText, width - 50);
         this.addRenderableWidget(
                 Button.builder(CommonComponents.GUI_BACK, button -> minecraft.setScreen(parent))
                         .pos(
                                 (this.width - 150) / 2,
-                                Mth.clamp(90 + wrappedText.size() * 9 + 12, this.height / 6 + 96, this.height - 24)
+                                Mth.clamp(90 + this.wrappedText.size() * 9 + 12, this.height / 6 + 96, this.height - 24)
                         )
                         .size(150, 20)
                         .build()
@@ -54,14 +56,13 @@ public class NoYACLScreen extends Screen {
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
         super.render(graphics, mouseX, mouseY, delta);
 
-        graphics.drawCenteredString(font, title, width / 2, 70, -1);
+        graphics.drawCenteredString(this.font, title, this.width / 2, 70, -1);
         int y = 90;
         for (FormattedCharSequence line : wrappedText) {
-            graphics.drawCenteredString(font, line, width / 2, y, -1);
-            y += font.lineHeight;
+            graphics.drawCenteredString(this.font, line, this.width / 2, y, -1);
+            y += this.font.lineHeight;
         }
     }
-
 
     @Override
     public boolean mouseClicked(MouseButtonEvent mouseButtonEvent, boolean bl) {
@@ -69,20 +70,30 @@ public class NoYACLScreen extends Screen {
             return true;
         }
 
-        Style style = getStyle((int) mouseButtonEvent.x(), (int) mouseButtonEvent.y());
-        return handleComponentClicked(style);
+        Style style = this.getStyle((int) mouseButtonEvent.x(), (int) mouseButtonEvent.y());
+        return this.handleClickEvent(style.getClickEvent());
     }
 
     protected Style getStyle(int mouseX, int mouseY) {
         int y = mouseY - 90;
-        int line = y / font.lineHeight;
+        int line = y / this.font.lineHeight;
 
-        if (y < 0 || y > y + wrappedText.size() * font.lineHeight) return null;
-        if (line < 0 || line >= wrappedText.size()) return null;
+        if (y < 0 || y > y + this.wrappedText.size() * this.font.lineHeight) return null;
+        if (line < 0 || line >= this.wrappedText.size()) return null;
 
-        FormattedCharSequence text = wrappedText.get(line);
-        int x = mouseX - (width / 2 - font.width(text) / 2);
+        FormattedCharSequence text = this.wrappedText.get(line);
+        int x = mouseX - (this.width / 2 - this.font.width(text) / 2);
 
-        return font.getSplitter().componentStyleAtWidth(wrappedText.get(line), x);
+        ActiveTextCollector.ClickableStyleFinder clickableStyleFinder = new ActiveTextCollector.ClickableStyleFinder(this.font, mouseX, mouseY);
+        return clickableStyleFinder.result();
+    }
+
+    protected boolean handleClickEvent(@Nullable ClickEvent clickEvent) {
+        if (clickEvent == null) {
+            return false;
+        }
+
+        defaultHandleGameClickEvent(clickEvent, this.minecraft, this);
+        return true;
     }
 }
