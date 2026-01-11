@@ -19,7 +19,7 @@ public class SquidRendererMixin<T extends Squid> {
     @Unique
     T squidEntity;
 
-    @Inject(method = "extractRenderState(Lnet/minecraft/world/entity/animal/Squid;Lnet/minecraft/client/renderer/entity/state/SquidRenderState;F)V", at = @At("TAIL"))
+    @Inject(method = "extractRenderState(Lnet/minecraft/world/entity/animal/squid/Squid;Lnet/minecraft/client/renderer/entity/state/SquidRenderState;F)V", at = @At("TAIL"))
     private void getSquidEntity(T squid, SquidRenderState squidRenderState, float f, CallbackInfo ci) {
         squidEntity = squid;
     }
