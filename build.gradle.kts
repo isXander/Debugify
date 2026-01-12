@@ -119,6 +119,11 @@ dependencies {
 
 java {
     withSourcesJar()
+    withJavadocJar()
+}
+
+tasks.javadoc {
+    isFailOnError = false
 }
 
 publishMods {
