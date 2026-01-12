@@ -1,16 +1,23 @@
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
 plugins {
-    id("dev.isxander.modstitch.base") version "0.7.1-unstable"
-    id("fabric-loom") version "1.13-SNAPSHOT" apply false
+    id("dev.isxander.modstitch.base") version "0.8.4"
     id("me.modmuss50.mod-publish-plugin") version "0.8.4"
+
     `maven-publish`
+    signing
+    id("dev.isxander.secrets") version "0.1.0"
     id("org.ajoberstar.grgit") version "5.3.2"
+    id("com.gradleup.nmcp.aggregation") version "1.4.3"
+    id("com.gradleup.nmcp") version "1.4.3"
 }
 
-val debugifyVersion = "1.1"
+val debugifyVersion = "1.0"
 
 modstitch {
     minecraftVersion = "1.21.11"
-    modLoaderVersion = "0.18.0"
+    modLoaderVersion = "0.18.4"
 
     parchment {
         mappingsVersion = "2025.12.20"
@@ -106,6 +113,8 @@ dependencies {
     "gametestImplementation"(sourceSets.main.get().output)
     "gametestImplementation"(sourceSets["client"].output)
     "modGametestImplementation"(fabricApi.module("fabric-gametest-api-v1", fabricApiVersion))
+
+    nmcpAggregation(project)
 }
 
 java {
@@ -130,66 +139,109 @@ publishMods {
             ?.let { if (header != null) "$header\n\n$it" else it }
     }
 
-    val modrinthId: String by project
-    if (modrinthId.isNotBlank() && hasProperty("modrinth.token")) {
-        modrinth {
-            projectId.set(modrinthId)
-            accessToken.set(findProperty("modrinth.token")?.toString())
-            minecraftVersions.add(modstitch.minecraftVersion)
+    modrinth {
+        projectId = providers.gradleProperty("pub.modrinthId")
+        accessToken = secrets.gradleProperty("modrinth.accessToken")
 
-            requires { slug.set("yacl") }
-            requires { slug.set("fabric-api") }
-            optional { slug.set("modmenu") }
-        }
+        minecraftVersions.add(modstitch.minecraftVersion)
+
+        requires { slug.set("yacl") }
+        requires { slug.set("fabric-api") }
+        optional { slug.set("modmenu") }
     }
 
-    val curseforgeId: String by project
-    if (curseforgeId.isNotBlank() && hasProperty("curseforge.token")) {
-        curseforge {
-            projectId.set(curseforgeId)
-            accessToken.set(findProperty("curseforge.token")?.toString())
-            minecraftVersions.add(modstitch.minecraftVersion)
+    curseforge {
+        projectId = providers.gradleProperty("pub.curseforgeId")
+        projectSlug = providers.gradleProperty("pub.curseforgeSlug")
+        accessToken = secrets.gradleProperty("curseforge.accessToken")
 
-            requires { slug.set("yacl") }
-            requires { slug.set("fabric-api") }
-            optional { slug.set("modmenu") }
-        }
+        minecraftVersions.add(modstitch.minecraftVersion)
+
+        requires { slug.set("yacl") }
+        requires { slug.set("fabric-api") }
+        optional { slug.set("modmenu") }
     }
 
     val githubProject: String by project
     if (githubProject.isNotBlank() && hasProperty("github.token")) {
-        github {
-            repository.set(githubProject)
-            accessToken.set(findProperty("github.token")?.toString())
-            commitish.set(grgit.branch.current().name)
-        }
+
+    }
+    github {
+        repository = providers.gradleProperty("githubProject")
+        accessToken = secrets.gradleProperty("github.accessToken")
+
+        commitish = grgit.branch.current().name
     }
 }
 
 publishing {
     publications {
-        create<MavenPublication>("debugify") {
+        create<MavenPublication>("mod") {
+            from(components["java"])
+
             groupId = "dev.isxander"
             artifactId = "debugify"
+            version = modstitch.metadata.modVersion.get()
 
-            from(components["java"])
-        }
-    }
-
-    repositories {
-        if (hasProperty("XANDER_MAVEN_USER") && hasProperty("XANDER_MAVEN_PASS")) {
-            maven(url = "https://maven.isxander.dev/releases") {
-                credentials {
-                    username = property("XANDER_MAVEN_USER")?.toString()
-                    password = property("XANDER_MAVEN_PASS")?.toString()
+            pom {
+                name = modstitch.metadata.modName
+                description = modstitch.metadata.modDescription
+                url = "https://www.isxander.dev/projects/debugify"
+                licenses {
+                    license {
+                        name = "LGPL-3.0-or-later"
+                        url = "https://www.gnu.org/licenses/lgpl-3.0.en.html"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "isXander"
+                        name = "Xander"
+                        email = "business@isxander.dev"
+                    }
+                }
+                scm {
+                    url = "https://github.com/isXander/Debugify"
+                    connection = "scm:git:git//github.com/isXander/Debugify.git"
+                    developerConnection = "scm:git:ssh://git@github.com/isXander/Debugify.git"
                 }
             }
-        } else {
-            println("Xander Maven credentials not satisfied")
         }
     }
 }
 
+val signingKeyProvider = secrets.gradleProperty("signing.secretKey")
+val signingPasswordProvider = secrets.gradleProperty("signing.password")
+signing {
+    sign(publishing.publications["mod"])
+}
+// not configuration cache friendly, but neither is the whole of signing plugin
+// this plugin does not support lazy configuration of signing keys
+gradle.taskGraph.whenReady {
+    val willSign = allTasks.any { it.name.startsWith("sign") }
+    if (willSign) {
+        signing {
+            val signingKey = signingKeyProvider.orNull
+            val signingPassword = signingPasswordProvider.orNull
+
+            isRequired = signingKey != null && signingPassword != null
+            if (isRequired) {
+                useInMemoryPgpKeys(signingKey, signingPassword)
+            } else {
+                logger.error("Signing keys not found; skipping signing!")
+            }
+        }
+    }
+}
+
+nmcpAggregation {
+    centralPortal {
+        username = secrets.gradleProperty("mcentral.username")
+        password = secrets.gradleProperty("mcentral.password")
+
+        publicationName = "debugify:$version"
+    }
+}
 
 
 val generatePatchedTable by tasks.registering {
@@ -213,7 +265,7 @@ val generatePatchedTable by tasks.registering {
 
         val previous = entries.filterIsInstance<PatchedFileEntry.Previous>()
 
-        val timestamp = `java.time`.LocalDateTime.now().format(`java.time.format`.DateTimeFormatter.ISO_DATE_TIME)
+        val timestamp = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME)
 
         val markdownTable = """
             - <!--
