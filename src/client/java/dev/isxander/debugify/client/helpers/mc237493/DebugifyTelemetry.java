@@ -1,50 +1,37 @@
 package dev.isxander.debugify.client.helpers.mc237493;
 
+import com.mojang.serialization.Codec;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.function.IntFunction;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.ByIdMap;
 import net.minecraft.util.Mth;
-import net.minecraft.util.OptionEnum;
+import net.minecraft.util.StringRepresentable;
 
-public enum DebugifyTelemetry implements OptionEnum {
+public enum DebugifyTelemetry {
     OFF(0, "options.telemetry.state.none", "debugify.mc_237493.tooltip.off"),
     MINIMAL(1, "options.telemetry.state.minimal", "debugify.mc_237493.tooltip.minimal"),
     ALL(2, "options.telemetry.state.all", "debugify.mc_237493.tooltip.all");
 
-    private static final DebugifyTelemetry[] VALUES = Arrays.stream(values())
-            .sorted(Comparator.comparingInt(DebugifyTelemetry::getId))
-            .toArray(DebugifyTelemetry[]::new);
-
+    private static final IntFunction<DebugifyTelemetry> BY_ID = ByIdMap.continuous(value -> value.id, values(), ByIdMap.OutOfBoundsStrategy.WRAP);
+    public static final Codec<DebugifyTelemetry> LEGACY_CODEC = Codec.INT.xmap(BY_ID::apply, value -> value.id);
     private final int id;
-    private final String translationKey;
-    private final String tooltipTranslationKey;
+    private final Component caption;
+    private final Component tooltip;
 
-    DebugifyTelemetry(int id, String translationKey, String tooltipTranslationKey) {
+    DebugifyTelemetry(int id, final String key, final String translationKey) {
         this.id = id;
-        this.translationKey = translationKey;
-        this.tooltipTranslationKey = tooltipTranslationKey;
+        this.caption = Component.translatable(key);
+        this.tooltip = Component.translatable(translationKey);
     }
 
-    @Override
-    public int getId() {
-        return this.id;
+    public Component caption() {
+        return this.caption;
     }
 
-    @Override
-    public String getKey() {
-        return this.translationKey;
-    }
-
-    public String getTooltipKey() {
-        return this.tooltipTranslationKey;
-    }
-
-    public Component getTooltipText() {
-        return Component.translatable(getTooltipKey(), getCaption());
-    }
-
-    public static DebugifyTelemetry byId(int id) {
-        return VALUES[Mth.positiveModulo(id, VALUES.length)];
+    public Component tooltip() {
+        return this.tooltip;
     }
 }

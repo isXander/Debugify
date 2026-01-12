@@ -27,9 +27,9 @@ public abstract class OptionsMixin implements DebugifyTelemetryAccessor {
     @Unique
     private final OptionInstance<DebugifyTelemetry> debugifyTelemetry = new OptionInstance<>(
             "options.telemetry.button",
-            value -> Tooltip.create(value.getTooltipText()),
-            OptionInstance.forOptionEnum(),
-            new OptionInstance.Enum<>(Arrays.asList(DebugifyTelemetry.values()), Codec.INT.xmap(DebugifyTelemetry::byId, DebugifyTelemetry::getId)),
+            value -> Tooltip.create(value.tooltip()),
+            (component, value) -> value.caption(),
+            new OptionInstance.Enum<>(Arrays.asList(DebugifyTelemetry.values()), DebugifyTelemetry.LEGACY_CODEC),
             DebugifyTelemetry.OFF,
             value -> telemetryOptInExtra().set(value == DebugifyTelemetry.ALL)
     );

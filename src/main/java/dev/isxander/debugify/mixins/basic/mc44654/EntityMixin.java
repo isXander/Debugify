@@ -17,11 +17,11 @@ public abstract class EntityMixin {
     public abstract EntityType<?> getType();
 
     @Shadow
-    public boolean hasImpulse;
+    public boolean needsSync;
 
     /**
      * Since the update interval is set to infinity, the position will never get updated.
-     * To fix, we mark velocity as dirty via hasImpulse to force an update.
+     * To fix, we mark velocity as dirty via needsSync to force an update.
      *
      * We inject precisely here as the target is only called when `!firstTick && isServerLevel`,
      * since this is where the issue occurs.
@@ -29,7 +29,7 @@ public abstract class EntityMixin {
     @Inject(method = "setPosRaw", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;isRemoved()Z"))
     private void forceClientUpdate(CallbackInfo ci) {
         if (this.getType().updateInterval() == Integer.MAX_VALUE) {
-            this.hasImpulse = true;
+            this.needsSync = true;
         }
     }
 }

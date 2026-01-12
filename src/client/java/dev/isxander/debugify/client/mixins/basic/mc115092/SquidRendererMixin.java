@@ -6,7 +6,7 @@ import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.renderer.entity.SquidRenderer;
 import net.minecraft.client.renderer.entity.state.SquidRenderState;
-import net.minecraft.world.entity.animal.Squid;
+import net.minecraft.world.entity.animal.squid.Squid;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,7 +19,7 @@ public class SquidRendererMixin<T extends Squid> {
     @Unique
     T squidEntity;
 
-    @Inject(method = "extractRenderState(Lnet/minecraft/world/entity/animal/Squid;Lnet/minecraft/client/renderer/entity/state/SquidRenderState;F)V", at = @At("TAIL"))
+    @Inject(method = "extractRenderState(Lnet/minecraft/world/entity/animal/squid/Squid;Lnet/minecraft/client/renderer/entity/state/SquidRenderState;F)V", at = @At("TAIL"))
     private void getSquidEntity(T squid, SquidRenderState squidRenderState, float f, CallbackInfo ci) {
         squidEntity = squid;
     }

@@ -19,7 +19,7 @@ public abstract class LivingEntityMixin{
     @Definition(id = "getAttributeValue", method = "Lnet/minecraft/world/entity/LivingEntity;getAttributeValue(Lnet/minecraft/core/Holder;)D")
     @Definition(id = "WATER_MOVEMENT_EFFICIENCY", field = "Lnet/minecraft/world/entity/ai/attributes/Attributes;WATER_MOVEMENT_EFFICIENCY:Lnet/minecraft/core/Holder;")
     @Expression("this.getAttributeValue(WATER_MOVEMENT_EFFICIENCY)")
-    @ModifyExpressionValue(method = "travelInFluid", at = @At("MIXINEXTRAS:EXPRESSION"))
+    @ModifyExpressionValue(method = "travelInWater", at = @At("MIXINEXTRAS:EXPRESSION"))
     private double checkRiptide(double original) {
         return this.isAutoSpinAttack() ? 0 : original;
     }

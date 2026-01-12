@@ -1,5 +1,6 @@
 plugins {
-    id("dev.isxander.modstitch.base") version "0.6.2-unstable"
+    id("dev.isxander.modstitch.base") version "0.7.1-unstable"
+    id("fabric-loom") version "1.13-SNAPSHOT" apply false
     id("me.modmuss50.mod-publish-plugin") version "0.8.4"
     `maven-publish`
     id("org.ajoberstar.grgit") version "5.3.2"
@@ -8,11 +9,11 @@ plugins {
 val debugifyVersion = "1.1"
 
 modstitch {
-    minecraftVersion = "1.21.10"
+    minecraftVersion = "1.21.11"
     modLoaderVersion = "0.18.0"
 
     parchment {
-        mappingsVersion = "2025.10.12"
+        mappingsVersion = "2025.12.20"
     }
 
     metadata {

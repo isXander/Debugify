@@ -5,7 +5,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.storage.ServerLevelData;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -15,6 +15,6 @@ import org.spongepowered.asm.mixin.injection.At;
 public class MinecraftServerMixin {
     @WrapOperation(method = "setupDebugLevel", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/storage/ServerLevelData;setClearWeatherTime(I)V"))
     private void disableDebugWorldWeather(ServerLevelData instance, int i, Operation<Void> original) {
-        instance.getGameRules().getRule(GameRules.RULE_WEATHER_CYCLE).set(false, (MinecraftServer) (Object) this);
+        instance.getGameRules().set(GameRules.ADVANCE_WEATHER, false, (MinecraftServer) (Object) this);
     }
 }
