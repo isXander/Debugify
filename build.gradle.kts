@@ -313,7 +313,11 @@ data class MojiraBug(
             try {
                 val url = "https://mojira.dev/api/v1/issues/$bugId"
                 val response = `java.net`.URI(url).toURL().readText()
-                return com.google.gson.Gson().fromJson(response, MojiraBug::class.java)
+                return try {
+                    com.google.gson.Gson().fromJson(response, MojiraBug::class.java)
+                } catch (e: com.google.gson.JsonSyntaxException) {
+                    throw IllegalStateException("Failed to parse Mojira response <$url>: \"$response\"", e)
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
                 return null
