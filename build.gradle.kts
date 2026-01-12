@@ -167,10 +167,6 @@ publishMods {
         optional { slug.set("modmenu") }
     }
 
-    val githubProject: String by project
-    if (githubProject.isNotBlank() && hasProperty("github.token")) {
-
-    }
     github {
         repository = providers.gradleProperty("githubProject")
         accessToken = secrets.gradleProperty("github.accessToken")
