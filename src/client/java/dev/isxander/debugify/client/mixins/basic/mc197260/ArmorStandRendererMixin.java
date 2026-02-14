@@ -33,6 +33,8 @@ public abstract class ArmorStandRendererMixin extends LivingEntityRendererMixin<
      */
     @Override
     public void debugify$modifyLightCoords(ArmorStandRenderState livingEntity) {
+        if (LightTexture.sky(livingEntity.lightCoords) >= 15 || LightTexture.block(livingEntity.lightCoords) >= 15) return;
+
         BlockPos mainPos = BlockPos.containing(livingEntity.x, livingEntity.y, livingEntity.z);
         ClientLevel level = Minecraft.getInstance().level;
 
