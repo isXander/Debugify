@@ -35,7 +35,7 @@
  | Gameplay | [MC-136249](https://mojira.dev/MC-136249) | Wearing boots enchanted with depth strider decreases the strength of the riptide enchantment |
  | Basic | [MC-143474](https://mojira.dev/MC-143474) | Respawning causes your hotbar to reset to the first space |
  | Gameplay | [MC-159163](https://mojira.dev/MC-159163) | Quickly pressing the sneak key causes the sneak animation to play twice |
- | Basic | [MC-165306](https://mojira.dev/MC-165306) |  |
+ | Basic | [MC-165306](https://mojira.dev/MC-165306) | Beacon beams are transparent from the inside |
  | Basic | [MC-165381](https://mojira.dev/MC-165381) | Block breaking can be delayed by dropping/throwing the tool while breaking a block |
  | Basic | [MC-168573](https://mojira.dev/MC-168573) | After breaking a shield, the player's off-hand can't finish using some items |
  | Basic | [MC-176559](https://mojira.dev/MC-176559) | Breaking process resets when a pickaxe enchanted with Mending mends by XP / Mending slows down breaking blocks again |
