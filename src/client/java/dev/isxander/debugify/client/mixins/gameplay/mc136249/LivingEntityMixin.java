@@ -1,4 +1,4 @@
-package dev.isxander.debugify.mixins.basic.mc136249;
+package dev.isxander.debugify.client.mixins.gameplay.mc136249;
 
 import com.llamalad7.mixinextras.expression.Definition;
 import com.llamalad7.mixinextras.expression.Expression;
@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 
-@BugFix(id = "MC-136249", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Wearing boots enchanted with depth strider decreases the strength of the riptide enchantment")
+@BugFix(id = "MC-136249", category = FixCategory.GAMEPLAY, env = BugFix.Env.CLIENT, description = "Wearing boots enchanted with depth strider decreases the strength of the riptide enchantment")
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin{
     @Shadow

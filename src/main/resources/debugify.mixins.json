@@ -23,7 +23,6 @@
     "basic.mc132878.ArmorStandMixin",
     "basic.mc133218.ServerPlayerMixin",
     "basic.mc134110.ChestBlockMixin",
-    "basic.mc136249.LivingEntityMixin",
     "basic.mc139041.FishingRodItemMixin",
     "basic.mc147659.CatSpawnerMixin",
     "basic.mc153010.FoxMixin",

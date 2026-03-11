@@ -65,6 +65,7 @@
     "basic.mc188359.CakeBlockMixin",
     "basic.mc188359.ConsumableMixin",
     "basic.mc206540.EntityMixin",
-    "basic.mc259512.LivingEntityMixin"
+    "basic.mc259512.LivingEntityMixin",
+    "gameplay.mc136249.LivingEntityMixin"
   ]
 }
