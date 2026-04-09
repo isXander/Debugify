@@ -32,7 +32,7 @@ public abstract class LocalPlayerMixin extends Player implements LocalPlayerDuck
     }
 
     @Inject(method = "swing", at = @At("HEAD"))
-    public void swing(InteractionHand interactionHand, CallbackInfo ci) {
+    public void swing(InteractionHand hand, CallbackInfo ci) {
         this.visualAttackStrengthTicker = 0;
     }
 

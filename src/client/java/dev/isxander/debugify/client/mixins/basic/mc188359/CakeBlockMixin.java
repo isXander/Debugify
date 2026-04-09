@@ -1,5 +1,6 @@
 package dev.isxander.debugify.client.mixins.basic.mc188359;
 
+import com.llamalad7.mixinextras.sugar.Local;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.core.BlockPos;
@@ -20,8 +21,25 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @BugFix(id = "MC-188359", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Burp sound does not play after drinking or after eating cake")
 @Mixin(CakeBlock.class)
 public class CakeBlockMixin {
-    @Inject(method = "useWithoutItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/CakeBlock;eat(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/entity/player/Player;)Lnet/minecraft/world/InteractionResult;", ordinal = 0))
-    private void playBurpSound(BlockState blockState, Level level, BlockPos blockPos, Player player, BlockHitResult blockHitResult, CallbackInfoReturnable<InteractionResult> cir) {
-        level.playLocalSound(player.getX() , player.getY(), player.getZ(), SoundEvents.PLAYER_BURP, SoundSource.PLAYERS, 0.5F, Mth.randomBetween(player.getRandom(), 0.9F, 1.0F), false);
+    @Inject(
+            method = "useWithoutItem",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/block/CakeBlock;eat(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/entity/player/Player;)Lnet/minecraft/world/InteractionResult;",
+                    ordinal = 0
+            )
+    )
+    private void playBurpSound(
+            CallbackInfoReturnable<InteractionResult> cir,
+            @Local(argsOnly = true, name = "player") Player player,
+            @Local(argsOnly = true, name = "level") Level level
+    ) {
+        level.playLocalSound(
+                player.getX(), player.getY(), player.getZ(),
+                SoundEvents.PLAYER_BURP, SoundSource.PLAYERS,
+                0.5F,
+                Mth.randomBetween(player.getRandom(), 0.9F, 1.0F),
+                false
+        );
     }
 }

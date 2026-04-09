@@ -18,8 +18,15 @@ public abstract class LocalPlayerMixin {
 
     @Shadow public abstract boolean isUsingItem();
 
-    @Inject(method = "drop", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Inventory;removeFromSelected(Z)Lnet/minecraft/world/item/ItemStack;", shift = At.Shift.AFTER))
-    private void onDropItem(boolean entireStack, CallbackInfoReturnable<Boolean> cir) {
+    @Inject(
+            method = "drop",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/player/Inventory;removeFromSelected(Z)Lnet/minecraft/world/item/ItemStack;",
+                    shift = At.Shift.AFTER
+            )
+    )
+    private void onDropItem(boolean all, CallbackInfoReturnable<Boolean> cir) {
         if (isUsingItem()) {
             minecraft.gameMode.releaseUsingItem((LocalPlayer) (Object) this);
         }

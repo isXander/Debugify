@@ -20,7 +20,13 @@ public class CreeperMixin {
      * <p>
      * The injection point is within a `!` gate, so the return value is true if the stack is not to be shrunk.
      */
-    @WrapOperation(method = "mobInteract", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;isDamageableItem()Z"))
+    @WrapOperation(
+            method = "mobInteract",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/item/ItemStack;isDamageableItem()Z"
+            )
+    )
     private boolean shouldNotShrinkStack(ItemStack instance, Operation<Boolean> original) {
         return instance.has(DataComponents.MAX_DAMAGE);
     }

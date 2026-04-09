@@ -25,7 +25,13 @@ public class GuiMixin {
      * MC-118740 - Performing any right-click action silently resets the attack cooldown
      * MC-116510 - Attack indicator doesn't indicate (most of the time) that breaking instantly-mineable blocks resets your attack
      */
-    @WrapOperation(method = "renderCrosshair", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;getAttackStrengthScale(F)F"))
+    @WrapOperation(
+            method = "extractCrosshair",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/player/LocalPlayer;getAttackStrengthScale(F)F"
+            )
+    )
     public float useFixedCooldown(LocalPlayer instance, float partialTick, Operation<Float> original) {
         if (instance instanceof LocalPlayerDuck localPlayer) {
             return localPlayer.debugify$getVisualAttackStrengthScale(partialTick);

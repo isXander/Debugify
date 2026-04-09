@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(FishingHookRenderer.class)
 public class FishingHookRendererMixin {
     @ModifyReturnValue(method = "getHoldingArm", at = @At("RETURN"))
-    private static HumanoidArm fixHoldingArm(HumanoidArm original, Player player) {
-        return player.getOffhandItem().getItem() instanceof FishingRodItem ? original : player.getMainArm();
+    private static HumanoidArm fixHoldingArm(HumanoidArm original, Player owner) {
+        return owner.getOffhandItem().getItem() instanceof FishingRodItem ? original : owner.getMainArm();
     }
 }

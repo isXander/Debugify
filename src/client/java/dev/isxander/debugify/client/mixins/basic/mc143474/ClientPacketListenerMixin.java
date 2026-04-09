@@ -21,8 +21,18 @@ public abstract class ClientPacketListenerMixin extends ClientCommonPacketListen
         super(client, connection, commonListenerCookie);
     }
 
-    @Inject(method = "handleRespawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ClientPacketListener;startWaitingForNewLevel(Lnet/minecraft/client/player/LocalPlayer;Lnet/minecraft/client/multiplayer/ClientLevel;Lnet/minecraft/client/gui/screens/LevelLoadingScreen$Reason;)V"))
-    private void persistInventorySlot2(CallbackInfo ci, @Local(ordinal = 0) LocalPlayer oldPlayer, @Local(ordinal = 1) LocalPlayer newPlayer) {
+    @Inject(
+            method = "handleRespawn",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/multiplayer/ClientPacketListener;startWaitingForNewLevel(Lnet/minecraft/client/player/LocalPlayer;Lnet/minecraft/client/multiplayer/ClientLevel;Lnet/minecraft/client/gui/screens/LevelLoadingScreen$Reason;)V"
+            )
+    )
+    private void persistInventorySlot2(
+            CallbackInfo ci,
+            @Local(name = "oldPlayer") LocalPlayer oldPlayer,
+            @Local(name = "newPlayer") LocalPlayer newPlayer
+    ) {
         newPlayer.getInventory().setSelectedSlot(oldPlayer.getInventory().getSelectedSlot());
     }
 }

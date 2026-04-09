@@ -11,7 +11,13 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @BugFix(id = "MC-170462", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Bad Omen is considered a positive effect in potion item tooltips")
 @Mixin(MobEffects.class)
 public class MobEffectsMixin {
-    @ModifyArg(method = "<clinit>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/effect/BadOmenMobEffect;<init>(Lnet/minecraft/world/effect/MobEffectCategory;I)V"))
+    @ModifyArg(
+            method = "<clinit>",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/effect/BadOmenMobEffect;<init>(Lnet/minecraft/world/effect/MobEffectCategory;I)V"
+            )
+    )
     private static MobEffectCategory badOmenEffectCategory(MobEffectCategory arg) {
         return MobEffectCategory.HARMFUL;
     }

@@ -26,7 +26,13 @@ public abstract class EntityMixin {
      * We inject precisely here as the target is only called when `!firstTick && isServerLevel`,
      * since this is where the issue occurs.
      */
-    @Inject(method = "setPosRaw", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;isRemoved()Z"))
+    @Inject(
+            method = "setPosRaw",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/Entity;isRemoved()Z"
+            )
+    )
     private void forceClientUpdate(CallbackInfo ci) {
         if (this.getType().updateInterval() == Integer.MAX_VALUE) {
             this.needsSync = true;

@@ -2,8 +2,6 @@ package dev.isxander.debugify.mixins.basic.mc132878;
 
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -25,7 +23,7 @@ public abstract class ArmorStandMixin {
                     ordinal = 0
             )
     )
-    private void breakParticlesExplosion(ServerLevel serverLevel, DamageSource damageSource, float f, CallbackInfoReturnable<Boolean> cir) {
+    private void breakParticlesExplosion(CallbackInfoReturnable<Boolean> cir) {
         this.showBreakingParticles();
     }
 

@@ -17,9 +17,15 @@ import net.minecraft.world.item.ItemStack;
 @Mixin(value = MultiPlayerGameMode.class, priority = 1010)
 public class MultiPlayerGameModeMixin {
     // Fabric API also redirects here. WrapOperation is compatible
-    @WrapOperation(method = "sameDestroyTarget", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;isSameItemSameComponents(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z"))
-    private boolean isSameItem(ItemStack mainHandItem, ItemStack destroyingItem, Operation<Boolean> original) {
-        return isSameItemSameComponentsIgnoringDurability(mainHandItem, destroyingItem);
+    @WrapOperation(
+            method = "sameDestroyTarget",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/item/ItemStack;isSameItemSameComponents(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z"
+            )
+    )
+    private boolean isSameItem(ItemStack a, ItemStack b, Operation<Boolean> original) {
+        return isSameItemSameComponentsIgnoringDurability(a, b);
     }
 
     @Unique

@@ -1,18 +1,15 @@
 package dev.isxander.debugify.client.mixins.basic.mc237493;
 
-import com.mojang.serialization.Codec;
 import dev.isxander.debugify.client.helpers.mc237493.DebugifyTelemetry;
 import dev.isxander.debugify.client.helpers.mc237493.DebugifyTelemetryAccessor;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.gui.components.Tooltip;
-import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Slice;
 
 import java.util.Arrays;
 import net.minecraft.client.OptionInstance;
@@ -39,8 +36,8 @@ public abstract class OptionsMixin implements DebugifyTelemetryAccessor {
         return debugifyTelemetry;
     }
 
-    @Inject(method = "processOptions", slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=telemetryOptInExtra")), at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Options$FieldAccess;process(Ljava/lang/String;Lnet/minecraft/client/OptionInstance;)V", ordinal = 0))
-    private void shouldAcceptVanillaTelemetry(Options.FieldAccess visitor, CallbackInfo ci) {
-        visitor.process("debugifyTelemetry", getTelemetryOption());
+    @Inject(method = "processOptions", at = @At("RETURN"))
+    private void shouldAcceptVanillaTelemetry(Options.FieldAccess access, CallbackInfo ci) {
+        access.process("debugifyTelemetry", getTelemetryOption());
     }
 }

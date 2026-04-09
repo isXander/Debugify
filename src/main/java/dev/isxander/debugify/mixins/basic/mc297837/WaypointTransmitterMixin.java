@@ -27,7 +27,13 @@ public interface WaypointTransmitterMixin {
      * This mixin fixes the bug by using the block distance instead of the azimuth distance,
      * by changing the distance calculation to only use horizontal distance.
      */
-    @WrapOperation(method = "isReallyFar", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;distanceTo(Lnet/minecraft/world/entity/Entity;)F"))
+    @WrapOperation(
+            method = "isReallyFar",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/LivingEntity;distanceTo(Lnet/minecraft/world/entity/Entity;)F"
+            )
+    )
     private static float useOnlyHorizontalDistance(LivingEntity entity1, Entity entity2, Operation<Float> original) {
         double xDist = entity1.getX() - entity2.getX();
         double zDist = entity1.getZ() - entity2.getZ();

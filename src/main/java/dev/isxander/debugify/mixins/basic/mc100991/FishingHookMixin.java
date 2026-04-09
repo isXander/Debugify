@@ -2,7 +2,6 @@ package dev.isxander.debugify.mixins.basic.mc100991;
 
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,11 +22,17 @@ public abstract class FishingHookMixin extends ProjectileMixin {
     /**
      * notifies the combat tracker
      */
-    @Inject(method = "pullEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;setDeltaMovement(Lnet/minecraft/world/phys/Vec3;)V"))
+    @Inject(
+            method = "pullEntity",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/Entity;setDeltaMovement(Lnet/minecraft/world/phys/Vec3;)V"
+            )
+    )
     private void onPullEntity(Entity entity, CallbackInfo ci) {
         if (entity instanceof LivingEntity livingEntity) {
             livingEntity.getCombatTracker().recordDamage(
-                    level().damageSources().thrown((FishingHook)(Object)this, getOwner()),
+                    level().damageSources().thrown((FishingHook)(Object) this, getOwner()),
                     livingEntity.getHealth()
             );
         }

@@ -22,7 +22,13 @@ public abstract class WorldSelectionListMixin extends ObjectSelectionList<WorldS
         super(minecraft, i, j, k, l);
     }
 
-    @WrapWithCondition(method = "returnToScreen", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;setScreen(Lnet/minecraft/client/gui/screens/Screen;)V"))
+    @WrapWithCondition(
+            method = "returnToScreen",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/Minecraft;setScreen(Lnet/minecraft/client/gui/screens/Screen;)V"
+            )
+    )
     private boolean dontShowEmptyWorldList(Minecraft instance, Screen screen) {
         return (this.minecraft.screen instanceof ProgressScreen || this.minecraft.screen instanceof ConfirmScreen);
     }

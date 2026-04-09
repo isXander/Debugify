@@ -15,8 +15,8 @@ import static net.minecraft.world.level.block.ChestBlock.TYPE;
 @Mixin(ChestBlock.class)
 public class ChestBlockMixin {
     @WrapMethod(method = "mirror")
-    private BlockState fixChestRotations(BlockState blockState, Mirror mirror, Operation<BlockState> original) {
-        BlockState result = original.call(blockState, mirror);
+    private BlockState fixChestRotations(BlockState state, Mirror mirror, Operation<BlockState> original) {
+        BlockState result = original.call(state, mirror);
         return mirror == Mirror.NONE ? result : result.setValue(TYPE, result.getValue(TYPE).getOpposite());
     }
 }

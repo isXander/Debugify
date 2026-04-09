@@ -1,5 +1,7 @@
 package dev.isxander.debugify.client.mixins.basic.mc80859;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,10 +19,15 @@ public class AbstractContainerScreenMixin {
      * If slots is size 1 then the inner method would run anyway and return so this just ignores the outer
      * statement and lets it continue to the rendering therefore fixing the bug.
      */
-    @Redirect(method = "renderSlot", at = @At(value = "INVOKE", target = "Ljava/util/Set;contains(Ljava/lang/Object;)Z"))
-    private boolean onQuickCraftCheck(Set<Slot> cursorDragSlots, Object slot) {
-        if (cursorDragSlots.size() == 1) return false;
-        //noinspection SuspiciousMethodCalls
-        return cursorDragSlots.contains(slot);
+    @WrapOperation(
+            method = "extractSlot",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Ljava/util/Set;contains(Ljava/lang/Object;)Z"
+            )
+    )
+    private boolean stopInvisibleSlots(Set<Slot> instance, Object slot, Operation<Boolean> original) {
+        if (instance.size() == 1) return false;
+        return original.call(instance, slot);
     }
 }

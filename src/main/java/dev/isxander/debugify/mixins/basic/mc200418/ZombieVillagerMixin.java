@@ -14,8 +14,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-200418", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Cured baby zombie villagers stay as jockey variant")
 @Mixin(ZombieVillager.class)
 public class ZombieVillagerMixin {
-    @Inject(method = "method_63659", at = @At("RETURN"))
-    private void dismountIfJockey(ServerLevel serverLevel, Villager villager, CallbackInfo ci) {
+    @Inject(method = "lambda$finishConversion$0", at = @At("RETURN"))
+    private void dismountIfJockey(ServerLevel level, Villager villager, CallbackInfo ci) {
         if (villager.isPassenger() && villager.getVehicle() instanceof Chicken && villager.isBaby()) {
             villager.removeVehicle();
         }

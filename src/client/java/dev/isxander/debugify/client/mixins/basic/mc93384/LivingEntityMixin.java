@@ -18,7 +18,13 @@ public abstract class LivingEntityMixin extends Entity {
         super(type, world);
     }
 
-    @ModifyExpressionValue(method = "makeDrownParticles", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getY()D"))
+    @ModifyExpressionValue(
+            method = "makeDrownParticles",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/LivingEntity;getY()D"
+            )
+    )
     private double addEyeHeightToBubblePos(double footY) {
         return footY + getEyeHeight();
     }

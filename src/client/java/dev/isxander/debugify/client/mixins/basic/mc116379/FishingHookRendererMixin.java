@@ -11,14 +11,19 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @BugFix(id = "MC-116379", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Punching with a cast fishing rod in the off-hand detaches fishing line from rod")
 @Mixin(FishingHookRenderer.class)
 public class FishingHookRendererMixin {
-    @ModifyExpressionValue(method = "extractRenderState(Lnet/minecraft/world/entity/projectile/FishingHook;Lnet/minecraft/client/renderer/entity/state/FishingHookRenderState;F)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;getAttackAnim(F)F"))
-    private float modifyHandSwingProgress(float handSwingProgress, FishingHook bobber) {
-        Player player = bobber.getPlayerOwner();
+    @ModifyExpressionValue(
+            method = "extractRenderState(Lnet/minecraft/world/entity/projectile/FishingHook;Lnet/minecraft/client/renderer/entity/state/FishingHookRenderState;F)V",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/player/Player;getAttackAnim(F)F"
+            )
+    )
+    private float modifyHandSwingProgress(float handSwingProgress, FishingHook entity) {
+        Player player = entity.getPlayerOwner();
         int j = player.getMainArm() == HumanoidArm.RIGHT ? 1 : -1;
         int j2 = j;
         ItemStack itemStack = player.getMainHandItem();

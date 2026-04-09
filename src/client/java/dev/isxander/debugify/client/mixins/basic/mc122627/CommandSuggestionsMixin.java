@@ -1,5 +1,7 @@
 package dev.isxander.debugify.client.mixins.basic.mc122627;
 
+import com.llamalad7.mixinextras.expression.Definition;import com.llamalad7.mixinextras.expression.Expression;
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.gui.components.CommandSuggestions;
@@ -14,8 +16,12 @@ public class CommandSuggestionsMixin {
      * Minecraft renders the text at +1 on the x-axis
      * but does not compensate and add 1 to the width of the box
      */
-    @ModifyArg(method = "renderUsage", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;fill(IIIII)V"), index = 3)
-    private int getX2(int x) {
+    @Definition(id = "fill", method = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;fill(IIIII)V")
+    @Definition(id = "commandUsagePosition", field = "Lnet/minecraft/client/gui/components/CommandSuggestions;commandUsagePosition:I")
+    @Definition(id = "commandUsageWidth", field = "Lnet/minecraft/client/gui/components/CommandSuggestions;commandUsageWidth:I")
+    @Expression("?.fill(?, ?, @(this.commandUsagePosition + this.commandUsageWidth + 1), ?, ?)")
+    @ModifyExpressionValue(method = "extractUsage", at = @At("MIXINEXTRAS:EXPRESSION"))
+    private int modifyX2(int x) {
         return x + 1;
     }
 }

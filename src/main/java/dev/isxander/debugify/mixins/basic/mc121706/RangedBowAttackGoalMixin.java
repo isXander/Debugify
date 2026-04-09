@@ -16,7 +16,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class RangedBowAttackGoalMixin<T extends Monster> {
     @Shadow @Final private T mob;
 
-    @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/monster/Monster;lookAt(Lnet/minecraft/world/entity/Entity;FF)V", shift = At.Shift.AFTER))
+    @Inject(
+            method = "tick",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/monster/Monster;lookAt(Lnet/minecraft/world/entity/Entity;FF)V",
+                    shift = At.Shift.AFTER
+            )
+    )
     private void lookAtTarget(CallbackInfo ci) {
         mob.getLookControl().setLookAt(mob.getTarget(), 30f, 30f);
     }

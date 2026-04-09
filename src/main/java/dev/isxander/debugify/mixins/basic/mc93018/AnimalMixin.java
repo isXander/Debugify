@@ -15,12 +15,14 @@ public class AnimalMixin {
     /**
      * Only make wolves love player if they are tamed when fed
      */
-    @WrapWithCondition(method = "mobInteract", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/Animal;setInLove(Lnet/minecraft/world/entity/player/Player;)V"))
+    @WrapWithCondition(
+            method = "mobInteract",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/animal/Animal;setInLove(Lnet/minecraft/world/entity/player/Player;)V"
+            )
+    )
     private boolean loveCondition(Animal animal, Player player) {
-        if (animal instanceof Wolf wolf) {
-            return wolf.isTame();
-        }
-
-        return true;
+        return !(animal instanceof Wolf wolf) || wolf.isTame();
     }
 }

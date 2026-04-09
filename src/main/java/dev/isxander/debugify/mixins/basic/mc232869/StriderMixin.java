@@ -1,5 +1,7 @@
 package dev.isxander.debugify.mixins.basic.mc232869;
 
+import com.llamalad7.mixinextras.expression.Definition;
+import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
@@ -18,9 +20,10 @@ public abstract class StriderMixin extends Animal {
         super(entityType, world);
     }
 
-    @ModifyExpressionValue(method = "finalizeSpawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/RandomSource;nextInt(I)I", ordinal = 0))
-    private int preventPeacefulJockey(int random) {
-        // non-zero doesn't spawn jockey
-        return level().getDifficulty() == Difficulty.PEACEFUL ? 1 : random;
+    @Definition(id = "nextInt", method = "Lnet/minecraft/util/RandomSource;nextInt(I)I")
+    @Expression("?.nextInt(30) == 0")
+    @ModifyExpressionValue(method = "finalizeSpawn", at = @At("MIXINEXTRAS:EXPRESSION"))
+    private boolean preventPeacefulJocky(boolean original) {
+        return original && level().getDifficulty() != Difficulty.PEACEFUL;
     }
 }

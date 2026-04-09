@@ -4,12 +4,13 @@ import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.renderer.Lightmap;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.state.ArmorStandRenderState;
+import net.minecraft.util.LightCoordsUtil;
 import org.spongepowered.asm.mixin.Mixin;
 
 import net.minecraft.client.model.object.armorstand.ArmorStandArmorModel;
-import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.entity.ArmorStandRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.decoration.ArmorStand;
@@ -33,7 +34,7 @@ public abstract class ArmorStandRendererMixin extends LivingEntityRendererMixin<
      */
     @Override
     public void debugify$modifyLightCoords(ArmorStandRenderState livingEntity) {
-        if (LightTexture.sky(livingEntity.lightCoords) >= 15 || LightTexture.block(livingEntity.lightCoords) >= 15) return;
+        if (LightCoordsUtil.sky(livingEntity.lightCoords) >= 15 || LightCoordsUtil.block(livingEntity.lightCoords) >= 15) return;
 
         BlockPos mainPos = BlockPos.containing(livingEntity.x, livingEntity.y, livingEntity.z);
         ClientLevel level = Minecraft.getInstance().level;
@@ -46,6 +47,6 @@ public abstract class ArmorStandRendererMixin extends LivingEntityRendererMixin<
             maxBlockLight = Math.max(maxBlockLight, level.getBrightness(LightLayer.BLOCK, pos));
         }
 
-        livingEntity.lightCoords = LightTexture.pack(maxBlockLight, maxSkyLight);
+        livingEntity.lightCoords = LightCoordsUtil.pack(maxBlockLight, maxSkyLight);
     }
 }

@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public class GuiMixin {
     @Shadow @Final private Minecraft minecraft;
 
-    @ModifyExpressionValue(method = "renderCameraOverlays", at = @At(value = "INVOKE", target = "Ljava/util/Optional;isPresent()Z"))
+    @ModifyExpressionValue(method = "extractCameraOverlays", at = @At(value = "INVOKE", target = "Ljava/util/Optional;isPresent()Z"))
     private boolean shouldRenderPumpkinOverlay(boolean pumpkinOnHead) {
         return pumpkinOnHead && !minecraft.player.isSpectator();
     }
