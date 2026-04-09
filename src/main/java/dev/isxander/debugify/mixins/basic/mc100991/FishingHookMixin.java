@@ -6,6 +6,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.FishingHook;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -14,9 +15,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @BugFix(id = "MC-100991", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Killing entities with a fishing rod doesn't count as a kill")
 @Mixin(FishingHook.class)
-public abstract class FishingHookMixin extends ProjectileMixin {
-    public FishingHookMixin(EntityType<?> variant, Level world) {
-        super(variant, world);
+public abstract class FishingHookMixin extends Projectile {
+    public FishingHookMixin(EntityType<? extends Projectile> type, Level level) {
+        super(type, level);
     }
 
     /**
