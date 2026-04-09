@@ -114,7 +114,7 @@ tasks.javadoc {
 publishMods {
     displayName = modstitch.metadata.modVersion.map { "Debugify $it" }
     version = modstitch.metadata.modVersion
-    //file = tasks.remapJar.get().archiveFile
+    file = modstitch.finalJarTask.flatMap { it.archiveFile }
     type = STABLE
     modLoaders.add("fabric")
 
