@@ -13,14 +13,12 @@ plugins {
     id("com.gradleup.nmcp") version "1.4.3"
 }
 
-val debugifyVersion = "1.0"
-
 modstitch {
     minecraftVersion = property("minecraftVersion")!!.toString()
     modLoaderVersion = "0.18.6"
 
     metadata {
-        modVersion = minecraftVersion.map { "$it+$debugifyVersion" }
+        modVersion = providers.gradleProperty("modVersion")
         modId = "debugify"
         modName = "Debugify"
         modDescription = "Fixes Minecraft bugs found on the bug tracker"
