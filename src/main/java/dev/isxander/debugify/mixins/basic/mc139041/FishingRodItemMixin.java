@@ -11,7 +11,13 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @BugFix(id = "MC-139041", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "The sounds of fishing bobbers aren't controlled by the \"Players\" sound slider")
 @Mixin(FishingRodItem.class)
 public class FishingRodItemMixin {
-    @ModifyArg(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;playSound(Lnet/minecraft/world/entity/Entity;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V"), index = 5)
+    @ModifyArg(
+            method = "use",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;playSound(Lnet/minecraft/world/entity/Entity;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V"
+            )
+    )
     private SoundSource modifyFishingBobberSounds(SoundSource soundSource) {
         return SoundSource.PLAYERS;
     }

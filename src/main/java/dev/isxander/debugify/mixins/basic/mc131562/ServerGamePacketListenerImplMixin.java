@@ -24,7 +24,7 @@ public class ServerGamePacketListenerImplMixin {
     @Definition(id = "sendSystemMessage", method = "Lnet/minecraft/server/level/ServerPlayer;sendSystemMessage(Lnet/minecraft/network/chat/Component;)V")
     @Expression("?.?.sendSystemMessage(?(?, ?))")
     @WrapWithCondition(method = "handleSetCommandMinecart", at = @At("MIXINEXTRAS:EXPRESSION"))
-    private boolean checkEmptyCommandBeforeMessage(ServerPlayer instance, Component message, @Local(argsOnly = true) ServerboundSetCommandMinecartPacket packet) {
+    private boolean checkEmptyCommandBeforeMessage(ServerPlayer instance, Component message, @Local(argsOnly = true, name = "packet") ServerboundSetCommandMinecartPacket packet) {
         return !StringUtil.isNullOrEmpty(packet.getCommand());
     }
 }

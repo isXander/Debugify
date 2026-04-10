@@ -17,17 +17,17 @@ public abstract class EntityMixin {
     public abstract float getYRot();
 
     /**
-     * Code taken from {@link net.minecraft.world.entity.vehicle.AbstractBoat}
+     * Code taken from {@link net.minecraft.world.entity.vehicle.boat.AbstractBoat}
      */
     @Inject(method = "onPassengerTurned", at = @At("HEAD"))
-    private void fixCameraMovement(Entity entity, CallbackInfo ci) {
-        if (entity.isAlwaysTicking()) {
-            entity.setYBodyRot(this.getYRot());
-            float f = Mth.wrapDegrees(entity.getYRot() - this.getYRot());
+    private void fixCameraMovement(Entity passenger, CallbackInfo ci) {
+        if (passenger.isAlwaysTicking()) {
+            passenger.setYBodyRot(this.getYRot());
+            float f = Mth.wrapDegrees(passenger.getYRot() - this.getYRot());
             float g = Mth.clamp(f, -180.0F, 180.0F);
-            entity.yRotO += g - f;
-            entity.setYRot(entity.getYRot() + g - f);
-            entity.setYHeadRot(entity.getYRot());
+            passenger.yRotO += g - f;
+            passenger.setYRot(passenger.getYRot() + g - f);
+            passenger.setYHeadRot(passenger.getYRot());
         }
     }
 }

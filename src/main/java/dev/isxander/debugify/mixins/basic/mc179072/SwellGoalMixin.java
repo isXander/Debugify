@@ -15,8 +15,14 @@ import org.spongepowered.asm.mixin.injection.At;
 public class SwellGoalMixin {
     @Shadow private @Nullable LivingEntity target;
 
-    @ModifyExpressionValue(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/ai/sensing/Sensing;hasLineOfSight(Lnet/minecraft/world/entity/Entity;)Z"))
+    @ModifyExpressionValue(
+            method = "tick",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/ai/sensing/Sensing;hasLineOfSight(Lnet/minecraft/world/entity/Entity;)Z"
+            )
+    )
     private boolean shouldIgniteCreeper(boolean canSeeTarget) {
-        return canSeeTarget && target.canBeSeenAsEnemy();
+        return canSeeTarget && (target == null || target.canBeSeenAsEnemy());
     }
 }

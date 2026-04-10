@@ -1,23 +1,20 @@
 {
   "required": true,
   "package": "dev.isxander.debugify.mixins",
-  "compatibilityLevel": "JAVA_17",
+  "compatibilityLevel": "JAVA_25",
   "injectors": {
-    "defaultRequire": 1,
-    "maxShiftBy": 2
+    "defaultRequire": 1
   },
   "plugin": "dev.isxander.debugify.mixinplugin.MixinPlugin",
   "mixinextras": {
-    "minVersion": "0.5.0-rc.4"
+    "minVersion": "0.5.3"
   },
   "mixins": [
     "basic.mc100991.FishingHookMixin",
-    "basic.mc100991.ProjectileMixin",
     "basic.mc119754.FireworkRocketEntityMixin",
     "basic.mc121706.RangedBowAttackGoalMixin",
     "basic.mc121903.MinecraftCommandBlockMixin",
     "basic.mc123450.ItemFrameMixin",
-    "basic.mc123605.MinecraftServerMixin",
     "basic.mc129909.ServerPlayerMixin",
     "basic.mc131562.ServerGamePacketListenerImplMixin",
     "basic.mc132878.ArmorStandMixin",
@@ -43,7 +40,6 @@
     "basic.mc206922.EntityMixin",
     "basic.mc206922.ItemEntityMixin",
     "basic.mc215530.ServerPlayerMixin",
-    "basic.mc219981.ZombieMixin",
     "basic.mc221257.ShulkerBulletMixin",
     "basic.mc223153.BlocksMixin",
     "basic.mc224729.ChunkMapMixin",
@@ -56,7 +52,7 @@
     "basic.mc263999.BreakDoorGoalMixin",
     "basic.mc264285.CreeperMixin",
     "basic.mc264979.SettingsMixin",
-    "basic.mc267125.MinecraftServerMixin",
+    "basic.mc267125.PlayerListMixin",
     "basic.mc268617.FileUtilMixin",
     "basic.mc271899.StructureTemplateMixin",
     "basic.mc272431.EnderDragonMixin",
@@ -72,6 +68,6 @@
     "basic.mc93018.AnimalMixin",
     "basic.mc94054.WallClimberNavigationMixin",
     "errorhandler.CrashReportMixin",
-    "gameplay.mc8187.MixinTreeFeature"
+    "gameplay.mc8187.TreeFeatureMixin"
   ]
 }

@@ -16,13 +16,25 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-147659", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Some witch huts spawn the incorrect cat")
 @Mixin(CatSpawner.class)
 public class CatSpawnerMixin {
-    @WrapWithCondition(method = "spawnCat", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/feline/Cat;snapTo(Lnet/minecraft/core/BlockPos;FF)V"))
+    @WrapWithCondition(
+            method = "spawnCat",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/animal/feline/Cat;snapTo(Lnet/minecraft/core/BlockPos;FF)V"
+            )
+    )
     private boolean removeOldCatSnap(Cat instance, BlockPos blockPos, float yaw, float pitch) {
         return false;
     }
 
-    @Inject(method = "spawnCat", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/feline/Cat;finalizeSpawn(Lnet/minecraft/world/level/ServerLevelAccessor;Lnet/minecraft/world/DifficultyInstance;Lnet/minecraft/world/entity/EntitySpawnReason;Lnet/minecraft/world/entity/SpawnGroupData;)Lnet/minecraft/world/entity/SpawnGroupData;"))
-    private void addNewCatSnap(BlockPos pos, ServerLevel level, boolean persistent, CallbackInfo ci, @Local Cat cat) {
-        cat.snapTo(pos, 0, 0);
+    @Inject(
+            method = "spawnCat",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/animal/feline/Cat;finalizeSpawn(Lnet/minecraft/world/level/ServerLevelAccessor;Lnet/minecraft/world/DifficultyInstance;Lnet/minecraft/world/entity/EntitySpawnReason;Lnet/minecraft/world/entity/SpawnGroupData;)Lnet/minecraft/world/entity/SpawnGroupData;"
+            )
+    )
+    private void addNewCatSnap(BlockPos spawnPos, ServerLevel level, boolean makePersistent, CallbackInfo ci, @Local(name = "cat") Cat cat) {
+        cat.snapTo(spawnPos, 0, 0);
     }
 }

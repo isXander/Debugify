@@ -19,13 +19,19 @@ public class SquidRendererMixin<T extends Squid> {
     @Unique
     T squidEntity;
 
-    @Inject(method = "extractRenderState(Lnet/minecraft/world/entity/animal/squid/Squid;Lnet/minecraft/client/renderer/entity/state/SquidRenderState;F)V", at = @At("TAIL"))
-    private void getSquidEntity(T squid, SquidRenderState squidRenderState, float f, CallbackInfo ci) {
-        squidEntity = squid;
+    @Inject(
+            method = "extractRenderState(Lnet/minecraft/world/entity/animal/squid/Squid;Lnet/minecraft/client/renderer/entity/state/SquidRenderState;F)V",
+            at = @At("TAIL")
+    )
+    private void getSquidEntity(T entity, SquidRenderState state, float partialTicks, CallbackInfo ci) {
+        squidEntity = entity;
     }
 
-    @Inject(method = "setupRotations(Lnet/minecraft/client/renderer/entity/state/SquidRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;FF)V", at = @At("TAIL"))
-    private void applyRotation(SquidRenderState squidRenderState, PoseStack poseStack, float f, float g, CallbackInfo ci) {
+    @Inject(
+            method = "setupRotations(Lnet/minecraft/client/renderer/entity/state/SquidRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;FF)V",
+            at = @At("TAIL")
+    )
+    private void applyRotation(SquidRenderState state, PoseStack poseStack, float bodyRot, float entityScale, CallbackInfo ci) {
         String name = squidEntity.getName().getString();
         if ("Dinnerbone".equals(name) || "Grumm".equals(name)) {
             poseStack.translate(0.0F, squidEntity.getBbHeight() + 0.1F, 0.0F);

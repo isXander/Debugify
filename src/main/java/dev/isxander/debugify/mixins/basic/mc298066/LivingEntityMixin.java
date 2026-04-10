@@ -21,7 +21,7 @@ public abstract class LivingEntityMixin extends Entity {
 
     // This is just a hacky fix to force the player into the correct position
     @Inject(method = "setPosToBed", at = @At("TAIL"))
-    private void teleportToBed(BlockPos pos, CallbackInfo ci) {
-        this.teleportTo(pos.getX() + 0.5, pos.getY() + 0.6875, pos.getZ() + 0.5);
+    private void teleportToBed(BlockPos bedPosition, CallbackInfo ci) {
+        this.teleportTo(bedPosition.getX() + 0.5, bedPosition.getY() + 0.6875, bedPosition.getZ() + 0.5);
     }
 }

@@ -31,8 +31,17 @@ public class BreakDoorGoalMixin extends DoorInteractGoal {
     }
 
     // Store the block state before removal
-    @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;removeBlock(Lnet/minecraft/core/BlockPos;Z)Z"))
-    private void storeBlockStatePreRemoval(CallbackInfo ci, @Share("blockState") LocalRef<BlockState> blockStateRef) {
+    @Inject(
+            method = "tick",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;removeBlock(Lnet/minecraft/core/BlockPos;Z)Z"
+            )
+    )
+    private void storeBlockStatePreRemoval(
+            CallbackInfo ci,
+            @Share("blockState") LocalRef<BlockState> blockStateRef
+    ) {
         blockStateRef.set(this.mob.level().getBlockState(this.doorPos));
     }
 
@@ -43,7 +52,10 @@ public class BreakDoorGoalMixin extends DoorInteractGoal {
     @Definition(id = "doorPos", field = "Lnet/minecraft/world/entity/ai/goal/BreakDoorGoal;doorPos:Lnet/minecraft/core/BlockPos;")
     @Expression("?.levelEvent(2001, ?, getId(@(?.getBlockState(?.doorPos))))")
     @WrapOperation(method = "tick", at = @At("MIXINEXTRAS:EXPRESSION"))
-    private BlockState injectCorrectBlockState(Level instance, BlockPos pos, Operation<BlockState> original, @Share("blockState") LocalRef<BlockState> blockStateRef) {
+    private BlockState injectCorrectBlockState(
+            Level instance, BlockPos pos, Operation<BlockState> original,
+            @Share("blockState") LocalRef<BlockState> blockStateRef
+    ) {
         return blockStateRef.get();
     }
 }

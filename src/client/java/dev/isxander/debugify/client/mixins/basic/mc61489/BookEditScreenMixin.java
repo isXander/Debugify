@@ -1,7 +1,6 @@
 package dev.isxander.debugify.client.mixins.basic.mc61489;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import dev.isxander.debugify.client.utils.ClientUtils;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.gui.screens.Screen;
@@ -25,7 +24,13 @@ public class BookEditScreenMixin extends Screen {
         super(component);
     }
 
-    @ModifyArg(method = "init", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/components/MultiLineEditBox$Builder;setY(I)Lnet/minecraft/client/gui/components/MultiLineEditBox$Builder;"))
+    @ModifyArg(
+            method = "init",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/gui/components/MultiLineEditBox$Builder;setY(I)Lnet/minecraft/client/gui/components/MultiLineEditBox$Builder;"
+            )
+    )
     private int modifyHeight(int original) {
         return original + (this.height - IMAGE_HEIGHT) / 3;
     }

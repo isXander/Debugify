@@ -13,7 +13,13 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(Fox.class)
 public class FoxMixin {
     // gate dropping death loot with gamerule check
-    @ModifyExpressionValue(method = "dropAllDeathLoot", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;isEmpty()Z"))
+    @ModifyExpressionValue(
+            method = "dropAllDeathLoot",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/item/ItemStack;isEmpty()Z"
+            )
+    )
     private boolean preventLootDropIfGameruleIsFalse(boolean isEmpty, ServerLevel level) {
         return isEmpty || !level.getGameRules().get(GameRules.MOB_DROPS);
     }

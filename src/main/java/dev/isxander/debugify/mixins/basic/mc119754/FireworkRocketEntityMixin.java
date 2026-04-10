@@ -16,7 +16,13 @@ public class FireworkRocketEntityMixin {
     @Shadow @Nullable
     private LivingEntity attachedToEntity;
 
-    @ModifyExpressionValue(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;isFallFlying()Z"))
+    @ModifyExpressionValue(
+            method = "tick",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/LivingEntity;isFallFlying()Z"
+            )
+    )
     private boolean shouldFly(boolean elytraFlying) {
         return elytraFlying && !attachedToEntity.isSpectator();
     }

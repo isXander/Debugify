@@ -19,7 +19,13 @@ public class MinecraftMixin {
     @Shadow @Nullable
     public MultiPlayerGameMode gameMode;
 
-    @ModifyArg(method = "handleKeybinds", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/Minecraft;continueAttack(Z)V"))
+    @ModifyArg(
+            method = "handleKeybinds",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/Minecraft;continueAttack(Z)V"
+            )
+    )
     private boolean shouldContinueAttack(boolean bl) {
         return bl && gameMode.getPlayerMode() != GameType.SPECTATOR;
     }

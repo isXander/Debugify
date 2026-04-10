@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 @Mixin(LocateCommand.class)
 public class LocateCommandMixin {
     @WrapMethod(method = "dist")
-    private static float distanceHypot(int pos1x, int pos1z, int pos2x, int pos2z, Operation<Float> original) {
-        return (float) Math.hypot(pos2x - pos1x, pos2z - pos1z);
+    private static float distanceHypot(int x1, int z1, int x2, int z2, Operation<Float> original) {
+        return (float) Math.hypot(x2 - x1, z2 - z1);
     }
 }

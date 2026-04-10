@@ -25,10 +25,16 @@ public class ConsumableMixin {
     @Final
     private Holder<SoundEvent> sound;
 
-    @Inject(method = "onConsume", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;consume(ILnet/minecraft/world/entity/LivingEntity;)V"))
-    private void addBurpSound(Level level, LivingEntity livingEntity, ItemStack itemStack, CallbackInfoReturnable<ItemStack> cir) {
-        if (this.sound.is(SoundEvents.GENERIC_DRINK) && livingEntity.isAlwaysTicking()) {
-            level.playLocalSound(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundEvents.PLAYER_BURP, SoundSource.PLAYERS, 0.5F, Mth.randomBetween(livingEntity.getRandom(), 0.9F, 1.0F), false);
+    @Inject(
+            method = "onConsume",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/item/ItemStack;consume(ILnet/minecraft/world/entity/LivingEntity;)V"
+            )
+    )
+    private void addBurpSound(Level level, LivingEntity user, ItemStack stack, CallbackInfoReturnable<ItemStack> cir) {
+        if (this.sound.is(SoundEvents.GENERIC_DRINK) && user.isAlwaysTicking()) {
+            level.playLocalSound(user.getX(), user.getY(), user.getZ(), SoundEvents.PLAYER_BURP, SoundSource.PLAYERS, 0.5F, Mth.randomBetween(user.getRandom(), 0.9F, 1.0F), false);
         }
     }
 }

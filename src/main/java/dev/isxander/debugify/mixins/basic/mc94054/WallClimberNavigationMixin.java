@@ -10,7 +10,13 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-94054", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Cave spiders spin around when walking")
 @Mixin(WallClimberNavigation.class)
 public class WallClimberNavigationMixin {
-    @ModifyExpressionValue(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Mob;getBbWidth()F"))
+    @ModifyExpressionValue(
+            method = "tick",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/Mob;getBbWidth()F"
+            )
+    )
     private float fixSpiderSpinning(float bbWidth) {
         return Math.max(bbWidth, 1.0F);
     }

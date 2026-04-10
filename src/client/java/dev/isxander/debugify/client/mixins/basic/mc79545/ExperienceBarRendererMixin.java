@@ -15,7 +15,7 @@ public class ExperienceBarRendererMixin {
      * In some cases, this value can wrap-around to negative values
      * This mixin prevents that.
      */
-    @ModifyExpressionValue(method = "renderBackground", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;getXpNeededForNextLevel()I"))
+    @ModifyExpressionValue(method = "extractBackground", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;getXpNeededForNextLevel()I"))
     private int getNextLevelExperience(int nextLevelExperience) {
         return Mth.clamp(nextLevelExperience, 0, Integer.MAX_VALUE);
     }

@@ -53,6 +53,8 @@
   "debugify.fix_explanation.mc-176559": "Does not consider item durability when comparing a change in item when checking if block breaking should reset.",
   "debugify.fix_explanation.mc-197260": "Overrides the light level passed to the armour stand renderer with a maximum of: the block below the armor stand, bottom of the armor stand, top of the armor stand and the block above of the armor stand.",
   "debugify.fix_explanation.mc-237493": "Adds an option in the telemetry menu to completely disable telemetry. Telemetry is disabled by overriding all outgoing telemetry events to be an empty telemetry event, which is not sent.",
+  "debugify.fix_explanation.mc-231097": "When dropping an item, the client will send a \"release using item\" packet, if the player is currently using an item.",
+  "debugify.fix_effect.mc-231097": "This can cause very strict anti-cheats, such as Anti-Gaming-Char, to flag \"invalid packet order\", which may result in a ban.",
 
   "debugify.fix_explanation.mc-2025": "Due to floating point inaccuracies, sometimes the hitbox of entities end up being slightly smaller than desired. Then, if this happens before the entities are pushed against each-other, they will intersect with the wall. Then, when the AABB is recalculated on chunk load, they will be determined as inside the wall, where they are then pushed. This fix simply writes an 'AABB' tag to entity NBT data with double-precision hitbox sizes which then get loaded back in.",
   "debugify.fix_effect.mc-2025": "This fix means loading Debugify for the first time will not fix the issue until the chunks are saved and loaded with Debugify.",

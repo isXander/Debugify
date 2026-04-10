@@ -1,4 +1,3 @@
-import re
 import requests
 import sys
 import os
@@ -22,46 +21,48 @@ minecraft_version = gradleProperties['minecraftVersion']
 minecraft_version_idx = version_idx(minecraft_version)
 print(f'Minecraft Version: {minecraft_version}')
 
-with open('../PATCHED.md', 'r') as f:
-    patched_lines = f.readlines()
+with open('../.bugs', 'r') as f:
+    bugs_lines = f.readlines()
 
 bugs = []
-start_unpatched = False
-pattern = re.compile('\\|.+\\| \\[(MC-\\d+)]')
-
-for line in patched_lines:
-    if line.startswith('## '):
-        if start_unpatched:
-            break
-        start_unpatched = line == '## Unpatched in vanilla\n'
-
-    if not start_unpatched:
-        continue
-
-    match = re.search(pattern, line)
-    if match is None:
-        continue
-    bugs.append(match.group(1))
+for line in bugs_lines:
+    parts = line.split()
+    if len(parts) >= 3 and parts[0] == 'patched':
+        bugs.append((f'MC-{parts[1]}', parts[2]))
 
 resolved_count = 0
 duplicate_count = 0
-for bug in bugs:
-    response = requests.get(f'https://bugs.mojang.com/rest/api/2/issue/{bug}')
-    json_response = response.json()
+for bug, side in bugs:
+    try:
+        response = requests.get(f'https://mojira.dev/api/v1/issues/{bug}')
+    except Exception as e:
+        print(f'Failed to fetch {bug}: {e}')
+        continue
 
-    fields = json_response['fields']
-    resolution_id = int(fields['resolution']['id']) if fields['resolution'] is not None else -1
+    if not response.ok:
+        print(f'Failed to fetch {bug}: HTTP {response.status_code} {response.text.strip()}')
+        continue
+
+    try:
+        json_response = response.json()
+    except Exception as e:
+        text = response.text.strip()
+        if '\n' not in text and len(text) < 100:
+            print(f'\033[35m{bug} ({side}): {text}\033[0m')
+        else:
+            print(f'Failed to parse response for {bug} ({side}): {e}\n{text}')
+        continue
+
+    resolution = json_response['resolution']
+    fix_versions = [v.replace(' Pre-release ', '-pre').replace(' Release Candidate ', '-rc').replace(' Snapshot ', '-snapshot-').replace('Minecraft ', '')
+                    for v in (json_response.get('fix_versions') or [])]
 
     message_color = ''
-    match resolution_id:
-        case 1 | 5:  # resolved
+    match resolution:
+        case 'Fixed' | "Won't Fix" | 'Works As Intended':
             resolved_count += 1
-            bug_status = "Resolved"
+            bug_status = resolution
             message_color = '\033[91m'
-
-            fix_versions = []
-            for v in fields['fixVersions'] or []:
-                fix_versions.append(v['name'].replace(' Pre-release ', '-pre').replace(' Release Candidate ', '-rc'))
 
             if len(fix_versions) > 0:
                 bug_status += f' in {", ".join(fix_versions)}'
@@ -71,32 +72,17 @@ for bug in bugs:
                 message_color = '\033[33m'
                 resolved_count -= 1
 
-        case 3:  # duplicate
+        case 'Duplicate':
             duplicate_count += 1
             bug_status = "Duplicate"
             message_color = '\033[33m'
 
-            duplicates = None
-            duplicate_fixed = False
-            issue_links = fields['issuelinks']
-            for issue in issue_links:
-                if int(issue['type']['id']) == 10102:
-                    duplicates = issue['outwardIssue']['key']
-                    duplicate_fixed = int(issue['outwardIssue']['fields']['status']['id']) == 1 | 5
-                    break
-
-            if duplicates is not None:
-                bug_status += f' of {duplicates}'
-                if duplicate_fixed:
-                    bug_status += f' which is resolved'
-                    message_color = '\033[91m'
-                    resolved_count += 1
-
         case _:
             bug_status = 'OK!'
 
-    message = f"{message_color}{bug}: {bug_status}\033[0m"
-    print(message, file=sys.stderr if resolution_id == 1 else sys.stdout)
+    is_resolved = resolution in ('Fixed', "Won't Fix", 'Works As Intended')
+    message = f"{message_color}{bug} ({side}): {bug_status}\033[0m"
+    print(message, file=sys.stderr if is_resolved else sys.stdout)
 
 if resolved_count == 0 and duplicate_count == 0:
     print('\nNothing to report!')

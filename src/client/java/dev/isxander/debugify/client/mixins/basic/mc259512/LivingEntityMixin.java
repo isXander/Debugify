@@ -8,6 +8,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
@@ -22,12 +23,26 @@ public abstract class LivingEntityMixin extends Entity {
      * yHeadRot does not match yRot. yRot is your actual view rotation (the blue line in your debug hitbox),
      * while yHeadRot is interpolated and lags behind (your visible head rotation)
      */
-    @ModifyExpressionValue(method = "getViewYRot", at = @At(value = "FIELD", target = "Lnet/minecraft/world/entity/LivingEntity;yHeadRot:F"))
+    @ModifyExpressionValue(
+            method = "getViewYRot",
+            at = @At(
+                    value = "FIELD",
+                    target = "Lnet/minecraft/world/entity/LivingEntity;yHeadRot:F",
+                    opcode = Opcodes.GETFIELD
+            )
+    )
     private float smoothYRot(float original) {
         return (Entity) this instanceof Player ? this.getYRot() : original;
     }
 
-    @ModifyExpressionValue(method = "getViewYRot", at = @At(value = "FIELD", target = "Lnet/minecraft/world/entity/LivingEntity;yHeadRotO:F"))
+    @ModifyExpressionValue(
+            method = "getViewYRot",
+            at = @At(
+                    value = "FIELD",
+                    target = "Lnet/minecraft/world/entity/LivingEntity;yHeadRotO:F",
+                    opcode = Opcodes.GETFIELD
+            )
+    )
     private float smoothYRot0(float original) {
         return (Entity) this instanceof Player ? this.yRotO : original;
     }

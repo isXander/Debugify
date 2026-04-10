@@ -18,7 +18,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.List;
 
@@ -35,10 +34,13 @@ public class TelemetryEventWidgetMixin {
     }
 
     @Inject(method = "buildContent", at = @At(value = "INVOKE", target = "Ljava/util/List;sort(Ljava/util/Comparator;)V"))
-    private void addDebugifyContent(boolean bl, CallbackInfoReturnable<TelemetryEventWidget.Content> cir, @Local TelemetryEventWidget.ContentBuilder contentBuilder) {
+    private void addDebugifyContent(
+            CallbackInfoReturnable<TelemetryEventWidget.Content> cir,
+            @Local(name = "content") TelemetryEventWidget.ContentBuilder content
+    ) {
         if (((DebugifyTelemetryAccessor) Minecraft.getInstance().options).getTelemetryOption().get() == DebugifyTelemetry.OFF) {
-            contentBuilder.addHeader(this.font, Component.translatable("debugify.mc_237493.header"));
-            contentBuilder.addLine(this.font, Component.translatable("debugify.mc_237493.line", Component.translatable("options.telemetry.state.none")).withStyle(ChatFormatting.GRAY));
+            content.addHeader(this.font, Component.translatable("debugify.mc_237493.header"));
+            content.addLine(this.font, Component.translatable("debugify.mc_237493.line", Component.translatable("options.telemetry.state.none")).withStyle(ChatFormatting.GRAY));
         }
     }
 }

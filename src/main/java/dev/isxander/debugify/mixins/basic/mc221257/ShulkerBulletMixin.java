@@ -21,7 +21,7 @@ public abstract class ShulkerBulletMixin extends Projectile {
     }
 
     /**
-     * Code taken from {@link net.minecraft.world.entity.projectile.AbstractArrow}
+     * Code taken from {@link net.minecraft.world.entity.projectile.arrow.AbstractArrow}
      */
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/ShulkerBullet;setPos(Lnet/minecraft/world/phys/Vec3;)V"))
     private void addMissingBubbleParticles(CallbackInfo ci) {

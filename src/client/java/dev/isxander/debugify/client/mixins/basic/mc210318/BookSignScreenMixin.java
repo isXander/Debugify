@@ -11,7 +11,13 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @Mixin(BookSignScreen.class)
 public class BookSignScreenMixin {
 
-    @ModifyArg(method = "init", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/components/EditBox;setMaxLength(I)V"))
+    @ModifyArg(
+            method = "init",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/gui/components/EditBox;setMaxLength(I)V"
+            )
+    )
     private int restoreBookTitleMaxLength(int length) {
         return 16;
     }

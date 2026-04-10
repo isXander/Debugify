@@ -17,14 +17,14 @@ public class MinecraftCommandBlockMixin {
     @Shadow private int lastActivated;
 
     @Inject(method = "readAdditionalSaveData", at = @At("RETURN"))
-    private void readNbt(ValueInput nbt, CallbackInfo ci) {
-        nbt.getInt("LastExecuted").ifPresent(lastExecuted -> {
+    private void readNbt(ValueInput input, CallbackInfo ci) {
+        input.getInt("LastExecuted").ifPresent(lastExecuted -> {
             lastActivated = lastExecuted;
         });
     }
 
     @Inject(method = "addAdditionalSaveData", at = @At("RETURN"))
-    private void writeNbt(ValueOutput nbt, CallbackInfo ci) {
-        nbt.putInt("LastExecuted", lastActivated);
+    private void writeNbt(ValueOutput output, CallbackInfo ci) {
+        output.putInt("LastExecuted", lastActivated);
     }
 }

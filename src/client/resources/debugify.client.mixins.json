@@ -1,14 +1,13 @@
 {
   "required": true,
   "package": "dev.isxander.debugify.client.mixins",
-  "compatibilityLevel": "JAVA_17",
+  "compatibilityLevel": "JAVA_25",
   "injectors": {
-    "defaultRequire": 1,
-    "maxShiftBy": 2
+    "defaultRequire": 1
   },
   "plugin": "dev.isxander.debugify.mixinplugin.MixinPlugin",
   "mixinextras": {
-    "minVersion": "0.5.0-rc.4"
+    "minVersion": "0.5.3"
   },
   "client": [
     "basic.mc105068.LivingEntityMixin",
@@ -17,7 +16,7 @@
     "basic.mc118740.GuiMixin",
     "basic.mc118740.LocalPlayerMixin",
     "basic.mc122477.EditBoxMixin",
-    "basic.mc122477.RenderSystemMixin",
+    "basic.mc122477.MinecraftMixin",
     "basic.mc122627.CommandSuggestionsMixin",
     "basic.mc127970.ItemInHandRendererMixin",
     "basic.mc143474.ClientPacketListenerMixin",
@@ -30,7 +29,7 @@
     "basic.mc211561.FishingHookRendererMixin",
     "basic.mc215531.GuiMixin",
     "basic.mc217716.GameRendererMixin",
-    "basic.mc231097.LocalPlayerMixin",
+    "gameplay.mc231097.LocalPlayerMixin",
     "basic.mc237493.OptionsMixin",
     "basic.mc237493.TelemetryEventInstanceMixin",
     "basic.mc237493.TelemetryEventWidgetMixin",
@@ -38,11 +37,10 @@
     "basic.mc242809.DirectJoinServerScreenMixin",
     "basic.mc242809.ManageServerScreenMixin",
     "basic.mc251068.WorldSelectionListMixin",
-    "basic.mc263865.KeyboardHandlerMixin",
-    "basic.mc267376.GameRendererMixin",
+    "basic.mc267376.CameraMixin",
     "basic.mc268420.GuiMixin",
     "basic.mc280220.DolphinCarryingItemLayerMixin",
-    "basic.mc298225.GameRendererMixin",
+    "basic.mc298225.CameraMixin",
     "basic.mc298558.AtmosphericFogEnvironmentMixin",
     "basic.mc35361.MinecraftMixin",
     "basic.mc4490.FishingHookRendererMixin",

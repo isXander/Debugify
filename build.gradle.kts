@@ -16,12 +16,8 @@ plugins {
 val debugifyVersion = "1.0"
 
 modstitch {
-    minecraftVersion = "1.21.11"
-    modLoaderVersion = "0.18.4"
-
-    parchment {
-        mappingsVersion = "2025.12.20"
-    }
+    minecraftVersion = property("minecraftVersion")!!.toString()
+    modLoaderVersion = "0.18.6"
 
     metadata {
         modVersion = minecraftVersion.map { "$it+$debugifyVersion" }
@@ -45,8 +41,6 @@ modstitch {
 
     loom {
         configureLoom {
-            mixin.useLegacyMixinAp = false
-
             splitEnvironmentSourceSets()
 
             val gametest by sourceSets.registering {
@@ -56,7 +50,6 @@ modstitch {
                 runtimeClasspath += sourceSets["client"].runtimeClasspath
             }
 
-            //createProxyConfigurations(sourceSets["client"])
             createProxyConfigurations(gametest.get())
 
             mods.register("debugify") {
@@ -89,13 +82,7 @@ repositories {
         forRepository { maven("https://maven.terraformersmc.com/releases") }
         filter { includeGroup("com.terraformersmc") }
     }
-    exclusiveContent {
-        forRepository { maven("https://maven.isxander.dev/releases") }
-        filter {
-            includeGroup("dev.isxander")
-            includeGroup("org.quiltmc.parsers")
-        }
-    }
+    maven("https://maven.isxander.dev/releases")
 }
 
 val fabricApiVersion: String by project
@@ -104,15 +91,13 @@ val mixinExtrasVersion: String by project
 val modMenuVersion: String by project
 
 dependencies {
-    modImplementation(fabricApi.module("fabric-resource-loader-v0", fabricApiVersion))
-    modImplementation("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion")
+    implementation("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion")
 
-    "modClientImplementation"("dev.isxander:yet-another-config-lib:$yaclVersion")
-    "modClientImplementation"("com.terraformersmc:modmenu:$modMenuVersion")
+    "clientImplementation"("dev.isxander:yet-another-config-lib:$yaclVersion")
+    "clientImplementation"("com.terraformersmc:modmenu:$modMenuVersion")
 
     "gametestImplementation"(sourceSets.main.get().output)
     "gametestImplementation"(sourceSets["client"].output)
-    "modGametestImplementation"(fabricApi.module("fabric-gametest-api-v1", fabricApiVersion))
 
     nmcpAggregation(project)
 }
@@ -129,7 +114,7 @@ tasks.javadoc {
 publishMods {
     displayName = modstitch.metadata.modVersion.map { "Debugify $it" }
     version = modstitch.metadata.modVersion
-    file = tasks.remapJar.get().archiveFile
+    file = modstitch.finalJarTask.flatMap { it.archiveFile }
     type = STABLE
     modLoaders.add("fabric")
 

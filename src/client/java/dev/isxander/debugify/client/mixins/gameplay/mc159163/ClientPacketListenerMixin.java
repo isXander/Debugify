@@ -1,5 +1,6 @@
 package dev.isxander.debugify.client.mixins.gameplay.mc159163;
 
+import com.llamalad7.mixinextras.sugar.Local;
 import dev.isxander.debugify.Debugify;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
@@ -25,8 +26,17 @@ public abstract class ClientPacketListenerMixin extends ClientCommonPacketListen
         super(client, connection, commonListenerCookie);
     }
 
-    @Inject(method = "handleSetEntityData", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/syncher/SynchedEntityData;assignValues(Ljava/util/List;)V"), locals = LocalCapture.CAPTURE_FAILSOFT)
-    public void removeLocalEntityPose(ClientboundSetEntityDataPacket packet, CallbackInfo info, Entity entity) {
+    @Inject(
+            method = "handleSetEntityData",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/network/syncher/SynchedEntityData;assignValues(Ljava/util/List;)V"
+            )
+    )
+    public void removeLocalEntityPose(
+            ClientboundSetEntityDataPacket packet, CallbackInfo info,
+            @Local(name = "entity") Entity entity
+    ) {
         if (Debugify.isGameplayFixesEnabled() && entity.equals(minecraft.player))
             packet.packedItems().removeIf(p -> p.serializer().equals(EntityDataSerializers.POSE));
     }

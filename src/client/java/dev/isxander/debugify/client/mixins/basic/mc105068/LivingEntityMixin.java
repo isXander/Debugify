@@ -1,6 +1,7 @@
 package dev.isxander.debugify.client.mixins.basic.mc105068;
 
-import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.sounds.SoundEvent;
@@ -18,9 +19,14 @@ public abstract class LivingEntityMixin extends Entity {
         super(variant, world);
     }
 
-    @WrapWithCondition(method = "handleEntityEvent", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;playSound(Lnet/minecraft/sounds/SoundEvent;FF)V"))
-    private boolean beforeCond30(LivingEntity instance, SoundEvent soundEvent, float f, float v) {
-        level().playLocalSound(getX(), getY(), getZ(), soundEvent, getSoundSource(), f, v, false);
-        return false;
+    @WrapOperation(
+            method = "handleEntityEvent",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/LivingEntity;playSound(Lnet/minecraft/sounds/SoundEvent;FF)V"
+            )
+    )
+    private void beforeCond30(LivingEntity instance, SoundEvent soundEvent, float volume, float pitch, Operation<Void> original) {
+        level().playLocalSound(getX(), getY(), getZ(), soundEvent, getSoundSource(), volume, pitch, false);
     }
 }

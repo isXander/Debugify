@@ -18,8 +18,15 @@ public class LocalPlayerMixin {
     @Final
     protected Minecraft minecraft;
 
-    @Inject(method = "drop", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Inventory;removeFromSelected(Z)Lnet/minecraft/world/item/ItemStack;", shift = At.Shift.AFTER))
-    private void onDropItem(boolean entireStack, CallbackInfoReturnable<Boolean> cir) {
+    @Inject(
+            method = "drop",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/player/Inventory;removeFromSelected(Z)Lnet/minecraft/world/item/ItemStack;",
+                    shift = At.Shift.AFTER
+            )
+    )
+    private void onDropItem(CallbackInfoReturnable<Boolean> cir) {
         minecraft.gameMode.stopDestroyBlock();
     }
 }

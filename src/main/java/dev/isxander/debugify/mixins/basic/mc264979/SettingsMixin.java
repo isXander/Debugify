@@ -15,10 +15,10 @@ import java.util.Properties;
 @Mixin(Settings.class)
 public class SettingsMixin {
     @WrapMethod(method = "loadFromFile")
-    private static Properties dontLoadMissingFile(Path path, Operation<Properties> original) {
-        if (Files.notExists(path)) {
+    private static Properties dontLoadMissingFile(Path file, Operation<Properties> original) {
+        if (Files.notExists(file)) {
             return new Properties();
         }
-        return original.call(path);
+        return original.call(file);
     }
 }

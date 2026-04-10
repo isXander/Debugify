@@ -27,9 +27,9 @@
     ]
   },
   "depends": {
-    "fabricloader": ">=0.18.0",
-    "minecraft": "~1.21.11",
-    "java": ">=21",
+    "fabricloader": ">=0.18.6",
+    "minecraft": "~26.1",
+    "java": ">=25",
     "fabric-resource-loader-v0": "*"
   },
   "recommends": {
@@ -39,7 +39,7 @@
   "custom": {
     "modmenu": {
       "links": {
-        "Patched Bugs": "https://github.com/isXander/Debugify/blob/1.21.7/PATCHED.md#unpatched-in-vanilla"
+        "Patched Bugs": "https://github.com/isXander/Debugify/blob/main/PATCHED.md#unpatched-in-vanilla"
       }
     }
   }

@@ -12,7 +12,13 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-46737", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Entities' shaders are applied when beginning to spectate them in third person")
 @Mixin(GameRenderer.class)
 public class GameRendererMixin {
-    @WrapWithCondition(method = "checkEntityPostEffect", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GameRenderer;setPostEffect(Lnet/minecraft/resources/Identifier;)V"))
+    @WrapWithCondition(
+            method = "checkEntityPostEffect",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/renderer/GameRenderer;setPostEffect(Lnet/minecraft/resources/Identifier;)V"
+            )
+    )
     private boolean thirdPersonCheck(GameRenderer renderer, Identifier id) {
         return Minecraft.getInstance().options.getCameraType().isFirstPerson();
     }
