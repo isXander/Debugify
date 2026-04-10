@@ -30,7 +30,7 @@
     "basic.mc211561.FishingHookRendererMixin",
     "basic.mc215531.GuiMixin",
     "basic.mc217716.GameRendererMixin",
-    "basic.mc231097.LocalPlayerMixin",
+    "gameplay.mc231097.LocalPlayerMixin",
     "basic.mc237493.OptionsMixin",
     "basic.mc237493.TelemetryEventInstanceMixin",
     "basic.mc237493.TelemetryEventWidgetMixin",
