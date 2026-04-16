@@ -1,4 +1,5 @@
 {
+  "debugify.name": "Debugify",
   "debugify.basic": "基础修复",
   "debugify.gameplay": "游戏修复",
   "debugify.gameplay.warning": "警告：此类别包含可能对其他人来说不公平的修复！",
@@ -8,6 +9,12 @@
   "debugify.fix.unavailable": "不可用",
   "debugify.error.conflict": "‘%s’修复与模组‘%s’不兼容",
   "debugify.error.os": "%s仅适用于%s",
+  "debugify.error.mixin_error": "加载%s失败，请查看日志以获取更多信息。",
+  "debugify.error.mixin_error.text": "出错",
+  "debugify.os.windows": "Windows",
+  "debugify.os.macos": "macOS",
+  "debugify.os.linux": "Linux",
+  "debugify.os.solaris": "Solaris",
   "debugify.misc": "杂项",
   "debugify.misc.default_disabled": "默认为禁用",
   "debugify.misc.default_disabled.description": "默认禁用新的错误修复，而不是启用。",
@@ -21,5 +28,16 @@
   "debugify.mc_237493.line": "你在遥测选项上选择了「%s」，所以 Debugify 正在阻止与 Mojang 的遥测服务的任何连接。这是由 Debugify 提供的MC-237493修复。",
   "debugify.mc_237493.tooltip.off": "「%s」完全禁用了与 Mojang 遥测服务的任何连接。（Debugify MC-237493）",
   "debugify.mc_237493.tooltip.minimal": "「%s」只包括 Mojang 认为需要的信息。",
-  "debugify.mc_237493.tooltip.all": "「%s」包括所有的最少和可选遥测。"
+  "debugify.mc_237493.tooltip.all": "「%s」包括所有的最少和可选遥测。",
+  "debugify.fix_explanation.mc-46503": "清除重生着色器效果。",
+  "debugify.fix_explanation.mc-55347": "清除断开连接标题。",
+  "debugify.fix_explanation.mc-61489": "默认禁用，因为有些玩家或模组可能更喜欢原版的书界面位置。",
+  "debugify.fix_explanation.mc-79545": "仅在渲染时将经验等级限制为整数上限。",
+  "debugify.fix_explanation.mc-93384": "将眼睛高度添加到粒子生成位置。",
+  "debugify.fix_explanation.mc-105068": "将盾牌破碎声改为本地音效。",
+  "debugify.fix_explanation.mc-108948": "问题出在客户端运行的计算与服务端不同。当没有人操控船时，客户端不会对船进行物理计算，导致客户端与服务端不同步。此修复只是简单地指示客户端对船进行一些物理计算。",
+  "debugify.fix_explanation.mc-111516": "修改数学反余弦计算，确保结果不超过1.0。",
+  "debugify.fix_explanation.mc-118740": "执行鼠标右键单击时，显示十字准星攻击冷却。",
+  "debugify.fix_effect.mc-118740": "这也修复了MC-116510：攻击指示器（多数情况下）不指示破坏可瞬挖的方块会重置你的攻击",
+  "debugify.fix_explanation.mc-112730": "如果信标和其他方块实体已经添加到全局列表中，则阻止它们被添加到本地方块实体渲染器列表中。"
 }
