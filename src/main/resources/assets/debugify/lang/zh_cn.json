@@ -42,5 +42,12 @@
   "debugify.fix_explanation.mc-112730": "如果信标和其他方块实体已经添加到全局列表中，则阻止它们被添加到本地方块实体渲染器列表中。",
   "debugify.fix_explanation.mc-122477": "阻止在初始化编辑框（例如聊天框）后进行前两次键盘轮询。",
   "debugify.fix_explanation.mc-123739": "按标识符对配方书条目进行排序。",
-  "debugify.fix_explanation.mc-143474": "重生后生成新的本地玩家时，会将选定的物品槽位复制到新玩家身上。"
+  "debugify.fix_explanation.mc-143474": "重生后生成新的本地玩家时，会将选定的物品槽位复制到新玩家身上。",
+  "debugify.fix_effect.mc-143474": "这也修复了MC-12062：退出末地时，快捷栏所选会重置到最左侧",
+  "debugify.fix_explanation.mc-159163": "从实体数据包处理中移除姿态数据。",
+  "debugify.fix_effect.mc-159163": "这将阻止客户端与服务端同步姿态数据，完全由客户端决定姿态。",
+  "debugify.fix_explanation.mc-162253": "进入区块时停止客户端光照更新。",
+  "debugify.fix_explanation.mc-165381": "取消客户端掉落物品时对方块的破坏。",
+  "debugify.fix_explanation.mc-176559": "在比较物品变化时，检查方块破坏是否应该重置，不考虑物品耐久度。",
+  "debugify.fix_explanation.mc-197260": "覆盖传递给盔甲架渲染器的光照等级，最大值为：盔甲架下方的方块、盔甲架底部、盔甲架顶部和盔甲架上方的方块。"
 }
