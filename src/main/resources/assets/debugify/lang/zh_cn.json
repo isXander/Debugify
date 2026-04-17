@@ -39,5 +39,8 @@
   "debugify.fix_explanation.mc-111516": "修改数学反余弦计算，确保结果不超过1.0。",
   "debugify.fix_explanation.mc-118740": "执行鼠标右键单击时，显示十字准星攻击冷却。",
   "debugify.fix_effect.mc-118740": "这也修复了MC-116510：攻击指示器（多数情况下）不指示破坏可瞬挖的方块会重置你的攻击",
-  "debugify.fix_explanation.mc-112730": "如果信标和其他方块实体已经添加到全局列表中，则阻止它们被添加到本地方块实体渲染器列表中。"
+  "debugify.fix_explanation.mc-112730": "如果信标和其他方块实体已经添加到全局列表中，则阻止它们被添加到本地方块实体渲染器列表中。",
+  "debugify.fix_explanation.mc-122477": "阻止在初始化编辑框（例如聊天框）后进行前两次键盘轮询。",
+  "debugify.fix_explanation.mc-123739": "按标识符对配方书条目进行排序。",
+  "debugify.fix_explanation.mc-143474": "重生后生成新的本地玩家时，会将选定的物品槽位复制到新玩家身上。"
 }
