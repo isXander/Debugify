@@ -55,5 +55,10 @@
   "debugify.fix_effect.mc-231097": "这可能会导致非常严格的反作弊系统（例如Anti-Gaming-Chair）将“无效的数据包顺序”标记为违规，从而导致被封禁。",
   "debugify.fix_explanation.mc-2025": "由于浮点运算不精确，实体判定箱有时会比预期略小。如果这种情况发生在实体相互碰撞之前，它们就会与墙壁相交。然后，当区块加载时重新计算轴对齐包围盒（AABB）时，它们会被判定位于墙壁内部，并被推入墙内。此修复方法很简单，只需在实体NBT数据中写入一个包含双精度碰撞箱尺寸的“AABB”标签，然后在重新加载。",
   "debugify.fix_effect.mc-2025": "这项修复代表首次加载Debugify并不会解决此问题，直到使用Debugify保存并加载区块为止。",
-  "debugify.fix_explanation.mc-7569": "在每条系统消息的末尾添加换行。"
+  "debugify.fix_explanation.mc-7569": "在每条系统消息的末尾添加换行。",
+  "debugify.fix_explanation.mc-30391": "为鸡、烈焰人和凋灵添加边缘情况检查，防止摔落伤害粒子生成。",
+  "debugify.fix_explanation.mc-69216": "切换到旁观模式时舍弃鱼钩实体。",
+  "debugify.fix_explanation.mc-72151": "狼有一个自定义函数来修改它们受到的伤害量，将输入的伤害0转换为0.5，此修复会检查若伤害为0.5则将其改回0。",
+  "debugify.fix_explanation.mc-88371": "如果中心停留点被摧毁，则将龙的降落Y位置设置为65。",
+  "debugify.fix_explanation.mc-89146": "提供严格的方块实体保存顺序来匹配更新顺序，从而保证方块实体的初始更新顺序正确。"
 }
