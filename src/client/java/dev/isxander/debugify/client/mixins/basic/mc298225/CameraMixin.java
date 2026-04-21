@@ -1,6 +1,8 @@
 package dev.isxander.debugify.client.mixins.basic.mc298225;
 
-import com.llamalad7.mixinextras.expression.Definition;import com.llamalad7.mixinextras.expression.Expression;import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.llamalad7.mixinextras.expression.Definition;
+import com.llamalad7.mixinextras.expression.Expression;
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.Camera;
