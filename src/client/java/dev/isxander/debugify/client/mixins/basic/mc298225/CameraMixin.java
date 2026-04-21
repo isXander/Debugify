@@ -1,7 +1,6 @@
 package dev.isxander.debugify.client.mixins.basic.mc298225;
 
 import com.llamalad7.mixinextras.expression.Definition;import com.llamalad7.mixinextras.expression.Expression;import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.Camera;
@@ -15,6 +14,6 @@ public class CameraMixin {
     @Expression("this.depthFar = @(?)")
     @ModifyExpressionValue(method = "update", at = @At("MIXINEXTRAS:EXPRESSION"))
     private float fixSkyboxFarplaneClipping(float f) {
-        return Math.max(f, 11 * 16F); // 11 chunks * 16, the minimum cloud render distance for no clipping issues
+        return Math.max(f, 2048.0F); // same fix Mojang used in 25w16a
     }
 }
