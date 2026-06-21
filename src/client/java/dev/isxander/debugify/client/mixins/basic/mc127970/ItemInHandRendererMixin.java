@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(ItemInHandRenderer.class)
 public class ItemInHandRendererMixin {
     @ModifyExpressionValue(
-            method = "renderArmWithItem",
+            method = "submitArmWithItem",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/client/player/AbstractClientPlayer;isAutoSpinAttack()Z"

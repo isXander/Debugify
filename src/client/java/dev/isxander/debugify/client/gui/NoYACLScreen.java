@@ -13,7 +13,7 @@ import java.net.URI;
 public class NoYACLScreen extends AlertScreen {
     public NoYACLScreen(Screen parent) {
         super(
-                () -> Minecraft.getInstance().setScreen(parent),
+                () -> Minecraft.getInstance().gui.setScreen(parent),
                 Component.translatable("debugify.no_yacl.title").withStyle(ChatFormatting.BOLD),
                 Component.translatable("debugify.no_yacl.description",
                         Component.literal("YetAnotherConfigLib").withStyle(style -> style

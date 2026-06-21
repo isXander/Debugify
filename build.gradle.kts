@@ -15,7 +15,7 @@ plugins {
 
 modstitch {
     minecraftVersion = property("minecraftVersion")!!.toString()
-    modLoaderVersion = "0.18.6"
+    modLoaderVersion = "0.19.3"
 
     metadata {
         modVersion = providers.gradleProperty("modVersion")
