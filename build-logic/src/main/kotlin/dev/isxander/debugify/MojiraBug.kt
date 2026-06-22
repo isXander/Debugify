@@ -12,8 +12,8 @@ data class MojiraBug(
 	val summary: String,
 	val status: String,
 	val confirmation_status: String,
-	val resolution: String,
-	val fix_versions: List<String>
+	val resolution: String?,
+	val fix_versions: List<String>?
 ) {
 	companion object {
 		fun fetch(bugId: String): MojiraBug? {

@@ -1,3 +1,4 @@
+import dev.isxander.debugify.CheckBugFixesTask
 import dev.isxander.debugify.GeneratePatchedTableTask
 import dev.isxander.debugify.PatchedFileEntry
 
@@ -295,10 +296,18 @@ spotless {
     }
 }
 
-val generatePatchedTable = tasks.register<GeneratePatchedTableTask>("generatePatchedTable") {
+tasks.register<GeneratePatchedTableTask>("generatePatchedTable") {
 	group = "debugify"
 	description = "Generates PATCHED.md from .bugs"
 
 	bugs = bugsList
 	output = rootProject.layout.projectDirectory.file("PATCHED.md")
+}
+
+tasks.register<CheckBugFixesTask>("checkBugFixes") {
+	group = "debugify"
+	description = "Checks whether any patched bugs have been resolved in the current or older version"
+
+	minecraftVersion = libs.versions.minecraft
+	bugs = bugsList
 }
