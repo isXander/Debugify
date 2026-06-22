@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc143474;
 
 import com.llamalad7.mixinextras.sugar.Local;
@@ -17,22 +22,22 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-143474", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Respawning causes your hotbar to reset to the first space")
 @Mixin(ClientPacketListener.class)
 public abstract class ClientPacketListenerMixin extends ClientCommonPacketListenerImpl {
-    protected ClientPacketListenerMixin(Minecraft client, Connection connection, CommonListenerCookie commonListenerCookie) {
-        super(client, connection, commonListenerCookie);
-    }
+	protected ClientPacketListenerMixin(Minecraft client, Connection connection, CommonListenerCookie commonListenerCookie) {
+		super(client, connection, commonListenerCookie);
+	}
 
-    @Inject(
-            method = "handleRespawn",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/client/multiplayer/ClientPacketListener;startWaitingForNewLevel(Lnet/minecraft/client/player/LocalPlayer;Lnet/minecraft/client/multiplayer/ClientLevel;Lnet/minecraft/client/gui/screens/LevelLoadingScreen$Reason;)V"
-            )
-    )
-    private void persistInventorySlot2(
-            CallbackInfo ci,
-            @Local(name = "oldPlayer") LocalPlayer oldPlayer,
-            @Local(name = "newPlayer") LocalPlayer newPlayer
-    ) {
-        newPlayer.getInventory().setSelectedSlot(oldPlayer.getInventory().getSelectedSlot());
-    }
+	@Inject(
+			method = "handleRespawn",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/client/multiplayer/ClientPacketListener;startWaitingForNewLevel(Lnet/minecraft/client/player/LocalPlayer;Lnet/minecraft/client/multiplayer/ClientLevel;Lnet/minecraft/client/gui/screens/LevelLoadingScreen$Reason;)V"
+			)
+	)
+	private void persistInventorySlot2(
+			CallbackInfo ci,
+			@Local(name = "oldPlayer") LocalPlayer oldPlayer,
+			@Local(name = "newPlayer") LocalPlayer newPlayer
+	) {
+		newPlayer.getInventory().setSelectedSlot(oldPlayer.getInventory().getSelectedSlot());
+	}
 }

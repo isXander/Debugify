@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc89146;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -16,6 +21,6 @@ import java.util.Map;
 @BugFix(id = "MC-89146", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Pistons forget update when being reloaded")
 @Mixin(ChunkAccess.class)
 public class ChunkAccessMixin {
-    @Shadow @Final @Mutable
-    protected Map<BlockPos, BlockEntity> blockEntities = new Object2ObjectLinkedOpenHashMap<>();
+	@Shadow @Final @Mutable
+	protected Map<BlockPos, BlockEntity> blockEntities = new Object2ObjectLinkedOpenHashMap<>();
 }

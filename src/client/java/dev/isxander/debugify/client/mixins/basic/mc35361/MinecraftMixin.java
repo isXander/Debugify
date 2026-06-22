@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc35361;
 
 import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
@@ -14,18 +19,17 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-35361", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Inventory opening is detected while in Nether Portal")
 @Mixin(Minecraft.class)
 public class MinecraftMixin {
-    @Shadow
-    @Nullable
-    public LocalPlayer player;
+	@Shadow
+	@Nullable public LocalPlayer player;
 
-    @WrapWithCondition(
-            method = "handleKeybinds",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/client/tutorial/Tutorial;onOpenInventory()V"
-            )
-    )
-    private boolean addNetherPortalCheck(Tutorial instance) {
-        return this.player.portalProcess == null || !this.player.portalProcess.isInsidePortalThisTick();
-    }
+	@WrapWithCondition(
+			method = "handleKeybinds",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/client/tutorial/Tutorial;onOpenInventory()V"
+			)
+	)
+	private boolean addNetherPortalCheck(Tutorial instance) {
+		return this.player.portalProcess == null || !this.player.portalProcess.isInsidePortalThisTick();
+	}
 }

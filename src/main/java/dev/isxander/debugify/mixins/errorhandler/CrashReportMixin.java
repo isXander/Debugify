@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.errorhandler;
 
 import com.llamalad7.mixinextras.expression.Definition;
@@ -11,11 +16,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(CrashReport.class)
 public class CrashReportMixin {
-    @Definition(id = "systemReport", field = "Lnet/minecraft/CrashReport;systemReport:Lnet/minecraft/SystemReport;")
-    @Definition(id = "appendToCrashReportString", method = "Lnet/minecraft/SystemReport;appendToCrashReportString(Ljava/lang/StringBuilder;)V")
-    @Expression("this.systemReport.appendToCrashReportString(?)")
-    @Inject(method = "getDetails(Ljava/lang/StringBuilder;)V", at = @At("MIXINEXTRAS:EXPRESSION"))
-    private void appendCrashReport(StringBuilder sb, CallbackInfo ci) {
-        CrashReportInjector.addDetailsToCrashReport(sb);
-    }
+	@Definition(id = "systemReport", field = "Lnet/minecraft/CrashReport;systemReport:Lnet/minecraft/SystemReport;")
+	@Definition(id = "appendToCrashReportString", method = "Lnet/minecraft/SystemReport;appendToCrashReportString(Ljava/lang/StringBuilder;)V")
+	@Expression("this.systemReport.appendToCrashReportString(?)")
+	@Inject(method = "getDetails(Ljava/lang/StringBuilder;)V", at = @At("MIXINEXTRAS:EXPRESSION"))
+	private void appendCrashReport(StringBuilder sb, CallbackInfo ci) {
+		CrashReportInjector.addDetailsToCrashReport(sb);
+	}
 }

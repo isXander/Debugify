@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc90683;
 
 import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
@@ -11,14 +16,14 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-90683", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "\"Received unknown passenger\" - Entities with differing render distances as passengers outputs error")
 @Mixin(ClientPacketListener.class)
 public class ClientPacketListenerMixin {
-    @WrapWithCondition(
-            method = "handleSetEntityPassengersPacket",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lorg/slf4j/Logger;warn(Ljava/lang/String;)V"
-            )
-    )
-    private boolean shouldWarn(Logger logger, String warning) {
-        return false;
-    }
+	@WrapWithCondition(
+			method = "handleSetEntityPassengersPacket",
+			at = @At(
+					value = "INVOKE",
+					target = "Lorg/slf4j/Logger;warn(Ljava/lang/String;)V"
+			)
+	)
+	private boolean shouldWarn(Logger logger, String warning) {
+		return false;
+	}
 }

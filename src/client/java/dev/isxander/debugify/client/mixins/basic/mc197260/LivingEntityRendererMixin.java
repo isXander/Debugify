@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc197260;
 
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -21,15 +26,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-197260", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Armor Stand renders itself and armor dark if its head is in a solid block")
 @Mixin(LivingEntityRenderer.class)
 public abstract class LivingEntityRendererMixin<T extends LivingEntity, S extends LivingEntityRenderState, M extends EntityModel<? super S>> extends EntityRenderer<T, S> implements RenderLayerParent<S, M>, DebugifyLightProvider<S> {
-    protected LivingEntityRendererMixin(EntityRendererProvider.Context context) {
-        super(context);
-    }
+	protected LivingEntityRendererMixin(EntityRendererProvider.Context context) {
+		super(context);
+	}
 
-    @Inject(
-            method = "submit(Lnet/minecraft/client/renderer/entity/state/LivingEntityRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/level/CameraRenderState;)V",
-            at = @At("HEAD")
-    )
-    private void fixLightLevel(S state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState camera, CallbackInfo ci) {
-        debugify$modifyLightCoords(state);
-    }
+	@Inject(
+			method = "submit(Lnet/minecraft/client/renderer/entity/state/LivingEntityRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/level/CameraRenderState;)V",
+			at = @At("HEAD")
+	)
+	private void fixLightLevel(S state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState camera, CallbackInfo ci) {
+		debugify$modifyLightCoords(state);
+	}
 }

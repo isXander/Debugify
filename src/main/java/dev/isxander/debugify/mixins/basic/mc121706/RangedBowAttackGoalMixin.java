@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc121706;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -14,17 +19,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-121706", env = BugFix.Env.SERVER, category = FixCategory.BASIC, description = "Skeletons and illusioners aren't looking up / down at their target while strafing")
 @Mixin(RangedBowAttackGoal.class)
 public abstract class RangedBowAttackGoalMixin<T extends Monster> {
-    @Shadow @Final private T mob;
+	@Shadow @Final private T mob;
 
-    @Inject(
-            method = "tick",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/entity/monster/Monster;lookAt(Lnet/minecraft/world/entity/Entity;FF)V",
-                    shift = At.Shift.AFTER
-            )
-    )
-    private void lookAtTarget(CallbackInfo ci) {
-        mob.getLookControl().setLookAt(mob.getTarget(), 30f, 30f);
-    }
+	@Inject(
+			method = "tick",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/world/entity/monster/Monster;lookAt(Lnet/minecraft/world/entity/Entity;FF)V",
+					shift = At.Shift.AFTER
+			)
+	)
+	private void lookAtTarget(CallbackInfo ci) {
+		mob.getLookControl().setLookAt(mob.getTarget(), 30f, 30f);
+	}
 }

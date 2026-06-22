@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc94054;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
@@ -10,14 +15,14 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-94054", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Cave spiders spin around when walking")
 @Mixin(WallClimberNavigation.class)
 public class WallClimberNavigationMixin {
-    @ModifyExpressionValue(
-            method = "tick",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/entity/Mob;getBbWidth()F"
-            )
-    )
-    private float fixSpiderSpinning(float bbWidth) {
-        return Math.max(bbWidth, 1.0F);
-    }
+	@ModifyExpressionValue(
+			method = "tick",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/world/entity/Mob;getBbWidth()F"
+			)
+	)
+	private float fixSpiderSpinning(float bbWidth) {
+		return Math.max(bbWidth, 1.0F);
+	}
 }

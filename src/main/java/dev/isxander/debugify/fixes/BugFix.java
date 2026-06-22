@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.fixes;
 
 import java.lang.annotation.ElementType;
@@ -8,36 +13,36 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface BugFix {
-    String id();
+	String id();
 
-    FixCategory category();
+	FixCategory category();
 
-    Env env();
+	Env env();
 
-    boolean enabled() default true;
+	boolean enabled() default true;
 
-    String[] modConflicts() default {};
+	String[] modConflicts() default {};
 
-    OS os() default OS.UNKNOWN;
+	OS os() default OS.UNKNOWN;
 
-    String description() default "";
+	String description() default "";
 
-    enum Env {
-        CLIENT("debugify.env.client"),
-        SERVER("debugify.env.server");
+	enum Env {
+		CLIENT("debugify.env.client"),
+		SERVER("debugify.env.server");
 
-        private final String displayName;
+		private final String displayName;
 
-        Env(String displayName) {
-            this.displayName = displayName;
-        }
+		Env(String displayName) {
+			this.displayName = displayName;
+		}
 
-        public String getDisplayName() {
-            return displayName;
-        }
+		public String getDisplayName() {
+			return displayName;
+		}
 
-        public String getDescriptionKey() {
-            return getDisplayName() + ".desc";
-        }
-    }
+		public String getDescriptionKey() {
+			return getDisplayName() + ".desc";
+		}
+	}
 }

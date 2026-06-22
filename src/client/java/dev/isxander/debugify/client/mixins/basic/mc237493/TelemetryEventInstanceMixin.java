@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc237493;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
@@ -14,12 +19,12 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-237493", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "no-telemetry", description = "Telemetry cannot be disabled")
 @Mixin(TelemetryEventInstance.class)
 public class TelemetryEventInstanceMixin {
-    @ModifyReturnValue(method = "export", at = @At("RETURN"))
-    private TelemetryEvent preventEvents(TelemetryEvent realEvent) {
-        if (((DebugifyTelemetryAccessor) Minecraft.getInstance().options).getTelemetryOption().get() == DebugifyTelemetry.OFF) {
-            return TelemetryEvent.EMPTY;
-        }
+	@ModifyReturnValue(method = "export", at = @At("RETURN"))
+	private TelemetryEvent preventEvents(TelemetryEvent realEvent) {
+		if (((DebugifyTelemetryAccessor) Minecraft.getInstance().options).getTelemetryOption().get() == DebugifyTelemetry.OFF) {
+			return TelemetryEvent.EMPTY;
+		}
 
-        return realEvent;
-    }
+		return realEvent;
+	}
 }

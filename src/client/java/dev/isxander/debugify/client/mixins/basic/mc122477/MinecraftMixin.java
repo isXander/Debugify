@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc122477;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -13,8 +18,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-122477", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, os = OS.LINUX, description = "Linux/GNU: Opening chat sometimes writes 't'")
 @Mixin(Minecraft.class)
 public class MinecraftMixin {
-    @Inject(method = "run", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderSystem;pollEvents()V"))
-    private void onPollEvents(CallbackInfo ci) {
-        KeyboardPollCounter.poll();
-    }
+	@Inject(method = "run", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderSystem;pollEvents()V"))
+	private void onPollEvents(CallbackInfo ci) {
+		KeyboardPollCounter.poll();
+	}
 }

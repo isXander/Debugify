@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc153010;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
@@ -12,15 +17,15 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-153010", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "doMobLoot gamerule doesn't prevent foxes from dropping their items")
 @Mixin(Fox.class)
 public class FoxMixin {
-    // gate dropping death loot with gamerule check
-    @ModifyExpressionValue(
-            method = "dropAllDeathLoot",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/item/ItemStack;isEmpty()Z"
-            )
-    )
-    private boolean preventLootDropIfGameruleIsFalse(boolean isEmpty, ServerLevel level) {
-        return isEmpty || !level.getGameRules().get(GameRules.MOB_DROPS);
-    }
+	// gate dropping death loot with gamerule check
+	@ModifyExpressionValue(
+			method = "dropAllDeathLoot",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/world/item/ItemStack;isEmpty()Z"
+			)
+	)
+	private boolean preventLootDropIfGameruleIsFalse(boolean isEmpty, ServerLevel level) {
+		return isEmpty || !level.getGameRules().get(GameRules.MOB_DROPS);
+	}
 }

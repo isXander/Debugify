@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify;
 
 import dev.isxander.debugify.config.DebugifyConfig;
@@ -14,34 +19,34 @@ import java.util.List;
 import java.util.Map;
 
 public class Debugify {
-    public static final Logger LOGGER = LoggerFactory.getLogger("Debugify");
-    public static final Version VERSION = FabricLoader.getInstance().getModContainer("debugify").orElseThrow().getMetadata().getVersion();
-    public static final DebugifyConfig CONFIG = new DebugifyConfig();
+	public static final Logger LOGGER = LoggerFactory.getLogger("Debugify");
+	public static final Version VERSION = FabricLoader.getInstance().getModContainer("debugify").orElseThrow().getMetadata().getVersion();
+	public static final DebugifyConfig CONFIG = new DebugifyConfig();
 
-    /**
-     * Called from mixin plugin to manage
-     * disabled bug fixes
-     */
-    public static void onPreInitialize() {
-        CONFIG.preload();
-        Mixins.registerErrorHandlerClass(DebugifyErrorHandler.class.getName());
-    }
+	/**
+	 * Called from mixin plugin to manage
+	 * disabled bug fixes
+	 */
+	public static void onPreInitialize() {
+		CONFIG.preload();
+		Mixins.registerErrorHandlerClass(DebugifyErrorHandler.class.getName());
+	}
 
-    public static void onInitialize() {
-        List<String> enabledBugs = CONFIG.getBugFixes().entrySet()
-                .stream()
-                .filter(Map.Entry::getValue)
-                .map(entry -> entry.getKey().bugId())
-                .toList();
-        LOGGER.info("Enabled {} bug fixes: {}", enabledBugs.size(), enabledBugs);
-        LOGGER.info("Successfully Debugify'd your game!");
-    }
+	public static void onInitialize() {
+		List<String> enabledBugs = CONFIG.getBugFixes().entrySet()
+				.stream()
+				.filter(Map.Entry::getValue)
+				.map(entry -> entry.getKey().bugId())
+				.toList();
+		LOGGER.info("Enabled {} bug fixes: {}", enabledBugs.size(), enabledBugs);
+		LOGGER.info("Successfully Debugify'd your game!");
+	}
 
-    public static BugFix.Env getEnv() {
-        return FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT ? BugFix.Env.CLIENT : BugFix.Env.SERVER;
-    }
+	public static BugFix.Env getEnv() {
+		return FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT ? BugFix.Env.CLIENT : BugFix.Env.SERVER;
+	}
 
-    public static boolean isGameplayFixesEnabled() {
-        return Debugify.CONFIG.gameplayFixesInMultiplayer;
-    }
+	public static boolean isGameplayFixesEnabled() {
+		return Debugify.CONFIG.gameplayFixesInMultiplayer;
+	}
 }

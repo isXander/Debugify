@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc237493;
 
 import dev.isxander.debugify.client.helpers.mc237493.DebugifyTelemetry;
@@ -19,25 +24,24 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-237493", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "no-telemetry", description = "Telemetry cannot be disabled")
 @Mixin(Options.class)
 public abstract class OptionsMixin implements DebugifyTelemetryAccessor {
-    @Shadow public abstract OptionInstance<Boolean> telemetryOptInExtra();
+	@Shadow public abstract OptionInstance<Boolean> telemetryOptInExtra();
 
-    @Unique
-    private final OptionInstance<DebugifyTelemetry> debugifyTelemetry = new OptionInstance<>(
-            "options.telemetry.button",
-            value -> Tooltip.create(value.tooltip()),
-            (component, value) -> value.caption(),
-            new OptionInstance.Enum<>(Arrays.asList(DebugifyTelemetry.values()), DebugifyTelemetry.LEGACY_CODEC),
-            DebugifyTelemetry.OFF,
-            value -> telemetryOptInExtra().set(value == DebugifyTelemetry.ALL)
-    );
+	@Unique private final OptionInstance<DebugifyTelemetry> debugifyTelemetry = new OptionInstance<>(
+			"options.telemetry.button",
+			value -> Tooltip.create(value.tooltip()),
+			(component, value) -> value.caption(),
+			new OptionInstance.Enum<>(Arrays.asList(DebugifyTelemetry.values()), DebugifyTelemetry.LEGACY_CODEC),
+			DebugifyTelemetry.OFF,
+			value -> telemetryOptInExtra().set(value == DebugifyTelemetry.ALL)
+	);
 
-    @Override
-    public OptionInstance<DebugifyTelemetry> getTelemetryOption() {
-        return debugifyTelemetry;
-    }
+	@Override
+	public OptionInstance<DebugifyTelemetry> getTelemetryOption() {
+		return debugifyTelemetry;
+	}
 
-    @Inject(method = "processOptions", at = @At("RETURN"))
-    private void shouldAcceptVanillaTelemetry(Options.FieldAccess access, CallbackInfo ci) {
-        access.process("debugifyTelemetry", getTelemetryOption());
-    }
+	@Inject(method = "processOptions", at = @At("RETURN"))
+	private void shouldAcceptVanillaTelemetry(Options.FieldAccess access, CallbackInfo ci) {
+		access.process("debugifyTelemetry", getTelemetryOption());
+	}
 }

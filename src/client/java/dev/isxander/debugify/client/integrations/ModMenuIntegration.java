@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.integrations;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
@@ -8,12 +13,12 @@ import dev.isxander.debugify.client.gui.NoYACLScreen;
 import net.fabricmc.loader.api.FabricLoader;
 
 public class ModMenuIntegration implements ModMenuApi {
-    @Override
-    public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return (parent) -> {
-            if (!FabricLoader.getInstance().isModLoaded("yet_another_config_lib_v3"))
-                return new NoYACLScreen(parent);
-            return ConfigGuiHelper.createConfigGui(Debugify.CONFIG, parent);
-        };
-    }
+	@Override
+	public ConfigScreenFactory<?> getModConfigScreenFactory() {
+		return (parent) -> {
+			if (!FabricLoader.getInstance().isModLoaded("yet_another_config_lib_v3"))
+				return new NoYACLScreen(parent);
+			return ConfigGuiHelper.createConfigGui(Debugify.CONFIG, parent);
+		};
+	}
 }

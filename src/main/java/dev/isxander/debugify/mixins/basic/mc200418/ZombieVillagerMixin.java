@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc200418;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -14,10 +19,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-200418", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Cured baby zombie villagers stay as jockey variant")
 @Mixin(ZombieVillager.class)
 public class ZombieVillagerMixin {
-    @Inject(method = "lambda$finishConversion$0", at = @At("RETURN"))
-    private void dismountIfJockey(ServerLevel level, Villager villager, CallbackInfo ci) {
-        if (villager.isPassenger() && villager.getVehicle() instanceof Chicken && villager.isBaby()) {
-            villager.removeVehicle();
-        }
-    }
+	@Inject(method = "lambda$finishConversion$0", at = @At("RETURN"))
+	private void dismountIfJockey(ServerLevel level, Villager villager, CallbackInfo ci) {
+		if (villager.isPassenger() && villager.getVehicle() instanceof Chicken && villager.isBaby()) {
+			villager.removeVehicle();
+		}
+	}
 }

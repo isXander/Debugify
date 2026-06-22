@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc118740;
 
 import dev.isxander.debugify.client.helpers.mc118740.LocalPlayerDuck;
@@ -18,25 +23,25 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-118740", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "moulberrystweaks", description = "Performing any right-click action silently resets the attack cooldown")
 @Mixin(Player.class)
 public class PlayerMixin {
-    @Inject(method = "resetAttackStrengthTicker", at = @At("HEAD"))
-    public void resetAttackStrengthTicker(CallbackInfo ci) {
-        if (this instanceof LocalPlayerDuck localPlayerExt) {
-            localPlayerExt.debugify$resetVisualAttackStrengthScale();
-        }
-    }
+	@Inject(method = "resetAttackStrengthTicker", at = @At("HEAD"))
+	public void resetAttackStrengthTicker(CallbackInfo ci) {
+		if (this instanceof LocalPlayerDuck localPlayerExt) {
+			localPlayerExt.debugify$resetVisualAttackStrengthScale();
+		}
+	}
 
-    @Inject(
-            method = "tick",
-            at = @At(
-                    value = "INVOKE",
-                    // no specific reason to inject here, just an easy injection point before doing anything with attack indicator
-                    target = "Lnet/minecraft/world/entity/player/Player;getMainHandItem()Lnet/minecraft/world/item/ItemStack;",
-                    ordinal = 0
-            )
-    )
-    public void tick(CallbackInfo ci) {
-        if (this instanceof LocalPlayerDuck localPlayerExt) {
-            localPlayerExt.debugify$incrementVisualAttackStrengthScale();
-        }
-    }
+	@Inject(
+			method = "tick",
+			at = @At(
+					value = "INVOKE",
+					// no specific reason to inject here, just an easy injection point before doing anything with attack indicator
+					target = "Lnet/minecraft/world/entity/player/Player;getMainHandItem()Lnet/minecraft/world/item/ItemStack;",
+					ordinal = 0
+			)
+	)
+	public void tick(CallbackInfo ci) {
+		if (this instanceof LocalPlayerDuck localPlayerExt) {
+			localPlayerExt.debugify$incrementVisualAttackStrengthScale();
+		}
+	}
 }

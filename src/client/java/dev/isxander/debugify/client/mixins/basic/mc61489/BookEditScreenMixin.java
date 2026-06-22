@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc61489;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
@@ -16,27 +21,27 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @BugFix(id = "MC-61489", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, enabled = false, modConflicts = {"fixbookgui", "stendhal", "scribble"}, description = "Book GUI is not vertically centered")
 @Mixin(BookEditScreen.class)
 public class BookEditScreenMixin extends Screen {
-    @Shadow
-    @Final
-    public static int IMAGE_HEIGHT;
+	@Shadow
+	@Final
+	public static int IMAGE_HEIGHT;
 
-    protected BookEditScreenMixin(Component component) {
-        super(component);
-    }
+	protected BookEditScreenMixin(Component component) {
+		super(component);
+	}
 
-    @ModifyArg(
-            method = "init",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/client/gui/components/MultiLineEditBox$Builder;setY(I)Lnet/minecraft/client/gui/components/MultiLineEditBox$Builder;"
-            )
-    )
-    private int modifyHeight(int original) {
-        return original + (this.height - IMAGE_HEIGHT) / 3;
-    }
+	@ModifyArg(
+			method = "init",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/client/gui/components/MultiLineEditBox$Builder;setY(I)Lnet/minecraft/client/gui/components/MultiLineEditBox$Builder;"
+			)
+	)
+	private int modifyHeight(int original) {
+		return original + (this.height - IMAGE_HEIGHT) / 3;
+	}
 
-    @ModifyReturnValue(method = "backgroundTop", at = @At("RETURN"))
-    private int modifyTop(int original) {
-        return original + (this.height - IMAGE_HEIGHT) / 3;
-    }
+	@ModifyReturnValue(method = "backgroundTop", at = @At("RETURN"))
+	private int modifyTop(int original) {
+		return original + (this.height - IMAGE_HEIGHT) / 3;
+	}
 }

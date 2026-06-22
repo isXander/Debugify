@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc80859;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -6,7 +11,6 @@ import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.Set;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -15,19 +19,19 @@ import net.minecraft.world.inventory.Slot;
 @BugFix(id = "MC-80859", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Starting to drag item stacks over other compatible stacks makes the latter invisible until appearance change (stack size increases)")
 @Mixin(AbstractContainerScreen.class)
 public class AbstractContainerScreenMixin {
-    /**
-     * If slots is size 1 then the inner method would run anyway and return so this just ignores the outer
-     * statement and lets it continue to the rendering therefore fixing the bug.
-     */
-    @WrapOperation(
-            method = "extractSlot",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Ljava/util/Set;contains(Ljava/lang/Object;)Z"
-            )
-    )
-    private boolean stopInvisibleSlots(Set<Slot> instance, Object slot, Operation<Boolean> original) {
-        if (instance.size() == 1) return false;
-        return original.call(instance, slot);
-    }
+	/**
+	 * If slots is size 1 then the inner method would run anyway and return so this just ignores the outer
+	 * statement and lets it continue to the rendering therefore fixing the bug.
+	 */
+	@WrapOperation(
+			method = "extractSlot",
+			at = @At(
+					value = "INVOKE",
+					target = "Ljava/util/Set;contains(Ljava/lang/Object;)Z"
+			)
+	)
+	private boolean stopInvisibleSlots(Set<Slot> instance, Object slot, Operation<Boolean> original) {
+		if (instance.size() == 1) return false;
+		return original.call(instance, slot);
+	}
 }

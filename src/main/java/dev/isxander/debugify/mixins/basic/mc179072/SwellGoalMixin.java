@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc179072;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
@@ -13,16 +18,16 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-179072", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Creepers do not defuse when switching from Survival to Creative/Spectator")
 @Mixin(SwellGoal.class)
 public class SwellGoalMixin {
-    @Shadow private @Nullable LivingEntity target;
+	@Shadow private @Nullable LivingEntity target;
 
-    @ModifyExpressionValue(
-            method = "tick",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/entity/ai/sensing/Sensing;hasLineOfSight(Lnet/minecraft/world/entity/Entity;)Z"
-            )
-    )
-    private boolean shouldIgniteCreeper(boolean canSeeTarget) {
-        return canSeeTarget && (target == null || target.canBeSeenAsEnemy());
-    }
+	@ModifyExpressionValue(
+			method = "tick",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/world/entity/ai/sensing/Sensing;hasLineOfSight(Lnet/minecraft/world/entity/Entity;)Z"
+			)
+	)
+	private boolean shouldIgniteCreeper(boolean canSeeTarget) {
+		return canSeeTarget && (target == null || target.canBeSeenAsEnemy());
+	}
 }

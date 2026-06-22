@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc202637;
 
 import com.llamalad7.mixinextras.expression.Definition;
@@ -16,12 +21,12 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @Mixin(FoodProperties.class)
 public class FoodPropertiesMixin {
 
-    @Definition(id = "playSound", method = "Lnet/minecraft/world/level/Level;playSound(Lnet/minecraft/world/entity/Entity;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V")
-    @Definition(id = "consumable", local = @Local(type = Consumable.class, name = "consumable", argsOnly = true))
-    @Definition(id = "sound", method = "Lnet/minecraft/world/item/component/Consumable;sound()Lnet/minecraft/core/Holder;")
-    @Expression("?.playSound(?, ?, ?, ?, (?) consumable.sound().?(), ?, ?, ?)")
-    @ModifyArg(method = "onConsume", at = @At("MIXINEXTRAS:EXPRESSION"))
-    private SoundSource modifyEatSoundSource(SoundSource soundSource) {
-        return SoundSource.PLAYERS;
-    }
+	@Definition(id = "playSound", method = "Lnet/minecraft/world/level/Level;playSound(Lnet/minecraft/world/entity/Entity;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V")
+	@Definition(id = "consumable", local = @Local(type = Consumable.class, name = "consumable", argsOnly = true))
+	@Definition(id = "sound", method = "Lnet/minecraft/world/item/component/Consumable;sound()Lnet/minecraft/core/Holder;")
+	@Expression("?.playSound(?, ?, ?, ?, (?) consumable.sound().?(), ?, ?, ?)")
+	@ModifyArg(method = "onConsume", at = @At("MIXINEXTRAS:EXPRESSION"))
+	private SoundSource modifyEatSoundSource(SoundSource soundSource) {
+		return SoundSource.PLAYERS;
+	}
 }

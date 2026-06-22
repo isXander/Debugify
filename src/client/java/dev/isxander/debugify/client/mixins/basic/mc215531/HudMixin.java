@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc215531;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -13,10 +18,10 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-215531", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "The carved pumpkin overlay is rendered in spectator mode")
 @Mixin(Hud.class)
 public class HudMixin {
-    @Shadow @Final private Minecraft minecraft;
+	@Shadow @Final private Minecraft minecraft;
 
-    @ModifyExpressionValue(method = "extractCameraOverlays", at = @At(value = "INVOKE", target = "Ljava/util/Optional;isPresent()Z"))
-    private boolean shouldRenderPumpkinOverlay(boolean pumpkinOnHead) {
-        return pumpkinOnHead && !minecraft.player.isSpectator();
-    }
+	@ModifyExpressionValue(method = "extractCameraOverlays", at = @At(value = "INVOKE", target = "Ljava/util/Optional;isPresent()Z"))
+	private boolean shouldRenderPumpkinOverlay(boolean pumpkinOnHead) {
+		return pumpkinOnHead && !minecraft.player.isSpectator();
+	}
 }

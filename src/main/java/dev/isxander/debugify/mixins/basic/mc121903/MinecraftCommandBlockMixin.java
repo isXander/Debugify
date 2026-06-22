@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc121903;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -14,17 +19,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-121903", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Command block minecarts do not save execution cooldown to NBT")
 @Mixin(MinecartCommandBlock.class)
 public class MinecraftCommandBlockMixin {
-    @Shadow private int lastActivated;
+	@Shadow private int lastActivated;
 
-    @Inject(method = "readAdditionalSaveData", at = @At("RETURN"))
-    private void readNbt(ValueInput input, CallbackInfo ci) {
-        input.getInt("LastExecuted").ifPresent(lastExecuted -> {
-            lastActivated = lastExecuted;
-        });
-    }
+	@Inject(method = "readAdditionalSaveData", at = @At("RETURN"))
+	private void readNbt(ValueInput input, CallbackInfo ci) {
+		input.getInt("LastExecuted").ifPresent(lastExecuted -> {
+			lastActivated = lastExecuted;
+		});
+	}
 
-    @Inject(method = "addAdditionalSaveData", at = @At("RETURN"))
-    private void writeNbt(ValueOutput output, CallbackInfo ci) {
-        output.putInt("LastExecuted", lastActivated);
-    }
+	@Inject(method = "addAdditionalSaveData", at = @At("RETURN"))
+	private void writeNbt(ValueOutput output, CallbackInfo ci) {
+		output.putInt("LastExecuted", lastActivated);
+	}
 }

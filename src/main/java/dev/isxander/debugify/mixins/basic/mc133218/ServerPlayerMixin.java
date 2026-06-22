@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc133218;
 
 import com.mojang.authlib.GameProfile;
@@ -14,12 +19,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-133218", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Usable items continue to be used on the death screen after dying when the keepInventory gamerule is set to enabled")
 @Mixin(ServerPlayer.class)
 public abstract class ServerPlayerMixin extends Player {
-    public ServerPlayerMixin(Level level, GameProfile gameProfile) {
-        super(level, gameProfile);
-    }
+	public ServerPlayerMixin(Level level, GameProfile gameProfile) {
+		super(level, gameProfile);
+	}
 
-    @Inject(method = "die", at = @At("RETURN"))
-    private void stopUsingItemOnDeath(CallbackInfo ci) {
-        this.stopUsingItem();
-    }
+	@Inject(method = "die", at = @At("RETURN"))
+	private void stopUsingItemOnDeath(CallbackInfo ci) {
+		this.stopUsingItem();
+	}
 }

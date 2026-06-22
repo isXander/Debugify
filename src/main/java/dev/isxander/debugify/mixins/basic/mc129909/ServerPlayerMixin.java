@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc129909;
 
 import com.mojang.authlib.GameProfile;
@@ -15,22 +20,22 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @BugFix(id = "MC-129909", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Players in spectator mode continue to consume foods and liquids shortly after switching game modes")
 @Mixin(ServerPlayer.class)
 public abstract class ServerPlayerMixin extends Player {
-    public ServerPlayerMixin(Level world, GameProfile gameProfile) {
-        super(world, gameProfile);
-    }
+	public ServerPlayerMixin(Level world, GameProfile gameProfile) {
+		super(world, gameProfile);
+	}
 
-    /**
-     * Also fixes
-     * <a href="https://mojira.dev/MC-81773">MC-81773</a>, <a href="https://bugs.mojang.com/browse/MC-206705">MC-206705</a>
-     */
-    @Inject(
-            method = "setGameMode",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/server/level/ServerPlayer;stopRiding()V"
-            )
-    )
-    private void onChangeToSpectator(GameType mode, CallbackInfoReturnable<Boolean> cir) {
-        releaseUsingItem();
-    }
+	/**
+	 * Also fixes
+	 * <a href="https://mojira.dev/MC-81773">MC-81773</a>, <a href="https://bugs.mojang.com/browse/MC-206705">MC-206705</a>
+	 */
+	@Inject(
+			method = "setGameMode",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/server/level/ServerPlayer;stopRiding()V"
+			)
+	)
+	private void onChangeToSpectator(GameType mode, CallbackInfoReturnable<Boolean> cir) {
+		releaseUsingItem();
+	}
 }

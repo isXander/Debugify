@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc183990;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -14,20 +19,20 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-183990", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Group AI of some mobs breaks when their target dies")
 @Mixin(Mob.class)
 public abstract class MobMixin {
-    @Shadow private @Nullable LivingEntity target;
+	@Shadow private @Nullable LivingEntity target;
 
-    @Shadow public abstract void setTarget(@Nullable LivingEntity target);
+	@Shadow public abstract void setTarget(@Nullable LivingEntity target);
 
-    @Inject(
-            method = "baseTick",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/util/profiling/ProfilerFiller;pop()V"
-            )
-    )
-    private void clearTargetIfDead(CallbackInfo ci) {
-        if (target != null && target.isDeadOrDying()) {
-            setTarget(null);
-        }
-    }
+	@Inject(
+			method = "baseTick",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/util/profiling/ProfilerFiller;pop()V"
+			)
+	)
+	private void clearTargetIfDead(CallbackInfo ci) {
+		if (target != null && target.isDeadOrDying()) {
+			setTarget(null);
+		}
+	}
 }

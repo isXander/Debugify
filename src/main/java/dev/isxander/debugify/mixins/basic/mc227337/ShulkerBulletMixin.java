@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc227337;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -15,16 +20,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-227337", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "When a shulker bullet hits an entity, the explodes sound is not played and particles are not produced")
 @Mixin(ShulkerBullet.class)
 public class ShulkerBulletMixin {
-    @Inject(
-            method = "onHitEntity",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/phys/EntityHitResult;getEntity()Lnet/minecraft/world/entity/Entity;"
-            )
-    )
-    private void playSoundAndDisplayParticles(EntityHitResult hitResult, CallbackInfo ci) {
-        ShulkerBullet instance = (ShulkerBullet) (Object) this;
-        ((ServerLevel) instance.level()).sendParticles(ParticleTypes.EXPLOSION, instance.getX(), instance.getY(), instance.getZ(), 2, 0.2D, 0.2D, 0.2D, 0.0D);
-        instance.playSound(SoundEvents.SHULKER_BULLET_HIT, 1.0F, 1.0F);
-    }
+	@Inject(
+			method = "onHitEntity",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/world/phys/EntityHitResult;getEntity()Lnet/minecraft/world/entity/Entity;"
+			)
+	)
+	private void playSoundAndDisplayParticles(EntityHitResult hitResult, CallbackInfo ci) {
+		ShulkerBullet instance = (ShulkerBullet) (Object) this;
+		((ServerLevel) instance.level()).sendParticles(ParticleTypes.EXPLOSION, instance.getX(), instance.getY(), instance.getZ(), 2, 0.2D, 0.2D, 0.2D, 0.0D);
+		instance.playSound(SoundEvents.SHULKER_BULLET_HIT, 1.0F, 1.0F);
+	}
 }

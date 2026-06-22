@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc271899;
 
 import com.google.common.collect.Maps;
@@ -16,8 +21,8 @@ import java.util.Map;
 @BugFix(id = "MC-271899", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "StructureTemplate Palette's caches are not thread safe")
 @Mixin(StructureTemplate.Palette.class)
 public class StructureTemplateMixin {
-    @Mutable
-    @Shadow
-    @Final
-    private Map<Block, List<StructureTemplate.StructureBlockInfo>> cache = Maps.newConcurrentMap();
+	@Mutable
+	@Shadow
+	@Final
+	private Map<Block, List<StructureTemplate.StructureBlockInfo>> cache = Maps.newConcurrentMap();
 }

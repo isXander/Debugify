@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc210318;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -11,14 +16,14 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @Mixin(BookSignScreen.class)
 public class BookSignScreenMixin {
 
-    @ModifyArg(
-            method = "init",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/client/gui/components/EditBox;setMaxLength(I)V"
-            )
-    )
-    private int restoreBookTitleMaxLength(int length) {
-        return 16;
-    }
+	@ModifyArg(
+			method = "init",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/client/gui/components/EditBox;setMaxLength(I)V"
+			)
+	)
+	private int restoreBookTitleMaxLength(int length) {
+		return 16;
+	}
 }

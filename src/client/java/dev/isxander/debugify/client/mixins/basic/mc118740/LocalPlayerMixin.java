@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc118740;
 
 import com.mojang.authlib.GameProfile;
@@ -24,30 +29,29 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-118740", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "moulberrystweaks", description = "Performing any right-click action silently resets the attack cooldown")
 @Mixin(LocalPlayer.class)
 public abstract class LocalPlayerMixin extends Player implements LocalPlayerDuck {
-    @Unique
-    private int visualAttackStrengthTicker = 0;
+	@Unique private int visualAttackStrengthTicker = 0;
 
-    public LocalPlayerMixin(Level level, GameProfile gameProfile) {
-        super(level, gameProfile);
-    }
+	public LocalPlayerMixin(Level level, GameProfile gameProfile) {
+		super(level, gameProfile);
+	}
 
-    @Inject(method = "swing", at = @At("HEAD"))
-    public void swing(InteractionHand hand, CallbackInfo ci) {
-        this.visualAttackStrengthTicker = 0;
-    }
+	@Inject(method = "swing", at = @At("HEAD"))
+	public void swing(InteractionHand hand, CallbackInfo ci) {
+		this.visualAttackStrengthTicker = 0;
+	}
 
-    @Override
-    public float debugify$getVisualAttackStrengthScale(float partialTick) {
-        return Mth.clamp(((float)this.visualAttackStrengthTicker + partialTick) / this.getCurrentItemAttackStrengthDelay(), 0.0F, 1.0F);
-    }
+	@Override
+	public float debugify$getVisualAttackStrengthScale(float partialTick) {
+		return Mth.clamp(((float)this.visualAttackStrengthTicker + partialTick) / this.getCurrentItemAttackStrengthDelay(), 0.0F, 1.0F);
+	}
 
-    @Override
-    public void debugify$resetVisualAttackStrengthScale() {
-        this.visualAttackStrengthTicker = 0;
-    }
+	@Override
+	public void debugify$resetVisualAttackStrengthScale() {
+		this.visualAttackStrengthTicker = 0;
+	}
 
-    @Override
-    public void debugify$incrementVisualAttackStrengthScale() {
-        this.visualAttackStrengthTicker += 1;
-    }
+	@Override
+	public void debugify$incrementVisualAttackStrengthScale() {
+		this.visualAttackStrengthTicker += 1;
+	}
 }

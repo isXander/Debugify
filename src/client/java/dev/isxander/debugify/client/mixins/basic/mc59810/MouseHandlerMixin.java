@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc59810;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
@@ -12,15 +17,15 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-59810", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, enabled = false, modConflicts = "mcmouser", os = OS.MAC, description = "Cannot break blocks while sprinting (Ctrl+Click = right click on macOS)")
 @Mixin(MouseHandler.class)
 public class MouseHandlerMixin {
-    @ModifyExpressionValue(
-            method = "simulateRightClick",
-            at = @At(
-                    value = "FIELD",
-                    target = "Lnet/minecraft/client/input/InputQuirks;SIMULATE_RIGHT_CLICK_WITH_LONG_LEFT_CLICK:Z",
-                    opcode = Opcodes.GETSTATIC
-            )
-    )
-    private boolean doRightClickEmulation(boolean isMac) {
-        return false;
-    }
+	@ModifyExpressionValue(
+			method = "simulateRightClick",
+			at = @At(
+					value = "FIELD",
+					target = "Lnet/minecraft/client/input/InputQuirks;SIMULATE_RIGHT_CLICK_WITH_LONG_LEFT_CLICK:Z",
+					opcode = Opcodes.GETSTATIC
+			)
+	)
+	private boolean doRightClickEmulation(boolean isMac) {
+		return false;
+	}
 }

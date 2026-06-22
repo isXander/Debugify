@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.gameplay.mc159163;
 
 import com.llamalad7.mixinextras.sugar.Local;
@@ -17,27 +22,26 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @BugFix(id = "MC-159163", category = FixCategory.GAMEPLAY, env = BugFix.Env.CLIENT, description = "Quickly pressing the sneak key causes the sneak animation to play twice")
 @Mixin(ClientPacketListener.class)
 public abstract class ClientPacketListenerMixin extends ClientCommonPacketListenerImpl implements ClientGamePacketListener {
-    protected ClientPacketListenerMixin(Minecraft client, Connection connection, CommonListenerCookie commonListenerCookie) {
-        super(client, connection, commonListenerCookie);
-    }
+	protected ClientPacketListenerMixin(Minecraft client, Connection connection, CommonListenerCookie commonListenerCookie) {
+		super(client, connection, commonListenerCookie);
+	}
 
-    @Inject(
-            method = "handleSetEntityData",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/network/syncher/SynchedEntityData;assignValues(Ljava/util/List;)V"
-            )
-    )
-    public void removeLocalEntityPose(
-            ClientboundSetEntityDataPacket packet, CallbackInfo info,
-            @Local(name = "entity") Entity entity
-    ) {
-        if (Debugify.isGameplayFixesEnabled() && entity.equals(minecraft.player))
-            packet.packedItems().removeIf(p -> p.serializer().equals(EntityDataSerializers.POSE));
-    }
+	@Inject(
+			method = "handleSetEntityData",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/network/syncher/SynchedEntityData;assignValues(Ljava/util/List;)V"
+			)
+	)
+	public void removeLocalEntityPose(
+			ClientboundSetEntityDataPacket packet, CallbackInfo info,
+			@Local(name = "entity") Entity entity
+	) {
+		if (Debugify.isGameplayFixesEnabled() && entity.equals(minecraft.player))
+			packet.packedItems().removeIf(p -> p.serializer().equals(EntityDataSerializers.POSE));
+	}
 }

@@ -1,10 +1,14 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc197260;
 
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.Lightmap;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.state.ArmorStandRenderState;
 import net.minecraft.util.LightCoordsUtil;
@@ -19,34 +23,34 @@ import net.minecraft.world.level.LightLayer;
 @BugFix(id = "MC-197260", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Armor Stand renders itself and armor dark if its head is in a solid block")
 @Mixin(ArmorStandRenderer.class)
 public abstract class ArmorStandRendererMixin extends LivingEntityRendererMixin<ArmorStand, ArmorStandRenderState, ArmorStandArmorModel> {
-    protected ArmorStandRendererMixin(EntityRendererProvider.Context context) {
-        super(context);
-    }
+	protected ArmorStandRendererMixin(EntityRendererProvider.Context context) {
+		super(context);
+	}
 
-    /**
-     * Overrides the light level passed to the renderer, with the maximum of:
-     * <ul>
-     *     <li>The block below the armor stand</li>
-     *     <li>Bottom of the armor stand</li>
-     *     <li>Top of the armor stand</li>
-     *     <li>The block above the armor stand</li>
-     * </ul>
-     */
-    @Override
-    public void debugify$modifyLightCoords(ArmorStandRenderState livingEntity) {
-        if (LightCoordsUtil.sky(livingEntity.lightCoords) >= 15 || LightCoordsUtil.block(livingEntity.lightCoords) >= 15) return;
+	/**
+	 * Overrides the light level passed to the renderer, with the maximum of:
+	 * <ul>
+	 *     <li>The block below the armor stand</li>
+	 *     <li>Bottom of the armor stand</li>
+	 *     <li>Top of the armor stand</li>
+	 *     <li>The block above the armor stand</li>
+	 * </ul>
+	 */
+	@Override
+	public void debugify$modifyLightCoords(ArmorStandRenderState livingEntity) {
+		if (LightCoordsUtil.sky(livingEntity.lightCoords) >= 15 || LightCoordsUtil.block(livingEntity.lightCoords) >= 15) return;
 
-        BlockPos mainPos = BlockPos.containing(livingEntity.x, livingEntity.y, livingEntity.z);
-        ClientLevel level = Minecraft.getInstance().level;
+		BlockPos mainPos = BlockPos.containing(livingEntity.x, livingEntity.y, livingEntity.z);
+		ClientLevel level = Minecraft.getInstance().level;
 
-        int maxSkyLight = 0;
-        int maxBlockLight = 0;
-        for (int offset : new int[] { -1, 0, 2, 3 }) {
-            BlockPos pos = mainPos.offset(0, offset, 0);
-            maxSkyLight = Math.max(maxSkyLight, level.getBrightness(LightLayer.SKY, pos));
-            maxBlockLight = Math.max(maxBlockLight, level.getBrightness(LightLayer.BLOCK, pos));
-        }
+		int maxSkyLight = 0;
+		int maxBlockLight = 0;
+		for (int offset : new int[] { -1, 0, 2, 3 }) {
+			BlockPos pos = mainPos.offset(0, offset, 0);
+			maxSkyLight = Math.max(maxSkyLight, level.getBrightness(LightLayer.SKY, pos));
+			maxBlockLight = Math.max(maxBlockLight, level.getBrightness(LightLayer.BLOCK, pos));
+		}
 
-        livingEntity.lightCoords = LightCoordsUtil.pack(maxBlockLight, maxSkyLight);
-    }
+		livingEntity.lightCoords = LightCoordsUtil.pack(maxBlockLight, maxSkyLight);
+	}
 }

@@ -1,7 +1,11 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc61489;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import dev.isxander.debugify.client.utils.ClientUtils;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.client.gui.screens.Screen;
@@ -16,16 +20,16 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-61489", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, enabled = false, modConflicts = {"fixbookgui", "stendhal", "scribble"}, description = "Book GUI is not vertically centered")
 @Mixin(BookViewScreen.class)
 public class BookViewScreenMixin extends Screen {
-    @Shadow
-    @Final
-    protected static int IMAGE_HEIGHT;
+	@Shadow
+	@Final
+	protected static int IMAGE_HEIGHT;
 
-    protected BookViewScreenMixin(Component component) {
-        super(component);
-    }
+	protected BookViewScreenMixin(Component component) {
+		super(component);
+	}
 
-    @ModifyReturnValue(method = "backgroundTop", at = @At("RETURN"))
-    private int modifyTop(int original) {
-        return original + (this.height - IMAGE_HEIGHT) / 3;
-    }
+	@ModifyReturnValue(method = "backgroundTop", at = @At("RETURN"))
+	private int modifyTop(int original) {
+		return original + (this.height - IMAGE_HEIGHT) / 3;
+	}
 }

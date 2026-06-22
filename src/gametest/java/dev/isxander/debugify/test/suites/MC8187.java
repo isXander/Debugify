@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.test.suites;
 
 import dev.isxander.debugify.test.DebugifyTestUtils;
@@ -18,187 +23,187 @@ import net.minecraft.world.level.block.state.BlockState;
  * @since 1.20.1+1.2
  **/
 public class MC8187 {
-    private static final String TEMPLATE = "debugify:mc-8187";
+	private static final String TEMPLATE = "debugify:mc-8187";
 
-    // Adjust this if you move the center, as the tests assume this is accurate.
-    private static final int SIZE = 18;
-    // Subtracting one to get NW center.
-    private static final int CENTER = SIZE / 2 - 1;
+	// Adjust this if you move the center, as the tests assume this is accurate.
+	private static final int SIZE = 18;
+	// Subtracting one to get NW center.
+	private static final int CENTER = SIZE / 2 - 1;
 
-    private static final BlockPos CORNER = new BlockPos(CENTER, 1, CENTER);
-    private static final BlockPos START_CORNER = CORNER.above();
-    private static final BlockPos END_CORNER = CORNER.offset(1, 1, 1);
+	private static final BlockPos CORNER = new BlockPos(CENTER, 1, CENTER);
+	private static final BlockPos START_CORNER = CORNER.above();
+	private static final BlockPos END_CORNER = CORNER.offset(1, 1, 1);
 
-    /**
-     * Tests that the tree will grow under random ticks.
-     * <p>
-     * Side effect: Sets the time to day.
-     */
-    private static void testTreeRandomTick(GameTestHelper ctx, Block sapling, Block log, BlockPos growCorner, boolean small) {
-        // Ensure that parameters are correct.
-        ctx.assertTrue(sapling instanceof SaplingBlock, Component.literal(sapling + " is not a sapling"));
-        testTreeParamCommon(ctx, sapling, log, growCorner, true);
+	/**
+	 * Tests that the tree will grow under random ticks.
+	 * <p>
+	 * Side effect: Sets the time to day.
+	 */
+	private static void testTreeRandomTick(GameTestHelper ctx, Block sapling, Block log, BlockPos growCorner, boolean small) {
+		// Ensure that parameters are correct.
+		ctx.assertTrue(sapling instanceof SaplingBlock, Component.literal(sapling + " is not a sapling"));
+		testTreeParamCommon(ctx, sapling, log, growCorner, true);
 
-        // Setup
-        final BlockState saplingState = sapling.defaultBlockState().setValue(SaplingBlock.STAGE, 1);
+		// Setup
+		final BlockState saplingState = sapling.defaultBlockState().setValue(SaplingBlock.STAGE, 1);
 
-        ctx.onEachTick(() -> ctx.randomTick(growCorner));
+		ctx.onEachTick(() -> ctx.randomTick(growCorner));
 
-        testTreeCommon(ctx, saplingState, log, growCorner, small);
-    }
+		testTreeCommon(ctx, saplingState, log, growCorner, small);
+	}
 
-    /**
-     * Tests that the tree will grow with bonemeal.
-     */
-    private static void testTreeBonemeal(GameTestHelper ctx, Block sapling, Block log, BlockPos growCorner, boolean small) {
-        // Ensure that parameters are correct.
-        ctx.assertTrue(sapling instanceof SaplingBlock, Component.literal(sapling + " is not a sapling"));
-        testTreeParamCommon(ctx, sapling, log, growCorner, false);
+	/**
+	 * Tests that the tree will grow with bonemeal.
+	 */
+	private static void testTreeBonemeal(GameTestHelper ctx, Block sapling, Block log, BlockPos growCorner, boolean small) {
+		// Ensure that parameters are correct.
+		ctx.assertTrue(sapling instanceof SaplingBlock, Component.literal(sapling + " is not a sapling"));
+		testTreeParamCommon(ctx, sapling, log, growCorner, false);
 
-        // Setup
-        final BlockState saplingState = sapling.defaultBlockState().setValue(SaplingBlock.STAGE, 1);
+		// Setup
+		final BlockState saplingState = sapling.defaultBlockState().setValue(SaplingBlock.STAGE, 1);
 
-        DebugifyTestUtils.bonemealIndefinitely(ctx, growCorner);
+		DebugifyTestUtils.bonemealIndefinitely(ctx, growCorner);
 
-        testTreeCommon(ctx, saplingState, log, growCorner, small);
-    }
+		testTreeCommon(ctx, saplingState, log, growCorner, small);
+	}
 
-    /**
-     * Tests that the azalea will grow with bonemeal.
-     */
-    private static void testAzalea(GameTestHelper ctx, Block sapling, Block log, BlockPos growCorner) {
-        // Ensure that parameters are correct.
-        ctx.assertTrue(sapling instanceof AzaleaBlock, Component.literal(sapling + " is not a sapling"));
-        testTreeParamCommon(ctx, sapling, log, growCorner, false);
+	/**
+	 * Tests that the azalea will grow with bonemeal.
+	 */
+	private static void testAzalea(GameTestHelper ctx, Block sapling, Block log, BlockPos growCorner) {
+		// Ensure that parameters are correct.
+		ctx.assertTrue(sapling instanceof AzaleaBlock, Component.literal(sapling + " is not a sapling"));
+		testTreeParamCommon(ctx, sapling, log, growCorner, false);
 
-        DebugifyTestUtils.bonemealIndefinitely(ctx, growCorner);
+		DebugifyTestUtils.bonemealIndefinitely(ctx, growCorner);
 
-        testTreeCommon(ctx, sapling.defaultBlockState(), log, growCorner, true);
-    }
+		testTreeCommon(ctx, sapling.defaultBlockState(), log, growCorner, true);
+	}
 
-    /**
-     * Asserts that the given parameters are correct.
-     * <p>
-     * This is to catch errors quickly as the input is sensitive to off by 1 errors.
-     */
-    private static void testTreeParamCommon(GameTestHelper ctx, Block sapling, Block log, BlockPos growCorner, boolean requiresDay) {
-        ctx.assertTrue(log instanceof RotatedPillarBlock, Component.literal(log + " does not appear like a log"));
-        ctx.assertTrue(growCorner.getY() == START_CORNER.getY(),
-                Component.literal("Incorrect Y, got " + growCorner.getY() + ", expected " + START_CORNER.getY()));
+	/**
+	 * Asserts that the given parameters are correct.
+	 * <p>
+	 * This is to catch errors quickly as the input is sensitive to off by 1 errors.
+	 */
+	private static void testTreeParamCommon(GameTestHelper ctx, Block sapling, Block log, BlockPos growCorner, boolean requiresDay) {
+		ctx.assertTrue(log instanceof RotatedPillarBlock, Component.literal(log + " does not appear like a log"));
+		ctx.assertTrue(growCorner.getY() == START_CORNER.getY(),
+				Component.literal("Incorrect Y, got " + growCorner.getY() + ", expected " + START_CORNER.getY()));
 
-        // Ensure that the structure is correctly set up.
-        assertSuitable(ctx, requiresDay);
-    }
+		// Ensure that the structure is correctly set up.
+		assertSuitable(ctx, requiresDay);
+	}
 
-    /**
-     * Continuously checks whether the tree has grown.
-     */
-    private static void testTreeCommon(GameTestHelper ctx, BlockState sapling, Block log, BlockPos growCorner, boolean small) {
-        DebugifyTestUtils.fill(ctx, START_CORNER, END_CORNER, sapling);
+	/**
+	 * Continuously checks whether the tree has grown.
+	 */
+	private static void testTreeCommon(GameTestHelper ctx, BlockState sapling, Block log, BlockPos growCorner, boolean small) {
+		DebugifyTestUtils.fill(ctx, START_CORNER, END_CORNER, sapling);
 
-        if (small) {
-            ctx.succeedWhen(() -> ctx.assertBlock(growCorner, block -> block == log, block -> Component.literal("Incorrect log, expected " + log)));
-        } else {
-            ctx.succeedWhen(() -> DebugifyTestUtils.assertBlockFill(ctx, START_CORNER, END_CORNER, block -> block == log,
-                    "Incorrect log, expected " + log));
-        }
-    }
+		if (small) {
+			ctx.succeedWhen(() -> ctx.assertBlock(growCorner, block -> block == log, block -> Component.literal("Incorrect log, expected " + log)));
+		} else {
+			ctx.succeedWhen(() -> DebugifyTestUtils.assertBlockFill(ctx, START_CORNER, END_CORNER, block -> block == log,
+					"Incorrect log, expected " + log));
+		}
+	}
 
-    @GameTest(structure = TEMPLATE, skyAccess = true)
-    public void oak_randomTick_NW(GameTestHelper ctx) {
-        testTreeRandomTick(ctx, Blocks.OAK_SAPLING, Blocks.OAK_LOG, START_CORNER, true);
-    }
+	@GameTest(structure = TEMPLATE, skyAccess = true)
+	public void oak_randomTick_NW(GameTestHelper ctx) {
+		testTreeRandomTick(ctx, Blocks.OAK_SAPLING, Blocks.OAK_LOG, START_CORNER, true);
+	}
 
-    @GameTest(structure = TEMPLATE, skyAccess = true)
-    public void birch_randomTick_NW(GameTestHelper ctx) {
-        testTreeRandomTick(ctx, Blocks.BIRCH_SAPLING, Blocks.BIRCH_LOG, START_CORNER, true);
-    }
+	@GameTest(structure = TEMPLATE, skyAccess = true)
+	public void birch_randomTick_NW(GameTestHelper ctx) {
+		testTreeRandomTick(ctx, Blocks.BIRCH_SAPLING, Blocks.BIRCH_LOG, START_CORNER, true);
+	}
 
-    @GameTest(structure = TEMPLATE, skyAccess = true)
-    public void spruce_randomTick_NW(GameTestHelper ctx) {
-        testTreeRandomTick(ctx, Blocks.SPRUCE_SAPLING, Blocks.SPRUCE_LOG, START_CORNER, false);
-    }
+	@GameTest(structure = TEMPLATE, skyAccess = true)
+	public void spruce_randomTick_NW(GameTestHelper ctx) {
+		testTreeRandomTick(ctx, Blocks.SPRUCE_SAPLING, Blocks.SPRUCE_LOG, START_CORNER, false);
+	}
 
-    @GameTest(structure = TEMPLATE, skyAccess = true)
-    public void jungle_randomTick_NW(GameTestHelper ctx) {
-        testTreeRandomTick(ctx, Blocks.JUNGLE_SAPLING, Blocks.JUNGLE_LOG, START_CORNER, false);
-    }
+	@GameTest(structure = TEMPLATE, skyAccess = true)
+	public void jungle_randomTick_NW(GameTestHelper ctx) {
+		testTreeRandomTick(ctx, Blocks.JUNGLE_SAPLING, Blocks.JUNGLE_LOG, START_CORNER, false);
+	}
 
-    @GameTest(structure = TEMPLATE, skyAccess = true)
-    public void acacia_randomTick_NW(GameTestHelper ctx) {
-        testTreeRandomTick(ctx, Blocks.ACACIA_SAPLING, Blocks.ACACIA_LOG, START_CORNER, true);
-    }
+	@GameTest(structure = TEMPLATE, skyAccess = true)
+	public void acacia_randomTick_NW(GameTestHelper ctx) {
+		testTreeRandomTick(ctx, Blocks.ACACIA_SAPLING, Blocks.ACACIA_LOG, START_CORNER, true);
+	}
 
-    @GameTest(structure = TEMPLATE, skyAccess = true)
-    public void darkOak_randomTick_NW(GameTestHelper ctx) {
-        testTreeRandomTick(ctx, Blocks.DARK_OAK_SAPLING, Blocks.DARK_OAK_LOG, START_CORNER, false);
-    }
+	@GameTest(structure = TEMPLATE, skyAccess = true)
+	public void darkOak_randomTick_NW(GameTestHelper ctx) {
+		testTreeRandomTick(ctx, Blocks.DARK_OAK_SAPLING, Blocks.DARK_OAK_LOG, START_CORNER, false);
+	}
 
-    @GameTest(structure = TEMPLATE, skyAccess = true)
-    public void cherry_randomTick_NW(GameTestHelper ctx) {
-        testTreeRandomTick(ctx, Blocks.CHERRY_SAPLING, Blocks.CHERRY_LOG, START_CORNER, true);
-    }
+	@GameTest(structure = TEMPLATE, skyAccess = true)
+	public void cherry_randomTick_NW(GameTestHelper ctx) {
+		testTreeRandomTick(ctx, Blocks.CHERRY_SAPLING, Blocks.CHERRY_LOG, START_CORNER, true);
+	}
 
 
-    @GameTest(structure = TEMPLATE)
-    public void oak_bonemeal_NW(GameTestHelper ctx) {
-        testTreeBonemeal(ctx, Blocks.OAK_SAPLING, Blocks.OAK_LOG, START_CORNER, true);
-    }
+	@GameTest(structure = TEMPLATE)
+	public void oak_bonemeal_NW(GameTestHelper ctx) {
+		testTreeBonemeal(ctx, Blocks.OAK_SAPLING, Blocks.OAK_LOG, START_CORNER, true);
+	}
 
-    @GameTest(structure = TEMPLATE)
-    public void birch_bonemeal_NW(GameTestHelper ctx) {
-        testTreeBonemeal(ctx, Blocks.BIRCH_SAPLING, Blocks.BIRCH_LOG, START_CORNER, true);
-    }
+	@GameTest(structure = TEMPLATE)
+	public void birch_bonemeal_NW(GameTestHelper ctx) {
+		testTreeBonemeal(ctx, Blocks.BIRCH_SAPLING, Blocks.BIRCH_LOG, START_CORNER, true);
+	}
 
-    @GameTest(structure = TEMPLATE)
-    public void spruce_bonemeal_NW(GameTestHelper ctx) {
-        testTreeBonemeal(ctx, Blocks.SPRUCE_SAPLING, Blocks.SPRUCE_LOG, START_CORNER, false);
-    }
+	@GameTest(structure = TEMPLATE)
+	public void spruce_bonemeal_NW(GameTestHelper ctx) {
+		testTreeBonemeal(ctx, Blocks.SPRUCE_SAPLING, Blocks.SPRUCE_LOG, START_CORNER, false);
+	}
 
-    @GameTest(structure = TEMPLATE)
-    public void jungle_bonemeal_NW(GameTestHelper ctx) {
-        testTreeBonemeal(ctx, Blocks.JUNGLE_SAPLING, Blocks.JUNGLE_LOG, START_CORNER, false);
-    }
+	@GameTest(structure = TEMPLATE)
+	public void jungle_bonemeal_NW(GameTestHelper ctx) {
+		testTreeBonemeal(ctx, Blocks.JUNGLE_SAPLING, Blocks.JUNGLE_LOG, START_CORNER, false);
+	}
 
-    @GameTest(structure = TEMPLATE)
-    public void acacia_bonemeal_NW(GameTestHelper ctx) {
-        testTreeBonemeal(ctx, Blocks.ACACIA_SAPLING, Blocks.ACACIA_LOG, START_CORNER, true);
-    }
+	@GameTest(structure = TEMPLATE)
+	public void acacia_bonemeal_NW(GameTestHelper ctx) {
+		testTreeBonemeal(ctx, Blocks.ACACIA_SAPLING, Blocks.ACACIA_LOG, START_CORNER, true);
+	}
 
-    @GameTest(structure = TEMPLATE)
-    public void darkOak_bonemeal_NW(GameTestHelper ctx) {
-        testTreeBonemeal(ctx, Blocks.DARK_OAK_SAPLING, Blocks.DARK_OAK_LOG, START_CORNER, false);
-    }
+	@GameTest(structure = TEMPLATE)
+	public void darkOak_bonemeal_NW(GameTestHelper ctx) {
+		testTreeBonemeal(ctx, Blocks.DARK_OAK_SAPLING, Blocks.DARK_OAK_LOG, START_CORNER, false);
+	}
 
-    @GameTest(structure = TEMPLATE)
-    public void cherry_bonemeal_NW(GameTestHelper ctx) {
-        testTreeBonemeal(ctx, Blocks.CHERRY_SAPLING, Blocks.CHERRY_LOG, START_CORNER, true);
-    }
+	@GameTest(structure = TEMPLATE)
+	public void cherry_bonemeal_NW(GameTestHelper ctx) {
+		testTreeBonemeal(ctx, Blocks.CHERRY_SAPLING, Blocks.CHERRY_LOG, START_CORNER, true);
+	}
 
-    // The following two needs to be special-cased.
-    @GameTest(structure = TEMPLATE)
-    public void azaleaNW(GameTestHelper ctx) {
-        testAzalea(ctx, Blocks.AZALEA, Blocks.OAK_LOG, START_CORNER);
-    }
+	// The following two needs to be special-cased.
+	@GameTest(structure = TEMPLATE)
+	public void azaleaNW(GameTestHelper ctx) {
+		testAzalea(ctx, Blocks.AZALEA, Blocks.OAK_LOG, START_CORNER);
+	}
 
-    // @GameTest(template = TEMPLATE)
-    public void mangroveNW(GameTestHelper ctx) {
-        testTreeRandomTick(ctx, Blocks.MANGROVE_PROPAGULE, Blocks.MANGROVE_LOG, START_CORNER, true);
-    }
+	// @GameTest(template = TEMPLATE)
+	public void mangroveNW(GameTestHelper ctx) {
+		testTreeRandomTick(ctx, Blocks.MANGROVE_PROPAGULE, Blocks.MANGROVE_LOG, START_CORNER, true);
+	}
 
-    /**
-     * Asserts that the input parameters are suitable for use.
-     */
-    private static void assertSuitable(GameTestHelper ctx, boolean requiresDay) {
-        // Force it to be day for random-tick-based tests.
-        if (requiresDay) {
-            ctx.setTime(DebugifyTestUtils.TIME_OF_DAY_NOON);
-        }
+	/**
+	 * Asserts that the input parameters are suitable for use.
+	 */
+	private static void assertSuitable(GameTestHelper ctx, boolean requiresDay) {
+		// Force it to be day for random-tick-based tests.
+		if (requiresDay) {
+			ctx.setTime(DebugifyTestUtils.TIME_OF_DAY_NOON);
+		}
 
-        // For some reason, + 1 is required.
-        final var pos = CORNER;
-        DebugifyTestUtils.assertBlockStateFill(ctx, pos, pos.offset(1, 0, 1), b -> b.is(BlockTags.DIRT), "Invalid template; not dirt");
-        DebugifyTestUtils.assertBlockFill(ctx, pos.above(), pos.offset(1, 1, 1), b -> b == Blocks.AIR, "Invalid template; not air");
-        ctx.assertBlockState(pos.offset(-1, 1, -1), b -> !b.canBeReplaced(), block -> Component.literal("Invalid template; NW block not solid"));
-    }
+		// For some reason, + 1 is required.
+		final var pos = CORNER;
+		DebugifyTestUtils.assertBlockStateFill(ctx, pos, pos.offset(1, 0, 1), b -> b.is(BlockTags.DIRT), "Invalid template; not dirt");
+		DebugifyTestUtils.assertBlockFill(ctx, pos.above(), pos.offset(1, 1, 1), b -> b == Blocks.AIR, "Invalid template; not air");
+		ctx.assertBlockState(pos.offset(-1, 1, -1), b -> !b.canBeReplaced(), block -> Component.literal("Invalid template; NW block not solid"));
+	}
 }

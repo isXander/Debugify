@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc267125;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -16,17 +21,17 @@ import java.util.List;
 @BugFix(id = "MC-267125", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Command suggestions for reloadable content are not affected by /reload")
 @Mixin(PlayerList.class)
 public abstract class PlayerListMixin {
-    @Shadow
-    @Final
-    private List<ServerPlayer> players;
+	@Shadow
+	@Final
+	private List<ServerPlayer> players;
 
-    @Shadow
-    public abstract void sendPlayerPermissionLevel(ServerPlayer player);
+	@Shadow
+	public abstract void sendPlayerPermissionLevel(ServerPlayer player);
 
-    @Inject(method = "reloadResources", at = @At("RETURN"))
-    private void sendCommandSuggestions(CallbackInfo ci) {
-        for (ServerPlayer player : this.players) {
-            this.sendPlayerPermissionLevel(player);
-        }
-    }
+	@Inject(method = "reloadResources", at = @At("RETURN"))
+	private void sendCommandSuggestions(CallbackInfo ci) {
+		for (ServerPlayer player : this.players) {
+			this.sendPlayerPermissionLevel(player);
+		}
+	}
 }

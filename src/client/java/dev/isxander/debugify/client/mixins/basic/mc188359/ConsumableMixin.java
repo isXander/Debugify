@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc188359;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -21,20 +26,20 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @BugFix(id = "MC-188359", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Burp sound does not play after drinking or after eating cake")
 @Mixin(Consumable.class)
 public class ConsumableMixin {
-    @Shadow
-    @Final
-    private Holder<SoundEvent> sound;
+	@Shadow
+	@Final
+	private Holder<SoundEvent> sound;
 
-    @Inject(
-            method = "onConsume",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/item/ItemStack;consume(ILnet/minecraft/world/entity/LivingEntity;)V"
-            )
-    )
-    private void addBurpSound(Level level, LivingEntity user, ItemStack stack, CallbackInfoReturnable<ItemStack> cir) {
-        if (this.sound.is(SoundEvents.GENERIC_DRINK) && user.isAlwaysTicking()) {
-            level.playLocalSound(user.getX(), user.getY(), user.getZ(), SoundEvents.PLAYER_BURP, SoundSource.PLAYERS, 0.5F, Mth.randomBetween(user.getRandom(), 0.9F, 1.0F), false);
-        }
-    }
+	@Inject(
+			method = "onConsume",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/world/item/ItemStack;consume(ILnet/minecraft/world/entity/LivingEntity;)V"
+			)
+	)
+	private void addBurpSound(Level level, LivingEntity user, ItemStack stack, CallbackInfoReturnable<ItemStack> cir) {
+		if (this.sound.is(SoundEvents.GENERIC_DRINK) && user.isAlwaysTicking()) {
+			level.playLocalSound(user.getX(), user.getY(), user.getZ(), SoundEvents.PLAYER_BURP, SoundSource.PLAYERS, 0.5F, Mth.randomBetween(user.getRandom(), 0.9F, 1.0F), false);
+		}
+	}
 }

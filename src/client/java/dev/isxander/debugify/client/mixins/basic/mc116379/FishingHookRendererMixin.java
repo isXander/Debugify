@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc116379;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
@@ -15,22 +20,22 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-116379", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Punching with a cast fishing rod in the off-hand detaches fishing line from rod")
 @Mixin(FishingHookRenderer.class)
 public class FishingHookRendererMixin {
-    @ModifyExpressionValue(
-            method = "extractRenderState(Lnet/minecraft/world/entity/projectile/FishingHook;Lnet/minecraft/client/renderer/entity/state/FishingHookRenderState;F)V",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/entity/player/Player;getAttackAnim(F)F"
-            )
-    )
-    private float modifyHandSwingProgress(float handSwingProgress, FishingHook entity) {
-        Player player = entity.getPlayerOwner();
-        int j = player.getMainArm() == HumanoidArm.RIGHT ? 1 : -1;
-        int j2 = j;
-        ItemStack itemStack = player.getMainHandItem();
-        if (!itemStack.is(Items.FISHING_ROD)) {
-            j = -j;
-        }
+	@ModifyExpressionValue(
+			method = "extractRenderState(Lnet/minecraft/world/entity/projectile/FishingHook;Lnet/minecraft/client/renderer/entity/state/FishingHookRenderState;F)V",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/world/entity/player/Player;getAttackAnim(F)F"
+			)
+	)
+	private float modifyHandSwingProgress(float handSwingProgress, FishingHook entity) {
+		Player player = entity.getPlayerOwner();
+		int j = player.getMainArm() == HumanoidArm.RIGHT ? 1 : -1;
+		int j2 = j;
+		ItemStack itemStack = player.getMainHandItem();
+		if (!itemStack.is(Items.FISHING_ROD)) {
+			j = -j;
+		}
 
-        return j == j2 ? handSwingProgress : 0;
-    }
+		return j == j2 ? handSwingProgress : 0;
+	}
 }

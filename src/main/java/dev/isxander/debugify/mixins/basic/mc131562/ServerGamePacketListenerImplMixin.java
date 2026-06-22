@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc131562;
 
 import com.llamalad7.mixinextras.expression.Definition;
@@ -17,14 +22,14 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-131562", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Pressing the \"Done\" button in empty command block minecarts prints the message \"Command set: \" in chat")
 @Mixin(ServerGamePacketListenerImpl.class)
 public class ServerGamePacketListenerImplMixin {
-    /**
-     * Add a condition to only send the success message if the command is not empty.
-     * This is parity with the command block behaviour.
-     */
-    @Definition(id = "sendSystemMessage", method = "Lnet/minecraft/server/level/ServerPlayer;sendSystemMessage(Lnet/minecraft/network/chat/Component;)V")
-    @Expression("?.?.sendSystemMessage(?(?, ?))")
-    @WrapWithCondition(method = "handleSetCommandMinecart", at = @At("MIXINEXTRAS:EXPRESSION"))
-    private boolean checkEmptyCommandBeforeMessage(ServerPlayer instance, Component message, @Local(argsOnly = true, name = "packet") ServerboundSetCommandMinecartPacket packet) {
-        return !StringUtil.isNullOrEmpty(packet.getCommand());
-    }
+	/**
+	 * Add a condition to only send the success message if the command is not empty.
+	 * This is parity with the command block behaviour.
+	 */
+	@Definition(id = "sendSystemMessage", method = "Lnet/minecraft/server/level/ServerPlayer;sendSystemMessage(Lnet/minecraft/network/chat/Component;)V")
+	@Expression("?.?.sendSystemMessage(?(?, ?))")
+	@WrapWithCondition(method = "handleSetCommandMinecart", at = @At("MIXINEXTRAS:EXPRESSION"))
+	private boolean checkEmptyCommandBeforeMessage(ServerPlayer instance, Component message, @Local(argsOnly = true, name = "packet") ServerboundSetCommandMinecartPacket packet) {
+		return !StringUtil.isNullOrEmpty(packet.getCommand());
+	}
 }

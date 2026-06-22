@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc223153;
 
 import com.llamalad7.mixinextras.expression.Definition;
@@ -15,11 +20,11 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @Mixin(Blocks.class)
 public class BlocksMixin {
 
-    @Definition(id = "register", method = "Lnet/minecraft/world/level/block/Blocks;register(Lnet/minecraft/references/BlockItemId;Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)Lnet/minecraft/world/level/block/Block;")
+	@Definition(id = "register", method = "Lnet/minecraft/world/level/block/Blocks;register(Lnet/minecraft/references/BlockItemId;Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)Lnet/minecraft/world/level/block/Block;")
 	@Definition(id = "RAW_COPPER_BLOCK", field = "Lnet/minecraft/references/BlockItemIds;RAW_COPPER_BLOCK:Lnet/minecraft/references/BlockItemId;")
-    @Expression("register(RAW_COPPER_BLOCK, ?)")
-    @ModifyArg(method = "<clinit>", at = @At("MIXINEXTRAS:EXPRESSION"))
-    private static BlockBehaviour.Properties addCopperSound(BlockBehaviour.Properties settings) {
-        return settings.sound(SoundType.COPPER);
-    }
+	@Expression("register(RAW_COPPER_BLOCK, ?)")
+	@ModifyArg(method = "<clinit>", at = @At("MIXINEXTRAS:EXPRESSION"))
+	private static BlockBehaviour.Properties addCopperSound(BlockBehaviour.Properties settings) {
+		return settings.sound(SoundType.COPPER);
+	}
 }

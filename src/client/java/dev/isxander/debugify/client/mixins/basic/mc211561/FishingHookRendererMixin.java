@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc211561;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
@@ -13,8 +18,8 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-211561", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Fishing line appears in opposite hand when switching slots")
 @Mixin(FishingHookRenderer.class)
 public class FishingHookRendererMixin {
-    @ModifyReturnValue(method = "getHoldingArm", at = @At("RETURN"))
-    private static HumanoidArm fixHoldingArm(HumanoidArm original, Player owner) {
-        return owner.getOffhandItem().getItem() instanceof FishingRodItem ? original : owner.getMainArm();
-    }
+	@ModifyReturnValue(method = "getHoldingArm", at = @At("RETURN"))
+	private static HumanoidArm fixHoldingArm(HumanoidArm original, Player owner) {
+		return owner.getOffhandItem().getItem() instanceof FishingRodItem ? original : owner.getMainArm();
+	}
 }

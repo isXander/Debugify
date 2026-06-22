@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc57057;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -17,12 +22,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-57057", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Guardian laser attack sound ignores distance")
 @Mixin(GuardianAttackSoundInstance.class)
 public abstract class GuardianAttackSoundInstanceMixin extends AbstractTickableSoundInstance {
-    protected GuardianAttackSoundInstanceMixin(SoundEvent soundEvent, SoundSource soundSource, RandomSource randomSource) {
-        super(soundEvent, soundSource, randomSource);
-    }
+	protected GuardianAttackSoundInstanceMixin(SoundEvent soundEvent, SoundSource soundSource, RandomSource randomSource) {
+		super(soundEvent, soundSource, randomSource);
+	}
 
-    @Inject(method = "<init>", at = @At(value = "TAIL"))
-    private void fixAttenuation(Guardian guardian, CallbackInfo ci) {
-        this.attenuation = SoundInstance.Attenuation.LINEAR;
-    }
+	@Inject(method = "<init>", at = @At(value = "TAIL"))
+	private void fixAttenuation(Guardian guardian, CallbackInfo ci) {
+		this.attenuation = SoundInstance.Attenuation.LINEAR;
+	}
 }

@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc139041;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -11,14 +16,14 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @BugFix(id = "MC-139041", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "The sounds of fishing bobbers aren't controlled by the \"Players\" sound slider")
 @Mixin(FishingRodItem.class)
 public class FishingRodItemMixin {
-    @ModifyArg(
-            method = "use",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/Level;playSound(Lnet/minecraft/world/entity/Entity;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V"
-            )
-    )
-    private SoundSource modifyFishingBobberSounds(SoundSource soundSource) {
-        return SoundSource.PLAYERS;
-    }
+	@ModifyArg(
+			method = "use",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/world/level/Level;playSound(Lnet/minecraft/world/entity/Entity;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V"
+			)
+	)
+	private SoundSource modifyFishingBobberSounds(SoundSource soundSource) {
+		return SoundSource.PLAYERS;
+	}
 }

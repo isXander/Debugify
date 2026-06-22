@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc118740;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -20,23 +25,23 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-118740", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "moulberrystweaks", description = "Performing any right-click action silently resets the attack cooldown")
 @Mixin(Hud.class)
 public class HudMixin {
-    /**
-     * This fixes both:
-     * MC-118740 - Performing any right-click action silently resets the attack cooldown
-     * MC-116510 - Attack indicator doesn't indicate (most of the time) that breaking instantly-mineable blocks resets your attack
-     */
-    @WrapOperation(
-            method = "extractCrosshair",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/client/player/LocalPlayer;getAttackStrengthScale(F)F"
-            )
-    )
-    public float useFixedCooldown(LocalPlayer instance, float partialTick, Operation<Float> original) {
-        if (instance instanceof LocalPlayerDuck localPlayer) {
-            return localPlayer.debugify$getVisualAttackStrengthScale(partialTick);
-        } else {
-            return original.call(instance, partialTick);
-        }
-    }
+	/**
+	 * This fixes both:
+	 * MC-118740 - Performing any right-click action silently resets the attack cooldown
+	 * MC-116510 - Attack indicator doesn't indicate (most of the time) that breaking instantly-mineable blocks resets your attack
+	 */
+	@WrapOperation(
+			method = "extractCrosshair",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/client/player/LocalPlayer;getAttackStrengthScale(F)F"
+			)
+	)
+	public float useFixedCooldown(LocalPlayer instance, float partialTick, Operation<Float> original) {
+		if (instance instanceof LocalPlayerDuck localPlayer) {
+			return localPlayer.debugify$getVisualAttackStrengthScale(partialTick);
+		} else {
+			return original.call(instance, partialTick);
+		}
+	}
 }

@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc226961;
 
 import com.llamalad7.mixinextras.expression.Definition;
@@ -16,16 +21,16 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-226961", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Experience Orbs treat flowing lava as a full block")
 @Mixin(ExperienceOrb.class)
 public abstract class ExperienceOrbMixin extends Entity {
-    public ExperienceOrbMixin(EntityType<?> entityType, Level level) {
-        super(entityType, level);
-    }
+	public ExperienceOrbMixin(EntityType<?> entityType, Level level) {
+		super(entityType, level);
+	}
 
-    @Definition(id = "getFluidState", method = "Lnet/minecraft/world/level/Level;getFluidState(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/material/FluidState;")
-    @Definition(id = "is", method = "Lnet/minecraft/world/level/material/FluidState;is(Lnet/minecraft/tags/TagKey;)Z")
-    @Definition(id = "LAVA", field = "Lnet/minecraft/tags/FluidTags;LAVA:Lnet/minecraft/tags/TagKey;")
-    @Expression("?.getFluidState(?).is(LAVA)")
-    @ModifyExpressionValue(method = "tick", at = @At("MIXINEXTRAS:EXPRESSION"))
-    private boolean checkEyeLevel(boolean original) {
-        return this.isEyeInFluid(FluidTags.LAVA);
-    }
+	@Definition(id = "getFluidState", method = "Lnet/minecraft/world/level/Level;getFluidState(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/material/FluidState;")
+	@Definition(id = "is", method = "Lnet/minecraft/world/level/material/FluidState;is(Lnet/minecraft/tags/TagKey;)Z")
+	@Definition(id = "LAVA", field = "Lnet/minecraft/tags/FluidTags;LAVA:Lnet/minecraft/tags/TagKey;")
+	@Expression("?.getFluidState(?).is(LAVA)")
+	@ModifyExpressionValue(method = "tick", at = @At("MIXINEXTRAS:EXPRESSION"))
+	private boolean checkEyeLevel(boolean original) {
+		return this.isEyeInFluid(FluidTags.LAVA);
+	}
 }

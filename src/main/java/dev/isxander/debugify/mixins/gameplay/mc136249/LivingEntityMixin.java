@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.gameplay.mc136249;
 
 import com.llamalad7.mixinextras.expression.Definition;
@@ -13,14 +18,14 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-136249", category = FixCategory.GAMEPLAY, env = BugFix.Env.SERVER, description = "Wearing boots enchanted with depth strider decreases the strength of the riptide enchantment")
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin{
-    @Shadow
-    public abstract boolean isAutoSpinAttack();
+	@Shadow
+	public abstract boolean isAutoSpinAttack();
 
-    @Definition(id = "getAttributeValue", method = "Lnet/minecraft/world/entity/LivingEntity;getAttributeValue(Lnet/minecraft/core/Holder;)D")
-    @Definition(id = "WATER_MOVEMENT_EFFICIENCY", field = "Lnet/minecraft/world/entity/ai/attributes/Attributes;WATER_MOVEMENT_EFFICIENCY:Lnet/minecraft/core/Holder;")
-    @Expression("this.getAttributeValue(WATER_MOVEMENT_EFFICIENCY)")
-    @ModifyExpressionValue(method = "travelInWater", at = @At("MIXINEXTRAS:EXPRESSION"))
-    private double checkRiptide(double original) {
-        return this.isAutoSpinAttack() ? 0 : original;
-    }
+	@Definition(id = "getAttributeValue", method = "Lnet/minecraft/world/entity/LivingEntity;getAttributeValue(Lnet/minecraft/core/Holder;)D")
+	@Definition(id = "WATER_MOVEMENT_EFFICIENCY", field = "Lnet/minecraft/world/entity/ai/attributes/Attributes;WATER_MOVEMENT_EFFICIENCY:Lnet/minecraft/core/Holder;")
+	@Expression("this.getAttributeValue(WATER_MOVEMENT_EFFICIENCY)")
+	@ModifyExpressionValue(method = "travelInWater", at = @At("MIXINEXTRAS:EXPRESSION"))
+	private double checkRiptide(double original) {
+		return this.isAutoSpinAttack() ? 0 : original;
+	}
 }

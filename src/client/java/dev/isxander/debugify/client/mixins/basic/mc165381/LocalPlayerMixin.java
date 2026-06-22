@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc165381;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -14,19 +19,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @BugFix(id = "MC-165381", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Block breaking can be delayed by dropping/throwing the tool while breaking a block")
 @Mixin(LocalPlayer.class)
 public class LocalPlayerMixin {
-    @Shadow
-    @Final
-    protected Minecraft minecraft;
+	@Shadow
+	@Final
+	protected Minecraft minecraft;
 
-    @Inject(
-            method = "drop",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/entity/player/Inventory;removeFromSelected(Z)Lnet/minecraft/world/item/ItemStack;",
-                    shift = At.Shift.AFTER
-            )
-    )
-    private void onDropItem(CallbackInfoReturnable<Boolean> cir) {
-        minecraft.gameMode.stopDestroyBlock();
-    }
+	@Inject(
+			method = "drop",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/world/entity/player/Inventory;removeFromSelected(Z)Lnet/minecraft/world/item/ItemStack;",
+					shift = At.Shift.AFTER
+			)
+	)
+	private void onDropItem(CallbackInfoReturnable<Boolean> cir) {
+		minecraft.gameMode.stopDestroyBlock();
+	}
 }

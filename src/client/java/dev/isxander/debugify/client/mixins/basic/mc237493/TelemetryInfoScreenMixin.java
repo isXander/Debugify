@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc237493;
 
 import com.llamalad7.mixinextras.expression.Definition;
@@ -27,30 +32,30 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-237493", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "no-telemetry", description = "Telemetry cannot be disabled")
 @Mixin(TelemetryInfoScreen.class)
 public abstract class TelemetryInfoScreenMixin extends Screen {
-    protected TelemetryInfoScreenMixin(Component title) {
-        super(title);
-    }
+	protected TelemetryInfoScreenMixin(Component title) {
+		super(title);
+	}
 
-    @Shadow @Final private Options options;
+	@Shadow @Final private Options options;
 
-    @Shadow private TelemetryEventWidget telemetryEventWidget;
+	@Shadow private TelemetryEventWidget telemetryEventWidget;
 
-    @Unique private AbstractWidget cycleButton;
+	@Unique private AbstractWidget cycleButton;
 
-    @Definition(id = "addChild", method = "Lnet/minecraft/client/gui/layouts/LinearLayout;addChild(Lnet/minecraft/client/gui/layouts/LayoutElement;)Lnet/minecraft/client/gui/layouts/LayoutElement;")
-    @Definition(id = "builder", method = "Lnet/minecraft/client/gui/components/Checkbox;builder(Lnet/minecraft/network/chat/Component;Lnet/minecraft/client/gui/Font;)Lnet/minecraft/client/gui/components/Checkbox$Builder;")
-    @Definition(id = "CHECKBOX_OPT_IN", field = "Lnet/minecraft/client/gui/screens/telemetry/TelemetryInfoScreen;CHECKBOX_OPT_IN:Lnet/minecraft/network/chat/Component;")
-    @Expression("?.addChild(builder(CHECKBOX_OPT_IN, ?).?(?).?(?.?.?()).?(?).?())")
-    @WrapOperation(method = "init", at = @At("MIXINEXTRAS:EXPRESSION"))
-    private LayoutElement createTelemetryCheckbox(LinearLayout instance, LayoutElement child, Operation<LayoutElement> original) {
-        this.cycleButton = instance.addChild(((DebugifyTelemetryAccessor) options).getTelemetryOption().createButton(options, 0, 0, 308, state -> telemetryEventWidget.onOptInChanged(state == DebugifyTelemetry.ALL)));
-        return null;
-    }
+	@Definition(id = "addChild", method = "Lnet/minecraft/client/gui/layouts/LinearLayout;addChild(Lnet/minecraft/client/gui/layouts/LayoutElement;)Lnet/minecraft/client/gui/layouts/LayoutElement;")
+	@Definition(id = "builder", method = "Lnet/minecraft/client/gui/components/Checkbox;builder(Lnet/minecraft/network/chat/Component;Lnet/minecraft/client/gui/Font;)Lnet/minecraft/client/gui/components/Checkbox$Builder;")
+	@Definition(id = "CHECKBOX_OPT_IN", field = "Lnet/minecraft/client/gui/screens/telemetry/TelemetryInfoScreen;CHECKBOX_OPT_IN:Lnet/minecraft/network/chat/Component;")
+	@Expression("?.addChild(builder(CHECKBOX_OPT_IN, ?).?(?).?(?.?.?()).?(?).?())")
+	@WrapOperation(method = "init", at = @At("MIXINEXTRAS:EXPRESSION"))
+	private LayoutElement createTelemetryCheckbox(LinearLayout instance, LayoutElement child, Operation<LayoutElement> original) {
+		this.cycleButton = instance.addChild(((DebugifyTelemetryAccessor) options).getTelemetryOption().createButton(options, 0, 0, 308, state -> telemetryEventWidget.onOptInChanged(state == DebugifyTelemetry.ALL)));
+		return null;
+	}
 
-    @Inject(method = "repositionElements", at = @At("TAIL"))
-    private void repositionCycleButton(CallbackInfo ci) {
-        if (this.cycleButton != null) {
-            this.cycleButton.setWidth(308);
-        }
-    }
+	@Inject(method = "repositionElements", at = @At("TAIL"))
+	private void repositionCycleButton(CallbackInfo ci) {
+		if (this.cycleButton != null) {
+			this.cycleButton.setWidth(308);
+		}
+	}
 }

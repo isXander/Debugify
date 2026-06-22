@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.helpers.mc118740;
 
 /**
@@ -8,7 +13,7 @@ package dev.isxander.debugify.client.helpers.mc118740;
  * @author Moulberry
  */
 public interface LocalPlayerDuck {
-    float debugify$getVisualAttackStrengthScale(float partialTick);
-    void debugify$resetVisualAttackStrengthScale();
-    void debugify$incrementVisualAttackStrengthScale();
+	float debugify$getVisualAttackStrengthScale(float partialTick);
+	void debugify$resetVisualAttackStrengthScale();
+	void debugify$incrementVisualAttackStrengthScale();
 }

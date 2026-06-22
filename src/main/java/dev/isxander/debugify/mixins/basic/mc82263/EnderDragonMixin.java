@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc82263;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -12,13 +17,13 @@ import org.spongepowered.asm.mixin.Mixin;
 @BugFix(id = "MC-82263", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Ender dragon produces regular hurt sound on final hit")
 @Mixin(EnderDragon.class)
 public class EnderDragonMixin extends Mob {
-    protected EnderDragonMixin(EntityType<? extends Mob> entityType, Level level) {
-        super(entityType, level);
-    }
+	protected EnderDragonMixin(EntityType<? extends Mob> entityType, Level level) {
+		super(entityType, level);
+	}
 
-    // The death sound plays regardless of what this is set to, it's not set in the target class and instead uses LivingEntity's GENERIC_DEATH
-    @Override
-    protected SoundEvent getDeathSound() {
-        return null;
-    }
+	// The death sound plays regardless of what this is set to, it's not set in the target class and instead uses LivingEntity's GENERIC_DEATH
+	@Override
+	protected SoundEvent getDeathSound() {
+		return null;
+	}
 }

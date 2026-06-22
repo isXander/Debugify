@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc187100;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
@@ -16,24 +21,23 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-187100", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "End crystals try to heal dying Ender dragons")
 @Mixin(EnderDragon.class)
 public class EnderDragonMixin {
-    @Shadow
-    public int dragonDeathTime;
+	@Shadow
+	public int dragonDeathTime;
 
-    @Shadow
-    @Nullable
-    public EndCrystal nearestCrystal;
+	@Shadow
+	@Nullable public EndCrystal nearestCrystal;
 
-    @WrapMethod(method = "checkCrystals")
-    private void dontFindNearestCrystalIfDying(Operation<Void> original) {
-        if (this.dragonDeathTime > 0) {
-            this.nearestCrystal = null;
-        } else {
-            original.call();
-        }
-    }
+	@WrapMethod(method = "checkCrystals")
+	private void dontFindNearestCrystalIfDying(Operation<Void> original) {
+		if (this.dragonDeathTime > 0) {
+			this.nearestCrystal = null;
+		} else {
+			original.call();
+		}
+	}
 
-    @Inject(method = "tickDeath", at = @At("HEAD"))
-    private void clearNearestCrystalOnDeath(CallbackInfo ci) {
-        this.nearestCrystal = null;
-    }
+	@Inject(method = "tickDeath", at = @At("HEAD"))
+	private void clearNearestCrystalOnDeath(CallbackInfo ci) {
+		this.nearestCrystal = null;
+	}
 }

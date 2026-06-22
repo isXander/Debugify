@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc298066;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -15,13 +20,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-298066", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Directly entering a bed from a mount places the player in the wrong place")
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
-    public LivingEntityMixin(EntityType<?> entityType, Level level) {
-        super(entityType, level);
-    }
+	public LivingEntityMixin(EntityType<?> entityType, Level level) {
+		super(entityType, level);
+	}
 
-    // This is just a hacky fix to force the player into the correct position
-    @Inject(method = "setPosToBed", at = @At("TAIL"))
-    private void teleportToBed(BlockPos bedPosition, CallbackInfo ci) {
-        this.teleportTo(bedPosition.getX() + 0.5, bedPosition.getY() + 0.6875, bedPosition.getZ() + 0.5);
-    }
+	// This is just a hacky fix to force the player into the correct position
+	@Inject(method = "setPosToBed", at = @At("TAIL"))
+	private void teleportToBed(BlockPos bedPosition, CallbackInfo ci) {
+		this.teleportTo(bedPosition.getX() + 0.5, bedPosition.getY() + 0.6875, bedPosition.getZ() + 0.5);
+	}
 }

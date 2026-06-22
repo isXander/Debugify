@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc176806;
 
 import com.llamalad7.mixinextras.sugar.Local;
@@ -16,18 +21,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @BugFix(id = "MC-176806", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Scoreboard criteria for using glowstone doesn't increase score when charging a respawn anchor")
 @Mixin(RespawnAnchorBlock.class)
 public class RespawnAnchorBlockMixin {
-    @Inject(
-            method = "useItemOn",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/item/ItemStack;consume(ILnet/minecraft/world/entity/LivingEntity;)V"
-            )
-    )
-    private void awardGlowstoneStat(
-            CallbackInfoReturnable<InteractionResult> cir,
-            @Local(argsOnly = true, name = "itemStack") ItemStack itemStack,
-            @Local(argsOnly = true, name = "player") Player player
-    ) {
-        player.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
-    }
+	@Inject(
+			method = "useItemOn",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/world/item/ItemStack;consume(ILnet/minecraft/world/entity/LivingEntity;)V"
+			)
+	)
+	private void awardGlowstoneStat(
+			CallbackInfoReturnable<InteractionResult> cir,
+			@Local(argsOnly = true, name = "itemStack") ItemStack itemStack,
+			@Local(argsOnly = true, name = "player") Player player
+	) {
+		player.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
+	}
 }

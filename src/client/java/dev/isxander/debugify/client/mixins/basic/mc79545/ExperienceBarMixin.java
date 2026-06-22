@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc79545;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
@@ -11,12 +16,12 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-79545", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "The experience bar disappears when too many levels are given to the player")
 @Mixin(ExperienceBar.class)
 public class ExperienceBarMixin {
-    /**
-     * In some cases, this value can wrap-around to negative values
-     * This mixin prevents that.
-     */
-    @ModifyExpressionValue(method = "extractBackground", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;getXpNeededForNextLevel()I"))
-    private int getNextLevelExperience(int nextLevelExperience) {
-        return Mth.clamp(nextLevelExperience, 0, Integer.MAX_VALUE);
-    }
+	/**
+	 * In some cases, this value can wrap-around to negative values
+	 * This mixin prevents that.
+	 */
+	@ModifyExpressionValue(method = "extractBackground", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/LocalPlayer;getXpNeededForNextLevel()I"))
+	private int getNextLevelExperience(int nextLevelExperience) {
+		return Mth.clamp(nextLevelExperience, 0, Integer.MAX_VALUE);
+	}
 }

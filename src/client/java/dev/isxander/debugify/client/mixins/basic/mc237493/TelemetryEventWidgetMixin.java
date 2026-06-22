@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc237493;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
@@ -24,23 +29,23 @@ import java.util.List;
 @BugFix(id = "MC-237493", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "no-telemetry", description = "Telemetry cannot be disabled")
 @Mixin(TelemetryEventWidget.class)
 public class TelemetryEventWidgetMixin {
-    @Shadow @Final private Font font;
+	@Shadow @Final private Font font;
 
-    @ModifyExpressionValue(method = "buildContent", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/telemetry/TelemetryEventType;values()Ljava/util/List;"))
-    private List<TelemetryEventType> modifyInUseTelemetry(List<TelemetryEventType> inUse) {
-        if (((DebugifyTelemetryAccessor) Minecraft.getInstance().options).getTelemetryOption().get() == DebugifyTelemetry.OFF)
-            return List.of();
-        return inUse;
-    }
+	@ModifyExpressionValue(method = "buildContent", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/telemetry/TelemetryEventType;values()Ljava/util/List;"))
+	private List<TelemetryEventType> modifyInUseTelemetry(List<TelemetryEventType> inUse) {
+		if (((DebugifyTelemetryAccessor) Minecraft.getInstance().options).getTelemetryOption().get() == DebugifyTelemetry.OFF)
+			return List.of();
+		return inUse;
+	}
 
-    @Inject(method = "buildContent", at = @At(value = "INVOKE", target = "Ljava/util/List;sort(Ljava/util/Comparator;)V"))
-    private void addDebugifyContent(
-            CallbackInfoReturnable<TelemetryEventWidget.Content> cir,
-            @Local(name = "content") TelemetryEventWidget.ContentBuilder content
-    ) {
-        if (((DebugifyTelemetryAccessor) Minecraft.getInstance().options).getTelemetryOption().get() == DebugifyTelemetry.OFF) {
-            content.addHeader(this.font, Component.translatable("debugify.mc_237493.header"));
-            content.addLine(this.font, Component.translatable("debugify.mc_237493.line", Component.translatable("options.telemetry.state.none")).withStyle(ChatFormatting.GRAY));
-        }
-    }
+	@Inject(method = "buildContent", at = @At(value = "INVOKE", target = "Ljava/util/List;sort(Ljava/util/Comparator;)V"))
+	private void addDebugifyContent(
+			CallbackInfoReturnable<TelemetryEventWidget.Content> cir,
+			@Local(name = "content") TelemetryEventWidget.ContentBuilder content
+	) {
+		if (((DebugifyTelemetryAccessor) Minecraft.getInstance().options).getTelemetryOption().get() == DebugifyTelemetry.OFF) {
+			content.addHeader(this.font, Component.translatable("debugify.mc_237493.header"));
+			content.addLine(this.font, Component.translatable("debugify.mc_237493.line", Component.translatable("options.telemetry.state.none")).withStyle(ChatFormatting.GRAY));
+		}
+	}
 }

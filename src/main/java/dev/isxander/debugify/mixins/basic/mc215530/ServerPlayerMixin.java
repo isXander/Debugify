@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc215530;
 
 import com.mojang.authlib.GameProfile;
@@ -14,18 +19,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @BugFix(id = "MC-215530", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "The freezing effect isn't immediately removed upon switching into spectator mode")
 @Mixin(ServerPlayer.class)
 public abstract class ServerPlayerMixin extends Player {
-    public ServerPlayerMixin(Level world, GameProfile gameProfile) {
-        super(world, gameProfile);
-    }
+	public ServerPlayerMixin(Level world, GameProfile gameProfile) {
+		super(world, gameProfile);
+	}
 
-    @Inject(
-            method = "setGameMode",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/server/level/ServerPlayer;stopRiding()V"
-            )
-    )
-    private void onChangeToSpectator(CallbackInfoReturnable<Boolean> cir) {
-        setTicksFrozen(0);
-    }
+	@Inject(
+			method = "setGameMode",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/server/level/ServerPlayer;stopRiding()V"
+			)
+	)
+	private void onChangeToSpectator(CallbackInfoReturnable<Boolean> cir) {
+		setTicksFrozen(0);
+	}
 }

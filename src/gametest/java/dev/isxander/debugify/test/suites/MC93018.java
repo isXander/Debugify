@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.test.suites;
 
 import net.fabricmc.fabric.api.gametest.v1.GameTest;
@@ -13,18 +18,18 @@ import net.minecraft.world.level.GameType;
 
 public class MC93018 {
 
-    @GameTest
-    public void mc93018(GameTestHelper ctx) {
-        Player player = ctx.makeMockPlayer(GameType.SURVIVAL);
-        player.setItemInHand(InteractionHand.MAIN_HAND, Items.BONE.getDefaultInstance());
-        ctx.getLevel().addFreshEntity(player);
+	@GameTest
+	public void mc93018(GameTestHelper ctx) {
+		Player player = ctx.makeMockPlayer(GameType.SURVIVAL);
+		player.setItemInHand(InteractionHand.MAIN_HAND, Items.BONE.getDefaultInstance());
+		ctx.getLevel().addFreshEntity(player);
 
-        Wolf wolf = ctx.spawn(EntityTypes.WOLF, 2, 0, 0);
-        wolf.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.0);
+		Wolf wolf = ctx.spawn(EntityTypes.WOLF, 2, 0, 0);
+		wolf.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.0);
 
-        wolf.mobInteract(player, InteractionHand.MAIN_HAND);
-        ctx.succeedIf(() -> ctx.assertTrue(wolf.getInLoveTime() <= 0, Component.literal("Wolf shouldn't love player")));
-    }
+		wolf.mobInteract(player, InteractionHand.MAIN_HAND);
+		ctx.succeedIf(() -> ctx.assertTrue(wolf.getInLoveTime() <= 0, Component.literal("Wolf shouldn't love player")));
+	}
 
 
 }

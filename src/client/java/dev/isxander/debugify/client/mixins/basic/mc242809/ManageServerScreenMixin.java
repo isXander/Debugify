@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc242809;
 
 import com.llamalad7.mixinextras.expression.Definition;
@@ -12,13 +17,13 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-242809", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "IP field in the multiplayer menu will not detect the IP if a space is put at the beginning/end of it")
 @Mixin(ManageServerScreen.class)
 public class ManageServerScreenMixin {
-    @Definition(id = "serverData", field = "Lnet/minecraft/client/gui/screens/ManageServerScreen;serverData:Lnet/minecraft/client/multiplayer/ServerData;")
-    @Definition(id = "ip", field = "Lnet/minecraft/client/multiplayer/ServerData;ip:Ljava/lang/String;")
-    @Definition(id = "ipEdit", field = "Lnet/minecraft/client/gui/screens/ManageServerScreen;ipEdit:Lnet/minecraft/client/gui/components/EditBox;")
-    @Definition(id = "getValue", method = "Lnet/minecraft/client/gui/components/EditBox;getValue()Ljava/lang/String;")
-    @Expression("this.serverData.ip = @(this.ipEdit.getValue())")
-    @ModifyExpressionValue(method = "onAdd", at = @At("MIXINEXTRAS:EXPRESSION"))
-    private String trimIp(String ip) {
-        return ip.trim();
-    }
+	@Definition(id = "serverData", field = "Lnet/minecraft/client/gui/screens/ManageServerScreen;serverData:Lnet/minecraft/client/multiplayer/ServerData;")
+	@Definition(id = "ip", field = "Lnet/minecraft/client/multiplayer/ServerData;ip:Ljava/lang/String;")
+	@Definition(id = "ipEdit", field = "Lnet/minecraft/client/gui/screens/ManageServerScreen;ipEdit:Lnet/minecraft/client/gui/components/EditBox;")
+	@Definition(id = "getValue", method = "Lnet/minecraft/client/gui/components/EditBox;getValue()Ljava/lang/String;")
+	@Expression("this.serverData.ip = @(this.ipEdit.getValue())")
+	@ModifyExpressionValue(method = "onAdd", at = @At("MIXINEXTRAS:EXPRESSION"))
+	private String trimIp(String ip) {
+		return ip.trim();
+	}
 }

@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.test.suites;
 
 import net.fabricmc.fabric.api.gametest.v1.GameTest;
@@ -13,29 +18,29 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameType;
 
 public class MC100991 {
-    @GameTest
-    public void statTrackRodKill(GameTestHelper ctx) {
-        Mob targetMob = ctx.spawnWithNoFreeWill(EntityTypes.CREEPER, new BlockPos(4, 0, 4));
+	@GameTest
+	public void statTrackRodKill(GameTestHelper ctx) {
+		Mob targetMob = ctx.spawnWithNoFreeWill(EntityTypes.CREEPER, new BlockPos(4, 0, 4));
 
-        Mob attacker = ctx.spawnWithNoFreeWill(EntityTypes.HUSK, new BlockPos(1, 0, 1));
-        ItemStack rodStack = new ItemStack(Items.FISHING_ROD);
-        attacker.setItemInHand(InteractionHand.MAIN_HAND, rodStack);
+		Mob attacker = ctx.spawnWithNoFreeWill(EntityTypes.HUSK, new BlockPos(1, 0, 1));
+		ItemStack rodStack = new ItemStack(Items.FISHING_ROD);
+		attacker.setItemInHand(InteractionHand.MAIN_HAND, rodStack);
 
-        FishingHook hook = ctx.spawn(EntityTypes.FISHING_BOBBER, targetMob.blockPosition().above(1));
+		FishingHook hook = ctx.spawn(EntityTypes.FISHING_BOBBER, targetMob.blockPosition().above(1));
 
-        Player mockPlayer = ctx.makeMockPlayer(GameType.CREATIVE);
-        mockPlayer.setItemInHand(InteractionHand.MAIN_HAND, rodStack);
-        mockPlayer.setPos(attacker.position());
-        hook.setOwner(mockPlayer);
+		Player mockPlayer = ctx.makeMockPlayer(GameType.CREATIVE);
+		mockPlayer.setItemInHand(InteractionHand.MAIN_HAND, rodStack);
+		mockPlayer.setPos(attacker.position());
+		hook.setOwner(mockPlayer);
 
-        ctx.runAfterDelay(20, () -> {
-            // yank entity
-            hook.retrieve(rodStack);
+		ctx.runAfterDelay(20, () -> {
+			// yank entity
+			hook.retrieve(rodStack);
 
-            ctx.runAfterDelay(5, () -> {
-                System.out.println(targetMob.getCombatTracker().getDeathMessage().getString());
-                System.out.println(targetMob.getCombatTracker().getDeathMessage());
-            });
-        });
-    }
+			ctx.runAfterDelay(5, () -> {
+				System.out.println(targetMob.getCombatTracker().getDeathMessage().getString());
+				System.out.println(targetMob.getCombatTracker().getDeathMessage());
+			});
+		});
+	}
 }

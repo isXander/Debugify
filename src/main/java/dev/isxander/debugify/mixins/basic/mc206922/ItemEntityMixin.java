@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc206922;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -12,10 +17,10 @@ import org.spongepowered.asm.mixin.Mixin;
 @Mixin(ItemEntity.class)
 public abstract class ItemEntityMixin extends EntityMixin {
 
-    @Override
-    protected void bypassStruckByLightning(ServerLevel world, LightningBolt lightning, Operation<Void> operation) {
-        if (tickCount > 8) {
-            super.bypassStruckByLightning(world, lightning, operation);
-        }
-    }
+	@Override
+	protected void bypassStruckByLightning(ServerLevel world, LightningBolt lightning, Operation<Void> operation) {
+		if (tickCount > 8) {
+			super.bypassStruckByLightning(world, lightning, operation);
+		}
+	}
 }

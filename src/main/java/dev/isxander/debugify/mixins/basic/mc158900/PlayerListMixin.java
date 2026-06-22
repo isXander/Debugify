@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc158900;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -13,16 +18,16 @@ import org.spongepowered.asm.mixin.injection.At;
 @BugFix(id = "MC-158900", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "\"bad packet id 26\" disconnect after first-login after a temporary ban expires")
 @Mixin(PlayerList.class)
 public class PlayerListMixin {
-    @WrapOperation(
-            method = "canPlayerLogin",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/server/players/UserBanList;isBanned(Lnet/minecraft/server/players/NameAndId;)Z"
-            )
-    )
-    private boolean removeExpiredBeforeCheck(UserBanList instance, NameAndId user, Operation<Boolean> original) {
-        instance.get(user); // get will remove expired bans
-        return original.call(instance, user);
-    }
+	@WrapOperation(
+			method = "canPlayerLogin",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/server/players/UserBanList;isBanned(Lnet/minecraft/server/players/NameAndId;)Z"
+			)
+	)
+	private boolean removeExpiredBeforeCheck(UserBanList instance, NameAndId user, Operation<Boolean> original) {
+		instance.get(user); // get will remove expired bans
+		return original.call(instance, user);
+	}
 
 }

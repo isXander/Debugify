@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc93384;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
@@ -9,23 +14,22 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @BugFix(id = "MC-93384", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, description = "Bubbles appear at the feet of drowning mobs")
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
-    public LivingEntityMixin(EntityType<?> type, Level world) {
-        super(type, world);
-    }
+	public LivingEntityMixin(EntityType<?> type, Level world) {
+		super(type, world);
+	}
 
-    @ModifyExpressionValue(
-            method = "makeDrownParticles",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/entity/LivingEntity;getY()D"
-            )
-    )
-    private double addEyeHeightToBubblePos(double footY) {
-        return footY + getEyeHeight();
-    }
+	@ModifyExpressionValue(
+			method = "makeDrownParticles",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/world/entity/LivingEntity;getY()D"
+			)
+	)
+	private double addEyeHeightToBubblePos(double footY) {
+		return footY + getEyeHeight();
+	}
 }

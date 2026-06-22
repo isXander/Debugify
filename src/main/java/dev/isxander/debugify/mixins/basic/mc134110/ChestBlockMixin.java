@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc134110;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
@@ -14,9 +19,9 @@ import static net.minecraft.world.level.block.ChestBlock.TYPE;
 @BugFix(id = "MC-134110", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Structure mirroring breaking apart double chests")
 @Mixin(ChestBlock.class)
 public class ChestBlockMixin {
-    @WrapMethod(method = "mirror")
-    private BlockState fixChestRotations(BlockState state, Mirror mirror, Operation<BlockState> original) {
-        BlockState result = original.call(state, mirror);
-        return mirror == Mirror.NONE ? result : result.setValue(TYPE, result.getValue(TYPE).getOpposite());
-    }
+	@WrapMethod(method = "mirror")
+	private BlockState fixChestRotations(BlockState state, Mirror mirror, Operation<BlockState> original) {
+		BlockState result = original.call(state, mirror);
+		return mirror == Mirror.NONE ? result : result.setValue(TYPE, result.getValue(TYPE).getOpposite());
+	}
 }

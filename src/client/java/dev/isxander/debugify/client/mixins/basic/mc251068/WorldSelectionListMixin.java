@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc251068;
 
 import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
@@ -17,18 +22,18 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(WorldSelectionList.class)
 public abstract class WorldSelectionListMixin extends ObjectSelectionList<WorldSelectionList.Entry> {
 
-    public WorldSelectionListMixin(Minecraft minecraft, int i, int j, int k, int l) {
-        super(minecraft, i, j, k, l);
-    }
+	public WorldSelectionListMixin(Minecraft minecraft, int i, int j, int k, int l) {
+		super(minecraft, i, j, k, l);
+	}
 
-    @WrapWithCondition(
-            method = "returnToScreen",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/client/gui/Gui;setScreen(Lnet/minecraft/client/gui/screens/Screen;)V"
-            )
-    )
-    private boolean dontShowEmptyWorldList(Gui gui, Screen screen) {
-        return (gui.screen() instanceof ProgressScreen || gui.screen() instanceof ConfirmScreen);
-    }
+	@WrapWithCondition(
+			method = "returnToScreen",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/client/gui/Gui;setScreen(Lnet/minecraft/client/gui/screens/Screen;)V"
+			)
+	)
+	private boolean dontShowEmptyWorldList(Gui gui, Screen screen) {
+		return (gui.screen() instanceof ProgressScreen || gui.screen() instanceof ConfirmScreen);
+	}
 }

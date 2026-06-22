@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc221257;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -16,22 +21,22 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-221257", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "Shulker bullets don't produce bubble particles when moving through water")
 @Mixin(ShulkerBullet.class)
 public abstract class ShulkerBulletMixin extends Projectile {
-    public ShulkerBulletMixin(EntityType<? extends Projectile> entityType, Level level) {
-        super(entityType, level);
-    }
+	public ShulkerBulletMixin(EntityType<? extends Projectile> entityType, Level level) {
+		super(entityType, level);
+	}
 
-    /**
-     * Code taken from {@link net.minecraft.world.entity.projectile.arrow.AbstractArrow}
-     */
-    @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/ShulkerBullet;setPos(Lnet/minecraft/world/phys/Vec3;)V"))
-    private void addMissingBubbleParticles(CallbackInfo ci) {
-        if (this.isInWater()) {
-            Vec3 vec3 = this.position();
-            Vec3 vec32 = this.getDeltaMovement();
+	/**
+	 * Code taken from {@link net.minecraft.world.entity.projectile.arrow.AbstractArrow}
+	 */
+	@Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/ShulkerBullet;setPos(Lnet/minecraft/world/phys/Vec3;)V"))
+	private void addMissingBubbleParticles(CallbackInfo ci) {
+		if (this.isInWater()) {
+			Vec3 vec3 = this.position();
+			Vec3 vec32 = this.getDeltaMovement();
 
-            for (int i = 0; i < 4; ++i) {
-                this.level().addParticle(ParticleTypes.BUBBLE, vec3.x - vec32.x * (double) 0.25F, vec3.y - vec32.y * (double) 0.25F, vec3.z - vec32.z * (double) 0.25F, vec32.x, vec32.y, vec32.z);
-            }
-        }
-    }
+			for (int i = 0; i < 4; ++i) {
+				this.level().addParticle(ParticleTypes.BUBBLE, vec3.x - vec32.x * (double) 0.25F, vec3.y - vec32.y * (double) 0.25F, vec3.z - vec32.z * (double) 0.25F, vec32.x, vec32.y, vec32.z);
+			}
+		}
+	}
 }

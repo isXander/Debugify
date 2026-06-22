@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.client.mixins.basic.mc206540;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -13,21 +18,21 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-206540", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "ridingmousefix", description = "Increased input delay when riding an entity")
 @Mixin(Entity.class)
 public abstract class EntityMixin {
-    @Shadow
-    public abstract float getYRot();
+	@Shadow
+	public abstract float getYRot();
 
-    /**
-     * Code taken from {@link net.minecraft.world.entity.vehicle.boat.AbstractBoat}
-     */
-    @Inject(method = "onPassengerTurned", at = @At("HEAD"))
-    private void fixCameraMovement(Entity passenger, CallbackInfo ci) {
-        if (passenger.isAlwaysTicking()) {
-            passenger.setYBodyRot(this.getYRot());
-            float f = Mth.wrapDegrees(passenger.getYRot() - this.getYRot());
-            float g = Mth.clamp(f, -180.0F, 180.0F);
-            passenger.yRotO += g - f;
-            passenger.setYRot(passenger.getYRot() + g - f);
-            passenger.setYHeadRot(passenger.getYRot());
-        }
-    }
+	/**
+	 * Code taken from {@link net.minecraft.world.entity.vehicle.boat.AbstractBoat}
+	 */
+	@Inject(method = "onPassengerTurned", at = @At("HEAD"))
+	private void fixCameraMovement(Entity passenger, CallbackInfo ci) {
+		if (passenger.isAlwaysTicking()) {
+			passenger.setYBodyRot(this.getYRot());
+			float f = Mth.wrapDegrees(passenger.getYRot() - this.getYRot());
+			float g = Mth.clamp(f, -180.0F, 180.0F);
+			passenger.yRotO += g - f;
+			passenger.setYRot(passenger.getYRot() + g - f);
+			passenger.setYHeadRot(passenger.getYRot());
+		}
+	}
 }

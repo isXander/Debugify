@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2026 The Debugify Contributors
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 package dev.isxander.debugify.mixins.basic.mc7569;
 
 import dev.isxander.debugify.fixes.BugFix;
@@ -14,10 +19,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @BugFix(id = "MC-7569", category = FixCategory.BASIC, env = BugFix.Env.SERVER, description = "RCON output has newlines removed")
 @Mixin(RconConsoleSource.class)
 public class RconConsoleSourceMixin {
-    @Shadow @Final private StringBuffer buffer;
+	@Shadow @Final private StringBuffer buffer;
 
-    @Inject(method = "sendSystemMessage", at = @At("RETURN"))
-    private void appendNewline(Component message, CallbackInfo ci) {
-        buffer.append(System.lineSeparator());
-    }
+	@Inject(method = "sendSystemMessage", at = @At("RETURN"))
+	private void appendNewline(Component message, CallbackInfo ci) {
+		buffer.append(System.lineSeparator());
+	}
 }
