@@ -1,5 +1,5 @@
 [versions]
-fabric_loom = "1.17.11"
+fabric_loom = "1.17.12"
 modstitch_manifests = "0.1.3"
 modstitch_modrepos = "0.1.2"
 modstitch_accessx = "0.1.1"
