@@ -5,6 +5,7 @@ import com.google.gson.JsonSyntaxException
 import org.gradle.api.provider.Property
 import org.gradle.api.provider.ValueSource
 import org.gradle.api.provider.ValueSourceParameters
+import java.net.HttpURLConnection
 import java.net.URI
 
 data class MojiraBug(
@@ -19,7 +20,17 @@ data class MojiraBug(
 		fun fetch(bugId: String): MojiraBug? {
 			try {
 				val url = "https://mojira.dev/api/v1/issues/$bugId"
-				val response = URI(url).toURL().readText()
+
+				val connection = URI(url).toURL().openConnection() as HttpURLConnection
+				val statusCode = connection.responseCode
+				val response = (connection.errorStream ?: connection.inputStream)
+					.bufferedReader()
+					.use { it.readText() }
+
+				if (statusCode != HttpURLConnection.HTTP_OK) {
+					throw IllegalStateException("Bad resposne HTTP $statusCode: $response")
+				}
+
 				return try {
 					Gson().fromJson(response, MojiraBug::class.java)
 				} catch (e: JsonSyntaxException) {
