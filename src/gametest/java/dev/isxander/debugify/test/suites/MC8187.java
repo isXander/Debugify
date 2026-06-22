@@ -192,7 +192,7 @@ public class MC8187 {
     private static void assertSuitable(GameTestHelper ctx, boolean requiresDay) {
         // Force it to be day for random-tick-based tests.
         if (requiresDay) {
-            ctx.setDayTime(DebugifyTestUtils.TIME_OF_DAY_NOON);
+            ctx.setTime(DebugifyTestUtils.TIME_OF_DAY_NOON);
         }
 
         // For some reason, + 1 is required.

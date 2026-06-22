@@ -1,0 +1,31 @@
+[versions]
+fabric_loom = "1.17.11"
+modstitch_manifests = "0.1.3"
+modstitch_modrepos = "0.1.2"
+modstitch_accessx = "0.1.1"
+mod_publish_plugin = "2.0.1"
+central_portal_publishing = "0.1.8"
+spotless = "8.6.0"
+
+minecraft = "26.2"
+fabric_loader = "0.19.3"
+fabric_api = "0.152.2+26.2"
+mod_menu = "20.0.0-beta.2"
+yet_another_config_lib = "3.9.4+26.2-fabric"
+
+[libraries]
+minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
+fabric_loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric_loader" }
+
+fabric_api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric_api" }
+mod_menu = { module = "com.terraformersmc:modmenu", version.ref = "mod_menu" }
+yet_another_config_lib = { module = "dev.isxander:yet-another-config-lib", version.ref = "yet_another_config_lib" }
+
+[plugins]
+fabric-loom = { id = "net.fabricmc.fabric-loom", version.ref = "fabric_loom" }
+modstitch-manifests = { id = "dev.isxander.mtk.manifests", version.ref = "modstitch_manifests" }
+modstitch-modrepos = { id = "dev.isxander.mtk.modrepos", version.ref = "modstitch_modrepos" }
+modstitch-accessx = { id = "dev.isxander.mtk.accessx", version.ref = "modstitch_accessx" }
+mod-publish-plugin = { id = "me.modmuss50.mod-publish-plugin", version.ref = "mod_publish_plugin" }
+central-portal-publishing = { id = "dev.lukebemish.central-portal-publishing", version.ref = "central_portal_publishing" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }

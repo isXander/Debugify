@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.gametest.v1.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.wolf.Wolf;
 import net.minecraft.world.entity.player.Player;
@@ -19,7 +19,7 @@ public class MC93018 {
         player.setItemInHand(InteractionHand.MAIN_HAND, Items.BONE.getDefaultInstance());
         ctx.getLevel().addFreshEntity(player);
 
-        Wolf wolf = ctx.spawn(EntityType.WOLF, 2, 0, 0);
+        Wolf wolf = ctx.spawn(EntityTypes.WOLF, 2, 0, 0);
         wolf.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.0);
 
         wolf.mobInteract(player, InteractionHand.MAIN_HAND);
