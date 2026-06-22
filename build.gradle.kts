@@ -304,10 +304,14 @@ tasks.register<GeneratePatchedTableTask>("generatePatchedTable") {
 	output = rootProject.layout.projectDirectory.file("PATCHED.md")
 }
 
-tasks.register<CheckBugFixesTask>("checkBugFixes") {
+val checkBugFixes = tasks.register<CheckBugFixesTask>("checkBugFixes") {
 	group = "debugify"
 	description = "Checks whether any patched bugs have been resolved in the current or older version"
 
 	minecraftVersion = libs.versions.minecraft
 	bugs = bugsList
+}
+
+tasks.check {
+	dependsOn(checkBugFixes)
 }
