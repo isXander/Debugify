@@ -3,6 +3,7 @@ package dev.isxander.debugify.mixins.gameplay.mc136249;
 import com.llamalad7.mixinextras.expression.Definition;
 import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import dev.isxander.debugify.Debugify;
 import dev.isxander.debugify.fixes.BugFix;
 import dev.isxander.debugify.fixes.FixCategory;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,6 +22,6 @@ public abstract class LivingEntityMixin{
     @Expression("this.getAttributeValue(WATER_MOVEMENT_EFFICIENCY)")
     @ModifyExpressionValue(method = "travelInWater", at = @At("MIXINEXTRAS:EXPRESSION"))
     private double checkRiptide(double original) {
-        return this.isAutoSpinAttack() ? 0 : original;
+        return this.isAutoSpinAttack() && Debugify.isGameplayFixesEnabled() ? 0 : original;
     }
 }
