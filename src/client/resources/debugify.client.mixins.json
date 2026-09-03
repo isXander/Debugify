@@ -27,7 +27,7 @@
     "basic.mc217716.GameRendererMixin",
     "basic.mc22882.AbstractContainerScreenMixin",
     "basic.mc22882.MinecraftMixin",
-    "basic.mc231097.LocalPlayerMixin",
+    "gameplay.mc231097.LocalPlayerMixin",
     "basic.mc237493.OptionsMixin",
     "basic.mc237493.TelemetryEventInstanceMixin",
     "basic.mc237493.TelemetryEventWidgetMixin",
