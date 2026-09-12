@@ -36,6 +36,7 @@
     "basic.mc237493.TelemetryInfoScreenMixin",
     "basic.mc242809.DirectJoinServerScreenMixin",
     "basic.mc242809.ManageServerScreenMixin",
+    "basic.mc251068.WorldListEntryMixin",
     "basic.mc251068.WorldSelectionListMixin",
     "basic.mc267376.CameraMixin",
     "basic.mc268420.HudMixin",

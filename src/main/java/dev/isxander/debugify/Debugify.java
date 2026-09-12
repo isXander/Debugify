@@ -17,6 +17,7 @@ import org.spongepowered.asm.mixin.Mixins;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.BooleanSupplier;
 
 public class Debugify {
 	public static final Logger LOGGER = LoggerFactory.getLogger("Debugify");
@@ -46,7 +47,9 @@ public class Debugify {
 		return FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT ? BugFix.Env.CLIENT : BugFix.Env.SERVER;
 	}
 
+	public static BooleanSupplier inMultiplayerWorld = () -> false;
+
 	public static boolean isGameplayFixesEnabled() {
-		return Debugify.CONFIG.gameplayFixesInMultiplayer;
+		return !inMultiplayerWorld.getAsBoolean() || Debugify.CONFIG.gameplayFixesInMultiplayer;
 	}
 }
