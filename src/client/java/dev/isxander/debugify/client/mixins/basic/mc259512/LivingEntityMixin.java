@@ -17,7 +17,7 @@ import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@BugFix(id = "MC-259512", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "eg_fix_horizontal_camera_lag", description = "Increased input delay when riding an entity")
+@BugFix(id = "MC-259512", category = FixCategory.BASIC, env = BugFix.Env.CLIENT, modConflicts = "eg_fix_horizontal_camera_lag", description = "Horizontal camera rotation lags when riding")
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
 	public LivingEntityMixin(EntityType<?> entityType, Level level) {
