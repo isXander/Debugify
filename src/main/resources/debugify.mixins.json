@@ -20,7 +20,6 @@
     "basic.mc132878.ArmorStandMixin",
     "basic.mc133218.ServerPlayerMixin",
     "basic.mc134110.ChestBlockMixin",
-    "gameplay.mc136249.LivingEntityMixin",
     "basic.mc139041.FishingRodItemMixin",
     "basic.mc147659.CatSpawnerMixin",
     "basic.mc153010.FoxMixin",
@@ -57,6 +56,7 @@
     "basic.mc268617.FileUtilMixin",
     "basic.mc271899.StructureTemplateMixin",
     "basic.mc272431.EnderDragonMixin",
+    "basic.mc278019.FlatLevelSourceMixin",
     "basic.mc297837.WaypointTransmitterMixin",
     "basic.mc298066.LivingEntityMixin",
     "basic.mc30391.LivingEntityMixin",
@@ -69,6 +69,7 @@
     "basic.mc93018.AnimalMixin",
     "basic.mc94054.WallClimberNavigationMixin",
     "errorhandler.CrashReportMixin",
+    "gameplay.mc136249.LivingEntityMixin",
     "gameplay.mc8187.TreeFeatureMixin"
   ]
 }
