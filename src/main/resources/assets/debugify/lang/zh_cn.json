@@ -71,6 +71,7 @@
   "debugify.fix_explanation.mc-132878": "盔甲架受损时生成破坏粒子效果。",
   "debugify.fix_explanation.mc-134110": "当放置镜像结构时，能够正确旋转大型箱子。",
   "debugify.fix_explanation.mc-135971": "覆盖合成栏中按下CTRL+Q的行为，使其反复按CTRL+Q直到合成栏中没有物品为止。",
+  "debugify.fix_explanation.mc-136249": "当玩家在激流旋转攻击时，忽略（由深海探索者提供的）水中移动效率属性。",
   "debugify.fix_explanation.mc-155509": "在尝试刺伤玩家之前检查河豚是否活着。",
   "debugify.fix_explanation.mc-159283": "将32位整数强制转换为等效的64位整数，防止在高X和Z值时发生整数溢出。",
   "debugify.fix_effect.mc-159283": "影响世界生成。",
