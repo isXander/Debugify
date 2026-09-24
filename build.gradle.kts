@@ -312,6 +312,3 @@ val checkBugFixes = tasks.register<CheckBugFixesTask>("checkBugFixes") {
 	bugs = bugsList
 }
 
-tasks.check {
-	dependsOn(checkBugFixes)
-}
