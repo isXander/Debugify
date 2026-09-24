@@ -22,7 +22,7 @@ plugins {
 val minecraftVersion = libs.versions.minecraft.get()
 
 group = "dev.isxander"
-version = "26.2.0.0"
+version = "26.2.0.1"
 base.archivesName = "debugify"
 
 java {

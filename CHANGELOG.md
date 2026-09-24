@@ -2,4 +2,4 @@
 
 ## Changes
 
-Update to 26.2
+- Properly gate gameplay fixes
