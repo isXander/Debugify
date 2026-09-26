@@ -1,5 +1,4 @@
 {
-  "debugify.name": "Debugify",
   "debugify.basic": "Correções básicas",
   "debugify.gameplay": "Correções de jogabilidade",
   "debugify.gameplay.warning": "AVISO: Esta categoria contém correções que podem ser uma vantagem injusta!",
@@ -8,11 +7,6 @@
   "debugify.fix.disabled": "Não consertado",
   "debugify.fix.unavailable": "Indisponível",
   "debugify.error.os": "%s aplica-se apenas a %s",
-  "debugify.os.windows": "Windows",
-  "debugify.os.macos": "macOS",
-  "debugify.os.linux": "Linux",
-  "debugify.os.solaris": "Solaris",
-  "debugify.misc": "Diversos",
   "debugify.misc.default_disabled": "Padrão para Desativado",
   "debugify.misc.default_disabled.description": "Novas correções de bug padrão a serem desabilitadas em vez de habilitadas.",
   "debugify.env.client": "Cliente",

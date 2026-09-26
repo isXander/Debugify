@@ -1,5 +1,4 @@
 {
-  "debugify.name": "Debugify",
   "debugify.basic": "基礎修復",
   "debugify.gameplay": "遊玩修復",
   "debugify.gameplay.warning": "警告：這個類別中的修復可能導致遊戲不公平性！",
@@ -11,10 +10,6 @@
   "debugify.error.os": "%s 僅適用於 %s",
   "debugify.error.mixin_error": "%s 載入失敗，檢查記錄檔以取得更多資訊。",
   "debugify.error.mixin_error.text": "錯誤",
-  "debugify.os.windows": "Windows",
-  "debugify.os.macos": "macOS",
-  "debugify.os.linux": "Linux",
-  "debugify.os.solaris": "Solaris",
   "debugify.misc": "雜項",
   "debugify.misc.default_disabled": "預設停用",
   "debugify.misc.default_disabled.description": "新的錯誤修復將會預設停用。",
@@ -24,13 +19,11 @@
   "debugify.env.server.desc": "修復於用戶端與伺服器端兩者套用，以及它們的通用程式碼。",
   "debugify.no_yacl.title": "YetAnotherConfigLib 尚未安裝！",
   "debugify.no_yacl.description": "要透過介面來設定 Debugify，你必須安裝 %s，此函式庫將讓本功能可用。不然你也可以透過編輯儲存在 '%s' 中的 JSON 檔案來設定。",
-  
   "debugify.mc_237493.header": "Debugify 已停用遙測資料",
   "debugify.mc_237493.line": "你在遙測資料選項中選擇「%s」，所以 Debugify 將會防止任何來自 Mojang 的遙測資料服務連線。這是由 Debugify 修復的 MC-237493。",
   "debugify.mc_237493.tooltip.off": "「%s」完全停用任何來自 Mojang 遙測資料服務的連線。（Debugify MC-237493）",
   "debugify.mc_237493.tooltip.minimal": "「%s」僅包含了 Mojang 認為需要的資訊。",
   "debugify.mc_237493.tooltip.all": "「%s」包括了所有最小和遙測資料選項。",
-  
   "debugify.fix_explanation.mc-55347": "在中斷連線時清除遺留字幕。",
   "debugify.fix_explanation.mc-79545": "在繪製時，將經驗等級限制為整數範圍內。",
   "debugify.fix_explanation.mc-93384": "將粒子效果生成於眼睛所看的到的高度。",
@@ -47,7 +40,6 @@
   "debugify.fix_explanation.mc-176559": "在檢查是否重設方塊破壞進度時，不對耐久度的變化進行判斷。",
   "debugify.fix_explanation.mc-197260": "覆寫繪製光源通過盔甲座的最大值：在盔甲座下方的方塊、盔甲座底部和盔甲座頂部和更上方的方塊。",
   "debugify.fix_explanation.mc-237493": "在遙測資料收集選單中新增一個選項，能夠完整關閉遙測資料收集。透過覆寫所有傳送的遙測事件為空來停用遙測，這也等於沒有傳送任何東西。",
-  
   "debugify.fix_explanation.mc-2025": "因為浮點數的不準確性，有的時候實體的碰撞箱會稍微小於預期大小。然後，如果這發生在實體互相推擠彼此時，它們可能會與牆壁交集。然後當 AABB 生物重新在區塊載入時進行計算，它們將會被判斷為在牆壁中，然後被推擠出去。這個修復只是將帶有雙精度浮點數的碰撞箱大小的標籤帶入到 AABB 實體的 NBT 資料中，然後再次被載入回來。",
   "debugify.fix_effect.mc-2025": "這個修復代表第一次載入 Debugify 將不會修復這個問題，直到區塊被 Debugify 儲存並重新載入。",
   "debugify.fix_explanation.mc-7569": "對系統的每條訊息結尾附加換行。",
