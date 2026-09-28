@@ -148,6 +148,9 @@ publishMods {
         requires { slug.set("yacl") }
         requires { slug.set("fabric-api") }
         optional { slug.set("modmenu") }
+
+        clientRequired = true
+        serverRequired = true
     }
 
     github {
