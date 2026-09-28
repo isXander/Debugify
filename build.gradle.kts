@@ -15,7 +15,7 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.21.1+1.0"
+version = "1.21.1+1.1"
 
 loom {
     splitEnvironmentSourceSets()
@@ -175,6 +175,9 @@ publishMods {
             requires { slug.set("yacl") }
             requires { slug.set("fabric-api") }
             optional { slug.set("modmenu") }
+
+            clientRequired = true
+            serverRequired = true
         }
     }
 
