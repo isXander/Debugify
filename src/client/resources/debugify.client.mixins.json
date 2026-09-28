@@ -37,6 +37,7 @@
     "basic.mc237493.TelemetryInfoScreenMixin",
     "basic.mc242809.DirectJoinServerScreenMixin",
     "basic.mc242809.ManageServerScreenMixin",
+    "basic.mc251068.WorldListEntryMixin",
     "basic.mc251068.WorldSelectionListMixin",
     "basic.mc263865.KeyboardHandlerMixin",
     "basic.mc267376.GameRendererMixin",
