@@ -4,7 +4,7 @@ import ru.vyarus.gradle.plugin.python.task.PythonTask
 plugins {
     java
 
-    id("fabric-loom") version "1.7.+"
+    id("fabric-loom") version "1.18-SNAPSHOT"
 
     id("me.modmuss50.mod-publish-plugin") version "0.5.+"
     `maven-publish`
@@ -12,6 +12,8 @@ plugins {
     id("org.ajoberstar.grgit") version "5.0.0"
 
     id("ru.vyarus.use-python") version "3.0.0"
+
+    id("dev.isxander.secrets") version "0.1.0"
 }
 
 group = "dev.isxander"
@@ -153,10 +155,10 @@ publishMods {
     modLoaders.add("fabric")
 
     val modrinthId: String by project
-    if (modrinthId.isNotBlank() && hasProperty("modrinth.token")) {
+    if (modrinthId.isNotBlank()) {
         modrinth {
             projectId.set(modrinthId)
-            accessToken.set(findProperty("modrinth.token")?.toString())
+            accessToken.set(secrets.gradleProperty("modrinth.accessToken"))
             minecraftVersions.addAll(minecraftVersion)
 
             requires { slug.set("yacl") }
@@ -166,10 +168,10 @@ publishMods {
     }
 
     val curseforgeId: String by project
-    if (curseforgeId.isNotBlank() && hasProperty("curseforge.token")) {
+    if (curseforgeId.isNotBlank()) {
         curseforge {
             projectId.set(curseforgeId)
-            accessToken.set(findProperty("curseforge.token")?.toString())
+            accessToken.set(secrets.gradleProperty("curseforge.accessToken"))
             minecraftVersions.addAll(minecraftVersion)
 
             requires { slug.set("yacl") }
@@ -182,10 +184,10 @@ publishMods {
     }
 
     val githubProject: String by project
-    if (githubProject.isNotBlank() && hasProperty("github.token")) {
+    if (githubProject.isNotBlank()) {
         github {
             repository.set(githubProject)
-            accessToken.set(findProperty("github.token")?.toString())
+            accessToken.set(secrets.gradleProperty("github.accessToken"))
             commitish.set(grgit.branch.current().name)
         }
     }
