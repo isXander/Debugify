@@ -13,7 +13,7 @@ plugins {
     id("com.gradleup.nmcp") version "1.4.3"
 }
 
-val debugifyVersion = "1.1"
+val debugifyVersion = "1.2"
 
 modstitch {
     minecraftVersion = "1.21.11"
