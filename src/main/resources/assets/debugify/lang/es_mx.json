@@ -1,5 +1,4 @@
 {
-  "debugify.name": "Debugify",
   "debugify.basic": "Correcciones Básicas",
   "debugify.gameplay": "Correcciones de Jugabilidad",
   "debugify.gameplay.warning": "ADVERTENCIA: ¡Esta categoría contiene correcciones que pueden ser una ventaja injusta!",
@@ -11,10 +10,6 @@
   "debugify.error.os": "%s solo se aplica a %s",
   "debugify.error.mixin_error": "Error al cargar %s, revisa el registro para obtener más información.",
   "debugify.error.mixin_error.text": "Con errores",
-  "debugify.os.windows": "Windows",
-  "debugify.os.macos": "macOS",
-  "debugify.os.linux": "Linux",
-  "debugify.os.solaris": "Solaris",
   "debugify.misc": "Misceláneo",
   "debugify.misc.default_disabled": "Desactivado por defecto",
   "debugify.misc.default_disabled.description": "Configura las nuevas correcciones para que estén desactivadas en lugar de activadas.",
@@ -24,13 +19,11 @@
   "debugify.env.server.desc": "Correcciones que se aplican tanto en el cliente como en el servidor, y código común entre ellos.",
   "debugify.no_yacl.title": "¡YetAnotherConfigLib no está instalado!",
   "debugify.no_yacl.description": "Para configurar Debugify utilizando una interfaz gráfica, debes instalar %s, esta es la biblioteca utilizada para hacer esta funcionalidad disponible. De lo contrario, puedes configurarlo utilizando el archivo JSON almacenado en '%s'.",
-
   "debugify.mc_237493.header": "Telemetría desactivada por Debugify",
   "debugify.mc_237493.line": "Seleccionaste '%s' en la opción de telemetría, por lo que Debugify está evitando cualquier conexión con los servicios de telemetría de Mojang. Esto es proporcionado por Debugify para solucionar MC-237493.",
   "debugify.mc_237493.tooltip.off": "'%s' deshabilita por completo cualquier conexión a los servicios de telemetría de Mojang. (Debugify MC-237493)",
   "debugify.mc_237493.tooltip.minimal": "'%s' incluye solo la información que Mojang considera necesaria.",
   "debugify.mc_237493.tooltip.all": "'%s' incluye toda la información de minimal y telemetría opcional.",
-
   "debugify.fix_explanation.mc-55347": "Borra los títulos al desconectar.",
   "debugify.fix_explanation.mc-79545": "Limita el nivel de experiencia al límite entero solo al renderizar.",
   "debugify.fix_explanation.mc-93384": "Agrega la altura de los ojos a la ubicación de generación de partículas.",
@@ -44,10 +37,8 @@
   "debugify.fix_effect.mc-159163": "Esto evitará que el cliente sincronice los datos de postura con el servidor y utiliza únicamente el cliente para decidir la postura.",
   "debugify.fix_explanation.mc-162253": "Detiene una actualización de luz del cliente al ingresar a un fragmento.",
   "debugify.fix_explanation.mc-165381": "Cancela la destrucción del bloque cuando el cliente suelta un objeto",
-  "debugify.fix_explanation.mc_176559": "No considera la durabilidad del objeto al comparar un cambio en el objeto al verificar si se debe restablecer la rotura del bloque.",
   "debugify.fix_explanation.mc-197260": "Anula el nivel de luz pasado al renderizador de soportes de armadura con un máximo de: el bloque debajo del soporte de armadura, la parte inferior del soporte de armadura, la parte superior del soporte de armadura y el bloque encima del soporte de armadura.",
   "debugify.fix_explanation.mc-237493": "Agrega una opción en el menú de telemetría para desactivar completamente la telemetría. La telemetría se desactiva al anular todos los eventos de telemetría salientes y convertirlos en eventos de telemetría vacíos, que no se envían.",
-
   "debugify.fix_explanation.mc-2025": "Debido a imprecisiones de punto flotante, a veces la caja de colisión de las entidades termina siendo ligeramente más pequeña de lo deseado. Entonces, si esto sucede antes de que las entidades se empujen una contra la otra, se intersecarán con la pared. Luego, cuando la AABB se recalcula al cargar el chunk, se determinará que están dentro de la pared, donde entonces se las empuja. Esta corrección simplemente escribe una etiqueta 'AABB' en los datos NBT de la entidad con tamaños de caja de colisión de doble precisión que luego se cargarán nuevamente.",
   "debugify.fix_effect.mc-2025": "Esta corrección significa que cargar Debugify por primera vez no solucionará el problema hasta que se guarden y carguen los chunks con Debugify.",
   "debugify.fix_explanation.mc-7569": "Agrega una nueva línea al final de cada mensaje del sistema.",
